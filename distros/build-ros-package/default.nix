@@ -67,4 +67,6 @@ else stdenv.mkDerivation) (args // {
       wrapPythonProgramsIn "$libpkgdir" "$out $pythonPath"
     done
   '';
+
+  __structuredAttrs = true;
 })

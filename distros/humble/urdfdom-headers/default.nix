@@ -13,6 +13,11 @@ buildRosPackage {
     sha256 = "4a57a0e852a257a6fd54183e628b980e5a09db35926df8f8450e728e78f1f6b4";
   };
 
+  postPatch = ''
+    substituteInPlace CMakeLists.txt \
+      --replace-fail "cmake_minimum_required( VERSION 2.8.12 FATAL_ERROR )" "cmake_minimum_required(VERSION 3.9)"
+  '';
+
   buildType = "cmake";
   buildInputs = [ cmake ];
   nativeBuildInputs = [ cmake ];

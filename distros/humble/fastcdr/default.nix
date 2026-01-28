@@ -17,6 +17,10 @@ buildRosPackage {
   buildInputs = [ cmake ];
   nativeBuildInputs = [ cmake ];
 
+  patchPhase = ''
+    substituteInPlace CMakeLists.txt --replace "VERSION 2.8.12" "VERSION 3.5"
+  '';
+
   meta = {
     description = "CDR serialization implementation.";
     license = with lib.licenses; [ asl20 ];
