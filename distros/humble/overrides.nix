@@ -55,10 +55,10 @@ in with lib; {
         "x86_64-linux" = "sha256-V0w84AbWEx1lGbQW8l7zfFsqByHvSciUKGx5paXgtPw=";
         "aarch64-linux" = "sha256-9U4+CJJqiIKpvIAxz7JKBAviY48e9OhyNvo63tGrKiM=";
       };
-      FOXGLOVE_SDK_PLATFORM = systemToPlatform.${self.system};
+      FOXGLOVE_SDK_PLATFORM = systemToPlatform.${self.stdenv.hostPlatform.system};
       sdk = self.fetchurl {
         url = "https://github.com/foxglove/foxglove-sdk/releases/download/sdk%2Fv${FOXGLOVE_SDK_VERSION}/foxglove-v${FOXGLOVE_SDK_VERSION}-cpp-${FOXGLOVE_SDK_PLATFORM}.zip";
-        hash = systemToHash.${self.system};
+        hash = systemToHash.${self.stdenv.hostPlatform.system};
       };
     in
       # Does their CMakeLists.txt support cross compilation?
