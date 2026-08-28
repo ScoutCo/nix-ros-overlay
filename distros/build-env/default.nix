@@ -16,20 +16,43 @@
 with lib;
 
 let
-  propagatePackages = packages: let
-    validPackages = filter (d: d != null) packages;
-    partitionedPackages = partition (d: (d.rosPackage or false) || (hasAttr "pythonModule" d)) validPackages;
-    rosPackages = partitionedPackages.right;
-    otherPackages = partitionedPackages.wrong;
-    rosPropagatedPackages = unique (concatLists (catAttrs "propagatedBuildInputs" rosPackages));
-    recurse = propagatePackages rosPropagatedPackages;
-  in if length validPackages == 0 then {
-      rosPackages = [];
-      otherPackages = [];
-    } else {
-      rosPackages = unique (rosPackages ++ recurse.rosPackages);
-      otherPackages = unique (otherPackages ++ recurse.otherPackages);
-    };
+  # One visited set for the whole walk: a package reachable by k paths was expanded k times,
+  # and every level deduplicated with a quadratic `unique`. First-visit order is preserved.
+  propagatePackages = packages:
+    let
+      keyOf = d: builtins.unsafeDiscardStringContext (toString d);
+      isRos = d: (d.rosPackage or false) || (hasAttr "pythonModule" d);
+      # Bucketed by outPath, but membership is a value comparison: `unique` separated two
+      # attrsets sharing an outPath (`foo` and `foo.out`), and dropping one changes the env.
+      dedup = seen: ds:
+        foldl' (acc: d:
+          let
+            k = keyOf d;
+            bucket = acc.seen.${k} or [];
+          in
+          if builtins.elem d bucket then acc
+          else {
+            seen = acc.seen // builtins.listToAttrs [ { name = k; value = bucket ++ [ d ]; } ];
+            out = acc.out ++ [ d ];
+          }) { inherit seen; out = []; } ds;
+      go = state: frontier:
+        let
+          valid = filter (d: d != null) frontier;
+          picked = dedup state.seen valid;
+        in
+        if picked.out == [] then state
+        else
+          let
+            part = partition isRos picked.out;
+            next = concatLists (catAttrs "propagatedBuildInputs" part.right);
+          in
+          go {
+            seen = picked.seen;
+            ros = state.ros ++ part.right;
+            other = state.other ++ part.wrong;
+          } next;
+      final = go { seen = {}; ros = []; other = []; } packages;
+    in { rosPackages = final.ros; otherPackages = final.other; };
 
   propagatedPaths = propagatePackages paths;
 
