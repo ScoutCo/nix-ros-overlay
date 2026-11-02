@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, control-msgs, controller-interface, controller-manager, generate-parameter-library, hardware-interface, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, ros2-control-cmake, ros2-control-test-assets, std-srvs }:
 buildRosPackage {
   pname = "ros-kilted-motion-primitives-controllers";
-  version = "5.8.0-r1";
+  version = "5.17.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/kilted/motion_primitives_controllers/5.8.0-1.tar.gz";
-    name = "5.8.0-1.tar.gz";
-    sha256 = "f00e1fa51e02d83acdab837f430730a4c83c6223c343a41ac498a7a0d0906f66";
+    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/kilted/motion_primitives_controllers/5.17.0-1.tar.gz";
+    name = "5.17.0-1.tar.gz";
+    sha256 = "fb6d30e7d0e9f0c8f03a3c81b27d98e42d40cee8df13189f779392eb5c4d2925";
   };
 
   buildType = "ament_cmake";

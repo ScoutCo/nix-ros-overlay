@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, microstrain-inertial-driver, rviz-imu-plugin, rviz2, sensor-msgs, tf2-ros }:
 buildRosPackage {
   pname = "ros-kilted-microstrain-inertial-examples";
-  version = "4.7.0-r1";
+  version = "4.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/microstrain_inertial-release/archive/release/kilted/microstrain_inertial_examples/4.7.0-1.tar.gz";
-    name = "4.7.0-1.tar.gz";
-    sha256 = "2114e7f744ea8e106dcc62fa33c9deda4b4852d4e7a08ae4c36300f4b3929620";
+    url = "https://github.com/ros2-gbp/microstrain_inertial-release/archive/release/kilted/microstrain_inertial_examples/4.9.0-1.tar.gz";
+    name = "4.9.0-1.tar.gz";
+    sha256 = "015f088bf4d375b89bd66bdc78ba152a0d7eb7a01fdc5193ea821ea637be0896";
   };
 
   buildType = "ament_cmake";

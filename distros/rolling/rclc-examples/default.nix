@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-ros, example-interfaces, lifecycle-msgs, rcl, rclc, rclc-lifecycle, rclc-parameter, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-rclc-examples";
-  version = "6.2.0-r1";
+  version = "6.3.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rclc-release/archive/release/rolling/rclc_examples/6.2.0-1.tar.gz";
-    name = "6.2.0-1.tar.gz";
-    sha256 = "b0a9383a30ff52c66183fa623b38ef6b9915c8386c3f5897666f2220702eac8a";
+    url = "https://github.com/ros2-gbp/rclc-release/archive/release/rolling/rclc_examples/6.3.0-2.tar.gz";
+    name = "6.3.0-2.tar.gz";
+    sha256 = "4ad44becb2f676deee3549d2c761e7ede41604104c4c85eefe128095fb59ecf7";
   };
 
   buildType = "ament_cmake";

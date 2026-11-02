@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-kernel, mrpt-libhwdrivers, mrpt-libobs }:
 buildRosPackage {
   pname = "ros-rolling-mola-input-video";
-  version = "1.9.1-r1";
+  version = "3.2.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/rolling/mola_input_video/1.9.1-1.tar.gz";
-    name = "1.9.1-1.tar.gz";
-    sha256 = "6960e7ed80bb01a500019e57c0ed1521a1ddcdd5485c1a19ac0f82ed6d9c07da";
+    url = "https://github.com/ros2-gbp/mola-release/archive/release/rolling/mola_input_video/3.2.0-1.tar.gz";
+    name = "3.2.0-1.tar.gz";
+    sha256 = "75a62cf7f5e8f8b3d3b11dba404354000d4affc748c72c03d5f7bc166217d476";
   };
 
   buildType = "cmake";

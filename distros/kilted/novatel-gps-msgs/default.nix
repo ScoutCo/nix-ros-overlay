@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-novatel-gps-msgs";
-  version = "4.2.0-r5";
+  version = "4.3.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/novatel_gps_driver-release/archive/release/kilted/novatel_gps_msgs/4.2.0-5.tar.gz";
-    name = "4.2.0-5.tar.gz";
-    sha256 = "472841cf08f16b32420732a15e9525e48081c4ace4659a8204418f3d9d5859cc";
+    url = "https://github.com/ros2-gbp/novatel_gps_driver-release/archive/release/kilted/novatel_gps_msgs/4.3.1-1.tar.gz";
+    name = "4.3.1-1.tar.gz";
+    sha256 = "dba711bc6b309c388f8d564f33d869fa7e0c37c9716638ff6c5839310ee494a6";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, geometry-msgs, launch, launch-ros, py-trees, py-trees-ros, py-trees-ros-interfaces, python3Packages, qt5, rcl-interfaces, rclpy, ros2launch, ros2param, ros2run, ros2service, ros2topic, sensor-msgs, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-py-trees-ros-tutorials";
-  version = "2.3.0-r2";
+  version = "2.6.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/py_trees_ros_tutorials-release/archive/release/kilted/py_trees_ros_tutorials/2.3.0-2.tar.gz";
-    name = "2.3.0-2.tar.gz";
-    sha256 = "d02a326ca216bc914ffde7fb35b575081ed768c9905d903311b4d95622f8b28e";
+    url = "https://github.com/ros2-gbp/py_trees_ros_tutorials-release/archive/release/kilted/py_trees_ros_tutorials/2.6.0-1.tar.gz";
+    name = "2.6.0-1.tar.gz";
+    sha256 = "af691e5a807ff64f8e3c8065fcb54d366f956aa27e6df0777e33b40074ab8bfb";
   };
 
   buildType = "ament_python";

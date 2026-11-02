@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, asio, cmake, fastcdr, foonathan-memory-vendor, openssl, python3, tinyxml-2 }:
 buildRosPackage {
   pname = "ros-jazzy-fastrtps";
-  version = "2.14.5-r2";
+  version = "2.14.7-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/fastdds-release/archive/release/jazzy/fastrtps/2.14.5-2.tar.gz";
-    name = "2.14.5-2.tar.gz";
-    sha256 = "4127878c5ce44453b8a512dba496a374c976a2660162351d297ebc816967c6df";
+    url = "https://github.com/ros2-gbp/fastdds-release/archive/release/jazzy/fastrtps/2.14.7-1.tar.gz";
+    name = "2.14.7-1.tar.gz";
+    sha256 = "f706a35ecfc6ebcbb9a1ff3731b863c812f8552902f133c22cfca2da140c7d00";
   };
 
   buildType = "cmake";

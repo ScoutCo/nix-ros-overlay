@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, joint-state-publisher, moveit-resources-prbt-ikfast-manipulator-plugin, moveit-resources-prbt-support, moveit-ros-move-group, robot-state-publisher, rviz2, xacro }:
 buildRosPackage {
   pname = "ros-rolling-moveit-resources-prbt-moveit-config";
-  version = "2.14.1-r1";
+  version = "2.15.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/moveit2-release/archive/release/rolling/moveit_resources_prbt_moveit_config/2.14.1-1.tar.gz";
-    name = "2.14.1-1.tar.gz";
-    sha256 = "30c7d8502c5edffa4ab7eb6e39c4706a1beef52cf466a50a688cc5127e41c5fb";
+    url = "https://github.com/ros2-gbp/moveit2-release/archive/release/rolling/moveit_resources_prbt_moveit_config/2.15.1-1.tar.gz";
+    name = "2.15.1-1.tar.gz";
+    sha256 = "45069201ab77e92e211fc0add8649cfa1945fdfd61829dc2ee7ffb7e2eddfdff";
   };
 
   buildType = "ament_cmake";

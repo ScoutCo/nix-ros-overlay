@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-index-python, ament-pep257, osrf-pycommon, python3Packages }:
 buildRosPackage {
   pname = "ros-humble-launch";
-  version = "1.0.11-r1";
+  version = "1.0.15-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/launch-release/archive/release/humble/launch/1.0.11-1.tar.gz";
-    name = "1.0.11-1.tar.gz";
-    sha256 = "8af1b20b8b6b0a432745ab4681260de0ed76d6d242fd9d7b6c001744bc774b1a";
+    url = "https://github.com/ros2-gbp/launch-release/archive/release/humble/launch/1.0.15-1.tar.gz";
+    name = "1.0.15-1.tar.gz";
+    sha256 = "90605605efe00ecd51e3f22547aaa235cf312c793cee949fe940839f3f8f7788";
   };
 
   buildType = "ament_python";

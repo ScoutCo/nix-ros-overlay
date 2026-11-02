@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-vendor-package, ament-cmake-xmllint, ament-lint-auto, freetype, glew, libGL, libGLU, xorg }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-vendor-package, ament-cmake-xmllint, ament-lint-auto, freetype, glew, libGL, libGLU, libx11, libxaw, libxrandr }:
 buildRosPackage {
   pname = "ros-kilted-rviz-ogre-vendor";
-  version = "15.0.7-r1";
+  version = "15.0.15-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rviz-release/archive/release/kilted/rviz_ogre_vendor/15.0.7-1.tar.gz";
-    name = "15.0.7-1.tar.gz";
-    sha256 = "c06575b062ffd4fc43a3edb2bf21b9d29ef4731a4c655aeeca91f69900780ef6";
+    url = "https://github.com/ros2-gbp/rviz-release/archive/release/kilted/rviz_ogre_vendor/15.0.15-1.tar.gz";
+    name = "15.0.15-1.tar.gz";
+    sha256 = "a0423daf979362aad8c9ae5f009684ff22fe7d7f7e9b1bb180e9bed1d1fea486";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ament-cmake-vendor-package ];
   checkInputs = [ ament-cmake-xmllint ament-lint-auto ];
-  propagatedBuildInputs = [ freetype glew libGL libGLU xorg.libX11 xorg.libXaw xorg.libXrandr ];
+  propagatedBuildInputs = [ freetype glew libGL libGLU libx11 libxaw libxrandr ];
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
 
   meta = {

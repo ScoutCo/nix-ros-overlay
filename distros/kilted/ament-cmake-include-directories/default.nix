@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-core }:
 buildRosPackage {
   pname = "ros-kilted-ament-cmake-include-directories";
-  version = "2.7.3-r2";
+  version = "2.7.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/kilted/ament_cmake_include_directories/2.7.3-2.tar.gz";
-    name = "2.7.3-2.tar.gz";
-    sha256 = "8f058fb7390966257cecc471edecb121524d7836337fab6266d0ee12a6c6a0fb";
+    url = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/kilted/ament_cmake_include_directories/2.7.5-1.tar.gz";
+    name = "2.7.5-1.tar.gz";
+    sha256 = "c9ccaf51ad00b35db43dd9ec925e707945e82934618f0f5f1a7eabd37a41e23d";
   };
 
   buildType = "ament_cmake";

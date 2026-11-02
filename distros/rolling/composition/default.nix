@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-lint-auto, ament-lint-common, example-interfaces, launch, launch-ros, launch-testing, launch-testing-ament-cmake, launch-testing-ros, rclcpp, rclcpp-components, rcutils, rmw-implementation-cmake, std-msgs }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-lint-auto, ament-lint-common, example-interfaces, launch, launch-ros, launch-testing, launch-testing-ament-cmake, launch-testing-ros, rclcpp, rclcpp-components, rcutils, rmw-implementation-cmake }:
 buildRosPackage {
   pname = "ros-rolling-composition";
-  version = "0.37.3-r1";
+  version = "0.38.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/rolling/composition/0.37.3-1.tar.gz";
-    name = "0.37.3-1.tar.gz";
-    sha256 = "7b1148d9bc7d2feccd59d750d04c04a1eedbad00140bfe4f7d5b2a321c07a195";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/rolling/composition/0.38.0-1.tar.gz";
+    name = "0.38.0-1.tar.gz";
+    sha256 = "6eb859e2531a484d95be54d492719321610ed70c0c9e65825b67d15aeb55295b";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake launch-testing-ros rmw-implementation-cmake ];
-  propagatedBuildInputs = [ example-interfaces launch-ros rclcpp rclcpp-components rcutils std-msgs ];
+  propagatedBuildInputs = [ example-interfaces launch-ros rclcpp rclcpp-components rcutils ];
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {

@@ -68,5 +68,6 @@ else stdenv.mkDerivation) (args // {
     done
   '';
 
-  __structuredAttrs = true;
+  # Fix error: separateDebugInfo = true requires __structuredAttrs if {dis,}allowedRequisites or {dis,}allowedReferences is set
+  __structuredAttrs = separateDebugInfo;
 })

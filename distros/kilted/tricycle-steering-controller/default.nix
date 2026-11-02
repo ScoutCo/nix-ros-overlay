@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, backward-ros, control-msgs, controller-interface, controller-manager, generate-parameter-library, hardware-interface, hardware-interface-testing, pluginlib, rclcpp, rclcpp-lifecycle, ros2-control-cmake, ros2-control-test-assets, std-srvs, steering-controllers-library }:
 buildRosPackage {
   pname = "ros-kilted-tricycle-steering-controller";
-  version = "5.8.0-r1";
+  version = "5.17.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/kilted/tricycle_steering_controller/5.8.0-1.tar.gz";
-    name = "5.8.0-1.tar.gz";
-    sha256 = "1bf3bc07f2b2b80e60ef861618d01a86ddf6c181e3173a9745e61604600096f0";
+    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/kilted/tricycle_steering_controller/5.17.0-1.tar.gz";
+    name = "5.17.0-1.tar.gz";
+    sha256 = "24156a9b92dbbbbe384ec4a8980781edd0fc6f23e74a0be23443d84d455a263e";
   };
 
   buildType = "ament_cmake";

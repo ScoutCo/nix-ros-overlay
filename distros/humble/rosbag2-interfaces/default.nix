@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-humble-rosbag2-interfaces";
-  version = "0.15.15-r1";
+  version = "0.15.17-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/humble/rosbag2_interfaces/0.15.15-1.tar.gz";
-    name = "0.15.15-1.tar.gz";
-    sha256 = "4534c68f21d97635bc6a8c6e35657f70e3982e3171ef4ced6b917d1e723d55b4";
+    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/humble/rosbag2_interfaces/0.15.17-1.tar.gz";
+    name = "0.15.17-1.tar.gz";
+    sha256 = "e1e7d3ebe96eeeb05f07dfa19626673b209de416ef68fda1278b1d4286bf3fbd";
   };
 
   buildType = "ament_cmake";

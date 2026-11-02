@@ -1,21 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, eigen, geometry-msgs, nav-msgs, nlohmann_json, rclcpp, rclcpp-components, rosbag2-cpp, rosbag2-storage, sensor-msgs, sophus, std-msgs, tbb_2021_11, tf2, tf2-ros }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, eigen, geometry-msgs, nav-msgs, onetbb, rclcpp, rclcpp-components, rclpy, robin-map, rosbag2-cpp, rosbag2-py, rosbag2-storage, rosidl-runtime-py, sensor-msgs, sophus, spdlog, std-msgs, tf2, tf2-ros, tf2-ros-py }:
 buildRosPackage {
   pname = "ros-humble-rko-lio";
-  version = "0.1.6-r1";
+  version = "0.4.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rko_lio-release/archive/release/humble/rko_lio/0.1.6-1.tar.gz";
-    name = "0.1.6-1.tar.gz";
-    sha256 = "9917b3ac4a951daa59a735002fdbd3004f692cf7369e3862d6b5e3ca7a6fec1a";
+    url = "https://github.com/ros2-gbp/rko_lio-release/archive/release/humble/rko_lio/0.4.0-1.tar.gz";
+    name = "0.4.0-1.tar.gz";
+    sha256 = "3c88cb60defd51c0ef369213f435acc604a1dddd5274cf9de33a43e14308ea60";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ eigen geometry-msgs nav-msgs nlohmann_json rclcpp rclcpp-components rosbag2-cpp rosbag2-storage sensor-msgs sophus std-msgs tbb_2021_11 tf2 tf2-ros ];
+  propagatedBuildInputs = [ eigen geometry-msgs nav-msgs onetbb rclcpp rclcpp-components rclpy robin-map rosbag2-cpp rosbag2-py rosbag2-storage rosidl-runtime-py sensor-msgs sophus spdlog std-msgs tf2 tf2-ros tf2-ros-py ];
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {

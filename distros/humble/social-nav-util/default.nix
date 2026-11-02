@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, geometry-msgs, rclpy, social-nav-msgs, visualization-msgs }:
@@ -18,6 +18,6 @@ buildRosPackage {
 
   meta = {
     description = "Utilities for social navigation work";
-    license = with lib.licenses; [ "BSD-3-clause" ];
+    license = with lib.licenses; [ bsd3 ];
   };
 }

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-jazzy-pendulum-msgs";
-  version = "0.33.7-r1";
+  version = "0.33.11-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/jazzy/pendulum_msgs/0.33.7-1.tar.gz";
-    name = "0.33.7-1.tar.gz";
-    sha256 = "69e8cd49b4725b61f51a11edb4a82a2d75556b91970e113983b3af91b5fbaf19";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/jazzy/pendulum_msgs/0.33.11-1.tar.gz";
+    name = "0.33.11-1.tar.gz";
+    sha256 = "9b4f05d9cab585ca8fade1e1b3d108730b9b38871dede93a40fbd63fbee6138b";
   };
 
   buildType = "ament_cmake";

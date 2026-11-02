@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, backward-ros, builtin-interfaces, control-msgs, controller-interface, generate-parameter-library, pluginlib, rclcpp-lifecycle, rcutils, realtime-tools, sensor-msgs, trajectory-msgs, urdf }:
 buildRosPackage {
   pname = "ros-kilted-om-joint-trajectory-command-broadcaster";
-  version = "4.0.8-r1";
+  version = "4.1.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/kilted/om_joint_trajectory_command_broadcaster/4.0.8-1.tar.gz";
-    name = "4.0.8-1.tar.gz";
-    sha256 = "2c9a2be162e2cf295c5849f5f455fed5c500ed757dd387d5d3e1f23fa3b79655";
+    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/kilted/om_joint_trajectory_command_broadcaster/4.1.2-1.tar.gz";
+    name = "4.1.2-1.tar.gz";
+    sha256 = "13a077313cee3be608d3e7a1f5b1e5fac6ebac6cfea238972389c67347e7efcb";
   };
 
   buildType = "ament_cmake";

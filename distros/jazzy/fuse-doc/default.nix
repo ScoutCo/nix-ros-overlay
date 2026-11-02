@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-ros }:
 buildRosPackage {
   pname = "ros-jazzy-fuse-doc";
-  version = "1.1.4-r1";
+  version = "1.1.6-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/fuse-release/archive/release/jazzy/fuse_doc/1.1.4-1.tar.gz";
-    name = "1.1.4-1.tar.gz";
-    sha256 = "93702cdf918207a5f20d51b1fd664a9b0c6df291f2708016dcf7ea829653324e";
+    url = "https://github.com/ros2-gbp/fuse-release/archive/release/jazzy/fuse_doc/1.1.6-1.tar.gz";
+    name = "1.1.6-1.tar.gz";
+    sha256 = "9be4cf7f7c28054c20d3c80d4a6ddb2c639c8bac2edfa14514c9f35f0cfd2e62";
   };
 
   buildType = "ament_cmake";

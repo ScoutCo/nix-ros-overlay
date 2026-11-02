@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake }:
 buildRosPackage {
   pname = "ros-jazzy-shared-queues-vendor";
-  version = "0.26.9-r1";
+  version = "0.26.11-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/jazzy/shared_queues_vendor/0.26.9-1.tar.gz";
-    name = "0.26.9-1.tar.gz";
-    sha256 = "8991b4b651a23a4da21a302340addc86d753862861bdd6f73ea1f4dcd96b60ba";
+    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/jazzy/shared_queues_vendor/0.26.11-1.tar.gz";
+    name = "0.26.11-1.tar.gz";
+    sha256 = "29c3f82fe9e1169d17ce0c385b8d9da0add0baf4b81d0f76eefe605fa7cd3953";
   };
 
   buildType = "ament_cmake";

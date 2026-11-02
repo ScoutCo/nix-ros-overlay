@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, rosidl-default-generators }:
 buildRosPackage {
   pname = "ros-humble-ublox-ubx-interfaces";
-  version = "0.6.1-r1";
+  version = "0.7.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/humble/ublox_ubx_interfaces/0.6.1-1.tar.gz";
-    name = "0.6.1-1.tar.gz";
-    sha256 = "02e2ec38df46ff35eff3ec71f6d56bab2c1c624ee7e099fdd9d2049d0f9e87ae";
+    url = "https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/humble/ublox_ubx_interfaces/0.7.5-1.tar.gz";
+    name = "0.7.5-1.tar.gz";
+    sha256 = "bfad645dd4c3201b7317dc8ed5b0dd576a329fba511e0a924105ecd3f4d67639";
   };
 
   buildType = "ament_cmake";

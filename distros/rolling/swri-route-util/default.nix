@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, geometry-msgs, marti-common-msgs, marti-nav-msgs, rclcpp, swri-geometry-util, swri-math-util, swri-transform-util, tf2-geometry-msgs, visualization-msgs }:
 buildRosPackage {
   pname = "ros-rolling-swri-route-util";
-  version = "3.8.7-r1";
+  version = "3.9.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/marti_common-release/archive/release/rolling/swri_route_util/3.8.7-1.tar.gz";
-    name = "3.8.7-1.tar.gz";
-    sha256 = "5be030dc8e37ce35434c9fc22cf38fa54eea9ea4dfcef65fc6400ca234bfc27e";
+    url = "https://github.com/ros2-gbp/marti_common-release/archive/release/rolling/swri_route_util/3.9.1-1.tar.gz";
+    name = "3.9.1-1.tar.gz";
+    sha256 = "c2afae2d474d2e2dae6fafb417231de522cf0975b6a7d9e26db39047adc07f11";
   };
 
   buildType = "ament_cmake";

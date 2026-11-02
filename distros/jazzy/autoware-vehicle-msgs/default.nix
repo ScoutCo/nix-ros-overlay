@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, autoware-planning-msgs, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-autoware-vehicle-msgs";
-  version = "1.8.0-r1";
+  version = "1.13.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_msgs-release/archive/release/jazzy/autoware_vehicle_msgs/1.8.0-1.tar.gz";
-    name = "1.8.0-1.tar.gz";
-    sha256 = "df4dd4fc699adbcd4aa62203777651bd58ba68b6b40835786478f27c6bbb25f6";
+    url = "https://github.com/ros2-gbp/autoware_msgs-release/archive/release/jazzy/autoware_vehicle_msgs/1.13.0-1.tar.gz";
+    name = "1.13.0-1.tar.gz";
+    sha256 = "3b459e545736c1c58346a02737ff97c2f18e528ebbaf12bab9fbccf512203ba1";
   };
 
   buildType = "ament_cmake";

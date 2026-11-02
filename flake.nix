@@ -2,11 +2,12 @@
   description = "ROS overlay for the Nix package manager";
 
   inputs = {
-    nixpkgs.url = "github:lopsided98/nixpkgs/nix-ros";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    rosdistro = { url = "github:ros/rosdistro"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, nixpkgs, flake-utils, rosdistro }:
     with nixpkgs.lib;
     with flake-utils.lib;
     eachSystem systems.flakeExposed (system: let
@@ -14,18 +15,19 @@
         inherit system;
         overlays = [ self.overlays.default ];
       };
-      genAttrs' = xs: f: listToAttrs (map f xs); # TODO remove after we're at newer nixpkgs
       exampleForDistro = exampleName: rosDistro:
         nameValuePair "example-${exampleName}-${rosDistro}" (
           import ./examples/${exampleName}.nix { inherit pkgs rosDistro; }
         );
       inherit (pkgs.rosPackages.lib) distroNames;
     in {
-      legacyPackages = pkgs.rosPackages;
-      packages.update-overlay = pkgs.callPackage ./maintainers/scripts/update-overlay.nix { };
+      legacyPackages = (intersectAttrs (self.overlays.default null pkgs) pkgs)
+                       // pkgs.rosPackages; # for backward compatibility
+      packages.update-overlay = pkgs.callPackage ./maintainers/scripts/update-overlay.nix {
+        inherit rosdistro;
+      };
 
       devShells = {
-        example-turtlebot3-gazebo = import ./examples/turtlebot3-gazebo.nix { inherit pkgs; };
         example-ros2-basic = import ./examples/ros2-basic.nix { inherit pkgs; };
         example-ros2-desktop = import ./examples/ros2-desktop.nix { inherit pkgs; };
         example-ros2-desktop-full = import ./examples/ros2-desktop-full.nix { inherit pkgs; };
@@ -35,7 +37,7 @@
         # Development environment for the custom GitHub action
         nix-ros-build-action = pkgs.callPackage ./.github/actions/nix-ros-build-action/shell.nix { };
       }
-      // (genAttrs' [ "jazzy" "kilted" "rolling" ] (exampleForDistro "ros2-gz"))
+      // (genAttrs' [ "jazzy" "kilted" "lyrical" "rolling" ] (exampleForDistro "ros2-gz"))
       // (genAttrs' distroNames (exampleForDistro "ros2-desktop"))
       // (genAttrs' distroNames (exampleForDistro "ros2-desktop-full"))
       ;

@@ -1,25 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake }:
 buildRosPackage {
   pname = "ros-humble-fastcdr";
-  version = "1.0.24-r2";
+  version = "1.0.29-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/fastcdr-release/archive/release/humble/fastcdr/1.0.24-2.tar.gz";
-    name = "1.0.24-2.tar.gz";
-    sha256 = "b8dd46ba2874b8b42b60d16b0e73a72f092b2f5923512dcc8a746f3c30955a08";
+    url = "https://github.com/ros2-gbp/fastcdr-release/archive/release/humble/fastcdr/1.0.29-1.tar.gz";
+    name = "1.0.29-1.tar.gz";
+    sha256 = "f877c55fb1835df373e3448da7dbf4a0de75b20c29c893567c8d689506ca9fe0";
   };
 
   buildType = "cmake";
   buildInputs = [ cmake ];
   nativeBuildInputs = [ cmake ];
-
-  patchPhase = ''
-    substituteInPlace CMakeLists.txt --replace "VERSION 2.8.12" "VERSION 3.5"
-  '';
 
   meta = {
     description = "CDR serialization implementation.";

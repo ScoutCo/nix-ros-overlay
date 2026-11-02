@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-cmake-python, builtin-interfaces, rclcpp, rclpy, rosbag2-cpp, rosbag2-py, rosbag2-storage, rosbag2-storage-mcap, rosbag2-storage-sqlite3, rosidl-runtime-py, std-msgs }:
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "A ROS 2 interface in the style of ROS 1 for reading and writing bag files";
-    license = with lib.licenses; [ "BSD-3-clause" ];
+    license = with lib.licenses; [ bsd3 ];
   };
 }

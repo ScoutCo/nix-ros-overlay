@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-python, ament-index-python, launch, launch-ros, xacro }:
 buildRosPackage {
   pname = "ros-rolling-simple-launch";
-  version = "1.11.0-r1";
+  version = "1.11.4-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/simple_launch-release/archive/release/rolling/simple_launch/1.11.0-1.tar.gz";
-    name = "1.11.0-1.tar.gz";
-    sha256 = "92a74096cef42082aaf90f52861d48cd44035b2c5736201e5860d22427397a40";
+    url = "https://github.com/ros2-gbp/simple_launch-release/archive/release/rolling/simple_launch/1.11.4-2.tar.gz";
+    name = "1.11.4-2.tar.gz";
+    sha256 = "910c7f1ba7798086d3736a7ec35bcf508d7b5af469b0dd31010c60e24db26f45";
   };
 
   buildType = "ament_cmake";

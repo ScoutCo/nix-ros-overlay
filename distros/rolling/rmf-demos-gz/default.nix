@@ -1,21 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, gz-sim-vendor, launch-xml, rmf-building-sim-gz-plugins, rmf-demos, rmf-robot-sim-gz-plugins, ros-gz-bridge, ros2launch, teleop-twist-keyboard }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, launch-xml, rmf-building-sim-gz-plugins, rmf-demos, rmf-robot-sim-gz-plugins, ros-gz-bridge, ros-gz-sim, ros2launch, teleop-twist-keyboard }:
 buildRosPackage {
   pname = "ros-rolling-rmf-demos-gz";
-  version = "2.8.0-r1";
+  version = "2.8.2-r3";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rmf_demos-release/archive/release/rolling/rmf_demos_gz/2.8.0-1.tar.gz";
-    name = "2.8.0-1.tar.gz";
-    sha256 = "771d53dc47cabafd84fb054d0bb59eebca9048ca1e0113eec17555b94d150a53";
+    url = "https://github.com/ros2-gbp/rmf_demos-release/archive/release/rolling/rmf_demos_gz/2.8.2-3.tar.gz";
+    name = "2.8.2-3.tar.gz";
+    sha256 = "b55eb1a10a55646ec93707b302a5409b5d09563f74a6272d82a28b8ae5314ee6";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ gz-sim-vendor launch-xml rmf-building-sim-gz-plugins rmf-demos rmf-robot-sim-gz-plugins ros-gz-bridge ros2launch teleop-twist-keyboard ];
+  propagatedBuildInputs = [ launch-xml rmf-building-sim-gz-plugins rmf-demos rmf-robot-sim-gz-plugins ros-gz-bridge ros-gz-sim ros2launch teleop-twist-keyboard ];
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {

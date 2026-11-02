@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-core, ament-cmake-export-dependencies, ament-cmake-export-targets, ament-cmake-google-benchmark, ament-cmake-test, ament-lint-auto, ament-lint-common, google-benchmark-vendor, osrf-testing-tools-cpp }:
 buildRosPackage {
   pname = "ros-rolling-performance-test-fixture";
-  version = "0.4.1-r1";
+  version = "0.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/performance_test_fixture-release/archive/release/rolling/performance_test_fixture/0.4.1-1.tar.gz";
-    name = "0.4.1-1.tar.gz";
-    sha256 = "084afca66f7799952b8f9008216d5b33e5205be084366fe9d142f6ff3e929b0d";
+    url = "https://github.com/ros2-gbp/performance_test_fixture-release/archive/release/rolling/performance_test_fixture/0.5.0-1.tar.gz";
+    name = "0.5.0-1.tar.gz";
+    sha256 = "6622671004eed413910c96abdb4be292d00010391f8b826cf43f510bbfb3c54f";
   };
 
   buildType = "ament_cmake";

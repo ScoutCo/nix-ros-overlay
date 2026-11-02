@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-cmake-python, xacro }:
 buildRosPackage {
   pname = "ros-humble-talos-description-inertial";
-  version = "2.1.0-r1";
+  version = "2.10.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/pal-gbp/talos_robot-release/archive/release/humble/talos_description_inertial/2.1.0-1.tar.gz";
-    name = "2.1.0-1.tar.gz";
-    sha256 = "38a252d540f814f73d0091fe51c4d83d6881faa3a8670992a05780187e3d53cd";
+    url = "https://github.com/ros2-gbp/talos_robot-release/archive/release/humble/talos_description_inertial/2.10.3-1.tar.gz";
+    name = "2.10.3-1.tar.gz";
+    sha256 = "d8386d06b8fc9c2787cf78e35b4544150cb01766506414fa3cb8aef5cea401c5";
   };
 
   buildType = "ament_cmake";

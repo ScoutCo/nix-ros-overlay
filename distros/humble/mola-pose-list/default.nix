@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-common, mrpt-libmaps, mrpt-libposes }:
 buildRosPackage {
   pname = "ros-humble-mola-pose-list";
-  version = "1.9.0-r1";
+  version = "3.2.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/humble/mola_pose_list/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "f65ed5a4e0632de002bde6fbca24e7c82cd98138c51548ea1f752f4ef308fa13";
+    url = "https://github.com/ros2-gbp/mola-release/archive/release/humble/mola_pose_list/3.2.0-1.tar.gz";
+    name = "3.2.0-1.tar.gz";
+    sha256 = "4f3a3f8dc6dc4c8116d31faaeb822c9365c4f4054c71644ad9d93e54e976eb7e";
   };
 
   buildType = "cmake";

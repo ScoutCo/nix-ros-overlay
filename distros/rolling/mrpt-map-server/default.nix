@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-lint-cmake, ament-cmake-xmllint, ament-lint-auto, mp2p-icp, mrpt-libmaps, mrpt-libobs, mrpt-libros-bridge, mrpt-msgs, mrpt-nav-interfaces, rclcpp-components, tf2, tf2-geometry-msgs, tf2-ros }:
 buildRosPackage {
   pname = "ros-rolling-mrpt-map-server";
-  version = "2.2.4-r1";
+  version = "2.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/rolling/mrpt_map_server/2.2.4-1.tar.gz";
-    name = "2.2.4-1.tar.gz";
-    sha256 = "13072695c4e58dbdd3878028b350abcf9dc2c86cccd7e992711708fb7d486d00";
+    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/rolling/mrpt_map_server/2.5.0-1.tar.gz";
+    name = "2.5.0-1.tar.gz";
+    sha256 = "29c5b45ca278a283a45eefe6f6d32e0f751c29741ba4af5bfac811aef98f3611";
   };
 
   buildType = "ament_cmake";

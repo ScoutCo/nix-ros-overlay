@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, flexbe-core, flexbe-input, flexbe-mirror, flexbe-msgs, flexbe-onboard, flexbe-states, flexbe-testing, flexbe-widget }:
 buildRosPackage {
   pname = "ros-kilted-flexbe-behavior-engine";
-  version = "3.0.3-r2";
+  version = "4.1.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release/archive/release/kilted/flexbe_behavior_engine/3.0.3-2.tar.gz";
-    name = "3.0.3-2.tar.gz";
-    sha256 = "5281be3ff731a338afbf55868acc82742f8892e1f37e85a5b7ca197eff0d8886";
+    url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release/archive/release/kilted/flexbe_behavior_engine/4.1.4-1.tar.gz";
+    name = "4.1.4-1.tar.gz";
+    sha256 = "ef5809f85f143d60155d24c033ec1c7d1fba080f2eec5951e3ec1b061f422355";
   };
 
   buildType = "ament_cmake";

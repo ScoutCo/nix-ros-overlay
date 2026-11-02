@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-python, ament-cmake-ros, pluginlib, point-cloud-transport, pybind11-vendor, python3, rclcpp, rpyutils, sensor-msgs }:
 buildRosPackage {
   pname = "ros-kilted-point-cloud-transport-py";
-  version = "5.1.3-r1";
+  version = "5.1.8-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/point_cloud_transport-release/archive/release/kilted/point_cloud_transport_py/5.1.3-1.tar.gz";
-    name = "5.1.3-1.tar.gz";
-    sha256 = "32c638b7e8e1cef0427c2ca6b5a0762b2c55a02587520e335d596eac13ed4018";
+    url = "https://github.com/ros2-gbp/point_cloud_transport-release/archive/release/kilted/point_cloud_transport_py/5.1.8-1.tar.gz";
+    name = "5.1.8-1.tar.gz";
+    sha256 = "173c2ddc38c87d6ca007c3bcc17f795faaad4648db0afa0cc026a94873fcdb3e";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-apriltag-msgs";
-  version = "2.0.1-r4";
+  version = "2.0.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/apriltag_msgs-release/archive/release/rolling/apriltag_msgs/2.0.1-4.tar.gz";
-    name = "2.0.1-4.tar.gz";
-    sha256 = "50a5a994a12743e1470fc6becd03e7a84435a5952104fc68772b92e38352f22a";
+    url = "https://github.com/ros2-gbp/apriltag_msgs-release/archive/release/rolling/apriltag_msgs/2.0.2-1.tar.gz";
+    name = "2.0.2-1.tar.gz";
+    sha256 = "be239f674140602e8a529e0ff4beef45f0065e195cc3fdc86b2aaa33377e3fb6";
   };
 
   buildType = "ament_cmake";

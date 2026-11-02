@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, geometry-msgs, launch-ros, launch-testing, message-filters, nav-msgs, nav2-common, nav2-msgs, nav2-util, pluginlib, rclcpp, sensor-msgs, std-srvs, tf2, tf2-geometry-msgs, tf2-ros }:
 buildRosPackage {
   pname = "ros-humble-nav2-amcl";
-  version = "1.1.19-r1";
+  version = "1.1.20-r1";
 
   src = fetchurl {
-    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/humble/nav2_amcl/1.1.19-1.tar.gz";
-    name = "1.1.19-1.tar.gz";
-    sha256 = "8700b3d3f0da401e8053fe8c4f1d186a63b070d544d95ba025e6ec19bbacae78";
+    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/humble/nav2_amcl/1.1.20-1.tar.gz";
+    name = "1.1.20-1.tar.gz";
+    sha256 = "edcf7de833acd052f6cf4ae3cb702459437be5886f9b2fc3fb169587c0f1e38a";
   };
 
   buildType = "ament_cmake";
@@ -30,6 +30,6 @@ buildRosPackage {
       This node is derived, with thanks, from Andrew Howard's excellent
       'amcl' Player driver.
     </p>";
-    license = with lib.licenses; [ "LGPL-2.1-or-later" ];
+    license = with lib.licenses; [ lgpl21Plus ];
   };
 }

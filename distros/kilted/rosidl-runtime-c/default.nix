@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-ros-core, ament-lint-auto, ament-lint-common, performance-test-fixture, rcutils, rosidl-typesupport-interface }:
 buildRosPackage {
   pname = "ros-kilted-rosidl-runtime-c";
-  version = "4.9.5-r1";
+  version = "4.9.8-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/kilted/rosidl_runtime_c/4.9.5-1.tar.gz";
-    name = "4.9.5-1.tar.gz";
-    sha256 = "90fd4b6328f75587e8955f23b1f42f1f443359e224da26577a804a62402124c2";
+    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/kilted/rosidl_runtime_c/4.9.8-1.tar.gz";
+    name = "4.9.8-1.tar.gz";
+    sha256 = "3b72c2a03bf2e5d6466810b9e460cf25e6aaeebfc7a6dc15856a86d1f20a320c";
   };
 
   buildType = "ament_cmake";

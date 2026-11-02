@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-common, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-jazzy-std-msgs";
-  version = "5.3.6-r1";
+  version = "5.3.8-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/jazzy/std_msgs/5.3.6-1.tar.gz";
-    name = "5.3.6-1.tar.gz";
-    sha256 = "76b47a6cb5d93e9620dfc5d4b4514b3f2d7123fb2c640dc667a2b30c1c5e7019";
+    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/jazzy/std_msgs/5.3.8-1.tar.gz";
+    name = "5.3.8-1.tar.gz";
+    sha256 = "c5c8a5fd6d9b4098d4c3575d9949acad09506b29be31b1e2b80c7e013245f673";
   };
 
   buildType = "ament_cmake";

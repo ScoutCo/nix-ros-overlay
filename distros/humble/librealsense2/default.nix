@@ -1,25 +1,25 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, cmake, git, glfw3, libGL, libGLU, libusb1, openssl, pkg-config, udev, xorg }:
+{ lib, buildRosPackage, fetchurl, cmake, git, glfw3, libGL, libGLU, libusb1, libx11, openssl, pkg-config, udev }:
 buildRosPackage {
   pname = "ros-humble-librealsense2";
-  version = "2.56.4-r1";
+  version = "2.58.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/librealsense2-release/archive/release/humble/librealsense2/2.56.4-1.tar.gz";
-    name = "2.56.4-1.tar.gz";
-    sha256 = "b75d8b431349ecf1d7c2668900206f110e50953b58339c67df0209aa2dba4b28";
+    url = "https://github.com/ros2-gbp/librealsense2-release/archive/release/humble/librealsense2/2.58.4-1.tar.gz";
+    name = "2.58.4-1.tar.gz";
+    sha256 = "ac76e92c347b65c52b760b3cec0c402758bf1612cc4319ca83ee90b17e30eb55";
   };
 
   buildType = "cmake";
   buildInputs = [ cmake git libusb1 openssl pkg-config udev ];
-  propagatedBuildInputs = [ glfw3 libGL libGLU xorg.libX11 ];
+  propagatedBuildInputs = [ glfw3 libGL libGLU libx11 ];
   nativeBuildInputs = [ cmake ];
 
   meta = {
-    description = "Library for controlling and capturing data from the Intel(R) RealSense(TM) D400 devices.";
+    description = "Library for controlling and capturing data from the RealSense depth streaming devices.";
     license = with lib.licenses; [ asl20 ];
   };
 }

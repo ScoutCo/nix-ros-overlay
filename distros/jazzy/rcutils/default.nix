@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-gmock, ament-cmake-gtest, ament-cmake-pytest, ament-cmake-ros, ament-lint-auto, ament-lint-common, launch, launch-testing, launch-testing-ament-cmake, mimick-vendor, osrf-testing-tools-cpp, performance-test-fixture, python3Packages }:
 buildRosPackage {
   pname = "ros-jazzy-rcutils";
-  version = "6.7.4-r1";
+  version = "6.7.6-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rcutils-release/archive/release/jazzy/rcutils/6.7.4-1.tar.gz";
-    name = "6.7.4-1.tar.gz";
-    sha256 = "75c65fe3c2c7d0d55f0bf519f455c4f53cbb430b04f10e51d315ac3d931cfc96";
+    url = "https://github.com/ros2-gbp/rcutils-release/archive/release/jazzy/rcutils/6.7.6-1.tar.gz";
+    name = "6.7.6-1.tar.gz";
+    sha256 = "ac599f6e8efb75f48221fc34287dcf3045f86e828c9b735687e05c79a41ebba3";
   };
 
   buildType = "ament_cmake";

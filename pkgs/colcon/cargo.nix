@@ -1,15 +1,20 @@
-{ lib, buildPythonPackage, fetchPypi, catkin-pkg, colcon-cmake
+{ lib, buildPythonPackage, fetchFromGitHub, catkin-pkg, colcon-cmake
 , colcon-core, colcon-pkg-config, colcon-python-setup-py, colcon-recursive-crawl
-, colcon-library-path, toml }:
+, colcon-library-path, toml, setuptools }:
 
 buildPythonPackage rec {
   pname = "colcon-cargo";
-  version = "0.1.3";
+  version = "0.2.0";
 
-  src = fetchPypi {
-    inherit pname version;
-    hash = "sha256-FXp3Nso5NlvBqPA2Kv03mBNR8fwQELbDMU+mqmxTSWc=";
+  src = fetchFromGitHub {
+    owner = "colcon";
+    repo = pname;
+    tag = version;
+    hash = "sha256-jhc5mN4jnLk2zLj01sBm63acrku/FIexnIWCQ6GKDKA=";
   };
+
+  pyproject = true;
+  build-system = [ setuptools ];
 
   propagatedBuildInputs = [
     catkin-pkg

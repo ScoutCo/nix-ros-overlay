@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-common, mola-kernel, mrpt-libmaps }:
 buildRosPackage {
   pname = "ros-kilted-mola-input-paris-luco-dataset";
-  version = "1.9.0-r1";
+  version = "3.0.0-r3";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/kilted/mola_input_paris_luco_dataset/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "f5688c9e16495676831395aa568a6759adaac883595c95d92e26d755377c3cdf";
+    url = "https://github.com/ros2-gbp/mola_academic_datasets-release/archive/release/kilted/mola_input_paris_luco_dataset/3.0.0-3.tar.gz";
+    name = "3.0.0-3.tar.gz";
+    sha256 = "3a42e7ca7269d695dc95cb5f265aef7e2647c6e5306c3b485b1032b84692b07f";
   };
 
   buildType = "cmake";

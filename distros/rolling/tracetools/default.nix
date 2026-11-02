@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gen-version-h, ament-cmake-gtest, ament-cmake-ros-core, ament-lint-auto, ament-lint-common, lttng-tools, lttng-ust, pkg-config }:
 buildRosPackage {
   pname = "ros-rolling-tracetools";
-  version = "8.9.0-r1";
+  version = "9.0.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_tracing-release/archive/release/rolling/tracetools/8.9.0-1.tar.gz";
-    name = "8.9.0-1.tar.gz";
-    sha256 = "c529c1a9ef953ed6d3e35847b59ddf255e7e88e1838013950da71effa0ec2731";
+    url = "https://github.com/ros2-gbp/ros2_tracing-release/archive/release/rolling/tracetools/9.0.0-1.tar.gz";
+    name = "9.0.0-1.tar.gz";
+    sha256 = "dbe614f43a387cb44442fc4276d7e0043ff974158c7f0b844acf4964f3f3ee74";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, joint-state-publisher, joint-state-publisher-gui, robot-state-publisher, rviz2 }:
 buildRosPackage {
   pname = "ros-kilted-open-manipulator-description";
-  version = "4.0.8-r1";
+  version = "4.1.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/kilted/open_manipulator_description/4.0.8-1.tar.gz";
-    name = "4.0.8-1.tar.gz";
-    sha256 = "b19c087fbc358d7669099fde4f7286381b8400de82ff3f71fee8c72fd26cc456";
+    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/kilted/open_manipulator_description/4.1.2-1.tar.gz";
+    name = "4.1.2-1.tar.gz";
+    sha256 = "4ed0193ea4b410f7d679e0f5d89dedd456a590fc6f969a9540f8aa52181a10c7";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, controller-interface, generate-parameter-library, hardware-interface, pluginlib, rclcpp, rclcpp-lifecycle, urdf }:
 buildRosPackage {
   pname = "ros-rolling-om-spring-actuator-controller";
-  version = "4.0.7-r1";
+  version = "4.1.2-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/rolling/om_spring_actuator_controller/4.0.7-1.tar.gz";
-    name = "4.0.7-1.tar.gz";
-    sha256 = "d60b33e77a527e73aa7329109c827436b920fbdb489d70363bfca78c95b505c3";
+    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/rolling/om_spring_actuator_controller/4.1.2-2.tar.gz";
+    name = "4.1.2-2.tar.gz";
+    sha256 = "05d3edcf70ab7cd187455d9161e9d74950c4b088cdf358e4aa40f5f735da331c";
   };
 
   buildType = "ament_cmake";

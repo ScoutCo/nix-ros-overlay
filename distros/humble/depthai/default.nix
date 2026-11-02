@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, libusb1, nlohmann_json, opencv, ros-environment }:
 buildRosPackage {
   pname = "ros-humble-depthai";
-  version = "2.30.0-r1";
+  version = "2.31.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/luxonis/depthai-core-release/archive/release/humble/depthai/2.30.0-1.tar.gz";
-    name = "2.30.0-1.tar.gz";
-    sha256 = "b9996db984f281586baa2a92bc8e4129d8421291259ef23bb66202042e0b96fa";
+    url = "https://github.com/luxonis/depthai-core-release/archive/release/humble/depthai/2.31.1-1.tar.gz";
+    name = "2.31.1-1.tar.gz";
+    sha256 = "f4b41b045f29cb3e095206f0f3e3004b145b6506a82c8e3fa2b1820da77d3e94";
   };
 
   buildType = "ament_cmake";

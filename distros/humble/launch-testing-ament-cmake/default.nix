@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-copyright, ament-cmake-test, launch-testing, python-cmake-module }:
 buildRosPackage {
   pname = "ros-humble-launch-testing-ament-cmake";
-  version = "1.0.11-r1";
+  version = "1.0.15-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/launch-release/archive/release/humble/launch_testing_ament_cmake/1.0.11-1.tar.gz";
-    name = "1.0.11-1.tar.gz";
-    sha256 = "b273e29eaa2ec8610b9dff58fc8e925e0b69028d6e7fe7ec11feff31310b8739";
+    url = "https://github.com/ros2-gbp/launch-release/archive/release/humble/launch_testing_ament_cmake/1.0.15-1.tar.gz";
+    name = "1.0.15-1.tar.gz";
+    sha256 = "bc116f66b4368c5a55cc9e9f40676dded1d460e93d511a7b6f6ddc1f54ce874f";
   };
 
   buildType = "ament_cmake";

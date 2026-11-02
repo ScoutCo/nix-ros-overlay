@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, builtin-interfaces, geometry-msgs, rosidl-default-generators, rosidl-default-runtime, std-msgs, unique-identifier-msgs }:
 buildRosPackage {
   pname = "ros-humble-autoware-perception-msgs";
-  version = "1.9.0-r1";
+  version = "1.13.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_msgs-release/archive/release/humble/autoware_perception_msgs/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "9f9184c7db422ec3b12059a1efbcc5e81281abc0cf06e38b0cc02107b323eee3";
+    url = "https://github.com/ros2-gbp/autoware_msgs-release/archive/release/humble/autoware_perception_msgs/1.13.0-1.tar.gz";
+    name = "1.13.0-1.tar.gz";
+    sha256 = "8a0a21e8e8fa829f503546fe6846b471a3d098a398e6d2dd9876264434d256fe";
   };
 
   buildType = "ament_cmake";

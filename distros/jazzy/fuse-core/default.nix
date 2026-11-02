@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-gtest, ament-cmake-pytest, ament-cmake-ros, ament-lint-auto, ament-lint-common, boost, ceres-solver, eigen, fuse-msgs, geometry-msgs, glog, launch, launch-pytest, pluginlib, rcl-interfaces, rclcpp, rclcpp-components }:
 buildRosPackage {
   pname = "ros-jazzy-fuse-core";
-  version = "1.1.4-r1";
+  version = "1.1.6-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/fuse-release/archive/release/jazzy/fuse_core/1.1.4-1.tar.gz";
-    name = "1.1.4-1.tar.gz";
-    sha256 = "a20b62fe0a01863afb36dc8b48f55aca0a87d26ff9710c65e82a20bb134e8335";
+    url = "https://github.com/ros2-gbp/fuse-release/archive/release/jazzy/fuse_core/1.1.6-1.tar.gz";
+    name = "1.1.6-1.tar.gz";
+    sha256 = "324c1ee9c96216dabb5baa9027953ea6eaead6652d35a115d9b1d732792abc9c";
   };
 
   buildType = "ament_cmake";

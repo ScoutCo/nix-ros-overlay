@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, draco, pluginlib, point-cloud-interfaces, point-cloud-transport, rclcpp, rcpputils, sensor-msgs, std-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-draco-point-cloud-transport";
-  version = "4.0.1-r1";
+  version = "4.0.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release/archive/release/jazzy/draco_point_cloud_transport/4.0.1-1.tar.gz";
-    name = "4.0.1-1.tar.gz";
-    sha256 = "031d526ff6f745d26e3dd66eddfe9d270c55b0e91e2292786a8625999604ad46";
+    url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release/archive/release/jazzy/draco_point_cloud_transport/4.0.4-1.tar.gz";
+    name = "4.0.4-1.tar.gz";
+    sha256 = "bc9e964a7f9b19860551b1ff2efd901fcd4f0bca72dae07521c817c597554ae1";
   };
 
   buildType = "ament_cmake";

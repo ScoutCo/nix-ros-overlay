@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-etsi-its-denm-ts-msgs";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/jazzy/etsi_its_denm_ts_msgs/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "bf86c799b8b6c0aa3b6dd32d92b833abd2b80e980ff9255d5fe3227a16020310";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/jazzy/etsi_its_denm_ts_msgs/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "f2e4bf78bed2ccbf7fe6a8e2e20e54d55d2be108e50facaa5b94fedbc39386c1";
   };
 
   buildType = "ament_cmake";

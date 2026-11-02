@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, builtin-interfaces, marti-common-msgs, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-humble-mapviz-interfaces";
-  version = "2.5.10-r1";
+  version = "4.0.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mapviz-release/archive/release/humble/mapviz_interfaces/2.5.10-1.tar.gz";
-    name = "2.5.10-1.tar.gz";
-    sha256 = "e824dcd64e3d717d14cdd84df3e73fe43551651b110c50707515e5e3ec9ffdaa";
+    url = "https://github.com/ros2-gbp/mapviz-release/archive/release/humble/mapviz_interfaces/4.0.3-1.tar.gz";
+    name = "4.0.3-1.tar.gz";
+    sha256 = "40745b67ed8f19a5ff63a764eeca9d2f7baafa65124f4d7cfb4d139d9db35085";
   };
 
   buildType = "ament_cmake";

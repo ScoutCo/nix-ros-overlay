@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-rolling-example-interfaces";
-  version = "0.14.1-r1";
+  version = "0.15.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/example_interfaces-release/archive/release/rolling/example_interfaces/0.14.1-1.tar.gz";
-    name = "0.14.1-1.tar.gz";
-    sha256 = "e709ad2c419d7aa06ac809b7acaf77b99a732ba2650fc951bf1b9d257c8f69e8";
+    url = "https://github.com/ros2-gbp/example_interfaces-release/archive/release/rolling/example_interfaces/0.15.0-1.tar.gz";
+    name = "0.15.0-1.tar.gz";
+    sha256 = "6902be9ec3b9e1b12723532bb3e688c89a811851de1f5dcf23161dab3f96b436";
   };
 
   buildType = "ament_cmake";

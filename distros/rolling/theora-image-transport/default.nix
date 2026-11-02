@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, cv-bridge, image-transport, libogg, libtheora, opencv, pkg-config, pluginlib, rclcpp, rcutils, rosidl-default-generators, rosidl-default-runtime, sensor-msgs, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-theora-image-transport";
-  version = "6.2.2-r1";
+  version = "7.0.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_transport_plugins-release/archive/release/rolling/theora_image_transport/6.2.2-1.tar.gz";
-    name = "6.2.2-1.tar.gz";
-    sha256 = "240a3003ae8ed1a5ca91e9ee7190aaf6eb0470030900131e72aef1419ce954ee";
+    url = "https://github.com/ros2-gbp/image_transport_plugins-release/archive/release/rolling/theora_image_transport/7.0.1-1.tar.gz";
+    name = "7.0.1-1.tar.gz";
+    sha256 = "034d4f644566c140e90dacf0c11053be1b189905a98675b59013f5a0d36c8804";
   };
 
   buildType = "ament_cmake";

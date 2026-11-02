@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-rolling-topic-tools-interfaces";
-  version = "1.4.3-r1";
+  version = "1.6.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/topic_tools-release/archive/release/rolling/topic_tools_interfaces/1.4.3-1.tar.gz";
-    name = "1.4.3-1.tar.gz";
-    sha256 = "e7a2868ad63776a6a29656dba280e11102ad4c1b33852da0510e765ccf01983b";
+    url = "https://github.com/ros2-gbp/topic_tools-release/archive/release/rolling/topic_tools_interfaces/1.6.0-1.tar.gz";
+    name = "1.6.0-1.tar.gz";
+    sha256 = "922e42b5a8a3157fb3be1bc1987680580187f55475d69315138e2d790cb3f08d";
   };
 
   buildType = "ament_cmake";

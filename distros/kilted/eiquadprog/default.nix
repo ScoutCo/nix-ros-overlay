@@ -1,20 +1,20 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, boost, cmake, doxygen, eigen, git, graphviz }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, boost, cmake, doxygen, eigen, git, graphviz, jrl-cmakemodules }:
 buildRosPackage {
   pname = "ros-kilted-eiquadprog";
-  version = "1.2.9-r2";
+  version = "1.3.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/eiquadprog-release/archive/release/kilted/eiquadprog/1.2.9-2.tar.gz";
-    name = "1.2.9-2.tar.gz";
-    sha256 = "77cb249bc50854c5d9b3e482e45e27306abb2191f9317713f9b54642f36ccd18";
+    url = "https://github.com/ros2-gbp/eiquadprog-release/archive/release/kilted/eiquadprog/1.3.2-1.tar.gz";
+    name = "1.3.2-1.tar.gz";
+    sha256 = "2279528a57f4cea2117d34674ffd5b65194bb2bc89a064245e156c1f7a982eea";
   };
 
   buildType = "cmake";
-  buildInputs = [ cmake doxygen git ];
+  buildInputs = [ cmake doxygen git jrl-cmakemodules ];
   propagatedBuildInputs = [ ament-cmake boost eigen graphviz ];
   nativeBuildInputs = [ cmake ];
 

@@ -10,11 +10,18 @@
 #
 # By default, all binaries in the environment are wrapped, setting the relevant
 # ROS environment variables, allowing use outside of nix-shell.
-{ lib, stdenv, buildPackages, writeText, buildEnv, makeWrapper, python, ros-environment }:
-{ paths ? [], wrapPrograms ? true, postBuild ? "", passthru ? { }, ... }@args:
+# Wrapping prefixes the existing variables with the buildEnv output, which
+# ensures reproducibility and prevents an incompatible user environment from
+# breaking the Nix setup. However, for development environments used within
+# mkShell, it is often desirable for packages in the local ROS workspace to
+# take precedence over Nix-built packages. This can be achieved by setting
+# underlay to true.
+{ lib, stdenv, buildPackages, writeText, buildEnv, makeWrapper, python3, ros-environment }:
+{ paths ? [], wrapPrograms ? true, underlay ? false, postBuild ? "", passthru ? { }, ... }@args:
 
 with lib;
-
+assert assertMsg (underlay -> wrapPrograms)
+  "Setting underlay without wrapPrograms has no effect.";
 let
   # One visited set for the whole walk: a package reachable by k paths was expanded k times,
   # and every level deduplicated with a quadratic `unique`. First-visit order is preserved.
@@ -56,7 +63,9 @@ let
 
   propagatedPaths = propagatePackages paths;
 
-  env = (buildEnv ((removeAttrs args [ "wrapPrograms" ]) // {
+  xfix = if underlay then "suffix" else "prefix";
+
+  env = (buildEnv ((removeAttrs args [ "underlay" "wrapPrograms" ]) // {
     name = "ros-env";
     # Only add ROS packages to environment. The rest are propagated like normal.
     # ROS packages propagate a huge number of dependencies, which are added all
@@ -66,7 +75,24 @@ let
     # nix-shell -p does.
     paths = propagatedPaths.rosPackages;
 
-    nativeBuildInputs = optional wrapPrograms makeWrapper;
+    derivationArgs = {
+      nativeBuildInputs = optional wrapPrograms makeWrapper;
+      propagatedBuildInputs = propagatedPaths.otherPackages;
+
+      # Disable redundant fixup operations.
+      # The fixupPhase is needed for shell hooks and input propagation, but other
+      # things like RPATH shrinking and shebang patching are not needed, as the
+      # original packages should have already been fixed up.
+      dontPatchELF = true;
+      noAuditTmpdir = true;
+      dontGzipMan = true;
+      dontPatchShebangs = true;
+      dontMoveLib64 = true;
+
+      # nixpkgs's buildEnv disables substitutes, which can lead to
+      # unnecessarily long build times for development environments.
+      allowSubstitutes = true;
+    };
 
     postBuild = postBuild + ''
       "${buildPackages.perl}/bin/perl" "${./setup-hook-builder.pl}"
@@ -80,16 +106,16 @@ let
           if [[ "$(basename "$link")" == .*-wrapped ]]; then continue; fi
 
           makeWrapper "$file" "$link" \
-            --prefix PATH : "$out/bin" \
-            --prefix LD_LIBRARY_PATH : "$out/lib" \
-            --prefix PYTHONPATH : "$out/${python.sitePackages}" \
-            --prefix CMAKE_PREFIX_PATH : "$out" \
-            --prefix AMENT_PREFIX_PATH : "$out" \
-            --prefix ROS_PACKAGE_PATH : "$out/share" \
-            --prefix GZ_CONFIG_PATH : "$out/share/gz" \
+            --${xfix} PATH : "$out/bin" \
+            --${xfix} LD_LIBRARY_PATH : "$out/lib" \
+            --${xfix} PYTHONPATH : "$out/${python3.sitePackages}" \
+            --${xfix} CMAKE_PREFIX_PATH : "$out" \
+            --${xfix} AMENT_PREFIX_PATH : "$out" \
+            --${xfix} ROS_PACKAGE_PATH : "$out/share" \
+            --${xfix} GZ_CONFIG_PATH : "$out/share/gz" \
             --set ROS_DISTRO '${ros-environment.rosDistro}' \
             --set ROS_VERSION '${toString ros-environment.rosVersion}' \
-            --set ROS_PYTHON_VERSION '${lib.versions.major python.version}' \
+            --set ROS_PYTHON_VERSION '${lib.versions.major python3.version}' \
             ''${rosWrapperArgs[@]}
         done
       fi
@@ -109,29 +135,19 @@ let
         '';
       };
     };
-  })).overrideAttrs ({ buildCommand, passAsFile ? [], ...}: {
-    # Hack to allow buildEnv to use propagatedBuildInputs
+  })).overrideAttrs ({ buildCommand, ...}: {
+    # Hack to execute buildPhase and fixupPhase instead of just
+    # buildCommand provided by nixpkgs buildEnv. We need fixupPhase
+    # for shell hooks to set ROS env. variables and for input
+    # propagation.
     buildCommand = null;
     oldBuildCommand = buildCommand;
-    passAsFile = (if passAsFile == null then [] else passAsFile) ++ [ "oldBuildCommand" ];
-
-    propagatedBuildInputs = propagatedPaths.otherPackages;
-
     buildPhase = ''
+      . $NIX_ATTRS_SH_FILE
       runHook preBuild
-      . "$oldBuildCommandPath"
+      eval "$oldBuildCommand"
       runHook postBuild
     '';
     phases = [ "buildPhase" "fixupPhase" ];
-
-    # Disable redundant fixup operations.
-    # The fixupPhase is needed for shell hooks and input propagation, but other
-    # things like RPATH shrinking and shebang patching are not needed, as the
-    # original packages should have already been fixed up.
-    dontPatchELF = true;
-    noAuditTmpdir = true;
-    dontGzipMan = true;
-    dontPatchShebangs = true;
-    dontMoveLib64 = true;
   });
 in env

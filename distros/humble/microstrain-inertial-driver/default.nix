@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-target-dependencies, ament-cpplint, diagnostic-aggregator, diagnostic-updater, eigen, geographiclib, geometry-msgs, git, lifecycle-msgs, microstrain-inertial-msgs, nav-msgs, nmea-msgs, rclcpp-lifecycle, ros-environment, rosidl-default-generators, rosidl-default-runtime, rtcm-msgs, sensor-msgs, std-msgs, std-srvs, tf2, tf2-geometry-msgs, tf2-ros }:
 buildRosPackage {
   pname = "ros-humble-microstrain-inertial-driver";
-  version = "4.7.0-r1";
+  version = "4.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/microstrain_inertial-release/archive/release/humble/microstrain_inertial_driver/4.7.0-1.tar.gz";
-    name = "4.7.0-1.tar.gz";
-    sha256 = "3d424779134efcefb642f7231f4ec4cc6f9857c0af30ad35fd3c191c3165a3e3";
+    url = "https://github.com/ros2-gbp/microstrain_inertial-release/archive/release/humble/microstrain_inertial_driver/4.9.0-1.tar.gz";
+    name = "4.9.0-1.tar.gz";
+    sha256 = "c5c0c5943107f3a6ff07f4e30ec37f0dfa537111b0a1af9fbe380c3647a17a14";
   };
 
   buildType = "ament_cmake";

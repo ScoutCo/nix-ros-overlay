@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-index-python, ament-pep257, ament-xmllint, geometry-msgs, python-qt-binding, python3Packages, rclpy, rqt-gui, rqt-gui-py }:
 buildRosPackage {
   pname = "ros-rolling-rqt-robot-steering";
-  version = "4.0.2-r1";
+  version = "5.0.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rqt_robot_steering-release/archive/release/rolling/rqt_robot_steering/4.0.2-1.tar.gz";
-    name = "4.0.2-1.tar.gz";
-    sha256 = "7a62c49ec9ce205d844491431127e43679163922f693de8c9461850fbbec1938";
+    url = "https://github.com/ros2-gbp/rqt_robot_steering-release/archive/release/rolling/rqt_robot_steering/5.0.0-1.tar.gz";
+    name = "5.0.0-1.tar.gz";
+    sha256 = "dbefab5180d6d1843461e39e1f5fdbf8cc68f53605601dc05ccac0d949b48442";
   };
 
   buildType = "ament_python";

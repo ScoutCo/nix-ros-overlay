@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-index-cpp, ament-lint-auto, asio, nlohmann_json, openssl, rclcpp, rclcpp-components, resource-retriever, ros-environment, rosgraph-msgs, rosx-introspection, std-msgs, std-srvs, websocketpp }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-index-cpp, ament-lint-auto, asio, geometry-msgs, nlohmann_json, rcl-interfaces, rclcpp, rclcpp-components, rcpputils, rcutils, resource-retriever, ros-environment, rosgraph-msgs, rosidl-typesupport-introspection-cpp, rosx-introspection, sensor-msgs, std-msgs, std-srvs, test-msgs, websocketpp }:
 buildRosPackage {
   pname = "ros-humble-foxglove-bridge";
-  version = "3.2.1-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/foxglove_bridge-release/archive/release/humble/foxglove_bridge/3.2.1-1.tar.gz";
-    name = "3.2.1-1.tar.gz";
-    sha256 = "d9f192bc7951a07cfade8ee65796abe0566493e46e887d84178c4ae4bfd0ea42";
+    url = "https://github.com/ros2-gbp/foxglove_bridge-release/archive/release/humble/foxglove_bridge/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "30fb258e4270990e5038917dbb603c1d428b18de2e07b9af1b9b445ab70cc1de";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake asio nlohmann_json ros-environment ];
-  checkInputs = [ ament-cmake-gtest ament-lint-auto openssl std-msgs std-srvs websocketpp ];
-  propagatedBuildInputs = [ ament-index-cpp rclcpp rclcpp-components resource-retriever rosgraph-msgs rosx-introspection ];
+  buildInputs = [ ament-cmake geometry-msgs ros-environment sensor-msgs ];
+  checkInputs = [ ament-cmake-gtest ament-lint-auto asio nlohmann_json std-msgs std-srvs test-msgs websocketpp ];
+  propagatedBuildInputs = [ ament-index-cpp rcl-interfaces rclcpp rclcpp-components rcpputils rcutils resource-retriever rosgraph-msgs rosidl-typesupport-introspection-cpp rosx-introspection std-msgs ];
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {

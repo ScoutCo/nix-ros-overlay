@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-common, builtin-interfaces, geometry-msgs, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-rolling-tf2-msgs";
-  version = "0.45.0-r1";
+  version = "0.46.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/rolling/tf2_msgs/0.45.0-1.tar.gz";
-    name = "0.45.0-1.tar.gz";
-    sha256 = "60dc721574ba3e84c1f8c446810067e785158eac551d89125970395643f0ac69";
+    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/rolling/tf2_msgs/0.46.3-1.tar.gz";
+    name = "0.46.3-1.tar.gz";
+    sha256 = "e8b397bebf4bd58c47dca60144c40f1462df8ab1d7b8a6bf17e9aa0f0234a1bd";
   };
 
   buildType = "ament_cmake";

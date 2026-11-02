@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-flir-camera-msgs";
-  version = "3.0.3-r1";
+  version = "3.0.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/flir_camera_driver-release/archive/release/jazzy/flir_camera_msgs/3.0.3-1.tar.gz";
-    name = "3.0.3-1.tar.gz";
-    sha256 = "a8c79b8afd703b4817f3da0232e73edbe60df2bf73374ca008b0ba03d37b4dcb";
+    url = "https://github.com/ros2-gbp/flir_camera_driver-release/archive/release/jazzy/flir_camera_msgs/3.0.5-1.tar.gz";
+    name = "3.0.5-1.tar.gz";
+    sha256 = "05b93d3323b79cde6d7055632deba91fd10c0fc7e4716f601985c39e742e6497";
   };
 
   buildType = "ament_cmake";
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "messages related to flir camera driver";
-    license = with lib.licenses; [ "Apache-2" ];
+    license = with lib.licenses; [ asl20 ];
   };
 }

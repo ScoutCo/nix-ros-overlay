@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, robot-state-publisher, urdf, xacro }:
 buildRosPackage {
   pname = "ros-jazzy-clearpath-platform-description";
-  version = "2.7.4-r1";
+  version = "2.9.16-r1";
 
   src = fetchurl {
-    url = "https://github.com/clearpath-gbp/clearpath_common-release/archive/release/jazzy/clearpath_platform_description/2.7.4-1.tar.gz";
-    name = "2.7.4-1.tar.gz";
-    sha256 = "08f5004fa991130f846cc296455b72fa3e73d469434b4d8c683283a0f9337893";
+    url = "https://github.com/clearpath-gbp/clearpath_common-release/archive/release/jazzy/clearpath_platform_description/2.9.16-1.tar.gz";
+    name = "2.9.16-1.tar.gz";
+    sha256 = "e6325d0898aa0381c052fa68688b130e64da8dcdfe2dca646cab1f3e6a8b39fc";
   };
 
   buildType = "ament_cmake";

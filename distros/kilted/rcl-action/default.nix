@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, ament-cmake-gen-version-h, ament-cmake-gtest, ament-cmake-ros, ament-lint-auto, ament-lint-common, osrf-testing-tools-cpp, rcl, rcutils, rmw, rmw-implementation-cmake, rosidl-runtime-c, test-msgs }:
 buildRosPackage {
   pname = "ros-kilted-rcl-action";
-  version = "10.1.2-r1";
+  version = "10.1.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rcl-release/archive/release/kilted/rcl_action/10.1.2-1.tar.gz";
-    name = "10.1.2-1.tar.gz";
-    sha256 = "46a4c4ebbbe1d360e0ca7b788c88f1d1f616a8102fe65d7a00bb65cd0ec4789b";
+    url = "https://github.com/ros2-gbp/rcl-release/archive/release/kilted/rcl_action/10.1.5-1.tar.gz";
+    name = "10.1.5-1.tar.gz";
+    sha256 = "791ef1c770bbcd0d5b5a9725b2008db1f6d349d2dec925ab9d05042fd87c477d";
   };
 
   buildType = "ament_cmake";

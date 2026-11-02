@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, backward-ros, controller-interface, controller-manager, generate-parameter-library, geometry-msgs, hardware-interface-testing, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, ros2-control-cmake, ros2-control-test-assets, tf2-msgs }:
 buildRosPackage {
   pname = "ros-rolling-pose-broadcaster";
-  version = "5.8.0-r1";
+  version = "6.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/rolling/pose_broadcaster/5.8.0-1.tar.gz";
-    name = "5.8.0-1.tar.gz";
-    sha256 = "8eba2e0941afd7dfe861457670f8ed30fc70176bf76e5bd0b29ba0bbca277daa";
+    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/rolling/pose_broadcaster/6.9.0-1.tar.gz";
+    name = "6.9.0-1.tar.gz";
+    sha256 = "d6ff1acb02d861a93c678d981a2a867ea72bd6100ebb78fbd9c2489b9e8978d3";
   };
 
   buildType = "ament_cmake";

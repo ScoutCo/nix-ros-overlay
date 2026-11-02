@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-kilted-rviz-resource-interfaces";
-  version = "15.0.7-r1";
+  version = "15.0.15-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rviz-release/archive/release/kilted/rviz_resource_interfaces/15.0.7-1.tar.gz";
-    name = "15.0.7-1.tar.gz";
-    sha256 = "23e9386108768f393ffe8a62f9732a9f260d61257fdadc2cf3e8784d894e8645";
+    url = "https://github.com/ros2-gbp/rviz-release/archive/release/kilted/rviz_resource_interfaces/15.0.15-1.tar.gz";
+    name = "15.0.15-1.tar.gz";
+    sha256 = "d076437865c4fe103d50db855c421543835f19be17749adee205c641756731a9";
   };
 
   buildType = "ament_cmake";

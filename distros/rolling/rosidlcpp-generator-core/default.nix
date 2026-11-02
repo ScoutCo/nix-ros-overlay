@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, fmt, nlohmann_json, rosidlcpp-parser }:
 buildRosPackage {
   pname = "ros-rolling-rosidlcpp-generator-core";
-  version = "0.4.0-r1";
+  version = "0.6.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosidlcpp-release/archive/release/rolling/rosidlcpp_generator_core/0.4.0-1.tar.gz";
-    name = "0.4.0-1.tar.gz";
-    sha256 = "78c8d4340f02fc8779f958aa948b35f5cec9fd653733bcd4335b1db727fae57a";
+    url = "https://github.com/ros2-gbp/rosidlcpp-release/archive/release/rolling/rosidlcpp_generator_core/0.6.0-1.tar.gz";
+    name = "0.6.0-1.tar.gz";
+    sha256 = "9c7b079c1d5b3466e0d774575743047dad87daa012a5edc8926e4f1283b448c3";
   };
 
   buildType = "ament_cmake";

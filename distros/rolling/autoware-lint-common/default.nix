@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-copyright, ament-cmake-core, ament-cmake-cppcheck, ament-cmake-export-dependencies, ament-cmake-lint-cmake, ament-cmake-test, ament-cmake-xmllint }:
 buildRosPackage {
   pname = "ros-rolling-autoware-lint-common";
-  version = "1.0.2-r1";
+  version = "1.4.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_cmake-release/archive/release/rolling/autoware_lint_common/1.0.2-1.tar.gz";
-    name = "1.0.2-1.tar.gz";
-    sha256 = "52b163666f5b6fb81a854eafe5e4443ad63d843159da911fec27e19baaabeb9a";
+    url = "https://github.com/ros2-gbp/autoware_cmake-release/archive/release/rolling/autoware_lint_common/1.4.0-1.tar.gz";
+    name = "1.4.0-1.tar.gz";
+    sha256 = "af02d51c21db9210612714ac26780301bab20c7df6384182c83e79893e5eebd9";
   };
 
   buildType = "ament_cmake";

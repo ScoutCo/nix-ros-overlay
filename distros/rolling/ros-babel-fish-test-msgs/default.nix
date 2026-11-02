@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, builtin-interfaces, geometry-msgs, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-ros-babel-fish-test-msgs";
-  version = "3.25.2-r1";
+  version = "4.26.43-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros_babel_fish-release/archive/release/rolling/ros_babel_fish_test_msgs/3.25.2-1.tar.gz";
-    name = "3.25.2-1.tar.gz";
-    sha256 = "5e4734b9d587121219d2c3e1b69bd4eef99452cbd98e7d74c1ab9ac1cb4fb5b7";
+    url = "https://github.com/ros2-gbp/ros_babel_fish-release/archive/release/rolling/ros_babel_fish_test_msgs/4.26.43-2.tar.gz";
+    name = "4.26.43-2.tar.gz";
+    sha256 = "ea480d141d3c277da967ff60c4cfb68e04f834db597b3011c0223f5a4544d6fd";
   };
 
   buildType = "ament_cmake";

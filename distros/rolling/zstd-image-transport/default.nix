@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, image-transport, zlib }:
 buildRosPackage {
   pname = "ros-rolling-zstd-image-transport";
-  version = "6.2.2-r1";
+  version = "7.0.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_transport_plugins-release/archive/release/rolling/zstd_image_transport/6.2.2-1.tar.gz";
-    name = "6.2.2-1.tar.gz";
-    sha256 = "b94567447a2e1aa5c3c8b3311f7895911f7d049645a28a0771d9b74aafc610ab";
+    url = "https://github.com/ros2-gbp/image_transport_plugins-release/archive/release/rolling/zstd_image_transport/7.0.1-1.tar.gz";
+    name = "7.0.1-1.tar.gz";
+    sha256 = "418a72d1cd53b6e3c2ab7f1c35412b9a9edc402f12e36baac2b38a74474958f0";
   };
 
   buildType = "ament_cmake";

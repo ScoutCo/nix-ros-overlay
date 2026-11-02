@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, backward-ros, builtin-interfaces, control-msgs, controller-interface, controller-manager, generate-parameter-library, hardware-interface, hardware-interface-testing, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, ros2-control-cmake, ros2-control-test-assets, sensor-msgs, urdf }:
 buildRosPackage {
   pname = "ros-jazzy-joint-state-broadcaster";
-  version = "4.33.0-r1";
+  version = "4.42.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/jazzy/joint_state_broadcaster/4.33.0-1.tar.gz";
-    name = "4.33.0-1.tar.gz";
-    sha256 = "af011e02814be30799a1166e4760f14c57c7d410686e05d23fc9ec92c1454f0a";
+    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/jazzy/joint_state_broadcaster/4.42.1-1.tar.gz";
+    name = "4.42.1-1.tar.gz";
+    sha256 = "6e95ae92dabf9335ee0306f3864c7df696e0e4198c2faa39308b2bec012a102c";
   };
 
   buildType = "ament_cmake";

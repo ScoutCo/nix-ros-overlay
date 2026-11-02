@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake }:
 buildRosPackage {
   pname = "ros-kilted-etsi-its-cpm-ts-coding";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/kilted/etsi_its_cpm_ts_coding/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "0298f5a360216160662a610fe20436eda080ae2ce3283a90065c4c2c0ff82a90";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/kilted/etsi_its_cpm_ts_coding/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "a5c921db532dc4c78b7c9aee5b19e6cccc641c93cb105c91a2808351cd3da31e";
   };
 
   buildType = "ament_cmake";

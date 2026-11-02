@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, class-loader, cv-bridge, geometry-msgs, image-transport, opencv, rcl-interfaces, rclcpp, rclcpp-components, sensor-msgs, tf2, tf2-geometry-msgs, tf2-ros }:
 buildRosPackage {
   pname = "ros-rolling-image-rotate";
-  version = "7.1.2-r1";
+  version = "8.0.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/rolling/image_rotate/7.1.2-1.tar.gz";
-    name = "7.1.2-1.tar.gz";
-    sha256 = "cdd9b04a1c4b56ee39fa6e922781f75d319559078fdccf0e05b7a13c2deee66f";
+    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/rolling/image_rotate/8.0.1-1.tar.gz";
+    name = "8.0.1-1.tar.gz";
+    sha256 = "7161d6bbf0f1c3bf1e44fb6e210f405dcabb7dc4e91c78abf7a111cee5cc8fc9";
   };
 
   buildType = "ament_cmake";

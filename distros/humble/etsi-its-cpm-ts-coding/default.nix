@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake }:
 buildRosPackage {
   pname = "ros-humble-etsi-its-cpm-ts-coding";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/humble/etsi_its_cpm_ts_coding/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "15d521cdbf0c6272cdfb495530a06fd643ee31317e12aa13e6b33357e82dc4df";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/humble/etsi_its_cpm_ts_coding/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "c1420f9a6ce611d43e1872179ffd7d11262de854c487b851f2f3d9b88c58405c";
   };
 
   buildType = "ament_cmake";

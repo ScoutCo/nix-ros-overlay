@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-python, ament-copyright, ament-flake8, ament-pep257, flexbe-core, flexbe-mirror, flexbe-msgs, flexbe-onboard, launch-ros, python3Packages, rclpy }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-python, ament-copyright, ament-flake8, ament-pep257, flexbe-core, flexbe-mirror, flexbe-msgs, flexbe-onboard, launch-ros, python3Packages, rclpy, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-flexbe-widget";
-  version = "3.0.3-r2";
+  version = "4.1.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release/archive/release/kilted/flexbe_widget/3.0.3-2.tar.gz";
-    name = "3.0.3-2.tar.gz";
-    sha256 = "e0f6b3a5c74b995b5de24287d20753fafbb08836a7578fd356baf10fd90fcb83";
+    url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release/archive/release/kilted/flexbe_widget/4.1.4-1.tar.gz";
+    name = "4.1.4-1.tar.gz";
+    sha256 = "d1eee053a68b55e3d8f2bdbbfb32387d45d1b89018209510c2174216c3dee7d9";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ament-cmake-python ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 python3Packages.pytest ];
-  propagatedBuildInputs = [ flexbe-core flexbe-mirror flexbe-msgs flexbe-onboard launch-ros rclpy ];
+  propagatedBuildInputs = [ flexbe-core flexbe-mirror flexbe-msgs flexbe-onboard launch-ros rclpy std-msgs ];
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
 
   meta = {

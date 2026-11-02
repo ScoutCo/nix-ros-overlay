@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-cmake-pytest, ament-lint-auto, ament-lint-common, cv-bridge, image-geometry, image-proc, image-transport, launch, launch-ros, launch-testing, launch-testing-ament-cmake, message-filters, python-cmake-module, python3Packages, rclcpp, rclcpp-components, rclpy, ros-testing, sensor-msgs, stereo-msgs }:
 buildRosPackage {
   pname = "ros-rolling-stereo-image-proc";
-  version = "7.1.2-r1";
+  version = "8.0.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/rolling/stereo_image_proc/7.1.2-1.tar.gz";
-    name = "7.1.2-1.tar.gz";
-    sha256 = "0248f2fef0000f6fb034e98b49460967fa022c3438137df9ca05aa5f6b63ae5b";
+    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/rolling/stereo_image_proc/8.0.1-1.tar.gz";
+    name = "8.0.1-1.tar.gz";
+    sha256 = "2ebe541f48657636c9ad2952c5d0149fd39198fd158036c83dcfb8ef19f18dd6";
   };
 
   buildType = "ament_cmake";

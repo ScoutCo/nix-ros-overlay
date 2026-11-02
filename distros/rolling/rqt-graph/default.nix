@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-index-python, ament-pep257, ament-xmllint, python-qt-binding, python3Packages, qt-dotgraph, rclpy, rqt-gui, rqt-gui-py }:
 buildRosPackage {
   pname = "ros-rolling-rqt-graph";
-  version = "1.8.1-r1";
+  version = "2.0.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rqt_graph-release/archive/release/rolling/rqt_graph/1.8.1-1.tar.gz";
-    name = "1.8.1-1.tar.gz";
-    sha256 = "a01f077760e5c3971234f4d80e94dd2362788eb4a1d93b708b3182f4d5534932";
+    url = "https://github.com/ros2-gbp/rqt_graph-release/archive/release/rolling/rqt_graph/2.0.3-1.tar.gz";
+    name = "2.0.3-1.tar.gz";
+    sha256 = "c6486c8a8de177a2948206c5b251218ea7a2f18c95ba181d85633256ed25ea31";
   };
 
   buildType = "ament_python";

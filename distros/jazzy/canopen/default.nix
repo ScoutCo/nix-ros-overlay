@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, canopen-402-driver, canopen-base-driver, canopen-core, canopen-interfaces, canopen-proxy-driver, lely-core-libraries }:
 buildRosPackage {
   pname = "ros-jazzy-canopen";
-  version = "0.3.1-r1";
+  version = "0.3.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_canopen-release/archive/release/jazzy/canopen/0.3.1-1.tar.gz";
-    name = "0.3.1-1.tar.gz";
-    sha256 = "acd146dba444d79b58523406d91528ba51683eae2cba6c751ea8227574ea2de3";
+    url = "https://github.com/ros2-gbp/ros2_canopen-release/archive/release/jazzy/canopen/0.3.4-1.tar.gz";
+    name = "0.3.4-1.tar.gz";
+    sha256 = "15468b67c2122e48c41b45032428ae82acd5dc84d412ebc39636ad969a3de8eb";
   };
 
   buildType = "ament_cmake";

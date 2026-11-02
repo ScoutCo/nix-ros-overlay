@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, autoware-cmake, autoware-lint-common, autoware-vehicle-info-utils }:
 buildRosPackage {
   pname = "ros-humble-autoware-global-parameter-loader";
-  version = "1.4.0-r1";
+  version = "1.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_core-release/archive/release/humble/autoware_global_parameter_loader/1.4.0-1.tar.gz";
-    name = "1.4.0-1.tar.gz";
-    sha256 = "7785ee4ee3abc6f358b5254556c508423b2837ee86a7f1a83d7276253b4c663d";
+    url = "https://github.com/ros2-gbp/autoware_core-release/archive/release/humble/autoware_global_parameter_loader/1.9.0-1.tar.gz";
+    name = "1.9.0-1.tar.gz";
+    sha256 = "65c4e3e32ebf26bac2ac5bcdee6a77a349d7b1e0c5cad3952ea73203418c6ddd";
   };
 
   buildType = "ament_cmake";

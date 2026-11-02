@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, ament-xmllint, marti-introspection-msgs, python3Packages, rcl-interfaces, rclpy, ros2cli, ros2node, ros2param, ros2topic }:
 buildRosPackage {
   pname = "ros-rolling-swri-cli-tools";
-  version = "3.8.7-r1";
+  version = "3.9.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/marti_common-release/archive/release/rolling/swri_cli_tools/3.8.7-1.tar.gz";
-    name = "3.8.7-1.tar.gz";
-    sha256 = "c169c773eb8541704636421df73772b36304e824701ba41cb661f397376be6f0";
+    url = "https://github.com/ros2-gbp/marti_common-release/archive/release/rolling/swri_cli_tools/3.9.1-1.tar.gz";
+    name = "3.9.1-1.tar.gz";
+    sha256 = "d85727ec78a3f75919f9127227aad2d6e90bd46f920572d7a6dd09e0cc1ddfca";
   };
 
   buildType = "ament_python";

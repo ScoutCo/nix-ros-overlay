@@ -1,20 +1,20 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, builtin-interfaces, geometry-msgs, rclcpp, rosidl-default-generators, sensor-msgs, std-msgs, vision-msgs }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, builtin-interfaces, geometry-msgs, rclcpp, ros-environment, rosidl-default-generators, sensor-msgs, std-msgs, vision-msgs }:
 buildRosPackage {
   pname = "ros-humble-depthai-ros-msgs";
-  version = "2.11.2-r1";
+  version = "2.12.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/luxonis/depthai-ros-release/archive/release/humble/depthai_ros_msgs/2.11.2-1.tar.gz";
-    name = "2.11.2-1.tar.gz";
-    sha256 = "f21eab977509fc17e2c7281948052badcc1a777677ca4309af712a5dd8e036ed";
+    url = "https://github.com/luxonis/depthai-ros-release/archive/release/humble/depthai_ros_msgs/2.12.2-1.tar.gz";
+    name = "2.12.2-1.tar.gz";
+    sha256 = "f099e440080c6519b7befc73e09efd58c4ef7a0c7e1e960f6d8d3f50d5af04e5";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ros-environment ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclcpp rosidl-default-generators sensor-msgs std-msgs vision-msgs ];
   nativeBuildInputs = [ ament-cmake ];
 

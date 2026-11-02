@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake-ros, clang, doxygen, eigen, fmt, git, range-v3, rclcpp, tcb-span, tl-expected }:
+{ lib, buildRosPackage, fetchurl, ament-cmake-ros, clang, doxygen, eigen, fmt, git, range-v3, rclcpp, tcb-span, tl-expected-nixpkgs }:
 buildRosPackage {
   pname = "ros-jazzy-rsl";
-  version = "1.2.0-r1";
+  version = "1.3.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/RSL-release/archive/release/jazzy/rsl/1.2.0-1.tar.gz";
-    name = "1.2.0-1.tar.gz";
-    sha256 = "30971fa2ef9eb70b7d68d6e6dfcf3347f87d45374430137bc691ae9811346009";
+    url = "https://github.com/ros2-gbp/RSL-release/archive/release/jazzy/rsl/1.3.0-1.tar.gz";
+    name = "1.3.0-1.tar.gz";
+    sha256 = "92ebb0a3148c56953def1b81d9cf66e4b4959a9ba591acf380e5ee479ddfa140";
   };
 
-  buildType = "catkin";
+  buildType = "cmake";
   buildInputs = [ doxygen ];
   checkInputs = [ ament-cmake-ros clang git range-v3 ];
-  propagatedBuildInputs = [ eigen fmt rclcpp tcb-span tl-expected ];
+  propagatedBuildInputs = [ eigen fmt rclcpp tcb-span tl-expected-nixpkgs ];
   nativeBuildInputs = [ doxygen ];
 
   meta = {

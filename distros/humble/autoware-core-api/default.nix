@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, autoware-adapi-adaptors, autoware-cmake, autoware-default-adapi, autoware-lint-common }:
 buildRosPackage {
   pname = "ros-humble-autoware-core-api";
-  version = "1.4.0-r1";
+  version = "1.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_core-release/archive/release/humble/autoware_core_api/1.4.0-1.tar.gz";
-    name = "1.4.0-1.tar.gz";
-    sha256 = "d509a99082927b81533ce639b4051c747bb76fdfa436ae3fa1d7c092fb44dbf8";
+    url = "https://github.com/ros2-gbp/autoware_core-release/archive/release/humble/autoware_core_api/1.9.0-1.tar.gz";
+    name = "1.9.0-1.tar.gz";
+    sha256 = "22b1d01666b2ca8427aa03dea4f2fe05986e5d68c570fc766a755fa76d5521f6";
   };
 
   buildType = "ament_cmake";

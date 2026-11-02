@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, robot-state-publisher, urdf, xacro }:
 buildRosPackage {
   pname = "ros-rolling-flir-camera-description";
-  version = "3.0.3-r1";
+  version = "3.0.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/flir_camera_driver-release/archive/release/rolling/flir_camera_description/3.0.3-1.tar.gz";
-    name = "3.0.3-1.tar.gz";
-    sha256 = "871af21531c260c8c92e46417c713815df7e12bc07e13f3176e4dcaa94eee52f";
+    url = "https://github.com/ros2-gbp/flir_camera_driver-release/archive/release/rolling/flir_camera_description/3.0.5-1.tar.gz";
+    name = "3.0.5-1.tar.gz";
+    sha256 = "92f8a5560906601fbc592ef7bb29ecb3b103c6d288eb055a53c48c2b29937352";
   };
 
   buildType = "ament_cmake";

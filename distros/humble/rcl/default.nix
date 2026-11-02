@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-gen-version-h, ament-cmake-gtest, ament-cmake-ros, ament-lint-auto, ament-lint-common, launch, launch-testing, launch-testing-ament-cmake, mimick-vendor, osrf-testing-tools-cpp, rcl-interfaces, rcl-logging-interface, rcl-logging-spdlog, rcl-yaml-param-parser, rcpputils, rcutils, rmw, rmw-implementation, rmw-implementation-cmake, rosidl-runtime-c, test-msgs, tracetools }:
 buildRosPackage {
   pname = "ros-humble-rcl";
-  version = "5.3.10-r1";
+  version = "5.3.13-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rcl-release/archive/release/humble/rcl/5.3.10-1.tar.gz";
-    name = "5.3.10-1.tar.gz";
-    sha256 = "bbbe5405121256cd211fcb89f6f7ef407a49ea7126b286a48c864a63ed635bde";
+    url = "https://github.com/ros2-gbp/rcl-release/archive/release/humble/rcl/5.3.13-1.tar.gz";
+    name = "5.3.13-1.tar.gz";
+    sha256 = "0dca75f250198aca100b5ea9ff299b694a6d409701142e60859c3a20a69e24a2";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, example-interfaces, rclcpp, rclcpp-action }:
 buildRosPackage {
   pname = "ros-humble-examples-rclcpp-minimal-action-client";
-  version = "0.15.4-r1";
+  version = "0.15.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/examples-release/archive/release/humble/examples_rclcpp_minimal_action_client/0.15.4-1.tar.gz";
-    name = "0.15.4-1.tar.gz";
-    sha256 = "be5a3ae118215b86b17bca6e76d1efd2cf5570da63c155b50c4649bf04614b4a";
+    url = "https://github.com/ros2-gbp/examples-release/archive/release/humble/examples_rclcpp_minimal_action_client/0.15.5-1.tar.gz";
+    name = "0.15.5-1.tar.gz";
+    sha256 = "2aac84dc80b52a319478154e73d94fb14deca9793570bab5ee842583dbbc217a";
   };
 
   buildType = "ament_cmake";

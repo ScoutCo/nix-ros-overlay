@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-common, rcl-interfaces, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-kilted-composition-interfaces";
-  version = "2.3.0-r2";
+  version = "2.3.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rcl_interfaces-release/archive/release/kilted/composition_interfaces/2.3.0-2.tar.gz";
-    name = "2.3.0-2.tar.gz";
-    sha256 = "acb012b4642100c3b4f95125005c9a9d7c576f241da9bb7b7b45bf997699a166";
+    url = "https://github.com/ros2-gbp/rcl_interfaces-release/archive/release/kilted/composition_interfaces/2.3.2-1.tar.gz";
+    name = "2.3.2-1.tar.gz";
+    sha256 = "1399dd00296a00a4c13f1a5237727c728ccf89fcaa969f334e755274221ebecf";
   };
 
   buildType = "ament_cmake";

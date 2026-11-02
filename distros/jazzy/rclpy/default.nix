@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, ament-cmake, ament-cmake-gtest, ament-cmake-pytest, ament-index-python, ament-lint-auto, ament-lint-common, builtin-interfaces, lifecycle-msgs, pybind11-vendor, python-cmake-module, python3Packages, rcl, rcl-action, rcl-interfaces, rcl-lifecycle, rcl-logging-interface, rcl-yaml-param-parser, rcpputils, rcutils, rmw, rmw-implementation, rmw-implementation-cmake, rosgraph-msgs, rosidl-generator-py, rosidl-runtime-c, rpyutils, test-msgs, unique-identifier-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-rclpy";
-  version = "7.1.5-r1";
+  version = "7.1.12-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rclpy-release/archive/release/jazzy/rclpy/7.1.5-1.tar.gz";
-    name = "7.1.5-1.tar.gz";
-    sha256 = "494f1bc897f371632ce105decbd3376e0f72e4a84dc4aa4ac637849447a6a978";
+    url = "https://github.com/ros2-gbp/rclpy-release/archive/release/jazzy/rclpy/7.1.12-1.tar.gz";
+    name = "7.1.12-1.tar.gz";
+    sha256 = "73262f3ee5fb2c38a2037d8489706d287e261c73cf622f3b5b65391a5a1dbc58";
   };
 
   buildType = "ament_cmake";

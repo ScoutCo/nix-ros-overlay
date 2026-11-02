@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, cv-bridge, ffmpeg, image-transport, live555-vendor, pluginlib, rclcpp }:
 buildRosPackage {
   pname = "ros-rolling-rtsp-image-transport";
-  version = "2.0.1-r1";
+  version = "2.0.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rtsp_image_transport-release/archive/release/rolling/rtsp_image_transport/2.0.1-1.tar.gz";
-    name = "2.0.1-1.tar.gz";
-    sha256 = "b2b60ba6d1d8a642d6f52e6b84fe1151d4213c839a8460ef78bc2c2b1f20605d";
+    url = "https://github.com/ros2-gbp/rtsp_image_transport-release/archive/release/rolling/rtsp_image_transport/2.0.2-1.tar.gz";
+    name = "2.0.2-1.tar.gz";
+    sha256 = "f04910c36b11e40ee057bf2aa3e0d4a45a2426b0efe32f5a95666c7089a7a9ee";
   };
 
   buildType = "ament_cmake";

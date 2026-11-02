@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-python, ament-lint-auto, ament-lint-common }:
 buildRosPackage {
   pname = "ros-rolling-smclib";
-  version = "4.1.2-r1";
+  version = "4.4.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/bond_core-release/archive/release/rolling/smclib/4.1.2-1.tar.gz";
-    name = "4.1.2-1.tar.gz";
-    sha256 = "380f8c8a53fd796be13ce9f286abe0f37ac5b9c97dac3038824349de983c2f1c";
+    url = "https://github.com/ros2-gbp/bond_core-release/archive/release/rolling/smclib/4.4.0-2.tar.gz";
+    name = "4.4.0-2.tar.gz";
+    sha256 = "957c380894eebe67b441b26d1e5622b4fbd7566710d8a3cc99bb09ae0cad21ea";
   };
 
   buildType = "ament_cmake";

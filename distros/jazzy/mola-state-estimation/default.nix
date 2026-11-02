@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-xmllint, ament-lint-auto, ament-lint-cmake, mola-state-estimation-simple, mola-state-estimation-smoother }:
 buildRosPackage {
   pname = "ros-jazzy-mola-state-estimation";
-  version = "1.11.0-r1";
+  version = "2.4.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola_state_estimation-release/archive/release/jazzy/mola_state_estimation/1.11.0-1.tar.gz";
-    name = "1.11.0-1.tar.gz";
-    sha256 = "ab8bca73a51e3da8ecd5a78d58fb6b34d0a88d716b77c9910c4f0dc513de059b";
+    url = "https://github.com/ros2-gbp/mola_state_estimation-release/archive/release/jazzy/mola_state_estimation/2.4.2-1.tar.gz";
+    name = "2.4.2-1.tar.gz";
+    sha256 = "de0184d8cee3bf7d498567b805e997a9f3f671940b548582f6d47bc81dff5dd2";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, example-interfaces, python3Packages, rclpy, std-msgs }:
 buildRosPackage {
   pname = "ros-humble-demo-nodes-py";
-  version = "0.20.6-r1";
+  version = "0.20.10-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/humble/demo_nodes_py/0.20.6-1.tar.gz";
-    name = "0.20.6-1.tar.gz";
-    sha256 = "1174833e8c93260a5d47647df7736d479958a3e03876020c555ef016cf888a54";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/humble/demo_nodes_py/0.20.10-1.tar.gz";
+    name = "0.20.10-1.tar.gz";
+    sha256 = "1b5081263836d350cb28de07cbc7f5cbf071d09a1d2cdd17a8d6e248edd65fde";
   };
 
   buildType = "ament_python";

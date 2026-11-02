@@ -1,25 +1,26 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, controller-interface, pluginlib, realtime-tools, sensor-msgs }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, backward-ros, control-msgs, controller-interface, controller-manager, generate-parameter-library, hardware-interface, hardware-interface-testing, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, ros2-control-cmake, ros2-control-test-assets, sensor-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-battery-state-broadcaster";
-  version = "1.0.2-r1";
+  version = "4.42.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros_battery_monitoring-release/archive/release/jazzy/battery_state_broadcaster/1.0.2-1.tar.gz";
-    name = "1.0.2-1.tar.gz";
-    sha256 = "3dcecbebaac2b9b6b57fd8f3ed4d34be5aa83a1e735fffab69dcff1e7d2e1ba6";
+    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/jazzy/battery_state_broadcaster/4.42.1-1.tar.gz";
+    name = "4.42.1-1.tar.gz";
+    sha256 = "b6d6c63b2066c211854dc944531a33938fd1e8218a38d85e46f7b1a29a17523c";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ controller-interface pluginlib realtime-tools sensor-msgs ];
+  buildInputs = [ ament-cmake generate-parameter-library ros2-control-cmake ];
+  checkInputs = [ ament-cmake-gmock controller-manager hardware-interface hardware-interface-testing ros2-control-test-assets ];
+  propagatedBuildInputs = [ backward-ros control-msgs controller-interface hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools sensor-msgs ];
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {
-    description = "ROS2 Control boradcaster for battery state sensors.";
-    license = with lib.licenses; [ mit ];
+    description = "ros2_control battery state broadcaster controller";
+    license = with lib.licenses; [ asl20 ];
   };
 }

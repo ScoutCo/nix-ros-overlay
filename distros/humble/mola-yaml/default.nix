@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-common, mrpt-libbase }:
 buildRosPackage {
   pname = "ros-humble-mola-yaml";
-  version = "1.9.0-r1";
+  version = "3.2.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/humble/mola_yaml/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "23d5ed43cebcbac55a558c89516dd9f04b64ec7c9c59d8d9199a70fddf24ceab";
+    url = "https://github.com/ros2-gbp/mola-release/archive/release/humble/mola_yaml/3.2.0-1.tar.gz";
+    name = "3.2.0-1.tar.gz";
+    sha256 = "9fe1f91c901ca0dad0d7c37eec9cc00825de7193cbff9be5e6aaf0974e31cd2c";
   };
 
   buildType = "cmake";

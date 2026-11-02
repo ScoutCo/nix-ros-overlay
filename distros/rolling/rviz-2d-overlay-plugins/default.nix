@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, boost, rviz-2d-overlay-msgs, rviz-common, rviz-ogre-vendor, rviz-rendering, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-rviz-2d-overlay-plugins";
-  version = "1.3.1-r1";
+  version = "1.4.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rviz_2d_overlay_plugins-release/archive/release/rolling/rviz_2d_overlay_plugins/1.3.1-1.tar.gz";
-    name = "1.3.1-1.tar.gz";
-    sha256 = "6ce7bb1c32cc8bc20b4ae3e92248c5ce1c49c2373025217b5a3e5d3a7f9fd309";
+    url = "https://github.com/ros2-gbp/rviz_2d_overlay_plugins-release/archive/release/rolling/rviz_2d_overlay_plugins/1.4.2-1.tar.gz";
+    name = "1.4.2-1.tar.gz";
+    sha256 = "328a3fda2d32b16f0347449a66a210f533b13c17230230055b86d8902c6cbf66";
   };
 
   buildType = "ament_cmake";

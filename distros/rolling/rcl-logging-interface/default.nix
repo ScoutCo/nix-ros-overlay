@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-ros, ament-lint-auto, ament-lint-common, rcpputils, rcutils }:
 buildRosPackage {
   pname = "ros-rolling-rcl-logging-interface";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rcl_logging-release/archive/release/rolling/rcl_logging_interface/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "dd021d70727829b1a79d79b2626348fb5b71fcfe282ab87c0245ff5c749f0998";
+    url = "https://github.com/ros2-gbp/rcl_logging-release/archive/release/rolling/rcl_logging_interface/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "9980c4acf850a69abfa8a63a74ae1a32b259ebedddc54f400e65cd60ad30d80e";
   };
 
   buildType = "ament_cmake";

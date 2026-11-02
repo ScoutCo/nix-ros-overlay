@@ -1,13 +1,18 @@
-{ lib, buildPythonPackage, fetchPypi, colcon-core }:
+{ lib, buildPythonPackage, fetchFromGitHub, colcon-core, setuptools }:
 
 buildPythonPackage rec {
   pname = "colcon-parallel-executor";
   version = "0.4.0";
 
-  src = fetchPypi {
-    inherit pname version;
-    hash = "sha256-UwlL4kAQo7vCUD3Ck544tcm/oPKXfFiWk3d6CTPsRF0=";
+  src = fetchFromGitHub {
+    owner = "colcon";
+    repo = pname;
+    tag = version;
+    hash = "sha256-JjpVhBpkVNFOsTnY8vEqIre4Hzwg+eDYwrR2iaIC5TA=";
   };
+
+  pyproject = true;
+  build-system = [ setuptools ];
 
   propagatedBuildInputs = [ colcon-core ];
 

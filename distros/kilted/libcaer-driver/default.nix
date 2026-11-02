@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-auto, ament-cmake-clang-format, ament-cmake-copyright, ament-cmake-cppcheck, ament-cmake-cpplint, ament-cmake-flake8, ament-cmake-lint-cmake, ament-cmake-ros, ament-cmake-xmllint, camera-info-manager, event-camera-msgs, image-transport, libcaer-vendor, rclcpp, rclcpp-components, ros-environment, sensor-msgs, std-srvs }:
 buildRosPackage {
   pname = "ros-kilted-libcaer-driver";
-  version = "1.5.2-r1";
+  version = "1.5.6-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/libcaer_driver-release/archive/release/kilted/libcaer_driver/1.5.2-1.tar.gz";
-    name = "1.5.2-1.tar.gz";
-    sha256 = "27f7b851e1e7b5db11c3175a460acfb66e797fd602a911166d21e26ccda5434c";
+    url = "https://github.com/ros2-gbp/libcaer_driver-release/archive/release/kilted/libcaer_driver/1.5.6-1.tar.gz";
+    name = "1.5.6-1.tar.gz";
+    sha256 = "b1ef0cccd1f031dc750800898e564fa4f68109115150af33a1bad38ee06f2c38";
   };
 
   buildType = "ament_cmake";
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "ROS2 driver for event base sensors using libcaer";
-    license = with lib.licenses; [ "Apache-2" ];
+    license = with lib.licenses; [ asl20 ];
   };
 }

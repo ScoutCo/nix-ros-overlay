@@ -1,13 +1,18 @@
-{ lib, buildPythonPackage, fetchPypi, colcon-core, pyyaml }:
+{ lib, buildPythonPackage, fetchFromGitHub, colcon-core, pyyaml, setuptools }:
 
 buildPythonPackage rec {
   pname = "colcon-metadata";
-  version = "0.2.5";
+  version = "0.3.1";
 
-  src = fetchPypi {
-    inherit pname version;
-    sha256 = "1j0yjzdin19dzsb25g73nszld7jlr3dg1i499nf22a8fw4678z0k";
+  src = fetchFromGitHub {
+    owner = "colcon";
+    repo = pname;
+    tag = version;
+    hash = "sha256-y379Bv7dWQKq7wYGd3sm+41iCOiS3qRHg0kYQRPenkU=";
   };
+
+  pyproject = true;
+  build-system = [ setuptools ];
 
   propagatedBuildInputs = [
     colcon-core

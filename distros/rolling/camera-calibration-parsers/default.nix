@@ -1,26 +1,26 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake-gtest, ament-cmake-ros, ament-lint-auto, ament-lint-common, rclcpp, sensor-msgs, yaml-cpp-vendor }:
+{ lib, buildRosPackage, fetchurl, ament-cmake-gen-version-h, ament-cmake-gtest, ament-cmake-pytest, ament-cmake-ros, ament-cmake-ros-core, ament-index-python, ament-lint-auto, ament-lint-common, python3Packages, rclcpp, sensor-msgs, yaml-cpp-vendor }:
 buildRosPackage {
   pname = "ros-rolling-camera-calibration-parsers";
-  version = "6.4.1-r2";
+  version = "7.0.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_common-release/archive/release/rolling/camera_calibration_parsers/6.4.1-2.tar.gz";
-    name = "6.4.1-2.tar.gz";
-    sha256 = "e3c6197b9690fc4a1d25e5d4889b8ba892cea347f45b6cc0bcef6ade492313a2";
+    url = "https://github.com/ros2-gbp/image_common-release/archive/release/rolling/camera_calibration_parsers/7.0.4-1.tar.gz";
+    name = "7.0.4-1.tar.gz";
+    sha256 = "dad21a1ccb2bdbaae55a1b8e0d645cb068496a41037675b9369f8d21d1ae41b1";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake-ros ];
-  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
-  propagatedBuildInputs = [ rclcpp sensor-msgs yaml-cpp-vendor ];
-  nativeBuildInputs = [ ament-cmake-ros ];
+  buildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
+  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-index-python ament-lint-auto ament-lint-common python3Packages.pyyaml ];
+  propagatedBuildInputs = [ ament-cmake-ros-core rclcpp sensor-msgs yaml-cpp-vendor ];
+  nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ament-cmake-ros-core ];
 
   meta = {
     description = "camera_calibration_parsers contains routines for reading and writing camera calibration parameters.";
-    license = with lib.licenses; [ bsdOriginal ];
+    license = with lib.licenses; [ bsd3 ];
   };
 }

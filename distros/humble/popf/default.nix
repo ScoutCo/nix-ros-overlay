@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, bison, cbc, clp, flex, rclcpp }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "The POPF package";
-    license = with lib.licenses; [ "GPL-2.0-only" ];
+    license = with lib.licenses; [ gpl2Only ];
   };
 }

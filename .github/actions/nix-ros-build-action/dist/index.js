@@ -91047,7 +91047,10 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
 	});
 }
 
+;// CONCATENATED MODULE: external "readline"
+const external_readline_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("readline");
 ;// CONCATENATED MODULE: ./lib/nix.js
+
 
 
 
@@ -91062,6 +91065,42 @@ async function listAttrs(file, parentAttr) {
         `with (import (./. + "/${file}") {}); builtins.attrNames (${parentAttr})`
     ]);
     return JSON.parse(stdout).map((a) => `${parentAttr}.${a}`);
+}
+async function* readLinesAsync(stream) {
+    const rl = external_readline_namespaceObject.createInterface({
+        input: stream,
+        crlfDelay: Infinity
+    });
+    for await (const line of rl) {
+        yield line;
+    }
+}
+async function evalJobs(file, parentAttr) {
+    const proc = external_child_process_.spawn('nix-eval-jobs', [
+        '--gc-roots-dir', 'gcroot', file, '--select', `pkgs: pkgs.${parentAttr}`
+    ], {
+        // Ignore stderr to prevent infinite blocking on full pipe
+        stdio: ['inherit', 'pipe', 'ignore']
+    });
+    const jobs = [];
+    // Read lines asynchronously, because the output can be bigger that
+    // max. stdout buffer size
+    for await (const line of readLinesAsync(proc.stdout)) {
+        if (line.trim()) {
+            try {
+                const parsed = JSON.parse(line);
+                jobs.push(parsed);
+            }
+            catch (error) {
+                console.error('Failed to parse:', line, error);
+            }
+        }
+    }
+    await new Promise((resolve, reject) => {
+        proc.on('close', () => resolve());
+        proc.on('error', reject);
+    });
+    return jobs;
 }
 function parseLines(lines) {
     return lines.split('\n')
@@ -91102,8 +91141,8 @@ async function isDrvCachedOn(drvPath, cacheUrl) {
     return (await Promise.all(outputs.map(output => isValidBinaryCachePath(output, cacheUrl))))
         .every(valid => valid);
 }
-async function isDrvCached(drvPath) {
-    const outputs = await getOutputs(drvPath);
+async function isDrvCached(drvPath, excludeOutputs) {
+    const outputs = (await getOutputs(drvPath)).filter((output) => !excludeOutputs.test(output));
     const substituters = await getSubstituters();
     try {
         return await Promise.any(substituters.map(async (s) => {
@@ -91145,7 +91184,7 @@ async function instantiate(file, attribute, root, system) {
         return parseLines(drvPaths);
     }
     catch (e) {
-        external_assert_(e instanceof Object && "stderr" in e);
+        assert(e instanceof Object && "stderr" in e);
         throw e.stderr;
     }
 }
@@ -91187,13 +91226,15 @@ async function push(name, paths) {
 
 
 
+
+
 class BuildGraph {
     constructor() {
         this.graph = new Map();
         this.ready_nodes = [];
         this.resolve_ready = null;
     }
-    add(drvPath, references) {
+    add(drvPath, references, rosDerivations) {
         let node = this.graph.get(drvPath);
         if (node === undefined) {
             node = {
@@ -91205,6 +91246,8 @@ class BuildGraph {
             this.graph.set(drvPath, node);
         }
         for (const reference of references) {
+            if (rosDerivations.get(reference) === undefined)
+                continue; // don't add sources and non-ROS packages
             let referenceNode = this.graph.get(reference);
             if (referenceNode === undefined) {
                 referenceNode = {
@@ -91279,20 +91322,12 @@ class BuildGraph {
     }
 }
 async function main_instantiate(nixFile, rootAttribute, drvDir, system, parallelism = 4) {
-    const attrs = await listAttrs(nixFile, rootAttribute);
+    const jobs = await evalJobs(nixFile, rootAttribute);
     const queue = new PQueue({ concurrency: parallelism });
-    return await queue.addAll(attrs.map(attr => async () => {
+    return await queue.addAll(jobs.map(job => async () => {
+        const attr = job.attr;
         try {
-            core.debug(`evaluating: ${attr}`);
-            const drvPaths = await instantiate(nixFile, attr, external_path_.join(drvDir, attr), system);
-            if (drvPaths.length !== 1) {
-                return {
-                    attr,
-                    status: 'error',
-                    error: new Error(`evaluation produced ${drvPaths.length} derivations`)
-                };
-            }
-            const drvPath = await external_fs_.promises.realpath(drvPaths[0]);
+            const drvPath = await external_fs_.promises.realpath(job.drvPath);
             const references = new Set(await getReferences(drvPath));
             return {
                 status: 'success',
@@ -91304,7 +91339,7 @@ async function main_instantiate(nixFile, rootAttribute, drvDir, system, parallel
             };
         }
         catch (error) {
-            core.debug(`${attr} failed to evaluate`);
+            core.warning(`${job.attr} failed to evaluate`);
             if (typeof error === 'string') {
                 return {
                     attr,
@@ -91322,11 +91357,14 @@ async function main_instantiate(nixFile, rootAttribute, drvDir, system, parallel
         }
     }));
 }
-async function build(drvPath, resultDir, cachixCache, cacheDir) {
+// Regular expression matching debug output of a derivation. We don't
+// want the debug output to pollute the binary cache and consume its limited capacity.
+const excludedOutput = new RegExp("-debug$");
+async function build(drvPath, resultDir, cachixCache, cacheDir, progress) {
     const cacheKey = "failed-" + external_path_.basename(drvPath, ".drv");
     try {
-        if (await isDrvCached(drvPath)) {
-            core.debug(`found cached: ${drvPath}`);
+        if (await isDrvCached(drvPath, excludedOutput)) { // skip debug output
+            core.info(`${progress} found cached: ${drvPath}`);
             return {
                 status: 'cached_success',
                 drvPath
@@ -91353,10 +91391,10 @@ async function build(drvPath, resultDir, cachixCache, cacheDir) {
         core.warning(`failed to query failed build cache for ${drvPath}: ${e}`);
     }
     try {
-        core.debug(`building: ${drvPath}`);
+        core.info(`${progress} building: ${drvPath}`);
         const resultPath = external_path_.join(resultDir, external_path_.basename(drvPath, ".drv"));
         const outputs = await realize(drvPath, resultPath);
-        await push(cachixCache, outputs);
+        await push(cachixCache, outputs.filter((output) => !excludedOutput.test(output)));
         return {
             status: 'success',
             drvPath
@@ -91411,7 +91449,10 @@ async function run() {
         const cachedFailures = [];
         const dependencyFailures = [];
         const errors = [];
-        core.info("evaluating packages...");
+        core.startGroup("installing nix-eval-jobs...");
+        (0,external_child_process_.execSync)("nix-env --install --file default.nix -A nix-eval-jobs");
+        core.endGroup();
+        core.startGroup(`evaluating packages in ${rootAttribute}...`);
         const evalResults = await main_instantiate(nixFile, rootAttribute, drvDir, system, evalJobs);
         const derivations = new Map();
         for (const r of evalResults) {
@@ -91428,20 +91469,23 @@ async function run() {
                 });
             }
         }
+        core.endGroup();
         // Create graph of references used to order the builds
         const buildGraph = new BuildGraph();
         for (const [drvPath, drv] of derivations) {
-            buildGraph.add(drvPath, drv.references);
+            buildGraph.add(drvPath, drv.references, derivations);
         }
         buildGraph.init();
-        core.info("building packages...");
+        core.startGroup(`building ${derivations.size} packages...`);
         const queue = new PQueue({ concurrency: buildJobs });
+        let num_done = 0;
         do {
             const node = await buildGraph.takeReady();
             queue.add(async () => {
                 if (node.state === 'failed') {
                     const drv = derivations.get(node.drvPath);
                     if (drv === undefined) {
+                        num_done++;
                         return;
                     }
                     const failedDependencies = [];
@@ -91456,9 +91500,12 @@ async function run() {
                         drvPath: drv.drvPath,
                         failedDependencies
                     });
+                    num_done++;
                     return;
                 }
-                const r = await build(node.drvPath, resultDir, cachixCache, cacheDir);
+                const progress = `[${(num_done / derivations.size * 100).toFixed(1)}%]`;
+                const r = await build(node.drvPath, resultDir, cachixCache, cacheDir, progress);
+                num_done++;
                 if (r.status === 'cached_success' || r.status === 'success') {
                     buildGraph.succeeded(node);
                 }
@@ -91504,7 +91551,22 @@ async function run() {
                 }
             });
         } while (!buildGraph.empty());
+        core.endGroup();
         await queue.onIdle();
+        core.info(`Creating linkFarm.nix from successful builds`);
+        const successfulAttrs = [];
+        function successfulAttrsPush(attr) {
+            if (attr != "buildEnv") // buildEnv is a function, not derivation
+                successfulAttrs.push(attr);
+        }
+        successes.forEach((element) => successfulAttrsPush(element.attr));
+        cachedSuccesses.forEach((element) => successfulAttrsPush(element.attr));
+        (0,external_fs_.writeFileSync)("linkFarm.nix", `
+      { name }:
+      with import ./. { system = "${system}"; };
+      linkFarmFromDrvs name (with ${rootAttribute}; [
+        ${successfulAttrs.join("\n")}
+      ])`);
         core.startGroup("Results");
         core.info(`Successes: ${successes.length}`);
         core.info(`Cached: ${cachedSuccesses.length}`);

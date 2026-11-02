@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "Messages for describing collisions (simulated or not)";
-    license = with lib.licenses; [ "BSD-3-clause" ];
+    license = with lib.licenses; [ bsd3 ];
   };
 }

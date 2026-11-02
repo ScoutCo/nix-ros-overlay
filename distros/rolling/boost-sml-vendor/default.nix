@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-vendor-package, git }:
 buildRosPackage {
   pname = "ros-rolling-boost-sml-vendor";
-  version = "1.1.11-r1";
+  version = "1.1.13-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/boost_sml_vendor-release/archive/release/rolling/boost_sml_vendor/1.1.11-1.tar.gz";
-    name = "1.1.11-1.tar.gz";
-    sha256 = "6f4bbf8e803ddb3eee126a352eb112df3f035b214149501be3c92eaa9feb81db";
+    url = "https://github.com/ros2-gbp/boost_sml_vendor-release/archive/release/rolling/boost_sml_vendor/1.1.13-2.tar.gz";
+    name = "1.1.13-2.tar.gz";
+    sha256 = "e4baca84cf57cbd8dae4abf444665706ad4b8c1811bb14e188de6d2361cd8b6c";
   };
 
   buildType = "ament_cmake";
@@ -19,6 +19,6 @@ buildRosPackage {
 
   meta = {
     description = "Vendor package for the Boost SML (State Machine Language)";
-    license = with lib.licenses; [ mit "BSL-1.0" ];
+    license = with lib.licenses; [ mit boost ];
   };
 }

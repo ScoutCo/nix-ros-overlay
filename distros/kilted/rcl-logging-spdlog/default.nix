@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-ros, ament-lint-auto, ament-lint-common, performance-test-fixture, rcl-logging-interface, rcpputils, rcutils, spdlog, spdlog-vendor }:
 buildRosPackage {
   pname = "ros-kilted-rcl-logging-spdlog";
-  version = "3.2.2-r2";
+  version = "3.2.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rcl_logging-release/archive/release/kilted/rcl_logging_spdlog/3.2.2-2.tar.gz";
-    name = "3.2.2-2.tar.gz";
-    sha256 = "bc0fbf3c5512f7931491fbc347c006fbd3b093c286b424205980ca2ac70a7b8b";
+    url = "https://github.com/ros2-gbp/rcl_logging-release/archive/release/kilted/rcl_logging_spdlog/3.2.4-1.tar.gz";
+    name = "3.2.4-1.tar.gz";
+    sha256 = "e04a18946f0088637de34a6abd253bb44c766fc736558123fa84abbacdabb66b";
   };
 
   buildType = "ament_cmake";

@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-flake8, ament-index-python, ament-xmllint, qt-gui, qt-gui-py-common, rclpy, rqt-gui, rqt-gui-py }:
@@ -19,6 +19,6 @@ buildRosPackage {
 
   meta = {
     description = "Visualization plugin for several sensors.";
-    license = with lib.licenses; [ "BSD-Clause-3" ];
+    license = with lib.licenses; [ bsd3 ];
   };
 }

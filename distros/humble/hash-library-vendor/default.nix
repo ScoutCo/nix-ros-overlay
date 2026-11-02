@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, git }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "ROS2 vendor package for stbrumme/hash-library";
-    license = with lib.licenses; [ asl20 "Zlib-License" ];
+    license = with lib.licenses; [ asl20 zlib ];
   };
 }

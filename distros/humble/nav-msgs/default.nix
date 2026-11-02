@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-common, builtin-interfaces, geometry-msgs, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-humble-nav-msgs";
-  version = "4.9.0-r1";
+  version = "4.9.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/humble/nav_msgs/4.9.0-1.tar.gz";
-    name = "4.9.0-1.tar.gz";
-    sha256 = "1b70eea22330a24bb3ef901e0c1981e3606b929edb299e89f2e246cf180f8af5";
+    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/humble/nav_msgs/4.9.2-1.tar.gz";
+    name = "4.9.2-1.tar.gz";
+    sha256 = "ed6b7c7021c57137f7645e27e17d2516b065efe80794bf966d06f09f5b35d34e";
   };
 
   buildType = "ament_cmake";

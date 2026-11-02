@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake }:
 buildRosPackage {
   pname = "ros-rolling-gtest-vendor";
-  version = "1.16.0-r1";
+  version = "1.17.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/googletest-release/archive/release/rolling/gtest_vendor/1.16.0-1.tar.gz";
-    name = "1.16.0-1.tar.gz";
-    sha256 = "ae5437a528d5e19209c5b9fa6383d9edf59ed1071ae4496433422114e710700b";
+    url = "https://github.com/ros2-gbp/googletest-release/archive/release/rolling/gtest_vendor/1.17.0-2.tar.gz";
+    name = "1.17.0-2.tar.gz";
+    sha256 = "30c1e0e2b748dd01e85a6cd62e75fd8aab97fe71c5de00b93ccd46cd39493f71";
   };
 
   buildType = "cmake";

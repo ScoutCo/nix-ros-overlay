@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, git, zstd }:
 buildRosPackage {
   pname = "ros-humble-zstd-vendor";
-  version = "0.15.15-r1";
+  version = "0.15.17-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/humble/zstd_vendor/0.15.15-1.tar.gz";
-    name = "0.15.15-1.tar.gz";
-    sha256 = "faf0e2cd5b5aa724b79d06c5ec8ad07455f109c2d4f0eddcbd55b369883458e6";
+    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/humble/zstd_vendor/0.15.17-1.tar.gz";
+    name = "0.15.17-1.tar.gz";
+    sha256 = "8048a2449ee56c524099d995dffa27a2ca008438a2643c2f201f5ca5e6641f03";
   };
 
   buildType = "ament_cmake";

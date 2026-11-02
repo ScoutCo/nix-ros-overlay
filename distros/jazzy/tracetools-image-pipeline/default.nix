@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-ros, ament-lint-auto, ament-lint-common, pkg-config }:
 buildRosPackage {
   pname = "ros-jazzy-tracetools-image-pipeline";
-  version = "5.0.11-r1";
+  version = "5.0.13-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/jazzy/tracetools_image_pipeline/5.0.11-1.tar.gz";
-    name = "5.0.11-1.tar.gz";
-    sha256 = "6995ffeb16af727a658bba3dedb455f8f685b3b649808d2a328a19263a71f3f0";
+    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/jazzy/tracetools_image_pipeline/5.0.13-1.tar.gz";
+    name = "5.0.13-1.tar.gz";
+    sha256 = "2a43a6eca35d7b4cb31057538789c26381898c07e0fe26162fc689162a5b1c77";
   };
 
   buildType = "ament_cmake";

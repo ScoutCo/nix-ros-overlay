@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, gz-msgs-vendor, gz-transport-vendor, image-transport, pkg-config, rclcpp, ros-gz-bridge, sensor-msgs }:
 buildRosPackage {
   pname = "ros-rolling-ros-gz-image";
-  version = "3.0.4-r1";
+  version = "4.0.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros_ign-release/archive/release/rolling/ros_gz_image/3.0.4-1.tar.gz";
-    name = "3.0.4-1.tar.gz";
-    sha256 = "f01144332375db268a871dbe2867607bcf97d6ca5ef4e9c3fda0fd2f53f574d6";
+    url = "https://github.com/ros2-gbp/ros_ign-release/archive/release/rolling/ros_gz_image/4.0.1-1.tar.gz";
+    name = "4.0.1-1.tar.gz";
+    sha256 = "0aa14563e2338fd8d0a103ba07df14b037f260180fd0d28c1ff0e398273d2653";
   };
 
   buildType = "ament_cmake";

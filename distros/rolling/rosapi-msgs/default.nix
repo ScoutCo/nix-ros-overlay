@@ -1,26 +1,25 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake-ros, builtin-interfaces, rcl-interfaces, rosidl-default-generators, rosidl-default-runtime }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-rolling-rosapi-msgs";
-  version = "2.3.0-r1";
+  version = "4.2.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbridge_suite-release/archive/release/rolling/rosapi_msgs/2.3.0-1.tar.gz";
-    name = "2.3.0-1.tar.gz";
-    sha256 = "f3a4df77513c86b0d732f789dd36b1370f85f4e44bbf19c8246a412ea64193b6";
+    url = "https://github.com/ros2-gbp/rosbridge_suite-release/archive/release/rolling/rosapi_msgs/4.2.1-1.tar.gz";
+    name = "4.2.1-1.tar.gz";
+    sha256 = "fdfb8161cbe8bc6c34beaa222d8f9a1e862f77c3210418f4e130b618339e36a0";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake-ros rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces rosidl-default-runtime ];
-  nativeBuildInputs = [ ament-cmake-ros rosidl-default-generators ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
+  nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
 
   meta = {
-    description = "Provides service calls for getting ros meta-information, like list of
-    topics, services, params, etc.";
+    description = "Interface definitions for rosapi package.";
     license = with lib.licenses; [ bsdOriginal ];
   };
 }

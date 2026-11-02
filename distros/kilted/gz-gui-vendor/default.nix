@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-copyright, ament-cmake-core, ament-cmake-lint-cmake, ament-cmake-test, ament-cmake-vendor-package, ament-cmake-xmllint, cmake, gz-cmake-vendor, gz-common-vendor, gz-math-vendor, gz-msgs-vendor, gz-plugin-vendor, gz-rendering-vendor, gz-tools-vendor, gz-transport-vendor, gz-utils-vendor, protobuf, qt5, tinyxml-2, xorg }:
 buildRosPackage {
   pname = "ros-kilted-gz-gui-vendor";
-  version = "0.2.1-r2";
+  version = "0.2.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/gz_gui_vendor-release/archive/release/kilted/gz_gui_vendor/0.2.1-2.tar.gz";
-    name = "0.2.1-2.tar.gz";
-    sha256 = "d3b3331fd50391fc4d9a5e2aed65ae980b715016b6c2d689080400815443f646";
+    url = "https://github.com/ros2-gbp/gz_gui_vendor-release/archive/release/kilted/gz_gui_vendor/0.2.4-1.tar.gz";
+    name = "0.2.4-1.tar.gz";
+    sha256 = "ba6746edf7798cff1c7925013c08ad23517cd093d4320eb5d14362a12a0e25fe";
   };
 
   buildType = "ament_cmake";
@@ -20,7 +20,7 @@ buildRosPackage {
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package cmake ];
 
   meta = {
-    description = "Vendor package for: gz-gui9 9.0.1
+    description = "Vendor package for: gz-gui9 9.0.2
 
     Gazebo GUI : Graphical interfaces for robotics applications";
     license = with lib.licenses; [ asl20 ];

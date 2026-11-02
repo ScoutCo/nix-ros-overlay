@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-lint-cmake, ament-cmake-xmllint, ament-lint-auto, camera-calibration, depth-image-proc, image-proc, image-publisher, image-rotate, image-view, stereo-image-proc }:
 buildRosPackage {
   pname = "ros-rolling-image-pipeline";
-  version = "7.1.2-r1";
+  version = "8.0.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/rolling/image_pipeline/7.1.2-1.tar.gz";
-    name = "7.1.2-1.tar.gz";
-    sha256 = "08e9cf0536917cb796918afab56f5b3d336e610a115f4b81d9a24ea1d27c664e";
+    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/rolling/image_pipeline/8.0.1-1.tar.gz";
+    name = "8.0.1-1.tar.gz";
+    sha256 = "bcf3edae1071225d53a397c72334f5f96b30cbbb0c39fd280b410d1680159dcc";
   };
 
   buildType = "ament_cmake";

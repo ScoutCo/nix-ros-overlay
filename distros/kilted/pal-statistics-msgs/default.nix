@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-pal-statistics-msgs";
-  version = "2.7.0-r1";
+  version = "2.8.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/pal_statistics-release/archive/release/kilted/pal_statistics_msgs/2.7.0-1.tar.gz";
-    name = "2.7.0-1.tar.gz";
-    sha256 = "48d11d6b96f99aa951f0a7e56ef41fb77f10d3cb6a7276b426a0005c5b4a2bbe";
+    url = "https://github.com/ros2-gbp/pal_statistics-release/archive/release/kilted/pal_statistics_msgs/2.8.2-1.tar.gz";
+    name = "2.8.2-1.tar.gz";
+    sha256 = "f9da211b12dce1d9692c4b5bc47a57232b5ea576c83a7d5ae54bc0fca95f4ea2";
   };
 
   buildType = "ament_cmake";

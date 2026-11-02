@@ -1,0 +1,27 @@
+
+# Copyright 2026 Open Source Robotics Foundation
+# Distributed under the terms of the BSD license
+
+{ lib, buildRosPackage, fetchurl, ament-cmake-python, ament-copyright, ament-flake8, ament-lint-auto, ament-lint-common, ament-pep257, python3Packages, rclpy, sensor-msgs, trajectory-msgs }:
+buildRosPackage {
+  pname = "ros-humble-pal-pro-gripper-wrapper";
+  version = "1.12.6-r1";
+
+  src = fetchurl {
+    url = "https://github.com/ros2-gbp/pal_pro_gripper-release/archive/release/humble/pal_pro_gripper_wrapper/1.12.6-1.tar.gz";
+    name = "1.12.6-1.tar.gz";
+    sha256 = "4a4df4182f6f68b0187ac3c22a904cd928adee8e95e1045c0f973d1d076eddd2";
+  };
+
+  buildType = "ament_python";
+  buildInputs = [ ament-cmake-python sensor-msgs trajectory-msgs ];
+  checkInputs = [ ament-copyright ament-flake8 ament-lint-auto ament-lint-common ament-pep257 python3Packages.pytest ];
+  propagatedBuildInputs = [ rclpy ];
+  nativeBuildInputs = [ ament-cmake-python ];
+
+  meta = {
+    description = "Grasp controller to close with a determined error on position only
+    so to skip overheating.";
+    license = with lib.licenses; [ asl20 ];
+  };
+}

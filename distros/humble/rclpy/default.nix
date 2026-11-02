@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-pytest, ament-index-python, ament-lint-auto, ament-lint-common, builtin-interfaces, pybind11-vendor, python-cmake-module, python3Packages, rcl, rcl-action, rcl-interfaces, rcl-lifecycle, rcl-logging-interface, rcl-yaml-param-parser, rcpputils, rcutils, rmw, rmw-implementation, rmw-implementation-cmake, rosgraph-msgs, rosidl-generator-py, rosidl-runtime-c, rpyutils, test-msgs, unique-identifier-msgs }:
 buildRosPackage {
   pname = "ros-humble-rclpy";
-  version = "3.3.17-r1";
+  version = "3.3.22-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rclpy-release/archive/release/humble/rclpy/3.3.17-1.tar.gz";
-    name = "3.3.17-1.tar.gz";
-    sha256 = "bca737b407702c544fda24714a091f466f4fc0c373bb2964ab89b34ef1586251";
+    url = "https://github.com/ros2-gbp/rclpy-release/archive/release/humble/rclpy/3.3.22-1.tar.gz";
+    name = "3.3.22-1.tar.gz";
+    sha256 = "8f59a6e7cc9dd2a4574649aa306983d011fd4bc459f8b62520b991c921f64989";
   };
 
   buildType = "ament_cmake";

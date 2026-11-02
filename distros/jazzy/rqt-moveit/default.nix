@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, python-qt-binding, python3Packages, rclpy, rosidl-default-generators, rqt-gui, rqt-gui-py, rqt-py-common, rqt-topic, sensor-msgs }:
@@ -26,7 +26,7 @@ buildRosPackage {
    <ul>
    <li>Node: /move_group</li>
    <li>Parameter: [/robot_description, /robot_description_semantic]</li>
-   <li>Topic: Following types are monitored. Published &quot;names&quot; are ignored.<br/>
+   <li>Topic: Following types are monitored. Published \"names\" are ignored.<br/>
        [sensor_msgs/PointCloud, sensor_msgs/PointCloud2,
         sensor_msgs/Image, sensor_msgs/CameraInfo]</li>
    </ul>

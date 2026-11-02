@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-test, ament-lint-auto, ament-lint-common, ros2cli, sros2 }:
 buildRosPackage {
   pname = "ros-humble-sros2-cmake";
-  version = "0.10.7-r1";
+  version = "0.10.9-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/sros2-release/archive/release/humble/sros2_cmake/0.10.7-1.tar.gz";
-    name = "0.10.7-1.tar.gz";
-    sha256 = "34823d1407f71ea89dc45d5a7a16485456fc538b6347177646a744035f06d3e9";
+    url = "https://github.com/ros2-gbp/sros2-release/archive/release/humble/sros2_cmake/0.10.9-1.tar.gz";
+    name = "0.10.9-1.tar.gz";
+    sha256 = "7f9077a556fecb253cc535349026073d2da15b736ef1ed2dcf1edeb088be9a56";
   };
 
   buildType = "ament_cmake";

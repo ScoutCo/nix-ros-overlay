@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake }:
 buildRosPackage {
   pname = "ros-rolling-rmf-demos-assets";
-  version = "2.8.0-r1";
+  version = "2.8.2-r3";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rmf_demos-release/archive/release/rolling/rmf_demos_assets/2.8.0-1.tar.gz";
-    name = "2.8.0-1.tar.gz";
-    sha256 = "bad788e1eb346f3d94f49577db7d15fbec1d539c8ac92b6e3d55af2d1ce98d1f";
+    url = "https://github.com/ros2-gbp/rmf_demos-release/archive/release/rolling/rmf_demos_assets/2.8.2-3.tar.gz";
+    name = "2.8.2-3.tar.gz";
+    sha256 = "523ac527cb87c3954541d272eccc027d2b97dd6cf2a903a3421728908c816a55";
   };
 
   buildType = "ament_cmake";

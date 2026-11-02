@@ -1,27 +1,27 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake-mypy, ament-cmake-pytest, ament-cmake-ros, builtin-interfaces, geometry-msgs, rcl-interfaces, rclpy, rmw-dds-common, ros2node, ros2service, ros2topic, rosapi-msgs, rosbridge-library, sensor-msgs, shape-msgs }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-mypy, ament-cmake-pytest, ament-cmake-python, builtin-interfaces, geometry-msgs, rcl-interfaces, rclpy, rmw-dds-common, ros2action, ros2interface, ros2node, ros2service, ros2topic, rosapi-msgs, rosbridge-library, rosidl-adapter, rosidl-runtime-py, sensor-msgs, shape-msgs }:
 buildRosPackage {
   pname = "ros-kilted-rosapi";
-  version = "2.3.0-r1";
+  version = "3.3.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbridge_suite-release/archive/release/kilted/rosapi/2.3.0-1.tar.gz";
-    name = "2.3.0-1.tar.gz";
-    sha256 = "4db34dd445a7e09facb7e0e64e5525b7785193c6e164fc3f129e4c1bbaf488f0";
+    url = "https://github.com/ros2-gbp/rosbridge_suite-release/archive/release/kilted/rosapi/3.3.1-1.tar.gz";
+    name = "3.3.1-1.tar.gz";
+    sha256 = "ec1e6a54975fcbd68a4b48c537b6c063591a2fc7024bd7020a287c1c7e7b93e9";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake-ros ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
   checkInputs = [ ament-cmake-mypy ament-cmake-pytest geometry-msgs rmw-dds-common sensor-msgs shape-msgs ];
-  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces rclpy ros2node ros2service ros2topic rosapi-msgs rosbridge-library ];
-  nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces rclpy ros2action ros2interface ros2node ros2service ros2topic rosapi-msgs rosbridge-library rosidl-adapter rosidl-runtime-py ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ];
 
   meta = {
-    description = "Provides service calls for getting ros meta-information, like list of
-    topics, services, params, etc.";
+    description = "Provides services for getting various ROS meta-information, including ROS topic, services, interfaces or
+action servers and managing ROS parameters.";
     license = with lib.licenses; [ bsdOriginal ];
   };
 }

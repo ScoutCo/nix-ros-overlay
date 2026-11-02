@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-cmake-ros, ament-lint-auto, autoware-cmake, autoware-lint-common, diagnostic-msgs, rclcpp }:
+{ lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-cmake-ros, ament-lint-auto, autoware-cmake, autoware-lint-common, diagnostic-msgs, diagnostic-updater, rclcpp }:
 buildRosPackage {
   pname = "ros-rolling-autoware-utils-diagnostics";
-  version = "1.4.2-r1";
+  version = "1.7.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/rolling/autoware_utils_diagnostics/1.4.2-1.tar.gz";
-    name = "1.4.2-1.tar.gz";
-    sha256 = "5a5f5cf8dbcccba4ad3b10966d72fc9fa90302e1e86846382ad55afe61e62789";
+    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/rolling/autoware_utils_diagnostics/1.7.2-1.tar.gz";
+    name = "1.7.2-1.tar.gz";
+    sha256 = "26bf5f74626491feeac96067222c312802dce1bdac3564ed3843695400aa04d8";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake-auto autoware-cmake ];
   checkInputs = [ ament-cmake-ros ament-lint-auto autoware-lint-common ];
-  propagatedBuildInputs = [ diagnostic-msgs rclcpp ];
+  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater rclcpp ];
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
 
   meta = {

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, actionlib-msgs, ament-cmake, ament-lint-auto, ament-lint-common, builtin-interfaces, diagnostic-msgs, geometry-msgs, nav-msgs, sensor-msgs, shape-msgs, std-msgs, std-srvs, stereo-msgs, trajectory-msgs, visualization-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-common-interfaces";
-  version = "5.3.6-r1";
+  version = "5.3.8-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/jazzy/common_interfaces/5.3.6-1.tar.gz";
-    name = "5.3.6-1.tar.gz";
-    sha256 = "bce08a14bb4e0fd9dc55e6af9cc668696162e638360b29b00c5b6066c1f05fd2";
+    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/jazzy/common_interfaces/5.3.8-1.tar.gz";
+    name = "5.3.8-1.tar.gz";
+    sha256 = "8a9113a1848ec91f1cb60514b90d6b5f54f18786a5f9d7a5ba0bf1af80b56014";
   };
 
   buildType = "ament_cmake";

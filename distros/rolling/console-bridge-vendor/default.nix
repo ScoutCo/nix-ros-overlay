@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-vendor-package, ament-lint-auto, ament-lint-common, console-bridge, performance-test-fixture }:
 buildRosPackage {
   pname = "ros-rolling-console-bridge-vendor";
-  version = "1.9.1-r1";
+  version = "1.10.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/console_bridge_vendor-release/archive/release/rolling/console_bridge_vendor/1.9.1-1.tar.gz";
-    name = "1.9.1-1.tar.gz";
-    sha256 = "a40fec74395a91f363bfd36653778105ae9a5b9d158b21f977b716a4742a9c9b";
+    url = "https://github.com/ros2-gbp/console_bridge_vendor-release/archive/release/rolling/console_bridge_vendor/1.10.0-1.tar.gz";
+    name = "1.10.0-1.tar.gz";
+    sha256 = "62d6e9716b13e372fb725a2ba8e343dbe60c51103d6ba31502bdfb0cd9fb2140";
   };
 
   buildType = "ament_cmake";

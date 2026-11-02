@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, etsi-its-cam-coding, etsi-its-cam-msgs, etsi-its-primitives-conversion }:
 buildRosPackage {
   pname = "ros-jazzy-etsi-its-cam-conversion";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/jazzy/etsi_its_cam_conversion/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "9b81781ea8eb746453f2b1be8fd7e6a2826165ddcbe7c1db79740b664a20b9d6";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/jazzy/etsi_its_cam_conversion/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "7b88de5351eab877104c109221c7f5db23b1569fd800427956ba080bcd97c42b";
   };
 
   buildType = "ament_cmake";

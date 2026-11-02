@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, clearpath-bt-joy, controller-manager, diff-drive-controller, imu-filter-madgwick, interactive-marker-twist-server, joint-state-broadcaster, joint-trajectory-controller, joy-linux, mecanum-drive-controller, robot-localization, robot-state-publisher, teleop-twist-joy, twist-mux }:
 buildRosPackage {
   pname = "ros-jazzy-clearpath-control";
-  version = "2.7.4-r1";
+  version = "2.9.16-r1";
 
   src = fetchurl {
-    url = "https://github.com/clearpath-gbp/clearpath_common-release/archive/release/jazzy/clearpath_control/2.7.4-1.tar.gz";
-    name = "2.7.4-1.tar.gz";
-    sha256 = "63df7d2f7371b42fda1e2d0567011b4019bf1bef249d1bc9ced8d3544731636b";
+    url = "https://github.com/clearpath-gbp/clearpath_common-release/archive/release/jazzy/clearpath_control/2.9.16-1.tar.gz";
+    name = "2.9.16-1.tar.gz";
+    sha256 = "3385038f22acc80733effacd7e56fbd5a8fbdccd2a905f3f8c9985faaa223c50";
   };
 
   buildType = "ament_cmake";

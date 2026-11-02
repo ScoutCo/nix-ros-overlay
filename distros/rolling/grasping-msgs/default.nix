@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, geometry-msgs, moveit-msgs, rosidl-default-generators, rosidl-default-runtime, sensor-msgs, shape-msgs, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-grasping-msgs";
-  version = "0.5.0-r1";
+  version = "0.5.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/grasping_msgs-release/archive/release/rolling/grasping_msgs/0.5.0-1.tar.gz";
-    name = "0.5.0-1.tar.gz";
-    sha256 = "9936b2a49d812937cc1ad6aacde27dd4d722e93b274ec3f978765696e5d77b11";
+    url = "https://github.com/ros2-gbp/grasping_msgs-release/archive/release/rolling/grasping_msgs/0.5.0-2.tar.gz";
+    name = "0.5.0-2.tar.gz";
+    sha256 = "71bf53fe29834da13ff65c69e49ae267539ff46ffe766bab121ac3a267668885";
   };
 
   buildType = "ament_cmake";

@@ -1,21 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, git, liblz4-vendor, zstd-vendor }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, git, lz4-cmake-module, zstd-cmake-module }:
 buildRosPackage {
   pname = "ros-rolling-mcap-vendor";
-  version = "0.33.0-r1";
+  version = "0.34.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/rolling/mcap_vendor/0.33.0-1.tar.gz";
-    name = "0.33.0-1.tar.gz";
-    sha256 = "b938a6408ccc724612bdebc3f2337d8a200af9bc19cc4426e7a84131f258a783";
+    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/rolling/mcap_vendor/0.34.0-1.tar.gz";
+    name = "0.34.0-1.tar.gz";
+    sha256 = "17b2c53dcd2505475522d68f669a2455e77b9dc030ba8c7243dad7a104f9d12e";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake git ];
-  propagatedBuildInputs = [ liblz4-vendor zstd-vendor ];
+  propagatedBuildInputs = [ lz4-cmake-module zstd-cmake-module ];
   nativeBuildInputs = [ ament-cmake git ];
 
   meta = {

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, nav2-bringup }:
 buildRosPackage {
   pname = "ros-jazzy-turtlebot3-navigation2";
-  version = "2.3.3-r1";
+  version = "2.3.6-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/turtlebot3-release/archive/release/jazzy/turtlebot3_navigation2/2.3.3-1.tar.gz";
-    name = "2.3.3-1.tar.gz";
-    sha256 = "869f2fd8a246ed73ac6536f4b9550448e0fefd72ddc868e71d07820357b75577";
+    url = "https://github.com/ros2-gbp/turtlebot3-release/archive/release/jazzy/turtlebot3_navigation2/2.3.6-1.tar.gz";
+    name = "2.3.6-1.tar.gz";
+    sha256 = "8c44a3cd5896c7592931c6939270fd4a538f15f309392170ff25d3b8f66475f1";
   };
 
   buildType = "ament_cmake";

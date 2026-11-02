@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, compressed-depth-image-transport, compressed-image-transport, theora-image-transport, zstd-image-transport }:
 buildRosPackage {
   pname = "ros-rolling-image-transport-plugins";
-  version = "6.2.2-r1";
+  version = "7.0.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_transport_plugins-release/archive/release/rolling/image_transport_plugins/6.2.2-1.tar.gz";
-    name = "6.2.2-1.tar.gz";
-    sha256 = "a7194036dbe1a22986a788d830279620eb207f7e16a80270b6ad72949dfedf0b";
+    url = "https://github.com/ros2-gbp/image_transport_plugins-release/archive/release/rolling/image_transport_plugins/7.0.1-1.tar.gz";
+    name = "7.0.1-1.tar.gz";
+    sha256 = "45157492485a6d82efafd4398e21e0fbe2098de67c4a43320ddfa1c33e2ca6c2";
   };
 
   buildType = "ament_cmake";

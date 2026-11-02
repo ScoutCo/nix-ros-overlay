@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, python3Packages, rcl-interfaces, rclpy, ros2action, ros2cli, ros2node, ros2param, ros2topic }:
@@ -14,10 +14,10 @@ buildRosPackage {
   };
 
   buildType = "ament_python";
-  propagatedBuildInputs = [ python3Packages.GitPython rcl-interfaces rclpy ros2action ros2cli ros2node ros2param ros2topic ];
+  propagatedBuildInputs = [ python3Packages.gitpython rcl-interfaces rclpy ros2action ros2cli ros2node ros2param ros2topic ];
 
   meta = {
     description = "The system_fingerprint package";
-    license = with lib.licenses; [ "BSD-2-clause" ];
+    license = with lib.licenses; [ bsd2 ];
   };
 }

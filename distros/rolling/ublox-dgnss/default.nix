@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ntrip-client-node, ublox-dgnss-node, ublox-nav-sat-fix-hp-node, ublox-ubx-interfaces, ublox-ubx-msgs }:
 buildRosPackage {
   pname = "ros-rolling-ublox-dgnss";
-  version = "0.6.1-r1";
+  version = "0.7.6-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/rolling/ublox_dgnss/0.6.1-1.tar.gz";
-    name = "0.6.1-1.tar.gz";
-    sha256 = "682d2c9ece6ca8343396427072eef86b7c973190c148aa75352d13b59eab32e6";
+    url = "https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/rolling/ublox_dgnss/0.7.6-1.tar.gz";
+    name = "0.7.6-1.tar.gz";
+    sha256 = "2272b4473a1d12350479c72d10da35b7accada64e683f0e2056c1265b65cbbfa";
   };
 
   buildType = "ament_cmake";

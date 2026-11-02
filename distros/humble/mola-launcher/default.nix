@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-xmllint, ament-lint-auto, ament-lint-common, cmake, mola-kernel, mrpt-libbase, mrpt-libtclap, ros-environment }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-pep257, ament-cmake-xmllint, ament-lint-auto, cli11, cmake, mola-kernel, mrpt-libbase, ros-environment }:
 buildRosPackage {
   pname = "ros-humble-mola-launcher";
-  version = "1.9.0-r1";
+  version = "3.2.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/humble/mola_launcher/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "07bfd2a256cdd928c412efdac9208249c224a039c355d4a8be55faf527a25bfe";
+    url = "https://github.com/ros2-gbp/mola-release/archive/release/humble/mola_launcher/3.2.0-1.tar.gz";
+    name = "3.2.0-1.tar.gz";
+    sha256 = "dfb1a66dc8df8245aa3c22b8978b7ba86fd44de1778707df6ff4c4bb59c5fc89";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake ament-cmake-gtest ament-cmake-xmllint cmake ros-environment ];
-  checkInputs = [ ament-lint-auto ament-lint-common ];
-  propagatedBuildInputs = [ mola-kernel mrpt-libbase mrpt-libtclap ];
+  buildInputs = [ ament-cmake ament-cmake-gtest cmake ros-environment ];
+  checkInputs = [ ament-cmake-pep257 ament-cmake-xmllint ament-lint-auto ];
+  propagatedBuildInputs = [ cli11 mola-kernel mrpt-libbase ];
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest cmake ];
 
   meta = {

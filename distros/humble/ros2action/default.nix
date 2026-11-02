@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, ament-copyright, ament-flake8, ament-index-python, ament-pep257, ament-xmllint, launch, launch-testing, launch-testing-ros, python3Packages, rclpy, ros2cli, rosidl-runtime-py, test-msgs }:
 buildRosPackage {
   pname = "ros-humble-ros2action";
-  version = "0.18.14-r1";
+  version = "0.18.20-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2cli-release/archive/release/humble/ros2action/0.18.14-1.tar.gz";
-    name = "0.18.14-1.tar.gz";
-    sha256 = "e31162d0455bf8ccd903a3861a91b6b762415d124165c46ad73a4490b7028f78";
+    url = "https://github.com/ros2-gbp/ros2cli-release/archive/release/humble/ros2action/0.18.20-1.tar.gz";
+    name = "0.18.20-1.tar.gz";
+    sha256 = "c872877da77a4a109b8322c53b2de8008e8b1581cc0bab3a9a6d83b4df150a3e";
   };
 
   buildType = "ament_python";

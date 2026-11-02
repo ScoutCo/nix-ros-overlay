@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, xacro }:
 buildRosPackage {
   pname = "ros-rolling-microstrain-inertial-description";
-  version = "4.7.0-r1";
+  version = "4.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/microstrain_inertial-release/archive/release/rolling/microstrain_inertial_description/4.7.0-1.tar.gz";
-    name = "4.7.0-1.tar.gz";
-    sha256 = "8ac0d20798ddcfbf132d2d5407cf7561e8d802d0bf86fb3ea1c115f3cebf9518";
+    url = "https://github.com/ros2-gbp/microstrain_inertial-release/archive/release/rolling/microstrain_inertial_description/4.9.0-1.tar.gz";
+    name = "4.9.0-1.tar.gz";
+    sha256 = "1bc683fd5c51474fe924926962fb625650b9053d3a82b38413607b4de99fa73e";
   };
 
   buildType = "ament_cmake";

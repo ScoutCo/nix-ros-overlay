@@ -1,21 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, angles, backward-ros, control-msgs, control-toolbox, controller-interface, generate-parameter-library, hardware-interface, kdl-parser, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, rsl, tl-expected, urdf }:
+{ lib, buildRosPackage, fetchurl, _unresolved_tl_expected, ament-cmake, angles, backward-ros, control-msgs, control-toolbox, controller-interface, generate-parameter-library, hardware-interface, kdl-parser, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, rsl, urdf }:
 buildRosPackage {
   pname = "ros-rolling-om-gravity-compensation-controller";
-  version = "4.0.7-r1";
+  version = "4.1.2-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/rolling/om_gravity_compensation_controller/4.0.7-1.tar.gz";
-    name = "4.0.7-1.tar.gz";
-    sha256 = "fce87a166fb404e6cbc04f1023ba044e6b0eb7c1fa6bf276612d2f14605c1b9b";
+    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/rolling/om_gravity_compensation_controller/4.1.2-2.tar.gz";
+    name = "4.1.2-2.tar.gz";
+    sha256 = "b8bce8c9d7e0a970053430ca2fc4a181563fc43f588a94a3edf53546bf68a9e4";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface kdl-parser pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl tl-expected urdf ];
+  propagatedBuildInputs = [ _unresolved_tl_expected angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface kdl-parser pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl urdf ];
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {

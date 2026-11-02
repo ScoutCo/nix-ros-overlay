@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-lint-auto, ament-lint-common, python3Packages, rosidl-adapter }:
 buildRosPackage {
   pname = "ros-humble-rosidl-parser";
-  version = "3.1.7-r1";
+  version = "3.1.9-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/humble/rosidl_parser/3.1.7-1.tar.gz";
-    name = "3.1.7-1.tar.gz";
-    sha256 = "cc32ef38a88ef441a249f382cc5e627e607d90ab1d03d712dd2b90bcdf0bcbb6";
+    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/humble/rosidl_parser/3.1.9-1.tar.gz";
+    name = "3.1.9-1.tar.gz";
+    sha256 = "c93c46331367eceb89354758829cd70e2a80e6a360e7e2c6eaa21b11c06946f9";
   };
 
   buildType = "ament_cmake";

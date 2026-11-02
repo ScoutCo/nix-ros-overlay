@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, launch-ros, nav2-bringup, navigation2, rviz2 }:
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "Bring up nav2 package with Andino.";
-    license = with lib.licenses; [ "BSD-Clause-3" ];
+    license = with lib.licenses; [ bsd3 ];
   };
 }

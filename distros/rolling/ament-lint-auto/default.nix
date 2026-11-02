@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-core, ament-cmake-test }:
 buildRosPackage {
   pname = "ros-rolling-ament-lint-auto";
-  version = "0.20.2-r1";
+  version = "0.21.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ament_lint-release/archive/release/rolling/ament_lint_auto/0.20.2-1.tar.gz";
-    name = "0.20.2-1.tar.gz";
-    sha256 = "97a1a18bd5e336ccd6af22f415b46c94cca2ad57d66351665c2619dd2cc79b8c";
+    url = "https://github.com/ros2-gbp/ament_lint-release/archive/release/rolling/ament_lint_auto/0.21.2-1.tar.gz";
+    name = "0.21.2-1.tar.gz";
+    sha256 = "e612271007c00a82cb886435a3abe23c33cb293e488a9f9d636cf74aa90f201f";
   };
 
   buildType = "ament_cmake";

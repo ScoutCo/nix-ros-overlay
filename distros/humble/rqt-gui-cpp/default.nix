@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, pluginlib, qt-gui, qt-gui-cpp, qt5, rclcpp }:
 buildRosPackage {
   pname = "ros-humble-rqt-gui-cpp";
-  version = "1.1.8-r1";
+  version = "1.1.10-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rqt-release/archive/release/humble/rqt_gui_cpp/1.1.8-1.tar.gz";
-    name = "1.1.8-1.tar.gz";
-    sha256 = "b112db5619858b91dcdcceff09f6fa402e35ed5208b274d2a137de7df7191b47";
+    url = "https://github.com/ros2-gbp/rqt-release/archive/release/humble/rqt_gui_cpp/1.1.10-2.tar.gz";
+    name = "1.1.10-2.tar.gz";
+    sha256 = "52969e0cca3e5392c8bdffecfa6f487f36ec7b30d1a502b264b96ea15f78903c";
   };
 
   buildType = "ament_cmake";

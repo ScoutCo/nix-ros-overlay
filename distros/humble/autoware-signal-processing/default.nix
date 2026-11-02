@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-cmake-ros, ament-lint-auto, autoware-cmake, autoware-lint-common, boost, geometry-msgs, rclcpp }:
 buildRosPackage {
   pname = "ros-humble-autoware-signal-processing";
-  version = "1.4.0-r1";
+  version = "1.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_core-release/archive/release/humble/autoware_signal_processing/1.4.0-1.tar.gz";
-    name = "1.4.0-1.tar.gz";
-    sha256 = "2785e7070b0e0fab0bda24294678cbb530d6f08b3d3e50f77c05f895ec641159";
+    url = "https://github.com/ros2-gbp/autoware_core-release/archive/release/humble/autoware_signal_processing/1.9.0-1.tar.gz";
+    name = "1.9.0-1.tar.gz";
+    sha256 = "9c9e6f6cb02f9f270dfc711163c931e0bf544574e9b8c049bcd595bf0258d2e9";
   };
 
   buildType = "ament_cmake";

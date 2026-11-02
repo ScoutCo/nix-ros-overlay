@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-python, ament-lint-auto, ament-lint-common, orocos-kdl-vendor, pybind11-vendor, python-cmake-module, python3Packages }:
@@ -22,6 +22,6 @@ buildRosPackage {
   meta = {
     description = "Wrapper around PyKDL, providing nothing but a dependency on PyKDL on some systems.
     On others, it fetches and builds python_orocos_kdl locally.";
-    license = with lib.licenses; [ asl20 "LGPL-2.1-or-later" ];
+    license = with lib.licenses; [ asl20 lgpl21Plus ];
   };
 }

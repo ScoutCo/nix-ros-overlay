@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, builtin-interfaces, geometry-msgs, rosidl-cmake, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-sensor-msgs";
-  version = "5.3.6-r1";
+  version = "5.3.8-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/jazzy/sensor_msgs/5.3.6-1.tar.gz";
-    name = "5.3.6-1.tar.gz";
-    sha256 = "26b170ca29756bfe184881772f6a99d0c5d6ae0627b5149ba54eff4fcbaecaf5";
+    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/jazzy/sensor_msgs/5.3.8-1.tar.gz";
+    name = "5.3.8-1.tar.gz";
+    sha256 = "1b8689e2a4906afcb5adb084d8e14994dc28557ca40dde3ec7d39f0c950a9c66";
   };
 
   buildType = "ament_cmake";

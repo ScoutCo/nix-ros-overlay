@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, bond, bondcpp, smclib }:
 buildRosPackage {
   pname = "ros-rolling-bond-core";
-  version = "4.1.2-r1";
+  version = "4.4.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/bond_core-release/archive/release/rolling/bond_core/4.1.2-1.tar.gz";
-    name = "4.1.2-1.tar.gz";
-    sha256 = "fe65e54cc334a856779ea5959cf384bcfa48dc00da06d60924d8f449e4017c84";
+    url = "https://github.com/ros2-gbp/bond_core-release/archive/release/rolling/bond_core/4.4.0-2.tar.gz";
+    name = "4.4.0-2.tar.gz";
+    sha256 = "5a9983b9d4fd3b3b7d5202523bbfbe582b64d1b6e4fe206a88ff8ce82ff0c64b";
   };
 
   buildType = "ament_cmake";

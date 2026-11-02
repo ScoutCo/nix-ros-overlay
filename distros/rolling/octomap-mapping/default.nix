@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, octomap-server }:
 buildRosPackage {
   pname = "ros-rolling-octomap-mapping";
-  version = "2.3.0-r1";
+  version = "2.3.1-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/octomap_mapping-release/archive/release/rolling/octomap_mapping/2.3.0-1.tar.gz";
-    name = "2.3.0-1.tar.gz";
-    sha256 = "fdf78b6aa6331783a9015e986150cc77b61e973508363d1a7063e676abef506e";
+    url = "https://github.com/ros2-gbp/octomap_mapping-release/archive/release/rolling/octomap_mapping/2.3.1-2.tar.gz";
+    name = "2.3.1-2.tar.gz";
+    sha256 = "e6eb372532ca1c3cacff6e5a14faa7ad2e34e996eefaf97b6c9eee95ac7fd664";
   };
 
   buildType = "ament_cmake";

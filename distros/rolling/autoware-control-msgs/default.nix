@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-rolling-autoware-control-msgs";
-  version = "1.8.0-r1";
+  version = "1.12.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_msgs-release/archive/release/rolling/autoware_control_msgs/1.8.0-1.tar.gz";
-    name = "1.8.0-1.tar.gz";
-    sha256 = "6ab2032a2618a758d8883f4ede4bb3497b6d04bec9e9718cbc64d67bc43b8580";
+    url = "https://github.com/ros2-gbp/autoware_msgs-release/archive/release/rolling/autoware_control_msgs/1.12.0-1.tar.gz";
+    name = "1.12.0-1.tar.gz";
+    sha256 = "059518962561d338bc66518ddc90f7fd0dcfb27a2080d207b5d6b0c6c9f1d1f4";
   };
 
   buildType = "ament_cmake";

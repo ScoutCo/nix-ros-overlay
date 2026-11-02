@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, angles, geometry-msgs, laser-geometry, launch, launch-testing, map-msgs, message-filters, nav-msgs, nav2-common, nav2-lifecycle-manager, nav2-map-server, nav2-msgs, nav2-util, nav2-voxel-grid, pluginlib, rclcpp, rclcpp-lifecycle, sensor-msgs, std-msgs, std-srvs, tf2, tf2-geometry-msgs, tf2-ros, tf2-sensor-msgs, visualization-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-nav2-costmap-2d";
-  version = "1.3.9-r1";
+  version = "1.3.13-r1";
 
   src = fetchurl {
-    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/jazzy/nav2_costmap_2d/1.3.9-1.tar.gz";
-    name = "1.3.9-1.tar.gz";
-    sha256 = "91e03d16960b2313905d8038c1f4d3aae1d8fdaa1a876e761c4da74333a0c6f4";
+    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/jazzy/nav2_costmap_2d/1.3.13-1.tar.gz";
+    name = "1.3.13-1.tar.gz";
+    sha256 = "5a8600d37dab72331bd5abb3a0916f4aca5ccc771659fa40a4a3884f435b3de6";
   };
 
   buildType = "ament_cmake";

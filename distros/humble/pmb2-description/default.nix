@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-cmake-pytest, ament-cmake-python, ament-lint-auto, ament-lint-common, joint-state-publisher-gui, launch, launch-pal, launch-param-builder, launch-ros, launch-testing-ament-cmake, pal-urdf-utils, rviz2, urdf-test, xacro }:
+{ lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-cmake-pytest, ament-cmake-python, ament-lint-auto, ament-lint-common, joint-state-publisher-gui, launch, launch-pal, launch-param-builder, launch-ros, launch-testing-ament-cmake, pal-urdf-utils, realsense2-description, rviz2, urdf-test, xacro }:
 buildRosPackage {
   pname = "ros-humble-pmb2-description";
-  version = "5.9.0-r1";
+  version = "5.12.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/pal-gbp/pmb2_robot-gbp/archive/release/humble/pmb2_description/5.9.0-1.tar.gz";
-    name = "5.9.0-1.tar.gz";
-    sha256 = "f08ebbeafc8da64df89895a3f4817a3452b6bd6dff53e62b80eee4b69baf4ead";
+    url = "https://github.com/ros2-gbp/pmb2_robot-release/archive/release/humble/pmb2_description/5.12.2-1.tar.gz";
+    name = "5.12.2-1.tar.gz";
+    sha256 = "69dbc0ed290960c14f274d86c8eff5cce7b8fbd9171c619fb6581364e6e1ef0e";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake-auto ament-cmake-python ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch-testing-ament-cmake urdf-test ];
-  propagatedBuildInputs = [ joint-state-publisher-gui launch launch-pal launch-param-builder launch-ros pal-urdf-utils rviz2 xacro ];
+  propagatedBuildInputs = [ joint-state-publisher-gui launch launch-pal launch-param-builder launch-ros pal-urdf-utils realsense2-description rviz2 xacro ];
   nativeBuildInputs = [ ament-cmake-auto ament-cmake-python ];
 
   meta = {

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-python, ament-cmake-ros, ament-lint-auto, ament-lint-common, pybind11-vendor, python-cmake-module, python3, python3Packages, rcl-interfaces, rclpy, rosbag2-compression, rosbag2-compression-zstd, rosbag2-cpp, rosbag2-storage, rosbag2-storage-default-plugins, rosbag2-test-common, rosbag2-test-msgdefs, rosbag2-transport, rosidl-runtime-py, rpyutils, std-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-rosbag2-py";
-  version = "0.26.9-r1";
+  version = "0.26.11-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/jazzy/rosbag2_py/0.26.9-1.tar.gz";
-    name = "0.26.9-1.tar.gz";
-    sha256 = "386f7d84f5dccc05eb43268f64247525032e1aa2b50189db5a5e40a34a690ee2";
+    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/jazzy/rosbag2_py/0.26.11-1.tar.gz";
+    name = "0.26.11-1.tar.gz";
+    sha256 = "fc85447bd090a807a9654168c5771cfdc95d1524f3c73713c1916ca613c3945b";
   };
 
   buildType = "ament_cmake";

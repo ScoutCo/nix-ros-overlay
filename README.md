@@ -9,6 +9,62 @@ Want to use ROS, but don't want to run Ubuntu? This project uses the power of [N
 > [!IMPORTANT]
 > The `master` branch is tested and updated when most packages are working. Development occurs on the `develop` branch, and it is expected that this branch will sometimes have many packages that fail to build. Please do not file issues about bugs that only occur in the `develop` branch.
 
+## Current status
+
+| Distro  | master                                           | develop                                            | develop + nixos-unstable                             |
+|:--------|:-------------------------------------------------|:---------------------------------------------------|:-----------------------------------------------------|
+| Humble  | [![humble-master-badge][]][humble-master-link]   | [![humble-develop-badge][]][humble-develop-link]   | [![humble-unstable-badge][]][humble-unstable-link]   |
+| Jazzy   | [![jazzy-master-badge][]][jazzy-master-link]     | [![jazzy-develop-badge][]][jazzy-develop-link]     | [![jazzy-unstable-badge][]][jazzy-unstable-link]     |
+| Kilted  | [![kilted-master-badge][]][kilted-master-link]   | [![kilted-develop-badge][]][kilted-develop-link]   | [![kilted-unstable-badge][]][kilted-unstable-link]   |
+| Lyrical | [![lyrical-master-badge][]][lyrical-master-link] | [![lyrical-develop-badge][]][lyrical-develop-link] | [![lyrical-unstable-badge][]][lyrical-unstable-link] |
+| Rolling | [![rolling-master-badge][]][rolling-master-link] | [![rolling-develop-badge][]][rolling-develop-link] | [![rolling-unstable-badge][]][rolling-unstable-link] |
+|         | ![nixpkgs-master-badge][]                        | ![nixpkgs-develop-badge][]                         |                                                      |
+
+[humble-master-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Fmaster-humble-x86_64%2Fshield
+[humble-master-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/master-humble-x86_64
+[jazzy-master-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Fmaster-jazzy-x86_64%2Fshield
+[jazzy-master-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/master-jazzy-x86_64
+[kilted-master-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Fmaster-kilted-x86_64%2Fshield
+[kilted-master-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/master-kilted-x86_64
+[lyrical-master-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Fmaster-lyrical-x86_64%2Fshield
+[lyrical-master-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/master-lyrical-x86_64
+[rolling-master-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Fmaster-rolling-x86_64%2Fshield
+[rolling-master-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/master-rolling-x86_64
+
+[humble-develop-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Fdevelop-humble-x86_64%2Fshield
+[humble-develop-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/develop-humble-x86_64
+[jazzy-develop-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Fdevelop-jazzy-x86_64%2Fshield
+[jazzy-develop-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/develop-jazzy-x86_64
+[kilted-develop-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Fdevelop-kilted-x86_64%2Fshield
+[kilted-develop-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/develop-kilted-x86_64
+[lyrical-develop-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Fdevelop-lyrical-x86_64%2Fshield
+[lyrical-develop-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/develop-lyrical-x86_64
+[rolling-develop-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Fdevelop-rolling-x86_64%2Fshield
+[rolling-develop-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/develop-rolling-x86_64
+
+[humble-unstable-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Funstable-humble-x86_64%2Fshield
+[humble-unstable-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/unstable-humble-x86_64
+[jazzy-unstable-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Funstable-jazzy-x86_64%2Fshield
+[jazzy-unstable-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/unstable-jazzy-x86_64
+[kilted-unstable-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Funstable-kilted-x86_64%2Fshield
+[kilted-unstable-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/unstable-kilted-x86_64
+[lyrical-unstable-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Funstable-lyrical-x86_64%2Fshield
+[lyrical-unstable-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/unstable-lyrical-x86_64
+[rolling-unstable-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fhydra.iid.ciirc.cvut.cz%2Fjobset%2Fnix-ros-overlay%2Funstable-rolling-x86_64%2Fshield
+[rolling-unstable-link]: https://hydra.iid.ciirc.cvut.cz/jobset/nix-ros-overlay/unstable-rolling-x86_64
+
+[nixpkgs-master-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fnix-ros-overlay.iid.ciirc.cvut.cz%2Fbadge%2Fnixpkgs-date-master.json
+[nixpkgs-develop-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fnix-ros-overlay.iid.ciirc.cvut.cz%2Fbadge%2Fnixpkgs-date-develop.json
+
+What works:
+1. Most of the packages build successfully (see the table above)
+2. Fully functional ROS development environment using `nix-shell`
+3. Automated generation of Nix package definitions using standard ROS tools ([superflore](https://github.com/lopsided98/superflore))
+
+What still needs to be done:
+1. Updating ROS packages to recent nixpkgs and upstreaming that
+2. Improving macOS support
+
 ## Setup
 
 1. Install Nix: https://nixos.org/nix/download.html
@@ -17,18 +73,7 @@ Want to use ROS, but don't want to run Ubuntu? This project uses the power of [N
 
 ## Examples
 
-Turtlebot 3 simulation in Gazebo:
-```sh
-nix-shell \
-  -I nix-ros-overlay=https://github.com/lopsided98/nix-ros-overlay/archive/master.tar.gz \
-  --option extra-substituters 'https://ros.cachix.org' \
-  --option extra-trusted-public-keys 'ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo=' \
-  '<nix-ros-overlay/examples/turtlebot3-gazebo.nix>'
-# If not on NixOS, nixGL (https://github.com/guibou/nixGL) is needed for OpenGL support
-roslaunch turtlebot3_gazebo turtlebot3_world.launch
-# Spawn a new nix-shell in a new terminal and then:
-roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
-```
+<!-- TODO Add Turtlebot 4 or other example with Gazebo simulation in Gazebo: -->
 
 ROS 2 Jazzy Desktop environment:
 
@@ -54,11 +99,9 @@ system-wide configuration.
 
 With [Flakes enabled][flake], the equivalent of the above is:
 ```
-nix develop github:lopsided98/nix-ros-overlay#example-turtlebot3-gazebo
-# Then use roslaunch commands as above
-```
-```sh
-nix develop github:lopsided98/nix-ros-overlay#example-ros2-desktop-jazzy
+nix develop github:lopsided98/nix-ros-overlay/master#example-ros2-desktop-jazzy
+# Run command-line talker/listener demo
+ros2 launch demo_nodes_cpp talker_listener_launch.xml
 ```
 
 Using the overlay in your `flake.nix`-based project could look like this:
@@ -86,6 +129,7 @@ Using the overlay in your `flake.nix`-based project could look like this:
             pkgs.colcon
             # ... other non-ROS packages
             (with pkgs.rosPackages.humble; buildEnv {
+              underlay = true;
               paths = [
                 ros-core
                 # ... other ROS packages
@@ -106,27 +150,9 @@ You can use the following command to use the above template easily:
 
 [flake]: https://wiki.nixos.org/wiki/Flakes
 
-## Current status
-
-What works:
-1. More than 1400 packages successfully built for ROS Noetic (for
-   up-to-date numbers and other distros, look at our experimental
-   [Hydra instance][] controlled by [@wentasah][])
-2. Fully functional ROS development environment using `nix-shell`
-3. Automated generation of Nix package definitions using standard ROS tools ([superflore](https://github.com/lopsided98/superflore))
-
-What still needs to be done:
-1. Upstream changes to nixpkgs and ROS tools
-2. Test on more Linux distributions
-3. aarch64 binary cache
-4. macOS support
-
-[Hydra instance]: https://hydra.iid.ciirc.cvut.cz/project/nix-ros-overlay
-[@wentasah]: https://github.com/wentasah
-
 ## Configure Binary Cache
 
-Prebuilt ROS packages are hosted on [Cachix](https://ros.cachix.org) and built using GitHub Actions on public infrastructure.
+Prebuilt ROS packages (for x86_64-linux and aarch64-linux) are hosted on [Cachix](https://ros.cachix.org) and built [using GitHub Actions on public infrastructure](https://github.com/lopsided98/nix-ros-overlay/actions/workflows/build.yaml).
 
 To use this binary cache, either run `cachix use ros` or manually set the following options in `nix.conf`:
 ```
@@ -134,26 +160,46 @@ substituters = https://cache.nixos.org https://ros.cachix.org
 trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo=
 ```
 
+> [!WARNING]
+> Unfortunately, the capacity of the free [Cachix
+> cache](https://ros.cachix.org) is no longer sufficient, and packages
+> may be evicted after a short time or not be present at all. We are
+> [working on resolving the situation][cache-issue]. Until this is
+> resolved (no ETA yet), you can use the **experimental binary cache**
+> maintained by [@wentasah][] and populated by his [Hydra][Hydra
+> instance]. Note that 100% availability is not guaranteed, and
+> bandwidth may be limited, especially outside of Europe.
+>
+> To use the experimental binary cache, append the following to your `nix.conf`:
+>
+> ```
+> extra-substituters = https://attic.iid.ciirc.cvut.cz/ros
+> extra-trusted-public-keys = ros:JR95vUYsShSqfA1VTYoFt1Nz6uXasm5QrcOsGry9f6Q=
+> ```
+
+[cache-issue]: https://github.com/lopsided98/nix-ros-overlay/issues/754
+[@wentasah]: https://github.com/wentasah
+[Hydra instance]: https://hydra.iid.ciirc.cvut.cz/project/nix-ros-overlay
+
 ## Frequently Asked Questions
 
-**Q: Why are some packages missing?**
+**Q: Why do some some packages fail to evaluate due to `_unresolved_<dependency>` arguments?**
 
-A: All ROS packages published in the package index are potentially available in this overlay. If a package is missing, that probably means one of its system dependencies is not packaged. To determine the offending dependency, find the last "rosdistro sync" PR in this repository and search the missing dependencies list for your package's dependencies. In some cases, you may only need to add a mapping between the rosdep key and the nixpkgs attribute to the [rosdistro YAML files](https://github.com/lopsided98/rosdistro/tree/nixos-support/rosdep). If there is no Nix expression for the package, you should try to package it and submit it upstream to nixpkgs. In some cases it may be appropriate to add the package to this overlay instead, but this should be avoided if possible.
-
-**Q: Why do some packages fail to evaluate?**
-
-A: Some packages fail to evaluate with a error like the following:
+A: If the package fails to evaluate with error like the following:
 ```
-at: (69:16) in file: /nix/store/7cy8wbxh0jmsy00219hi9pkrqm9lsh5j-source/lib/customisation.nix
-
-    68|     let
-    69|       result = f origArgs;
-      |                ^
-    70|
-
-anonymous function at nix-ros-overlay/distros/<distro>/<package>/default.nix:5:1 called without required argument '<dependency>'
+error: evaluation aborted with the following error message:
+'lib.customisation.callPackageWith: Function called without required
+argument "_unresolved_<dependency>" at /.../nix-ros-overlay/distros/<distro>/<package>/default.nix:5'
 ```
-This means all the system dependencies of `<package>` were available, so its Nix expression was generated, but some of `<dependency>`'s system dependencies were missing. See the question above for what to do next.
+it means the package `<dependency>` is missing a `nixos` key in
+[rosdep YAML files][rosdep]. In some cases, it is sufficient to find a
+corresponding package in nixpkgs and submit a PR adding the rosdep
+entries. If there is no Nix expression for the package, you should try
+to package it and submit it upstream to nixpkgs. In some cases it may
+be appropriate to add the package to this overlay instead, but this
+should be avoided if possible.
+
+[rosdep]: https://github.com/ros/rosdistro/tree/master/rosdep
 
 **Q: Why do some packages fail to build?**
 
@@ -163,10 +209,11 @@ There are thousands of ROS packages, so it is infeasible to make sure every pack
 
 The overlay is updated semi-automatically approximately every few
 weeks. If you want to try a more recent ROS version, you can update
-the whole overlay locally by running the following command from
+the whole overlay locally by running the following commands from
 repository root:
 
 ```
+nix flake update rosdistro
 nix run .#update-overlay
 ```
 
@@ -179,3 +226,21 @@ command line. For example, the following command updates just the
 ```
 nix run .#update-overlay -- --dry-run --output-repository-path . --tar-archive-dir .tar --no-branch --ros-distro jazzy
 ```
+
+You can also regenerate the overlay from a custom version of the
+rosdistro repository:
+
+```sh
+nix run .#update-overlay --override-input rosdistro /path/to/local/rosdistro
+```
+
+**Q: Do you provide packages for ROS 1 or Gazebo Classic?**
+
+After End-of-Life of Gazebo Classic and ROS 1 in January resp. May
+2025, we removed them from the `master` and `develop` branches.
+However, you can still access them in the `ros1-25.05` branch, which
+is built against `nixos-25.05` branch of _nixpkgs_. We will accept PRs
+for this branch at least until the end of 2025. If you need some ROS 1
+package, which fails to compile, it might be worth looking whether
+[ROS-O](https://github.com/ros-o/ros-o) GitHub organization has some
+patches for it.

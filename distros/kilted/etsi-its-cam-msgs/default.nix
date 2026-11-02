@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-etsi-its-cam-msgs";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/kilted/etsi_its_cam_msgs/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "4d5d6f4f69fb7bcc7661d0e72222015f21592976082e07bc8b8775fc9485483f";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/kilted/etsi_its_cam_msgs/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "f36c4737eec4818f13c3be18bcf3e7489c79610fe7f03df47d20ab3820e66698";
   };
 
   buildType = "ament_cmake";

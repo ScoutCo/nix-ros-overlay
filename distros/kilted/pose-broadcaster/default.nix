@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, backward-ros, controller-interface, controller-manager, generate-parameter-library, geometry-msgs, hardware-interface-testing, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, ros2-control-cmake, ros2-control-test-assets, tf2-msgs }:
 buildRosPackage {
   pname = "ros-kilted-pose-broadcaster";
-  version = "5.8.0-r1";
+  version = "5.17.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/kilted/pose_broadcaster/5.8.0-1.tar.gz";
-    name = "5.8.0-1.tar.gz";
-    sha256 = "66100c08c83d31b097215ef0bc3de0ab1beb761a035abd27b102a3fd9990c063";
+    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/kilted/pose_broadcaster/5.17.0-1.tar.gz";
+    name = "5.17.0-1.tar.gz";
+    sha256 = "f0e721bee20f4bb973230ca3fefe16e66add761db93b2ba76e766fbd1b1d9f2c";
   };
 
   buildType = "ament_cmake";

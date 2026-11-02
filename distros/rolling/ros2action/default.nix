@@ -1,20 +1,20 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, ament-copyright, ament-flake8, ament-index-python, ament-pep257, ament-xmllint, launch, launch-testing, launch-testing-ros, python3Packages, rclpy, ros2cli, rosidl-runtime-py, test-msgs }:
 buildRosPackage {
   pname = "ros-rolling-ros2action";
-  version = "0.40.1-r1";
+  version = "0.42.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2cli-release/archive/release/rolling/ros2action/0.40.1-1.tar.gz";
-    name = "0.40.1-1.tar.gz";
-    sha256 = "93087c90f2bbe8403869d294d7d269f7ec6ce77a0ff19761ac83286783ded398";
+    url = "https://github.com/ros2-gbp/ros2cli-release/archive/release/rolling/ros2action/0.42.0-1.tar.gz";
+    name = "0.42.0-1.tar.gz";
+    sha256 = "be27a51bef700f80de61e63173417df61b53a4766cf03011d1a904638cb90894";
   };
 
   buildType = "ament_python";
-  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch launch-testing launch-testing-ros python3Packages.pytest python3Packages.pytest-timeout test-msgs ];
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch launch-testing launch-testing-ros python3Packages.osrf-pycommon python3Packages.pytest python3Packages.pytest-timeout test-msgs ];
   propagatedBuildInputs = [ action-msgs ament-index-python rclpy ros2cli rosidl-runtime-py ];
 
   meta = {

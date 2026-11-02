@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, ament-xmllint, geometry-msgs, python3Packages, rcl-interfaces, rclpy }:
@@ -20,6 +20,6 @@ buildRosPackage {
   meta = {
     description = "A robot-agnostic teleoperation node to convert keyboard commands to Twist
     messages.";
-    license = with lib.licenses; [ "BSD-License-2.0" ];
+    license = with lib.licenses; [ bsd3 ];
   };
 }

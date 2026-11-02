@@ -1,24 +1,24 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-index-python, ament-pep257, ament-xmllint, geometry-msgs, python3Packages, rclpy, rosbag2, rqt-bag, rqt-gui, rqt-gui-py, rqt-plot, sensor-msgs, std-msgs }:
+{ lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-index-python, ament-pep257, ament-xmllint, builtin-interfaces, geometry-msgs, python3Packages, rclpy, rosbag2, rqt-bag, rqt-gui, rqt-gui-py, rqt-plot, sensor-msgs, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-rqt-bag-plugins";
-  version = "2.0.2-r2";
+  version = "2.0.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rqt_bag-release/archive/release/kilted/rqt_bag_plugins/2.0.2-2.tar.gz";
-    name = "2.0.2-2.tar.gz";
-    sha256 = "ea617221a1f705eba4025437553e869a419d1e38e0d08af357a2237bb639b56b";
+    url = "https://github.com/ros2-gbp/rqt_bag-release/archive/release/kilted/rqt_bag_plugins/2.0.4-1.tar.gz";
+    name = "2.0.4-1.tar.gz";
+    sha256 = "45eb2d76d5180811e5c06fb052f2a131ba5705b6a1799ee8606415a9819dfd21";
   };
 
   buildType = "ament_python";
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint python3Packages.pytest ];
-  propagatedBuildInputs = [ ament-index-python geometry-msgs python3Packages.pillow python3Packages.pycairo rclpy rosbag2 rqt-bag rqt-gui rqt-gui-py rqt-plot sensor-msgs std-msgs ];
+  propagatedBuildInputs = [ ament-index-python builtin-interfaces geometry-msgs python3Packages.numpy python3Packages.pillow python3Packages.pycairo rclpy rosbag2 rqt-bag rqt-gui rqt-gui-py rqt-plot sensor-msgs std-msgs ];
 
   meta = {
     description = "rqt_bag provides a GUI plugin for displaying and replaying ROS bag files.";
-    license = with lib.licenses; [ bsdOriginal "HPND" ];
+    license = with lib.licenses; [ bsdOriginal hpnd ];
   };
 }

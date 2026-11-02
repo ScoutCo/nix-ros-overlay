@@ -1,21 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-pytest, ament-lint-auto, ament-lint-common, eigen, eigen3-cmake-module, geometry-msgs, python3Packages, rclcpp, sensor-msgs, sensor-msgs-py, std-msgs, tf2, tf2-geometry-msgs, tf2-ros, tf2-ros-py }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-pytest, ament-cmake-ros-core, ament-lint-auto, ament-lint-common, eigen, eigen3-cmake-module, geometry-msgs, python3Packages, rclcpp, sensor-msgs, sensor-msgs-py, std-msgs, tf2, tf2-geometry-msgs, tf2-ros, tf2-ros-py }:
 buildRosPackage {
   pname = "ros-rolling-tf2-sensor-msgs";
-  version = "0.45.0-r1";
+  version = "0.46.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/rolling/tf2_sensor_msgs/0.45.0-1.tar.gz";
-    name = "0.45.0-1.tar.gz";
-    sha256 = "874514cc32cfb280bd2fd13c4c3351d60fcd74033a2ea61501050e3827049ecb";
+    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/rolling/tf2_sensor_msgs/0.46.3-1.tar.gz";
+    name = "0.46.3-1.tar.gz";
+    sha256 = "b6f17dffef4ea5a709a3713af2d4373fcec0da4036e9250b3deac7d1c04eba49";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ];
-  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common rclcpp tf2-geometry-msgs ];
+  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-cmake-ros-core ament-lint-auto ament-lint-common rclcpp tf2-geometry-msgs ];
   propagatedBuildInputs = [ eigen eigen3-cmake-module geometry-msgs python3Packages.numpy sensor-msgs sensor-msgs-py std-msgs tf2 tf2-ros tf2-ros-py ];
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
 

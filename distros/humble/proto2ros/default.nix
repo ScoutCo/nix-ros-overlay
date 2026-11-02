@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-mypy, ament-cmake-pytest, ament-cmake-python, builtin-interfaces, clang, protobuf, python3Packages, rclcpp, rclpy, rosidl-adapter, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-humble-proto2ros";
-  version = "1.0.0-r3";
+  version = "1.0.1-r2";
 
   src = fetchurl {
-    url = "https://github.com/bdaiinstitute/proto2ros-release/archive/release/humble/proto2ros/1.0.0-3.tar.gz";
-    name = "1.0.0-3.tar.gz";
-    sha256 = "c9935ade33305a9c0ecec253ab0d2718da669eef0361db153b10bce0edace7f8";
+    url = "https://github.com/rai-opensource/proto2ros-release/archive/release/humble/proto2ros/1.0.1-2.tar.gz";
+    name = "1.0.1-2.tar.gz";
+    sha256 = "3d34c9c17c86739417e65f93165001f91fc98aa3437129235c00bbda4674e274";
   };
 
   buildType = "ament_cmake";

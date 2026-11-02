@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-flir-camera-msgs";
-  version = "3.0.3-r1";
+  version = "3.0.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/flir_camera_driver-release/archive/release/rolling/flir_camera_msgs/3.0.3-1.tar.gz";
-    name = "3.0.3-1.tar.gz";
-    sha256 = "09fd0843071021652136388edb23dd9bc84917556fee3ad659c5e2968db1c780";
+    url = "https://github.com/ros2-gbp/flir_camera_driver-release/archive/release/rolling/flir_camera_msgs/3.0.5-1.tar.gz";
+    name = "3.0.5-1.tar.gz";
+    sha256 = "d055ca29e276cca3dade355782c0cbea52989b7bd8109e6c2fc70d43a62803ec";
   };
 
   buildType = "ament_cmake";
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "messages related to flir camera driver";
-    license = with lib.licenses; [ "Apache-2" ];
+    license = with lib.licenses; [ asl20 ];
   };
 }

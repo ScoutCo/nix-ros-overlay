@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake }:
 buildRosPackage {
   pname = "ros-jazzy-magic-enum";
-  version = "0.9.6-r1";
+  version = "0.9.8-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/magic_enum-release/archive/release/jazzy/magic_enum/0.9.6-1.tar.gz";
-    name = "0.9.6-1.tar.gz";
-    sha256 = "3eb33164931dcd0599e1df1c31f4919e532b95bbed92336608b48a26253cb587";
+    url = "https://github.com/ros2-gbp/magic_enum-release/archive/release/jazzy/magic_enum/0.9.8-1.tar.gz";
+    name = "0.9.8-1.tar.gz";
+    sha256 = "0c4ec13ff7de85b2109878143acbbb82b947e07df1678deb7f4dd38b93e9b703";
   };
 
   buildType = "cmake";

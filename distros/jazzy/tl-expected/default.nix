@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake }:
 buildRosPackage {
   pname = "ros-jazzy-tl-expected";
-  version = "1.0.2-r5";
+  version = "1.3.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/cpp_polyfills-release/archive/release/jazzy/tl_expected/1.0.2-5.tar.gz";
-    name = "1.0.2-5.tar.gz";
-    sha256 = "a9a4975e21e493f3c778ed0b4d7a2d4fe0d52a1876a96d59d569d20669806b1b";
+    url = "https://github.com/ros2-gbp/cpp_polyfills-release/archive/release/jazzy/tl_expected/1.3.2-1.tar.gz";
+    name = "1.3.2-1.tar.gz";
+    sha256 = "69ebfa5e7e84b6a65e65cdd3f8f302b7e4df38db9db6ca555fba479c2a5d1020";
   };
 
   buildType = "ament_cmake";
@@ -19,6 +19,6 @@ buildRosPackage {
 
   meta = {
     description = "C++11/14/17 std::expected with functional-style extensions";
-    license = with lib.licenses; [ "Creative-Commons-Zero-v1.0-Universal" ];
+    license = with lib.licenses; [ cc0 ];
   };
 }

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-python, ament-lint-auto, ament-lint-common, dynamixel-sdk, dynamixel-sdk-custom-interfaces, rclcpp, rclpy }:
 buildRosPackage {
   pname = "ros-rolling-dynamixel-sdk-examples";
-  version = "3.8.4-r1";
+  version = "4.0.3-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/dynamixel_sdk-release/archive/release/rolling/dynamixel_sdk_examples/3.8.4-1.tar.gz";
-    name = "3.8.4-1.tar.gz";
-    sha256 = "b52bd1500e47b6711fa4d12e1eddd96e79ff7c79abb402d4a857878cdb0b3e9b";
+    url = "https://github.com/ros2-gbp/dynamixel_sdk-release/archive/release/rolling/dynamixel_sdk_examples/4.0.3-2.tar.gz";
+    name = "4.0.3-2.tar.gz";
+    sha256 = "e994696bec6ba96c355a96b8c57abbe92f604e76ead5aeddb2fa87b50ded8965";
   };
 
   buildType = "ament_cmake";

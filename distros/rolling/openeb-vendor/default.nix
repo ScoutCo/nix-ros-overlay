@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-vendor-package, boost, cmake, curl, ffmpeg, git, glew, glfw3, gtest, hdf5, libusb-compat-0_1, libusb1, opencv, openscenegraph, pkg-config, protobuf, unzip, wget }:
 buildRosPackage {
   pname = "ros-rolling-openeb-vendor";
-  version = "2.0.2-r1";
+  version = "2.0.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/openeb_vendor-release/archive/release/rolling/openeb_vendor/2.0.2-1.tar.gz";
-    name = "2.0.2-1.tar.gz";
-    sha256 = "c09b339d66bab06a3c6af30b7ac1dea5ab591e21ac376d63f857e60122874297";
+    url = "https://github.com/ros2-gbp/openeb_vendor-release/archive/release/rolling/openeb_vendor/2.0.3-1.tar.gz";
+    name = "2.0.3-1.tar.gz";
+    sha256 = "1f89f38e629f22251f01619b4253ca5f5c9444a47977bffb765a017f0440e1a3";
   };
 
   buildType = "ament_cmake";

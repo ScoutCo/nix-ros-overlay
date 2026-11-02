@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-python, gps-msgs, nav-msgs, rclcpp, rclcpp-components, rclpy, sensor-msgs, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-gps-tools";
-  version = "2.1.1-r1";
+  version = "3.1.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/gps_umd-release/archive/release/rolling/gps_tools/2.1.1-1.tar.gz";
-    name = "2.1.1-1.tar.gz";
-    sha256 = "28038d67b2e687f72cc64b7d74ba0e0fa00bc97bdf41ee62f49a597cdf172fba";
+    url = "https://github.com/ros2-gbp/gps_umd-release/archive/release/rolling/gps_tools/3.1.1-1.tar.gz";
+    name = "3.1.1-1.tar.gz";
+    sha256 = "7672078c82a0e0c7f3c0db29b042f824efc8edef8127aa3aa7c1af8230a069f9";
   };
 
   buildType = "ament_cmake";

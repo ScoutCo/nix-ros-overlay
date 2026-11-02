@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-common, mrpt-libmath, mrpt-libposes, mrpt-libtclap }:
 buildRosPackage {
   pname = "ros-humble-kitti-metrics-eval";
-  version = "1.9.0-r1";
+  version = "3.0.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/humble/kitti_metrics_eval/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "06592e863909cd88678fb19cd5bbd04ae020ca210e39b8656223cda89269e238";
+    url = "https://github.com/ros2-gbp/mola_academic_datasets-release/archive/release/humble/kitti_metrics_eval/3.0.0-2.tar.gz";
+    name = "3.0.0-2.tar.gz";
+    sha256 = "690c5c5ac006e6e3a0a5b65921a5c7fffb853137d99397b022df12ae658837bd";
   };
 
   buildType = "cmake";

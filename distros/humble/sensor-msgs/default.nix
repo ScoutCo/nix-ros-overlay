@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, builtin-interfaces, geometry-msgs, rosidl-cmake, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-humble-sensor-msgs";
-  version = "4.9.0-r1";
+  version = "4.9.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/humble/sensor_msgs/4.9.0-1.tar.gz";
-    name = "4.9.0-1.tar.gz";
-    sha256 = "845ced583055f5a2ddc579357f10104a6f322ca6b23b2955a182b815ab2ee9e6";
+    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/humble/sensor_msgs/4.9.2-1.tar.gz";
+    name = "4.9.2-1.tar.gz";
+    sha256 = "96a70a1ff9b0e2dcbbb6cffb21d201157381ca7d6a21c16f654df5c7dba1e064";
   };
 
   buildType = "ament_cmake";

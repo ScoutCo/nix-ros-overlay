@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, clearpath-manipulators-description, gripper-controllers, moveit-configs-utils, moveit-kinematics, moveit-planners, moveit-planners-chomp, moveit-ros-move-group, moveit-ros-warehouse, moveit-simple-controller-manager, position-controllers, tf2-ros, xacro }:
 buildRosPackage {
   pname = "ros-humble-clearpath-manipulators";
-  version = "1.3.7-r1";
+  version = "1.3.12-r1";
 
   src = fetchurl {
-    url = "https://github.com/clearpath-gbp/clearpath_common-release/archive/release/humble/clearpath_manipulators/1.3.7-1.tar.gz";
-    name = "1.3.7-1.tar.gz";
-    sha256 = "35bb4f5cbed449c2c5fa9983dfe26ff3434fb7bf7aeadadbbbf7966af719841f";
+    url = "https://github.com/clearpath-gbp/clearpath_common-release/archive/release/humble/clearpath_manipulators/1.3.12-1.tar.gz";
+    name = "1.3.12-1.tar.gz";
+    sha256 = "922955c27d57c49b5c2c0045f46a67174085894bd4c20497cceb5c401623eaa3";
   };
 
   buildType = "ament_cmake";

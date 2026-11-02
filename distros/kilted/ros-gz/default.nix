@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, ros-gz-bridge, ros-gz-image, ros-gz-sim, ros-gz-sim-demos }:
 buildRosPackage {
   pname = "ros-kilted-ros-gz";
-  version = "2.1.11-r1";
+  version = "2.1.18-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros_ign-release/archive/release/kilted/ros_gz/2.1.11-1.tar.gz";
-    name = "2.1.11-1.tar.gz";
-    sha256 = "bed8c8098ade92f8e8b854c5cf0d87d964e8ede1cdec4cd21f4fcfaa3d6d4c95";
+    url = "https://github.com/ros2-gbp/ros_ign-release/archive/release/kilted/ros_gz/2.1.18-1.tar.gz";
+    name = "2.1.18-1.tar.gz";
+    sha256 = "57a7e12ef19b9ebb776ddb49636f2ed9b472a21c7261bb41da3cdbb29779a024";
   };
 
   buildType = "ament_cmake";

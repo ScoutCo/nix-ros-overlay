@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, ament-cmake, ament-lint-auto, ament-lint-common, builtin-interfaces, control-msgs, geometry-msgs, rosidl-default-generators, rosidl-default-runtime, std-msgs, trajectory-msgs }:
 buildRosPackage {
   pname = "ros-rolling-ur-msgs";
-  version = "2.3.0-r1";
+  version = "3.0.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ur_msgs-release/archive/release/rolling/ur_msgs/2.3.0-1.tar.gz";
-    name = "2.3.0-1.tar.gz";
-    sha256 = "2582d6897b34a24789e2ebd299d60d889370c9436686ef077a20f0baf6c769ed";
+    url = "https://github.com/ros2-gbp/ur_msgs-release/archive/release/rolling/ur_msgs/3.0.0-1.tar.gz";
+    name = "3.0.0-1.tar.gz";
+    sha256 = "343253a6db2574dcc2248e2544e9456695f41d3ed067844c03da2b9345b6b926";
   };
 
   buildType = "ament_cmake";

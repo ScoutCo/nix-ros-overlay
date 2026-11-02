@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, ament-xmllint, clang, python3Packages }:
 buildRosPackage {
   pname = "ros-rolling-ament-clang-format";
-  version = "0.20.2-r1";
+  version = "0.21.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ament_lint-release/archive/release/rolling/ament_clang_format/0.20.2-1.tar.gz";
-    name = "0.20.2-1.tar.gz";
-    sha256 = "0e304583e77ee87b7d7aff2786045938944ddf38231f69351473e74d5878889e";
+    url = "https://github.com/ros2-gbp/ament_lint-release/archive/release/rolling/ament_clang_format/0.21.2-1.tar.gz";
+    name = "0.21.2-1.tar.gz";
+    sha256 = "0080aa3909a83d563bce30638012d52d63db8e613d4cc96af27eb9cba39e5302";
   };
 
   buildType = "ament_python";

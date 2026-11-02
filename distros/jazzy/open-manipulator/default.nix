@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, om-gravity-compensation-controller, om-joint-trajectory-command-broadcaster, om-spring-actuator-controller, open-manipulator-bringup, open-manipulator-collision, open-manipulator-description, open-manipulator-gui, open-manipulator-moveit-config, open-manipulator-playground, open-manipulator-teleop }:
 buildRosPackage {
   pname = "ros-jazzy-open-manipulator";
-  version = "4.0.8-r1";
+  version = "4.1.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/jazzy/open_manipulator/4.0.8-1.tar.gz";
-    name = "4.0.8-1.tar.gz";
-    sha256 = "c2a0a42bb8a0423f07de6193773c792a6ad8d9b5eb7e27572189db54205204f0";
+    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/jazzy/open_manipulator/4.1.3-1.tar.gz";
+    name = "4.1.3-1.tar.gz";
+    sha256 = "f47f883dea465decaf53e0922c95f2ad980c9fdb4c1b6fb19a4a39089653fb65";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-ouster-sensor-msgs";
-  version = "0.11.1-r6";
+  version = "0.15.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ouster-ros-release/archive/release/kilted/ouster_sensor_msgs/0.11.1-6.tar.gz";
-    name = "0.11.1-6.tar.gz";
-    sha256 = "74ccddac67eb1872d357b8aaba3c6e31a92681d676e05a6cafe23e2dc562b1be";
+    url = "https://github.com/ros2-gbp/ouster-ros-release/archive/release/kilted/ouster_sensor_msgs/0.15.1-1.tar.gz";
+    name = "0.15.1-1.tar.gz";
+    sha256 = "2a92410dd9fc8ea9c8ccb4912f9bd36e9833f076fc2d0fb409e9296d88395e53";
   };
 
   buildType = "ament_cmake";

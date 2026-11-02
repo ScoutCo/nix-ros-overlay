@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-lint-auto, ament-lint-common, launch, launch-testing, launch-testing-ament-cmake, launch-testing-ros, rclcpp, rclcpp-components, rcutils, rmw-implementation-cmake, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-logging-demo";
-  version = "0.33.7-r1";
+  version = "0.33.11-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/jazzy/logging_demo/0.33.7-1.tar.gz";
-    name = "0.33.7-1.tar.gz";
-    sha256 = "15e0d7a8a04dd2225ff82ed2a9c85d1df02664e032cf454d25c6340edae6e867";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/jazzy/logging_demo/0.33.11-1.tar.gz";
+    name = "0.33.11-1.tar.gz";
+    sha256 = "0d7f26a3dc8d9b94b2d19a9e7ac708c8b6ab3442bac5fe4fd3e8b0b03925b50f";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-gtest, ament-cmake-pytest, ament-cmake-ros, ament-lint-auto, ament-lint-common, builtin-interfaces, example-interfaces, osrf-testing-tools-cpp, rcl, rcl-interfaces, rclc, rclcpp, rcutils, rosidl-runtime-c, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-rclc-parameter";
-  version = "6.2.0-r1";
+  version = "6.3.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rclc-release/archive/release/rolling/rclc_parameter/6.2.0-1.tar.gz";
-    name = "6.2.0-1.tar.gz";
-    sha256 = "6c4104c79488f2a09109f9278bd6ca3d8b0248313aecdaa6e4272e9d744793cf";
+    url = "https://github.com/ros2-gbp/rclc-release/archive/release/rolling/rclc_parameter/6.3.0-2.tar.gz";
+    name = "6.3.0-2.tar.gz";
+    sha256 = "8b9f9976631f44cf8535a8d7f883bbcb966417de78e9dae955642da4724110d3";
   };
 
   buildType = "ament_cmake";

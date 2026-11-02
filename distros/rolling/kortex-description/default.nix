@@ -1,27 +1,27 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, joint-state-publisher, joint-state-publisher-gui, joint-trajectory-controller, picknik-reset-fault-controller, picknik-twist-controller, robot-state-publisher, robotiq-description, rviz2 }:
+{ lib, buildRosPackage, fetchurl, _unresolved_picknik_reset_fault_controller, _unresolved_picknik_twist_controller, ament-cmake, gz-ros2-control, joint-state-publisher, joint-state-publisher-gui, joint-trajectory-controller, parallel-gripper-controller, robot-state-publisher, robotiq-description, rviz2 }:
 buildRosPackage {
   pname = "ros-rolling-kortex-description";
-  version = "0.2.2-r2";
+  version = "0.2.5-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_kortex-release/archive/release/rolling/kortex_description/0.2.2-2.tar.gz";
-    name = "0.2.2-2.tar.gz";
-    sha256 = "b7c9cdb7268261132cf1fea02707528b1234ab8ae8ee1ae6cbbac83097ef5ffb";
+    url = "https://github.com/ros2-gbp/ros2_kortex-release/archive/release/rolling/kortex_description/0.2.5-2.tar.gz";
+    name = "0.2.5-2.tar.gz";
+    sha256 = "e33940d07be00482834c65ffa114b1c3ac23ba7ba382fa2e908a545fb2f41798";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ joint-state-publisher joint-state-publisher-gui joint-trajectory-controller picknik-reset-fault-controller picknik-twist-controller robot-state-publisher robotiq-description rviz2 ];
+  propagatedBuildInputs = [ _unresolved_picknik_reset_fault_controller _unresolved_picknik_twist_controller gz-ros2-control joint-state-publisher joint-state-publisher-gui joint-trajectory-controller parallel-gripper-controller robot-state-publisher robotiq-description rviz2 ];
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {
-    description = "<p>URDF and xacro description package for Kortex robots</p>
+    description = "<p>URDF and xacro description package for KINOVA KORTEX™ robots</p>
     <p>This package contains configuration data, 3D models and launch files
-for Kortex arms and supported grippers</p>";
+for KINOVA KORTEX™ arms and supported grippers</p>";
     license = with lib.licenses; [ bsdOriginal ];
   };
 }

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, ament-xmllint, python3Packages }:
 buildRosPackage {
   pname = "ros-rolling-domain-coordinator";
-  version = "0.15.2-r1";
+  version = "0.16.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ament_cmake_ros-release/archive/release/rolling/domain_coordinator/0.15.2-1.tar.gz";
-    name = "0.15.2-1.tar.gz";
-    sha256 = "24c4b64143a5c3e2fb93d0b8c1d3a3cbfc37711c061accdd558fcaf9706fe906";
+    url = "https://github.com/ros2-gbp/ament_cmake_ros-release/archive/release/rolling/domain_coordinator/0.16.0-1.tar.gz";
+    name = "0.16.0-1.tar.gz";
+    sha256 = "aef14a5987cbd91d12ec044254a613aea85f1452c3d3fc73fe3f8e0bcdefb782";
   };
 
   buildType = "ament_python";

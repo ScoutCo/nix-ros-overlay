@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-gps-msgs";
-  version = "2.1.1-r1";
+  version = "3.1.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/gps_umd-release/archive/release/jazzy/gps_msgs/2.1.1-1.tar.gz";
-    name = "2.1.1-1.tar.gz";
-    sha256 = "861debdd5b942216ab60b8db1dce0114d941bbd2326b019053035ff173387cfe";
+    url = "https://github.com/ros2-gbp/gps_umd-release/archive/release/jazzy/gps_msgs/3.1.1-1.tar.gz";
+    name = "3.1.1-1.tar.gz";
+    sha256 = "b85a1ac197459ce71cb4d1fbcd0155e3be64852186a919b8dea55e19742c61cd";
   };
 
   buildType = "ament_cmake";

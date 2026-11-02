@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake }:
 buildRosPackage {
   pname = "ros-humble-etsi-its-spatem-ts-coding";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/humble/etsi_its_spatem_ts_coding/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "9c024170d7b3076e27643554d295c93e264611f2d2a04effa04ea4f8c31b1ec6";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/humble/etsi_its_spatem_ts_coding/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "0af79aba30a46c6059f5ca3df3c9cde34ae1b011262e7ca2610455f330aad402";
   };
 
   buildType = "ament_cmake";

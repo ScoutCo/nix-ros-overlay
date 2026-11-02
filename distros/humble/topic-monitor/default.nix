@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-flake8, ament-pep257, launch, launch-ros, python3Packages, rclpy, std-msgs }:
 buildRosPackage {
   pname = "ros-humble-topic-monitor";
-  version = "0.20.6-r1";
+  version = "0.20.10-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/humble/topic_monitor/0.20.6-1.tar.gz";
-    name = "0.20.6-1.tar.gz";
-    sha256 = "0667b50f034913bfa0a671ef2d5c7c8656255c5ca40a35e8bd8d8e8fec8cfc4e";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/humble/topic_monitor/0.20.10-1.tar.gz";
+    name = "0.20.10-1.tar.gz";
+    sha256 = "b990a6b7a8d24b9d0b5a031c82c1a36b2d2bd4cabd4a0d29fc29acb40851e7cf";
   };
 
   buildType = "ament_python";

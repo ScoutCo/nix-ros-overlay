@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-gtest, ament-cmake-ros, ament-lint-auto, ament-lint-common, ecl-build, ecl-license, ecl-type-traits }:
 buildRosPackage {
   pname = "ros-rolling-ecl-math";
-  version = "1.2.1-r4";
+  version = "1.2.1-r5";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ecl_core-release/archive/release/rolling/ecl_math/1.2.1-4.tar.gz";
-    name = "1.2.1-4.tar.gz";
-    sha256 = "422599745d1081b9b55f2fe8002e32f338391db2e5ebdae5290c354ae51a6419";
+    url = "https://github.com/ros2-gbp/ecl_core-release/archive/release/rolling/ecl_math/1.2.1-5.tar.gz";
+    name = "1.2.1-5.tar.gz";
+    sha256 = "9f752f5a9fbebbcadd031620e3c96d90506348730f8afbcd2254d6de96504864";
   };
 
   buildType = "ament_cmake";

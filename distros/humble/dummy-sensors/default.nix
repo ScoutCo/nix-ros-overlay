@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, rclcpp, sensor-msgs }:
 buildRosPackage {
   pname = "ros-humble-dummy-sensors";
-  version = "0.20.6-r1";
+  version = "0.20.10-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/humble/dummy_sensors/0.20.6-1.tar.gz";
-    name = "0.20.6-1.tar.gz";
-    sha256 = "a32b953ff39cbf6143b86e1f1562eaf594d9b7648e2892fc5fdc371ece65f6d6";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/humble/dummy_sensors/0.20.10-1.tar.gz";
+    name = "0.20.10-1.tar.gz";
+    sha256 = "3189113247242141dab6abecb69b67d56171a6649e44e3c92c2c3d340f019236";
   };
 
   buildType = "ament_cmake";

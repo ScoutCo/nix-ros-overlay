@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-cppcheck, ament-cmake-cpplint, ament-cmake-gmock, ament-cmake-gtest, ament-cmake-lint-cmake, ament-cmake-uncrustify, ament-cmake-xmllint, ament-index-cpp, ament-lint-auto, eigen, eigen3-cmake-module, qt5, resource-retriever, rviz-assimp-vendor, rviz-ogre-vendor }:
 buildRosPackage {
   pname = "ros-humble-rviz-rendering";
-  version = "11.2.22-r1";
+  version = "11.2.29-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rviz-release/archive/release/humble/rviz_rendering/11.2.22-1.tar.gz";
-    name = "11.2.22-1.tar.gz";
-    sha256 = "8c1ae06c65752dc3784e9183043cbaf5ca2422e2ff8510a89ed18672895da1e6";
+    url = "https://github.com/ros2-gbp/rviz-release/archive/release/humble/rviz_rendering/11.2.29-1.tar.gz";
+    name = "11.2.29-1.tar.gz";
+    sha256 = "8594307454275fca468044266f47a5341a7d295ac9ae849146fc64699d6e5593";
   };
 
   buildType = "ament_cmake";

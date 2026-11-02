@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, geographic-msgs, geometry-msgs, rcl-interfaces, rosidl-default-generators, rosidl-default-runtime, sensor-msgs }:
 buildRosPackage {
   pname = "ros-humble-mavros-msgs";
-  version = "2.12.0-r1";
+  version = "2.15.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mavros-release/archive/release/humble/mavros_msgs/2.12.0-1.tar.gz";
-    name = "2.12.0-1.tar.gz";
-    sha256 = "17a53832c3c14e9b1f62b659f3dd4f2806c371162f3a743dc3f08b93331b75c6";
+    url = "https://github.com/ros2-gbp/mavros-release/archive/release/humble/mavros_msgs/2.15.1-1.tar.gz";
+    name = "2.15.1-1.tar.gz";
+    sha256 = "3a08306bb940a0c0763e241c202f61d3a2c12e8441118ee0a3315ae8da3b7c25";
   };
 
   buildType = "ament_cmake";
@@ -20,7 +20,7 @@ buildRosPackage {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
 
   meta = {
-    description = "mavros_msgs defines messages for <a href=\"http://wiki.ros.org/mavros\">MAVROS</a>.";
+    description = "Messages for <a href=\"http://wiki.ros.org/mavros\">MAVROS</a>.";
     license = with lib.licenses; [ gpl3Only lgpl3Only bsdOriginal ];
   };
 }

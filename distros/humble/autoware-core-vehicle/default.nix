@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, autoware-cmake, autoware-lint-common, robot-state-publisher }:
 buildRosPackage {
   pname = "ros-humble-autoware-core-vehicle";
-  version = "1.4.0-r1";
+  version = "1.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_core-release/archive/release/humble/autoware_core_vehicle/1.4.0-1.tar.gz";
-    name = "1.4.0-1.tar.gz";
-    sha256 = "46d98505f189dfa305b1e4ca890355c49f571bc83664cba53d62e5ac662ca87c";
+    url = "https://github.com/ros2-gbp/autoware_core-release/archive/release/humble/autoware_core_vehicle/1.9.0-1.tar.gz";
+    name = "1.9.0-1.tar.gz";
+    sha256 = "f448e4dcaa4589a8b60f22d33956c990bebc16731f23886ae04ed464215f615f";
   };
 
   buildType = "ament_cmake";

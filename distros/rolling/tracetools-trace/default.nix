@@ -1,21 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-mypy, ament-pep257, ament-xmllint, lttngpy, python3Packages }:
+{ lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-mypy, ament-pep257, ament-xmllint, lttngpy, procps, python3Packages }:
 buildRosPackage {
   pname = "ros-rolling-tracetools-trace";
-  version = "8.9.0-r1";
+  version = "9.0.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_tracing-release/archive/release/rolling/tracetools_trace/8.9.0-1.tar.gz";
-    name = "8.9.0-1.tar.gz";
-    sha256 = "340bba59ad66176bff3dfee4fda0b4f602c56062394d3357bd5d0e1adf0c7bb8";
+    url = "https://github.com/ros2-gbp/ros2_tracing-release/archive/release/rolling/tracetools_trace/9.0.0-1.tar.gz";
+    name = "9.0.0-1.tar.gz";
+    sha256 = "a0b4eef8e75b11df3caa7129489700073bce0f8c709bbb68d93d216a12924379";
   };
 
   buildType = "ament_python";
   checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ament-xmllint python3Packages.pytest ];
-  propagatedBuildInputs = [ lttngpy ];
+  propagatedBuildInputs = [ lttngpy procps ];
 
   meta = {
     description = "Tools for setting up tracing sessions.";

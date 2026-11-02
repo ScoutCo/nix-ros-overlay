@@ -1,19 +1,20 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, joint-state-publisher, python-qt-binding, rclpy }:
+{ lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, ament-xmllint, joint-state-publisher, python-qt-binding, python3Packages, rclpy }:
 buildRosPackage {
   pname = "ros-rolling-joint-state-publisher-gui";
-  version = "2.4.0-r2";
+  version = "2.4.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/joint_state_publisher-release/archive/release/rolling/joint_state_publisher_gui/2.4.0-2.tar.gz";
-    name = "2.4.0-2.tar.gz";
-    sha256 = "b85931486f3b86e3d30bf2a17a80589821b3eb5aea0a85060b4d261a744d0b51";
+    url = "https://github.com/ros2-gbp/joint_state_publisher-release/archive/release/rolling/joint_state_publisher_gui/2.4.3-1.tar.gz";
+    name = "2.4.3-1.tar.gz";
+    sha256 = "da88ca1196759ae2e243eb901de4fcbbb10cdd2188fb84082d67f82ef38f9342";
   };
 
   buildType = "ament_python";
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint python3Packages.pytest ];
   propagatedBuildInputs = [ joint-state-publisher python-qt-binding rclpy ];
 
   meta = {

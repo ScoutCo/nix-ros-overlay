@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, rclcpp, sensor-msgs }:
 buildRosPackage {
   pname = "ros-rolling-dummy-sensors";
-  version = "0.37.3-r1";
+  version = "0.38.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/rolling/dummy_sensors/0.37.3-1.tar.gz";
-    name = "0.37.3-1.tar.gz";
-    sha256 = "e587f07cd912c1b51926aa1baa91a20aca6913cf337b706dd5acdc1049860e5a";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/rolling/dummy_sensors/0.38.0-1.tar.gz";
+    name = "0.38.0-1.tar.gz";
+    sha256 = "a867bf8d9a438505a4255c6677756efba30d082a2de1fe91d7f92dceb744d172";
   };
 
   buildType = "ament_cmake";

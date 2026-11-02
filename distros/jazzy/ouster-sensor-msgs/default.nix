@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-ouster-sensor-msgs";
-  version = "0.11.1-r6";
+  version = "0.15.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ouster-ros-release/archive/release/jazzy/ouster_sensor_msgs/0.11.1-6.tar.gz";
-    name = "0.11.1-6.tar.gz";
-    sha256 = "9e7ec3071f37e948f0d929c4891ec4340a719c0a1364bb9990b1042fd0386c98";
+    url = "https://github.com/ros2-gbp/ouster-ros-release/archive/release/jazzy/ouster_sensor_msgs/0.15.1-1.tar.gz";
+    name = "0.15.1-1.tar.gz";
+    sha256 = "8a369fe2398e03e15b66cd60eb5d0fb4c54708dbf528efd05eb13eac0f0eeb41";
   };
 
   buildType = "ament_cmake";

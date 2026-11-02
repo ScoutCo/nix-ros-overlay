@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, pal-gazebo-worlds, pal-gripper-controller-configuration, pal-gripper-description, pal-urdf-utils, robot-state-publisher, xacro }:
 buildRosPackage {
   pname = "ros-humble-pal-gripper-simulation";
-  version = "3.5.0-r1";
+  version = "3.6.6-r1";
 
   src = fetchurl {
-    url = "https://github.com/pal-gbp/pal_gripper-release/archive/release/humble/pal_gripper_simulation/3.5.0-1.tar.gz";
-    name = "3.5.0-1.tar.gz";
-    sha256 = "6972d4e5d17fd0ad6846c005bda2cc6796d7897843962b18f8addbf6c3979a1a";
+    url = "https://github.com/ros2-gbp/pal_gripper-release/archive/release/humble/pal_gripper_simulation/3.6.6-1.tar.gz";
+    name = "3.6.6-1.tar.gz";
+    sha256 = "4805b4678e3c91df23f722a82e10f08af683504922d72542370b30f55d608d5a";
   };
 
   buildType = "ament_cmake";

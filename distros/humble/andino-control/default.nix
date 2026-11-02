@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-clang-format, andino-base, andino-description, controller-manager, diff-drive-controller, joint-state-broadcaster, ros2controlcli }:
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "The andino_control package";
-    license = with lib.licenses; [ "BSD-Clause-3" ];
+    license = with lib.licenses; [ bsd3 ];
   };
 }

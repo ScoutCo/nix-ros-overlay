@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-python, controller-manager, force-torque-sensor-broadcaster, joint-state-broadcaster, joint-state-publisher, joint-trajectory-controller, launch, launch-ros, position-controllers, rclpy, robot-state-publisher, ros2-controllers-test-nodes, rviz2, ur-controllers, ur-description, urdf, velocity-controllers, xacro }:
 buildRosPackage {
   pname = "ros-humble-ur-bringup";
-  version = "2.9.0-r1";
+  version = "2.14.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release/archive/release/humble/ur_bringup/2.9.0-1.tar.gz";
-    name = "2.9.0-1.tar.gz";
-    sha256 = "2ef9ca2ac03d8753cd6cd21958ab33e6216bf5f1600969d52f63bdd6355e9f68";
+    url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release/archive/release/humble/ur_bringup/2.14.0-1.tar.gz";
+    name = "2.14.0-1.tar.gz";
+    sha256 = "326b782272a6efc6032c4fd6ec82692f650e788443f0c978203fe2e364fc1522";
   };
 
   buildType = "ament_cmake";

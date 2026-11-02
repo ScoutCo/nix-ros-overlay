@@ -1,19 +1,20 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, controller-manager, controller-manager-msgs, rclpy, rqt-gui, rqt-gui-py }:
+{ lib, buildRosPackage, fetchurl, controller-manager, controller-manager-msgs, launch-testing, launch-testing-ros, rclpy, rqt-gui, rqt-gui-py }:
 buildRosPackage {
   pname = "ros-humble-rqt-controller-manager";
-  version = "2.52.0-r1";
+  version = "2.54.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/rqt_controller_manager/2.52.0-1.tar.gz";
-    name = "2.52.0-1.tar.gz";
-    sha256 = "38d8933d0f16869c8e94a76fb2e8a01d31c15a4f0a6964b10b669626176cb446";
+    url = "https://github.com/ros2-gbp/ros2_control-release/archive/release/humble/rqt_controller_manager/2.54.2-1.tar.gz";
+    name = "2.54.2-1.tar.gz";
+    sha256 = "4beab8c888816800b4f137bb2f90b6a86232fcb5d469a0f477fad2d238883363";
   };
 
   buildType = "ament_python";
+  checkInputs = [ launch-testing launch-testing-ros ];
   propagatedBuildInputs = [ controller-manager controller-manager-msgs rclpy rqt-gui rqt-gui-py ];
 
   meta = {

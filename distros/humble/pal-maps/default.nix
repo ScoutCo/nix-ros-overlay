@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto }:
 buildRosPackage {
   pname = "ros-humble-pal-maps";
-  version = "0.0.5-r1";
+  version = "0.6.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/pal-gbp/pal_maps-release/archive/release/humble/pal_maps/0.0.5-1.tar.gz";
-    name = "0.0.5-1.tar.gz";
-    sha256 = "3bb7cdee3302f6cfc694b19fa8005eb7b37743654b79b2eaa8a806db437cec22";
+    url = "https://github.com/ros2-gbp/pal_maps-release/archive/release/humble/pal_maps/0.6.0-1.tar.gz";
+    name = "0.6.0-1.tar.gz";
+    sha256 = "d2b2b245bf3b27e36227b14a711f2e2c06f161ab2044341424d33beac02f74e6";
   };
 
   buildType = "ament_cmake";

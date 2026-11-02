@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-core, ament-cmake-export-libraries }:
 buildRosPackage {
   pname = "ros-jazzy-ament-cmake-export-interfaces";
-  version = "2.5.4-r1";
+  version = "2.5.6-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/jazzy/ament_cmake_export_interfaces/2.5.4-1.tar.gz";
-    name = "2.5.4-1.tar.gz";
-    sha256 = "cc2932aafad9fcda7892777ef6c469078c65e0f0872eededa537566d3525127e";
+    url = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/jazzy/ament_cmake_export_interfaces/2.5.6-2.tar.gz";
+    name = "2.5.6-2.tar.gz";
+    sha256 = "b3adfbe9eafd2e25d0deb4168cc1fe8d4ec054daaf90deb54e6d8d70cebeeb47";
   };
 
   buildType = "ament_cmake";

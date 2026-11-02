@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common }:
 buildRosPackage {
   pname = "ros-rolling-rosidl-typesupport-interface";
-  version = "5.1.0-r1";
+  version = "5.3.1-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/rolling/rosidl_typesupport_interface/5.1.0-1.tar.gz";
-    name = "5.1.0-1.tar.gz";
-    sha256 = "eb87a2da4adc4af6d51689725d1910f6950c62daa1d1ff87643126f242561bed";
+    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/rolling/rosidl_typesupport_interface/5.3.1-2.tar.gz";
+    name = "5.3.1-2.tar.gz";
+    sha256 = "286ec4ff98ad371706a62332908ede18b4442f607121831445d137a2646aa0cb";
   };
 
   buildType = "ament_cmake";

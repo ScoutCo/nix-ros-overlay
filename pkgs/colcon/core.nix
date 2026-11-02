@@ -1,14 +1,13 @@
-{ lib, buildPythonApplication, buildPythonPackage, makeWrapper, fetchPypi
+{ lib, stdenv, buildPythonApplication, buildPythonPackage, makeWrapper, fetchFromGitHub
 , python, distlib, empy_3, pytest, pytest-cov, pytest-repeat
 , pytest-rerunfailures, setuptools, pytestCheckHook, flake8, flake8-blind-except
 , flake8-docstrings, flake8-import-order, pep8-naming, pylint
 }:
 
 let
-  withExtensions = extensions: buildPythonApplication {
+  withExtensions = extensions: stdenv.mkDerivation {
     pname = "colcon";
     inherit (package) version;
-    format = "other";
 
     dontUnpack = true;
     dontBuild = true;
@@ -29,12 +28,17 @@ let
 
   package = buildPythonPackage rec {
     pname = "colcon-core";
-    version = "0.20.1";
+    version = "0.21.3";
 
-    src = fetchPypi {
-      inherit pname version;
-      hash = "sha256-YHgIs1x50woOH2/BfxJf9WUf0EjPVuKtMPczo5TooW0=";
+    src = fetchFromGitHub {
+      owner = "colcon";
+      repo = pname;
+      tag = version;
+      hash = "sha256-ZjfOgw/fvRe1WhZTX7FdExsN95PNOrKcy46/m3JeerA=";
     };
+
+    pyproject = true;
+    build-system = [ setuptools ];
 
     propagatedBuildInputs = [
       distlib

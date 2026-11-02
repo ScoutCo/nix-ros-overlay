@@ -1,18 +1,23 @@
 { lib, buildPythonPackage, fetchFromGitHub, xmltodict, termcolor, setuptools
-, rosinstall-generator, rosdistro, rosdep, GitPython, requests, docker, pyyaml
-, PyGithub, catkin-pkg, rospkg
+, rosinstall-generator, rosdistro, rosdep, gitpython, requests, docker, pyyaml
+, pygithub, catkin-pkg, rospkg
 }:
 
 buildPythonPackage rec {
   pname = "superflore";
-  version = "unstable-2025-03-03";
+  version = "0.3.3-unstable-2026-05-05";
 
   src = fetchFromGitHub {
-    owner = "lopsided98";
-    repo = pname;
-    rev = "62104b9ae54faf53991a7d94bf84c8ddfc8573df";
-    hash = "sha256-it6cje1nkG4pjakn5Vvwhw0NGyc23xblmhXMEwUpTbg=";
+    owner = "wentasah";
+    repo = "superflore";
+    # ref = "refs/heads/nixos";
+    rev = "ebdf7ae676e17da9c1f0dc53303c8e2764afa85f";
+    hash = "sha256-uoBc97g7ZhuvrMAbp/fNMg0wvtuAK8u40HKwB3T4KGg=";
+    # date = "2026-08-29T09:01:29+02:00";
   };
+
+  pyproject = true;
+  build-system = [ setuptools ];
 
   propagatedBuildInputs = [
     xmltodict
@@ -21,11 +26,11 @@ buildPythonPackage rec {
     rosinstall-generator
     rosdistro
     rosdep
-    GitPython
+    gitpython
     requests
     docker
     pyyaml
-    PyGithub
+    pygithub
     catkin-pkg
     rospkg
   ];

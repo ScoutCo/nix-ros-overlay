@@ -1,21 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, asio, console-bridge, mavlink, python3Packages }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-pytest, ament-lint-auto, ament-lint-common, asio, console-bridge, mavlink, python3Packages }:
 buildRosPackage {
   pname = "ros-rolling-libmavconn";
-  version = "2.12.0-r1";
+  version = "2.15.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mavros-release/archive/release/rolling/libmavconn/2.12.0-1.tar.gz";
-    name = "2.12.0-1.tar.gz";
-    sha256 = "dd2e1cd60e3bb4efc8b5ab675321887ef9443e6d9d00b8ce7005e8dfd42629f7";
+    url = "https://github.com/ros2-gbp/mavros-release/archive/release/rolling/libmavconn/2.15.1-1.tar.gz";
+    name = "2.15.1-1.tar.gz";
+    sha256 = "f1a8647e1649767a2f775c643ff3edce5f2a345f18864178b48bd24438759baf";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake python3Packages.empy ];
-  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
+  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common ];
   propagatedBuildInputs = [ asio console-bridge mavlink ];
   nativeBuildInputs = [ ament-cmake ];
 

@@ -1,23 +1,23 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-copyright, ament-cmake-cppcheck, ament-cmake-cpplint, ament-cmake-google-benchmark, ament-cmake-gtest, ament-cmake-lint-cmake, ament-cmake-ros, ament-cmake-uncrustify, ament-cmake-xmllint, builtin-interfaces, geometry-msgs, rcutils, rosidl-runtime-cpp }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-copyright, ament-cmake-cppcheck, ament-cmake-cpplint, ament-cmake-google-benchmark, ament-cmake-gtest, ament-cmake-lint-cmake, ament-cmake-ros, ament-cmake-ros-core, ament-cmake-uncrustify, ament-cmake-xmllint, builtin-interfaces, geometry-msgs, rcutils, rosidl-runtime-cpp }:
 buildRosPackage {
   pname = "ros-rolling-tf2";
-  version = "0.45.0-r1";
+  version = "0.46.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/rolling/tf2/0.45.0-1.tar.gz";
-    name = "0.45.0-1.tar.gz";
-    sha256 = "b9122cdc0cf487e9b6e565f10354ac5677686050094265702e38751cbba7e9f9";
+    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/rolling/tf2/0.46.3-1.tar.gz";
+    name = "0.46.3-1.tar.gz";
+    sha256 = "5144c4d0ae3d7056c03cf57c710e56ae483bf8647033fe23ac4eff3f6a720aca";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake ament-cmake-ros ];
+  buildInputs = [ ament-cmake ament-cmake-ros ament-cmake-ros-core ];
   checkInputs = [ ament-cmake-copyright ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-google-benchmark ament-cmake-gtest ament-cmake-lint-cmake ament-cmake-uncrustify ament-cmake-xmllint ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rcutils rosidl-runtime-cpp ];
-  nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-ros ament-cmake-ros-core ];
 
   meta = {
     description = "tf2 is the second generation of the transform library, which lets

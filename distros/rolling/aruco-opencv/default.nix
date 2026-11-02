@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-copyright, ament-cmake-cpplint, ament-cmake-lint-cmake, ament-cmake-uncrustify, ament-cmake-xmllint, ament-lint-auto, aruco-opencv-msgs, cv-bridge, image-transport, python3Packages, rclcpp, rclcpp-components, rclcpp-lifecycle, tf2-geometry-msgs, tf2-ros, yaml-cpp }:
 buildRosPackage {
   pname = "ros-rolling-aruco-opencv";
-  version = "6.0.2-r1";
+  version = "7.0.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/aruco_opencv-release/archive/release/rolling/aruco_opencv/6.0.2-1.tar.gz";
-    name = "6.0.2-1.tar.gz";
-    sha256 = "d50cb79a40a7f758d47756659208af21465950897027b1fbb4a805341b636570";
+    url = "https://github.com/ros2-gbp/aruco_opencv-release/archive/release/rolling/aruco_opencv/7.0.0-1.tar.gz";
+    name = "7.0.0-1.tar.gz";
+    sha256 = "4ea7d34c0235141c607d8f8efb123b2bb130bea4f2879980fbb00c1f68b2c537";
   };
 
   buildType = "ament_cmake";

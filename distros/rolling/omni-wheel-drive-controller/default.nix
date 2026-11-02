@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, controller-interface, controller-manager, eigen, generate-parameter-library, geometry-msgs, hardware-interface, nav-msgs, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, ros2-control-cmake, ros2-control-test-assets, tf2, tf2-msgs }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, control-msgs, controller-interface, controller-manager, eigen, generate-parameter-library, geometry-msgs, hardware-interface, nav-msgs, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, ros2-control-cmake, ros2-control-test-assets, tf2, tf2-msgs }:
 buildRosPackage {
   pname = "ros-rolling-omni-wheel-drive-controller";
-  version = "5.8.0-r1";
+  version = "6.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/rolling/omni_wheel_drive_controller/5.8.0-1.tar.gz";
-    name = "5.8.0-1.tar.gz";
-    sha256 = "ca25ea90fcecb4638beb4ac6c556cf6478ae8810b51a75abe6773c80559f7d03";
+    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/rolling/omni_wheel_drive_controller/6.9.0-1.tar.gz";
+    name = "6.9.0-1.tar.gz";
+    sha256 = "3a02117534ead156045be7d77e56b031f8c545ef1ce8c32ede1709e2aa54b30a";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ros2-control-cmake ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface ros2-control-test-assets ];
-  propagatedBuildInputs = [ controller-interface eigen generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle realtime-tools tf2 tf2-msgs ];
+  propagatedBuildInputs = [ control-msgs controller-interface eigen generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle realtime-tools tf2 tf2-msgs ];
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {

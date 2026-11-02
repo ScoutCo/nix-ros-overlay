@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, robot-state-publisher, xacro }:
 buildRosPackage {
   pname = "ros-kilted-depthai-descriptions";
-  version = "3.0.7-r1";
+  version = "3.3.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/luxonis/depthai-ros-release/archive/release/kilted/depthai_descriptions/3.0.7-1.tar.gz";
-    name = "3.0.7-1.tar.gz";
-    sha256 = "497ee2544cadeca65d3acfb321087b20833200db86497c43c42db26738253c7b";
+    url = "https://github.com/luxonis/depthai-ros-release/archive/release/kilted/depthai_descriptions/3.3.0-1.tar.gz";
+    name = "3.3.0-1.tar.gz";
+    sha256 = "83c9bd8919a31c241a24dccab7a1e6965d18853dc78f6a5a0a98f4957848e0c4";
   };
 
   buildType = "ament_cmake";

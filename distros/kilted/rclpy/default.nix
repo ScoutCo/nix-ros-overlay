@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, ament-cmake, ament-cmake-gtest, ament-cmake-pytest, ament-index-python, ament-lint-auto, ament-lint-common, builtin-interfaces, lifecycle-msgs, pybind11-vendor, python3, python3Packages, rcl, rcl-action, rcl-interfaces, rcl-lifecycle, rcl-logging-interface, rcl-yaml-param-parser, rcpputils, rcutils, rmw, rmw-implementation, rmw-implementation-cmake, rosgraph-msgs, rosidl-generator-py, rosidl-runtime-c, rpyutils, service-msgs, test-msgs, type-description-interfaces, unique-identifier-msgs }:
 buildRosPackage {
   pname = "ros-kilted-rclpy";
-  version = "9.1.1-r1";
+  version = "9.1.7-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rclpy-release/archive/release/kilted/rclpy/9.1.1-1.tar.gz";
-    name = "9.1.1-1.tar.gz";
-    sha256 = "347e671e08952e8b51ba7b4590a87584f9cd10455840aaca41bff72bf0e13664";
+    url = "https://github.com/ros2-gbp/rclpy-release/archive/release/kilted/rclpy/9.1.7-1.tar.gz";
+    name = "9.1.7-1.tar.gz";
+    sha256 = "4f8bef6d3ba1b24e281242b799d1da595d3cadf7229291253633a8f6f19e3648";
   };
 
   buildType = "ament_cmake";

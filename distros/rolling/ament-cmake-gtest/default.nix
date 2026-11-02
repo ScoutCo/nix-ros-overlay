@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake-core, ament-cmake-test, gtest, gtest-vendor }:
+{ lib, buildRosPackage, fetchurl, ament-cmake-core, ament-cmake-test, gtest }:
 buildRosPackage {
   pname = "ros-rolling-ament-cmake-gtest";
-  version = "2.8.4-r1";
+  version = "2.9.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/rolling/ament_cmake_gtest/2.8.4-1.tar.gz";
-    name = "2.8.4-1.tar.gz";
-    sha256 = "a2df6a2651ffee07371f0c65efde3b56f6467a1d3a4d5c00435f80018f2feb46";
+    url = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/rolling/ament_cmake_gtest/2.9.2-1.tar.gz";
+    name = "2.9.2-1.tar.gz";
+    sha256 = "677c17ac10ec0590c4bf4ffaaa84c9417bf3ad586b74708f85e228a56f918ce6";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake-core ];
-  propagatedBuildInputs = [ ament-cmake-test gtest gtest-vendor ];
-  nativeBuildInputs = [ ament-cmake-core ament-cmake-test gtest gtest-vendor ];
+  propagatedBuildInputs = [ ament-cmake-test gtest ];
+  nativeBuildInputs = [ ament-cmake-core ament-cmake-test gtest ];
 
   meta = {
     description = "The ability to add gtest-based tests in the ament buildsystem in CMake.";

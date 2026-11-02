@@ -1,13 +1,18 @@
-{ lib, buildPythonPackage, fetchPypi, colcon-core, notify2 }:
+{ lib, buildPythonPackage, fetchFromGitHub, colcon-core, notify2, setuptools }:
 
 buildPythonPackage rec {
   pname = "colcon-notification";
-  version = "0.3.0";
+  version = "0.3.3";
 
-  src = fetchPypi {
-    inherit pname version;
-    hash = "sha256-xFuJgHOo6YxFGDM7dYf56kmsG8Epp7xOE5AFkFcDH7g=";
+  src = fetchFromGitHub {
+    owner = "colcon";
+    repo = pname;
+    tag = version;
+    hash = "sha256-5cnuUVHHjn85RMz9r24/zRQdvDt+JETAWOW1Fw6WEtM=";
   };
+
+  pyproject = true;
+  build-system = [ setuptools ];
 
   propagatedBuildInputs = [ colcon-core notify2 ];
 

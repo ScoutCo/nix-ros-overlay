@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, cx-plugin, cx-utils, pluginlib, protobuf, protobuf-comm, python3Packages, rclcpp }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "CX plugin to send and receive protobuf messages";
-    license = with lib.licenses; [ "GPL-2.0-or-later" ];
+    license = with lib.licenses; [ gpl2Plus ];
   };
 }

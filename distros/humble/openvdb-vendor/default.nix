@@ -1,8 +1,8 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-vendor-package, boost, c-blosc, git, tbb_2021_11, zlib }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-vendor-package, boost, c-blosc, git, onetbb, zlib }:
 buildRosPackage {
   pname = "ros-humble-openvdb-vendor";
   version = "2.3.4-r1";
@@ -15,11 +15,11 @@ buildRosPackage {
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ament-cmake-vendor-package git ];
-  propagatedBuildInputs = [ boost c-blosc tbb_2021_11 zlib ];
+  propagatedBuildInputs = [ boost c-blosc onetbb zlib ];
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package git ];
 
   meta = {
     description = "Wrapper around OpenVDB, if not found on the system, will compile from source";
-    license = with lib.licenses; [ "LGPL-2.1-only" "MPL-2.0-license" ];
+    license = with lib.licenses; [ lgpl21Only mpl20 ];
   };
 }

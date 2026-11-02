@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-pytest, ament-cmake-ros, ament-lint-auto, ament-lint-common, ceres-solver, fuse-core, fuse-graphs, gtest-vendor, pluginlib, rclcpp }:
 buildRosPackage {
   pname = "ros-kilted-fuse-variables";
-  version = "1.2.4-r1";
+  version = "1.2.7-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/fuse-release/archive/release/kilted/fuse_variables/1.2.4-1.tar.gz";
-    name = "1.2.4-1.tar.gz";
-    sha256 = "7cbbd66229e1354b44091036974b495ea415d9210f6a5e951e696375d76852eb";
+    url = "https://github.com/ros2-gbp/fuse-release/archive/release/kilted/fuse_variables/1.2.7-1.tar.gz";
+    name = "1.2.7-1.tar.gz";
+    sha256 = "6f6bf8296e34cda0e92a0b0e9ca9d43948617a83903faf0eef5fbc1bd5311bdb";
   };
 
   buildType = "ament_cmake";

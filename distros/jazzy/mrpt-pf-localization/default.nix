@@ -1,21 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-lint-cmake, ament-cmake-xmllint, ament-lint-auto, cmake, mola-relocalization, mp2p-icp, mrpt-libgui, mrpt-libros-bridge, mrpt-libslam, mrpt-msgs, mrpt-msgs-bridge, mrpt-tutorials, nav-msgs, pose-cov-ops, rclcpp, rclcpp-components, sensor-msgs, std-msgs, tf2, tf2-geometry-msgs }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-lint-cmake, ament-cmake-xmllint, ament-lint-auto, cmake, mola-relocalization, mp2p-icp, mrpt-libgui, mrpt-libros-bridge, mrpt-libslam, mrpt-msgs, mrpt-msgs-bridge, mrpt-tutorials, nav-msgs, pose-cov-ops, rclcpp, rclcpp-components, sensor-msgs, std-msgs, tf2, tf2-geometry-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-mrpt-pf-localization";
-  version = "2.2.3-r1";
+  version = "2.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/jazzy/mrpt_pf_localization/2.2.3-1.tar.gz";
-    name = "2.2.3-1.tar.gz";
-    sha256 = "af8eaf283e4ea83b8cc3b683b5e754737cbf06557361b729bfee7a2ce326dae4";
+    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/jazzy/mrpt_pf_localization/2.5.0-1.tar.gz";
+    name = "2.5.0-1.tar.gz";
+    sha256 = "34a8a9634dad1d1cfc7b51faddb948e894f235c053b3202087201efe6d6fc9a1";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake cmake ];
-  checkInputs = [ mrpt-tutorials ];
+  checkInputs = [ ament-cmake-gtest mrpt-tutorials ];
   propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libros-bridge mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs ];
   nativeBuildInputs = [ ament-cmake cmake ];
 

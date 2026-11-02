@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, control-msgs, rclpy, sensor-msgs, std-msgs, trajectory-msgs }:
 buildRosPackage {
   pname = "ros-rolling-open-manipulator-teleop";
-  version = "4.0.7-r1";
+  version = "4.1.2-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/rolling/open_manipulator_teleop/4.0.7-1.tar.gz";
-    name = "4.0.7-1.tar.gz";
-    sha256 = "94a7fcae6c35fe3327000e7772904bf725d41477ad9612677196542da1dab109";
+    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/rolling/open_manipulator_teleop/4.1.2-2.tar.gz";
+    name = "4.1.2-2.tar.gz";
+    sha256 = "0dab83f814439f7f1e90865c7978652b3ab61bdc7bc68ac8a6f8fb1f450fb8a5";
   };
 
   buildType = "ament_python";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, backward-ros, controller-interface, controller-manager, generate-parameter-library, hardware-interface, hardware-interface-testing, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, ros2-control-cmake, ros2-control-test-assets, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-forward-command-controller";
-  version = "5.8.0-r1";
+  version = "5.17.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/kilted/forward_command_controller/5.8.0-1.tar.gz";
-    name = "5.8.0-1.tar.gz";
-    sha256 = "2d023a33c58e53014f43cc9af87748710e6ad04965a60331f981106c5929442c";
+    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/kilted/forward_command_controller/5.17.0-1.tar.gz";
+    name = "5.17.0-1.tar.gz";
+    sha256 = "e5daf3080f2ad0e71aa9618ca952fd954a73388f8ea20d4a204fc6286625568c";
   };
 
   buildType = "ament_cmake";

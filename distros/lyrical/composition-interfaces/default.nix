@@ -1,0 +1,26 @@
+
+# Copyright 2026 Open Source Robotics Foundation
+# Distributed under the terms of the BSD license
+
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-common, rcl-interfaces, rosidl-default-generators, rosidl-default-runtime }:
+buildRosPackage {
+  pname = "ros-lyrical-composition-interfaces";
+  version = "2.4.5-r1";
+
+  src = fetchurl {
+    url = "https://github.com/ros2-gbp/rcl_interfaces-release/archive/release/lyrical/composition_interfaces/2.4.5-1.tar.gz";
+    name = "2.4.5-1.tar.gz";
+    sha256 = "ecb34e91bcb93fde2014fb7a2492966f537482dede50d1669240f28df1ca7aa9";
+  };
+
+  buildType = "ament_cmake";
+  buildInputs = [ ament-cmake rosidl-default-generators ];
+  checkInputs = [ ament-lint-common ];
+  propagatedBuildInputs = [ rcl-interfaces rosidl-default-runtime ];
+  nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+
+  meta = {
+    description = "A package containing message and service definitions for managing composable nodes in a container process.";
+    license = with lib.licenses; [ asl20 ];
+  };
+}

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-python, ament-lint-auto, ament-lint-common, python3Packages, rosidl-pycommon }:
 buildRosPackage {
   pname = "ros-kilted-rosidl-cmake";
-  version = "4.9.5-r1";
+  version = "4.9.8-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/kilted/rosidl_cmake/4.9.5-1.tar.gz";
-    name = "4.9.5-1.tar.gz";
-    sha256 = "b0171db9ecdcca89ade2efac074a0b20cee31a5ce4e7fcd47e6510c043b8819e";
+    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/kilted/rosidl_cmake/4.9.8-1.tar.gz";
+    name = "4.9.8-1.tar.gz";
+    sha256 = "b9357fa27ad15f3fcae5a4dd17f6e253488eac84699a39f007ed3cb3925daf26";
   };
 
   buildType = "ament_cmake";

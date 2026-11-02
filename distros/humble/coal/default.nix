@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, assimp, boost, cmake, doxygen, eigen, eigenpy, git, octomap, python3, python3Packages }:
 buildRosPackage {
   pname = "ros-humble-coal";
-  version = "3.0.1-r1";
+  version = "3.0.3-r5";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/coal-release/archive/release/humble/coal/3.0.1-1.tar.gz";
-    name = "3.0.1-1.tar.gz";
-    sha256 = "61b0c04de02eacd6e6b770cd901fee43f1a4dfac895b33aafbc9c2c5a8571928";
+    url = "https://github.com/ros2-gbp/coal-release/archive/release/humble/coal/3.0.3-5.tar.gz";
+    name = "3.0.3-5.tar.gz";
+    sha256 = "f7b1a171b2ed5e8158675e64a089b3551664038a9e0c068d6c4246449c6a7a9a";
   };
 
   buildType = "cmake";

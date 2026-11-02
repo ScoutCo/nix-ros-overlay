@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, cv-bridge, geometry-msgs, image-transport, multisensor-calibration-interface, pcl-conversions, pcl-ros, qt5, rclcpp, rclcpp-components, rviz-common, sensor-msgs, small-gicp-vendor, std-msgs, tf2, tf2-ros, tinyxml-2, urdf, visualization-msgs }:
 buildRosPackage {
   pname = "ros-kilted-multisensor-calibration";
-  version = "2.0.4-r1";
+  version = "2.1.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/multisensor_calibration-release/archive/release/kilted/multisensor_calibration/2.0.4-1.tar.gz";
-    name = "2.0.4-1.tar.gz";
-    sha256 = "71b446b1d92f49d80d9cbc9fc57472631c3708c5283b6f388cd9c051d1047bf5";
+    url = "https://github.com/ros2-gbp/multisensor_calibration-release/archive/release/kilted/multisensor_calibration/2.1.0-1.tar.gz";
+    name = "2.1.0-1.tar.gz";
+    sha256 = "02c6122b38378857ed69dfade4ebead4cb7858e2943f63ec637a081fc06fc773";
   };
 
   buildType = "ament_cmake";

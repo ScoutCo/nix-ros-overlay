@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-lint-auto, ament-lint-common, launch, launch-testing, launch-testing-ament-cmake, launch-testing-ros, rclcpp, rclcpp-components, rcutils, rmw-implementation-cmake, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-lint-auto, ament-lint-common, example-interfaces, launch, launch-testing, launch-testing-ament-cmake, launch-testing-ros, rclcpp, rclcpp-components, rcutils, rmw-implementation-cmake, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-rolling-logging-demo";
-  version = "0.37.3-r1";
+  version = "0.38.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/rolling/logging_demo/0.37.3-1.tar.gz";
-    name = "0.37.3-1.tar.gz";
-    sha256 = "0273d29dfcd9d4139148e3df38f17e2ebe5dec6a9467715af16a7a05d5d9e2da";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/rolling/logging_demo/0.38.0-1.tar.gz";
+    name = "0.38.0-1.tar.gz";
+    sha256 = "7e170d1bc7a3e3a5c24d56e113aa1504292f8e9f69cb1a14eabaa3d8e0527499";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake rosidl-default-generators ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake launch-testing-ros rmw-implementation-cmake ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components rcutils rosidl-default-runtime std-msgs ];
+  propagatedBuildInputs = [ example-interfaces rclcpp rclcpp-components rcutils rosidl-default-runtime ];
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
 
   meta = {

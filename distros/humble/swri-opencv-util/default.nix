@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, cv-bridge, opencv, swri-math-util }:
 buildRosPackage {
   pname = "ros-humble-swri-opencv-util";
-  version = "3.8.7-r1";
+  version = "3.9.1-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/marti_common-release/archive/release/humble/swri_opencv_util/3.8.7-1.tar.gz";
-    name = "3.8.7-1.tar.gz";
-    sha256 = "86871edba0dbc2fa28b6ab776f8d8b46fd6506a7198915fbe097e8dd8140c794";
+    url = "https://github.com/ros2-gbp/marti_common-release/archive/release/humble/swri_opencv_util/3.9.1-2.tar.gz";
+    name = "3.9.1-2.tar.gz";
+    sha256 = "86166f2b41d8ac66e31dbb2b2ad969c12c2d2342a77a88c51e5f76b2cd95f796";
   };
 
   buildType = "ament_cmake";

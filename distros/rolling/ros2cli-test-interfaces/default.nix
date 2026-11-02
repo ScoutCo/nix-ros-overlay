@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-common, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-rolling-ros2cli-test-interfaces";
-  version = "0.40.1-r1";
+  version = "0.42.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2cli-release/archive/release/rolling/ros2cli_test_interfaces/0.40.1-1.tar.gz";
-    name = "0.40.1-1.tar.gz";
-    sha256 = "7c294b0655abc4b8db52d3acaeaca30cd47b5df4ee4f271484aee646c3db8fcc";
+    url = "https://github.com/ros2-gbp/ros2cli-release/archive/release/rolling/ros2cli_test_interfaces/0.42.0-1.tar.gz";
+    name = "0.42.0-1.tar.gz";
+    sha256 = "a62f299e07fa78b11d59b60599669c50c7b3b5e538bf304ea30a0f899edb911d";
   };
 
   buildType = "ament_cmake";

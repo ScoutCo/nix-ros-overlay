@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-index-python, ament-lint-auto, ament-lint-common, dummy-map-server, dummy-sensors, launch, launch-ros, robot-state-publisher }:
 buildRosPackage {
   pname = "ros-kilted-dummy-robot-bringup";
-  version = "0.36.2-r1";
+  version = "0.36.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/kilted/dummy_robot_bringup/0.36.2-1.tar.gz";
-    name = "0.36.2-1.tar.gz";
-    sha256 = "d5854375f32087cdfd7319298da99a95ff60561adb7efb716e0ab80c22a6776b";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/kilted/dummy_robot_bringup/0.36.5-1.tar.gz";
+    name = "0.36.5-1.tar.gz";
+    sha256 = "07d8f360ec6cfac6fb36de19f2bfb98371c94a4c6f2cdf00945e969cb1dd565c";
   };
 
   buildType = "ament_cmake";

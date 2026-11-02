@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, draco-point-cloud-transport, point-cloud-interfaces, zlib-point-cloud-transport, zstd-point-cloud-transport }:
 buildRosPackage {
   pname = "ros-rolling-point-cloud-transport-plugins";
-  version = "5.0.1-r1";
+  version = "7.0.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release/archive/release/rolling/point_cloud_transport_plugins/5.0.1-1.tar.gz";
-    name = "5.0.1-1.tar.gz";
-    sha256 = "9a70c6ad3a2ec0da92883352699280738c252e6ced9743a6126231b4569dfa40";
+    url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release/archive/release/rolling/point_cloud_transport_plugins/7.0.0-1.tar.gz";
+    name = "7.0.0-1.tar.gz";
+    sha256 = "5e13d84f7b7d474270e4b0e594e0c0f234457a58e812ea63a3727c100d63768e";
   };
 
   buildType = "ament_cmake";

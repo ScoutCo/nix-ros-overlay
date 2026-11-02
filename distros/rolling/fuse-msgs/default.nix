@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-ros, ament-lint-auto, ament-lint-common, geometry-msgs, gtest-vendor, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-fuse-msgs";
-  version = "1.3.1-r1";
+  version = "1.3.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/fuse-release/archive/release/rolling/fuse_msgs/1.3.1-1.tar.gz";
-    name = "1.3.1-1.tar.gz";
-    sha256 = "273d45cb6cf27bd7fde459576015dd6aabcea8e98dccbf1d8591a1cf893e63a2";
+    url = "https://github.com/ros2-gbp/fuse-release/archive/release/rolling/fuse_msgs/1.3.4-1.tar.gz";
+    name = "1.3.4-1.tar.gz";
+    sha256 = "58e7ed46dc93883d392708f3522a38c6e9fa9c61468635ef8c19bf2438e9fcfb";
   };
 
   buildType = "ament_cmake";

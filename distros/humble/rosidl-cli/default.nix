@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, ament-xmllint, python3Packages }:
 buildRosPackage {
   pname = "ros-humble-rosidl-cli";
-  version = "3.1.7-r1";
+  version = "3.1.9-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/humble/rosidl_cli/3.1.7-1.tar.gz";
-    name = "3.1.7-1.tar.gz";
-    sha256 = "4c47a480fba9e94531d2e33d8b4466afeb648cde1d7bd7f504284814d5a78ba3";
+    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/humble/rosidl_cli/3.1.9-1.tar.gz";
+    name = "3.1.9-1.tar.gz";
+    sha256 = "c5ae7836304c7e36ffec7898975c6201e5c1e6d24b8562c26106334cfc70014d";
   };
 
   buildType = "ament_python";

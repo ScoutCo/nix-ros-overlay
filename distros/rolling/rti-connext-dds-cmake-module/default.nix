@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common }:
 buildRosPackage {
   pname = "ros-rolling-rti-connext-dds-cmake-module";
-  version = "1.2.2-r1";
+  version = "1.3.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rmw_connextdds-release/archive/release/rolling/rti_connext_dds_cmake_module/1.2.2-1.tar.gz";
-    name = "1.2.2-1.tar.gz";
-    sha256 = "66f3d7454b374a99349e07f908bf5f6a77b1f74aa5742f434371d78249f5d9ef";
+    url = "https://github.com/ros2-gbp/rmw_connextdds-release/archive/release/rolling/rti_connext_dds_cmake_module/1.3.0-2.tar.gz";
+    name = "1.3.0-2.tar.gz";
+    sha256 = "c3eaff532d935c0131625e00c7e75c8ac02cbbeafccb09a6199ec492db3869d9";
   };
 
   buildType = "ament_cmake";

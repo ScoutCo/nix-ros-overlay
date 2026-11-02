@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, bison, cbc, clp, flex, rclcpp }:
 buildRosPackage {
   pname = "ros-kilted-popf";
-  version = "0.0.18-r1";
+  version = "1.0.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/popf-release/archive/release/kilted/popf/0.0.18-1.tar.gz";
-    name = "0.0.18-1.tar.gz";
-    sha256 = "d433165e485fa3f99a6595478261687edf2027f8b5dd98cd484e2c3c11bf60d5";
+    url = "https://github.com/ros2-gbp/popf-release/archive/release/kilted/popf/1.0.0-1.tar.gz";
+    name = "1.0.0-1.tar.gz";
+    sha256 = "6fc15332880e91af4db1d43911e7d38a8eb3026f77a2156581dc14246d1c5e95";
   };
 
   buildType = "ament_cmake";
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "The POPF package";
-    license = with lib.licenses; [ "GPL-2.0-only" ];
+    license = with lib.licenses; [ gpl2Only ];
   };
 }

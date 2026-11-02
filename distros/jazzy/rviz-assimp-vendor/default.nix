@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-lint-cmake, ament-cmake-vendor-package, ament-cmake-xmllint, ament-lint-auto, assimp }:
 buildRosPackage {
   pname = "ros-jazzy-rviz-assimp-vendor";
-  version = "14.1.16-r1";
+  version = "14.1.24-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rviz-release/archive/release/jazzy/rviz_assimp_vendor/14.1.16-1.tar.gz";
-    name = "14.1.16-1.tar.gz";
-    sha256 = "7b558718195d774256562ff7bb3546e71de455ab602a052475b1932e5662a1b5";
+    url = "https://github.com/ros2-gbp/rviz-release/archive/release/jazzy/rviz_assimp_vendor/14.1.24-1.tar.gz";
+    name = "14.1.24-1.tar.gz";
+    sha256 = "a83349c5fa2c527107ada3da10c2a3d71931017bdb6348760880abb1c9b5c9b3";
   };
 
   buildType = "ament_cmake";

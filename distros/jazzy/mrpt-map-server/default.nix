@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-lint-cmake, ament-cmake-xmllint, ament-lint-auto, mp2p-icp, mrpt-libmaps, mrpt-libobs, mrpt-libros-bridge, mrpt-msgs, mrpt-nav-interfaces, rclcpp-components, tf2, tf2-geometry-msgs, tf2-ros }:
 buildRosPackage {
   pname = "ros-jazzy-mrpt-map-server";
-  version = "2.2.3-r1";
+  version = "2.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/jazzy/mrpt_map_server/2.2.3-1.tar.gz";
-    name = "2.2.3-1.tar.gz";
-    sha256 = "ee78e088b3e9f0dea63cfc8cdda66ace0e4d7d642ac71725765dc25fb1ae7fef";
+    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/jazzy/mrpt_map_server/2.5.0-1.tar.gz";
+    name = "2.5.0-1.tar.gz";
+    sha256 = "7e19643aff21bfb6cec59534d96cd9e5b89cfec34205888af274c1b98f9d3850";
   };
 
   buildType = "ament_cmake";

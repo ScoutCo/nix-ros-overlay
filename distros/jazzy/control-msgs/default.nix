@@ -1,21 +1,20 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, action-msgs, ament-cmake, ament-lint-auto, ament-lint-common, builtin-interfaces, geometry-msgs, rosidl-default-generators, rosidl-default-runtime, sensor-msgs, std-msgs, trajectory-msgs }:
+{ lib, buildRosPackage, fetchurl, action-msgs, ament-cmake, builtin-interfaces, geometry-msgs, rosidl-default-generators, rosidl-default-runtime, sensor-msgs, std-msgs, trajectory-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-control-msgs";
-  version = "5.5.0-r1";
+  version = "5.10.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/control_msgs-release/archive/release/jazzy/control_msgs/5.5.0-1.tar.gz";
-    name = "5.5.0-1.tar.gz";
-    sha256 = "34d192fc32059d51237b0e1e30229fae18579334364edb650dd9617703522bd2";
+    url = "https://github.com/ros2-gbp/control_msgs-release/archive/release/jazzy/control_msgs/5.10.0-1.tar.gz";
+    name = "5.10.0-1.tar.gz";
+    sha256 = "a745af3aa1065380edc167925e2c31b601f12d1d4d9e495a8656678361a6e3db";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  checkInputs = [ ament-lint-auto ament-lint-common ];
   propagatedBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime sensor-msgs std-msgs trajectory-msgs ];
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
 

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake }:
 buildRosPackage {
   pname = "ros-kilted-tl-expected";
-  version = "1.0.2-r5";
+  version = "1.3.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/cpp_polyfills-release/archive/release/kilted/tl_expected/1.0.2-5.tar.gz";
-    name = "1.0.2-5.tar.gz";
-    sha256 = "f8e4a31c05c1f5c075d780d6a19c058aebdfe81a1e1f9726be3d63091cbcfcfa";
+    url = "https://github.com/ros2-gbp/cpp_polyfills-release/archive/release/kilted/tl_expected/1.3.2-1.tar.gz";
+    name = "1.3.2-1.tar.gz";
+    sha256 = "d67dcc9fd8ffc45f2e2f233974bb041a5fe6a87b7a577ab52a3247b077b02436";
   };
 
   buildType = "ament_cmake";
@@ -19,6 +19,6 @@ buildRosPackage {
 
   meta = {
     description = "C++11/14/17 std::expected with functional-style extensions";
-    license = with lib.licenses; [ "Creative-Commons-Zero-v1.0-Universal" ];
+    license = with lib.licenses; [ cc0 ];
   };
 }

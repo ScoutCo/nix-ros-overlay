@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, clips-vendor, cx-plugin, cx-utils, pluginlib, rclcpp, std-msgs }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "CLIPS plugin to continuously refresh agendas and run CLIPS environments";
-    license = with lib.licenses; [ "GPLv2-license" ];
+    license = with lib.licenses; [ gpl2Only ];
   };
 }

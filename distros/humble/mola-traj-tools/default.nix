@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-common, mrpt-libposes }:
 buildRosPackage {
   pname = "ros-humble-mola-traj-tools";
-  version = "1.9.0-r1";
+  version = "3.2.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/humble/mola_traj_tools/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "e99ba770ac55cf541753aa34e53831878925f35dd545789140985300656abb1a";
+    url = "https://github.com/ros2-gbp/mola-release/archive/release/humble/mola_traj_tools/3.2.0-1.tar.gz";
+    name = "3.2.0-1.tar.gz";
+    sha256 = "d010dd4118ef3c78c4ec25ce532f22e5209237b299c4e91d03a35ab0dac832c4";
   };
 
   buildType = "cmake";

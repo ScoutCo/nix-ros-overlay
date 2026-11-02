@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, nav-msgs, rclcpp }:
 buildRosPackage {
   pname = "ros-rolling-dummy-map-server";
-  version = "0.37.3-r1";
+  version = "0.38.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/rolling/dummy_map_server/0.37.3-1.tar.gz";
-    name = "0.37.3-1.tar.gz";
-    sha256 = "8e4dceb97cdcc10058a5fb220c24f708f7580cda716f9456835e654482292172";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/rolling/dummy_map_server/0.38.0-1.tar.gz";
+    name = "0.38.0-1.tar.gz";
+    sha256 = "082cf6e94bf5181b5eaec9d959c6c916171a19cdc68d28d1111d6e86e714f84c";
   };
 
   buildType = "ament_cmake";

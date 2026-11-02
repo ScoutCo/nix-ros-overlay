@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-rolling-autoware-internal-metric-msgs";
-  version = "1.10.0-r1";
+  version = "1.12.1-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_internal_msgs-release/archive/release/rolling/autoware_internal_metric_msgs/1.10.0-1.tar.gz";
-    name = "1.10.0-1.tar.gz";
-    sha256 = "41f8a337ce352fcc6581f8843ca1e8d670df23185002981d0715a97730fd9cd3";
+    url = "https://github.com/ros2-gbp/autoware_internal_msgs-release/archive/release/rolling/autoware_internal_metric_msgs/1.12.1-2.tar.gz";
+    name = "1.12.1-2.tar.gz";
+    sha256 = "fe60779cc528d6789fdf26f780e6d0c6322f5502a8fe30c6be89a8116550ee7d";
   };
 
   buildType = "ament_cmake";

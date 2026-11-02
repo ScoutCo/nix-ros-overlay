@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-lint-cmake, ament-cmake-xmllint, ament-lint-auto, mp2p-icp, mrpt-libgui, mrpt-libmaps, mrpt-libobs, mrpt-libros-bridge, nav-msgs, rclcpp, rclcpp-components, sensor-msgs, tf2, tf2-geometry-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-mrpt-pointcloud-pipeline";
-  version = "2.2.3-r1";
+  version = "2.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/jazzy/mrpt_pointcloud_pipeline/2.2.3-1.tar.gz";
-    name = "2.2.3-1.tar.gz";
-    sha256 = "02b9af7435246f2f309434e7f4feedcd2ab86e3922a4ae3b6aa6b8a50f34bc99";
+    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/jazzy/mrpt_pointcloud_pipeline/2.5.0-1.tar.gz";
+    name = "2.5.0-1.tar.gz";
+    sha256 = "b1d0d4bb7ebe709369cecf6d4ac538531958c0208b2d785d5b85908be926e271";
   };
 
   buildType = "ament_cmake";

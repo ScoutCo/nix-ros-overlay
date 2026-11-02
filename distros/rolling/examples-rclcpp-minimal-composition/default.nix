@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, rclcpp, rclcpp-components, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-examples-rclcpp-minimal-composition";
-  version = "0.21.2-r1";
+  version = "0.22.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/examples-release/archive/release/rolling/examples_rclcpp_minimal_composition/0.21.2-1.tar.gz";
-    name = "0.21.2-1.tar.gz";
-    sha256 = "462c07ac6b9cec0d3f89019a9676671f4d4eb20dd01aec77d9463a028da5d378";
+    url = "https://github.com/ros2-gbp/examples-release/archive/release/rolling/examples_rclcpp_minimal_composition/0.22.0-1.tar.gz";
+    name = "0.22.0-1.tar.gz";
+    sha256 = "203715129c3b6719885b648f60de77472d00b0a7011d25033a044a6fae137915";
   };
 
   buildType = "ament_cmake";

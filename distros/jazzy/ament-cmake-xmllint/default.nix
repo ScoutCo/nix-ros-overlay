@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-copyright, ament-cmake-core, ament-cmake-lint-cmake, ament-cmake-test, ament-xmllint }:
 buildRosPackage {
   pname = "ros-jazzy-ament-cmake-xmllint";
-  version = "0.17.3-r1";
+  version = "0.17.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ament_lint-release/archive/release/jazzy/ament_cmake_xmllint/0.17.3-1.tar.gz";
-    name = "0.17.3-1.tar.gz";
-    sha256 = "57e22e7e50eaafde23b8a3758690fdd1804576e390ea80b5b12e82847bdc64dd";
+    url = "https://github.com/ros2-gbp/ament_lint-release/archive/release/jazzy/ament_cmake_xmllint/0.17.5-1.tar.gz";
+    name = "0.17.5-1.tar.gz";
+    sha256 = "a8cea7491337e13dea8ba2922fbae4195f7395faa416cddefe43c4583f25e1ba";
   };
 
   buildType = "ament_cmake";

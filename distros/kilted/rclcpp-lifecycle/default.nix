@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-gtest, ament-cmake-ros, ament-lint-auto, ament-lint-common, lifecycle-msgs, mimick-vendor, performance-test-fixture, rcl, rcl-interfaces, rcl-lifecycle, rclcpp, rcpputils, rcutils, rmw, rosidl-typesupport-cpp, test-msgs }:
 buildRosPackage {
   pname = "ros-kilted-rclcpp-lifecycle";
-  version = "29.5.3-r1";
+  version = "29.5.11-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rclcpp-release/archive/release/kilted/rclcpp_lifecycle/29.5.3-1.tar.gz";
-    name = "29.5.3-1.tar.gz";
-    sha256 = "c496bb7d91e5042891d687eba0e03ab7b06499d7ae88109010872ab2ab012c27";
+    url = "https://github.com/ros2-gbp/rclcpp-release/archive/release/kilted/rclcpp_lifecycle/29.5.11-1.tar.gz";
+    name = "29.5.11-1.tar.gz";
+    sha256 = "b0610e3fa5ab3c15fc02f2685032554bbc0b040a9e4593d0c3844a2c85e6030e";
   };
 
   buildType = "ament_cmake";

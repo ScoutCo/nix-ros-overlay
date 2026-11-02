@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake }:
 buildRosPackage {
   pname = "ros-jazzy-etsi-its-cam-ts-coding";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/jazzy/etsi_its_cam_ts_coding/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "9c478e009de33b5cd6c0efd9934135fec658070279addbb59dc1a02773dc007c";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/jazzy/etsi_its_cam_ts_coding/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "76deb77038747dafc9a669a0310e141497251753c74d099bff68be54fd01e632";
   };
 
   buildType = "ament_cmake";

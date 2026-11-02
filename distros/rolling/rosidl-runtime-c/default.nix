@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-ros-core, ament-lint-auto, ament-lint-common, performance-test-fixture, rcutils, rosidl-typesupport-interface }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-ros-core, ament-lint-auto, ament-lint-common, performance-test-fixture, rcutils, rosidl-buffer, rosidl-typesupport-interface }:
 buildRosPackage {
   pname = "ros-rolling-rosidl-runtime-c";
-  version = "5.1.0-r1";
+  version = "5.3.1-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/rolling/rosidl_runtime_c/5.1.0-1.tar.gz";
-    name = "5.1.0-1.tar.gz";
-    sha256 = "5d79706403208f9b854f032e3c2c9873a8dc9e6e9fe212a540b2d2c0bf72f167";
+    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/rolling/rosidl_runtime_c/5.3.1-2.tar.gz";
+    name = "5.3.1-2.tar.gz";
+    sha256 = "a2f9955b48386b9cfff862da9e28cd6a8b68aa35b68afa6ed882c9f907a53f60";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake-ros-core ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common performance-test-fixture ];
-  propagatedBuildInputs = [ ament-cmake rcutils rosidl-typesupport-interface ];
+  propagatedBuildInputs = [ ament-cmake rcutils rosidl-buffer rosidl-typesupport-interface ];
   nativeBuildInputs = [ ament-cmake ament-cmake-ros-core ];
 
   meta = {

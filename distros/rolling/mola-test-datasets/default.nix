@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-lint-cmake, ament-cmake-pep257, ament-cmake-uncrustify, ament-cmake-xmllint, ament-lint-auto, cmake, ros-environment }:
 buildRosPackage {
   pname = "ros-rolling-mola-test-datasets";
-  version = "0.4.2-r1";
+  version = "0.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola_test_datasets-release/archive/release/rolling/mola_test_datasets/0.4.2-1.tar.gz";
-    name = "0.4.2-1.tar.gz";
-    sha256 = "7c4b108a61ebc52f2a7402c38c400475b9f11d098f0e0d47992e65d3ce4f733e";
+    url = "https://github.com/ros2-gbp/mola_test_datasets-release/archive/release/rolling/mola_test_datasets/0.5.0-1.tar.gz";
+    name = "0.5.0-1.tar.gz";
+    sha256 = "92ccff5993fd390941633baa8446de0034743077750f17e123169ad5deb9aab4";
   };
 
   buildType = "ament_cmake";
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "Small SLAM dataset extracts used for demos or unit tests in the rest of MOLA packages";
-    license = with lib.licenses; [ bsd3 bsd3 "CC-BY-NC-SA-3.0" "CC-BY-3.0" "CC-BY-3.0" cc-by-nc-sa-40 ];
+    license = with lib.licenses; [ bsd3 bsd3 cc-by-nc-sa-30 "CC-BY-3.0" "CC-BY-3.0" cc-by-nc-sa-40 ];
   };
 }

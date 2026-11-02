@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-lint-auto, ament-lint-common, builtin-interfaces, geometry-msgs, ros-environment, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-rolling-foxglove-msgs";
-  version = "3.2.1-r1";
+  version = "3.5.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/foxglove_bridge-release/archive/release/rolling/foxglove_msgs/3.2.1-1.tar.gz";
-    name = "3.2.1-1.tar.gz";
-    sha256 = "f4086d3064b4c45ea6a2e3bd66cadea7f1a9882265c2317bc466d22fd744a43f";
+    url = "https://github.com/ros2-gbp/foxglove_bridge-release/archive/release/rolling/foxglove_msgs/3.5.0-2.tar.gz";
+    name = "3.5.0-2.tar.gz";
+    sha256 = "10cda26600dc55be067804e47039b22da2abe11c65ea1ad72d9f339a3a14fcea";
   };
 
   buildType = "ament_cmake";

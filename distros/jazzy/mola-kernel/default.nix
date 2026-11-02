@@ -1,21 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, cmake, mola-common, mola-yaml, mrpt-libgui, mrpt-libmaps, mrpt-libobs }:
+{ lib, buildRosPackage, fetchurl, cmake, mola-common, mola-yaml, mrpt-libmaps, mrpt-libobs }:
 buildRosPackage {
   pname = "ros-jazzy-mola-kernel";
-  version = "1.9.0-r1";
+  version = "3.2.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/jazzy/mola_kernel/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "2a4f638d53c1e90fea68bd230c468caedec1af16cdb2ee75716f6574b7299e38";
+    url = "https://github.com/ros2-gbp/mola-release/archive/release/jazzy/mola_kernel/3.2.0-1.tar.gz";
+    name = "3.2.0-1.tar.gz";
+    sha256 = "71b19c451793e838fb1bf5eb13f76341b1f0294d121bb744b7c3dce41da4f9d3";
   };
 
   buildType = "cmake";
   buildInputs = [ cmake ];
-  propagatedBuildInputs = [ mola-common mola-yaml mrpt-libgui mrpt-libmaps mrpt-libobs ];
+  propagatedBuildInputs = [ mola-common mola-yaml mrpt-libmaps mrpt-libobs ];
   nativeBuildInputs = [ cmake ];
 
   meta = {

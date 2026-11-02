@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, camera-info-manager, cv-bridge, image-transport, rcl-interfaces, rclcpp, rclcpp-components }:
 buildRosPackage {
   pname = "ros-jazzy-image-publisher";
-  version = "5.0.11-r1";
+  version = "5.0.13-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/jazzy/image_publisher/5.0.11-1.tar.gz";
-    name = "5.0.11-1.tar.gz";
-    sha256 = "952dd790c195d13d0321b865676faa369c6f40e44eedb5efa0fe727c4ea71f9f";
+    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/jazzy/image_publisher/5.0.13-1.tar.gz";
+    name = "5.0.13-1.tar.gz";
+    sha256 = "0dcf06bc1e23c5c496604018c6a17243f152666203102b5e127e2ef9f489fc79";
   };
 
   buildType = "ament_cmake";

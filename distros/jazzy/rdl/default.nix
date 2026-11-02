@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, rdl-benchmark, rdl-dynamics, rdl-urdfreader }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "The rdl meta-package";
-    license = with lib.licenses; [ "Zlib" ];
+    license = with lib.licenses; [ zlib ];
   };
 }

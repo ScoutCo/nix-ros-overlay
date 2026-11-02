@@ -1,0 +1,37 @@
+name: "Darwin"
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  eval:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: cachix/install-nix-action@v31.8.1
+    - uses: cachix/cachix-action@v17
+      with:
+        name: ros-darwin
+        authToken: "${{ secrets.CACHIX_AUTH_TOKEN_ROS_DARWIN }}"
+    - run: maintainers/scripts/eval-darwin.sh
+  build-selected:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        distro:
+          - humble
+          - jazzy
+          - kilted
+          - lyrical
+          - rolling
+    steps:
+    - uses: actions/checkout@v4
+    - uses: cachix/install-nix-action@v31.8.1
+    - uses: cachix/cachix-action@v17
+      with:
+        name: ros-darwin
+        authToken: "${{ secrets.CACHIX_AUTH_TOKEN_ROS_DARWIN }}"
+    - run: nix-build -A rosPackages.${{ matrix.distro }}.ros-base
+    - run: nix-build -A rosPackages.${{ matrix.distro }}.rviz2
+      if: matrix.distro != 'humble'  # rviz2 is broken for humble on darwin

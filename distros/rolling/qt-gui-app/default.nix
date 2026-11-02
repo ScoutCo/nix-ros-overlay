@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-index-python, ament-lint-auto, ament-lint-common, qt-gui }:
 buildRosPackage {
   pname = "ros-rolling-qt-gui-app";
-  version = "2.10.2-r1";
+  version = "3.0.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/qt_gui_core-release/archive/release/rolling/qt_gui_app/2.10.2-1.tar.gz";
-    name = "2.10.2-1.tar.gz";
-    sha256 = "519d1783c3442ffa1bcd7fec06748ae3487ebd5c28798bae67f8f4ecf324cd7e";
+    url = "https://github.com/ros2-gbp/qt_gui_core-release/archive/release/rolling/qt_gui_app/3.0.3-1.tar.gz";
+    name = "3.0.3-1.tar.gz";
+    sha256 = "629dc952c2af890d3e30ec67661dedc3ea9ed030e5a5879cff8272893997fe2c";
   };
 
   buildType = "ament_cmake";

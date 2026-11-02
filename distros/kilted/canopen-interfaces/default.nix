@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-kilted-canopen-interfaces";
-  version = "0.3.1-r1";
+  version = "0.3.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_canopen-release/archive/release/kilted/canopen_interfaces/0.3.1-1.tar.gz";
-    name = "0.3.1-1.tar.gz";
-    sha256 = "82c15a84d22962329df5de88f1fb07f1f88718005270c72dc31650573080ca82";
+    url = "https://github.com/ros2-gbp/ros2_canopen-release/archive/release/kilted/canopen_interfaces/0.3.4-1.tar.gz";
+    name = "0.3.4-1.tar.gz";
+    sha256 = "693b53cf07d78ff257a152cd12cc56f843b66820561f94e27fffcaff5cb5c9bf";
   };
 
   buildType = "ament_cmake";

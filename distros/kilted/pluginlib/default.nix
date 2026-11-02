@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-index-cpp, ament-lint-auto, ament-lint-common, class-loader, rcpputils, rcutils, tinyxml2-vendor }:
 buildRosPackage {
   pname = "ros-kilted-pluginlib";
-  version = "5.6.0-r2";
+  version = "5.6.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/pluginlib-release/archive/release/kilted/pluginlib/5.6.0-2.tar.gz";
-    name = "5.6.0-2.tar.gz";
-    sha256 = "bec98530a1a658768f085855661a3fd47806264587fa82fbfa570ce530911b4e";
+    url = "https://github.com/ros2-gbp/pluginlib-release/archive/release/kilted/pluginlib/5.6.4-1.tar.gz";
+    name = "5.6.4-1.tar.gz";
+    sha256 = "71da9fad4927904c784eb904b415e59975b9327fc851d213c291f358f1b7dde3";
   };
 
   buildType = "ament_cmake";

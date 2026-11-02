@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, xacro }:
 buildRosPackage {
   pname = "ros-jazzy-microstrain-inertial-description";
-  version = "4.7.0-r1";
+  version = "4.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/microstrain_inertial-release/archive/release/jazzy/microstrain_inertial_description/4.7.0-1.tar.gz";
-    name = "4.7.0-1.tar.gz";
-    sha256 = "cc8bdd557af6952b2b5ee8f7cd5a03bf5aaa14ab40249d2f7faaff4d46e0cc45";
+    url = "https://github.com/ros2-gbp/microstrain_inertial-release/archive/release/jazzy/microstrain_inertial_description/4.9.0-1.tar.gz";
+    name = "4.9.0-1.tar.gz";
+    sha256 = "bec076eba52ee66c0aff5ad0b8d8f1c62773eecc255734b31f0c36d23b53fc3c";
   };
 
   buildType = "ament_cmake";

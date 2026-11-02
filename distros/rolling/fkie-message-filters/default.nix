@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-ros, image-transport, rclcpp, rclcpp-lifecycle, sensor-msgs, std-msgs, tf2-ros }:
 buildRosPackage {
   pname = "ros-rolling-fkie-message-filters";
-  version = "3.2.1-r1";
+  version = "3.4.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/fkie_message_filters-release/archive/release/rolling/fkie_message_filters/3.2.1-1.tar.gz";
-    name = "3.2.1-1.tar.gz";
-    sha256 = "b56028542029a7c5012c1e92c67f10d7e6f80c34d23b96151731ace8740c1cbd";
+    url = "https://github.com/ros2-gbp/fkie_message_filters-release/archive/release/rolling/fkie_message_filters/3.4.0-1.tar.gz";
+    name = "3.4.0-1.tar.gz";
+    sha256 = "c492e24a1430060b61c79e96625957bb0bd04cf26ea16161f4f85ee67b0139bd";
   };
 
   buildType = "ament_cmake";

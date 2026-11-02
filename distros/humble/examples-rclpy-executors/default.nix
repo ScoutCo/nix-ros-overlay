@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, python3Packages, rclpy, std-msgs }:
 buildRosPackage {
   pname = "ros-humble-examples-rclpy-executors";
-  version = "0.15.4-r1";
+  version = "0.15.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/examples-release/archive/release/humble/examples_rclpy_executors/0.15.4-1.tar.gz";
-    name = "0.15.4-1.tar.gz";
-    sha256 = "882831d371338e187c7f90d41b9a47eb35f817c273c727dd5f42054ad253e740";
+    url = "https://github.com/ros2-gbp/examples-release/archive/release/humble/examples_rclpy_executors/0.15.5-1.tar.gz";
+    name = "0.15.5-1.tar.gz";
+    sha256 = "554bb59f982709d6b3c613bc4bc15cbaa13ad5f2c7e02ffbbf737c66a88fa790";
   };
 
   buildType = "ament_python";

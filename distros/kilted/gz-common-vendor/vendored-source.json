@@ -1,7 +1,7 @@
 {
   "gz_common_vendor": {
     "url": "https://github.com/gazebosim/gz-common.git",
-    "rev": "gz-common6_6.1.0",
-    "hash": "sha256-D70bKjbSgg5Baye4hXWeAdeTSxgP157nQtZedY7cljE="
+    "rev": "gz-common6_6.4.0",
+    "hash": "sha256-kC1b2z+j4QuRsz2xbgR9SZQKG4cETZKSFbNPW+5zqpk="
   }
 }

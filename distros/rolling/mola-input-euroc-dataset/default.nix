@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-common, mola-kernel, mrpt-libmath, mrpt-libobs }:
 buildRosPackage {
   pname = "ros-rolling-mola-input-euroc-dataset";
-  version = "1.9.1-r1";
+  version = "3.0.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/rolling/mola_input_euroc_dataset/1.9.1-1.tar.gz";
-    name = "1.9.1-1.tar.gz";
-    sha256 = "7f8a4d7403edaae91858609bd7f1e4e88cdf09c2564b901a952fde349e41faa7";
+    url = "https://github.com/ros2-gbp/mola_academic_datasets-release/archive/release/rolling/mola_input_euroc_dataset/3.0.0-2.tar.gz";
+    name = "3.0.0-2.tar.gz";
+    sha256 = "df830766d237dd623ce951eced01824647908c5b10a9d84f4d0d30f2be139489";
   };
 
   buildType = "cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, backward-ros, controller-interface, controller-manager, generate-parameter-library, geometry-msgs, hardware-interface-testing, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, ros2-control-test-assets, tf2-msgs }:
 buildRosPackage {
   pname = "ros-humble-pose-broadcaster";
-  version = "2.50.1-r1";
+  version = "2.54.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/humble/pose_broadcaster/2.50.1-1.tar.gz";
-    name = "2.50.1-1.tar.gz";
-    sha256 = "1cd8ce558b9fcfb69d655de8f457cd614ba51cad500b66c227aad2b00d011ae3";
+    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/humble/pose_broadcaster/2.54.0-1.tar.gz";
+    name = "2.54.0-1.tar.gz";
+    sha256 = "c826f54b6d9c51fab27ff53a2fc4ffca751d1cf7c600ede8e3378ad94fd26dcb";
   };
 
   buildType = "ament_cmake";

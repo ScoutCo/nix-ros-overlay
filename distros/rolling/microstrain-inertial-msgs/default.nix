@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, geometry-msgs, rosidl-default-generators, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-microstrain-inertial-msgs";
-  version = "4.7.0-r1";
+  version = "4.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/microstrain_inertial-release/archive/release/rolling/microstrain_inertial_msgs/4.7.0-1.tar.gz";
-    name = "4.7.0-1.tar.gz";
-    sha256 = "5ea65ea5069240b8338fa81ce3c1aa05dad62ffd992be34cd45509022c9dd978";
+    url = "https://github.com/ros2-gbp/microstrain_inertial-release/archive/release/rolling/microstrain_inertial_msgs/4.9.0-1.tar.gz";
+    name = "4.9.0-1.tar.gz";
+    sha256 = "d246b2f4188f82800bbc21cea48710f76d0c13e2de63c4ef8a162237dfab9928";
   };
 
   buildType = "ament_cmake";

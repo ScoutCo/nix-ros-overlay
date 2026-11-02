@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, git, libyaml, meson, openssl, pkg-config, python3, python3Packages, udev }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "An open source camera stack and framework for Linux, Android, and ChromeOS";
-    license = with lib.licenses; [ "LGPL-2.1-only" ];
+    license = with lib.licenses; [ lgpl21Only ];
   };
 }

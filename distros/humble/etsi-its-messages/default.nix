@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, etsi-its-coding, etsi-its-conversion, etsi-its-msgs, etsi-its-msgs-utils }:
 buildRosPackage {
   pname = "ros-humble-etsi-its-messages";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/humble/etsi_its_messages/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "eaf20ad284f4619d59d6cc1e7acd33d041501ea6b306c9242b346653bdd71b3d";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/humble/etsi_its_messages/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "cbcb641a1d9efeb3ec6855411518bf7112ab0a0a3a235b48b20e6d338dd5440e";
   };
 
   buildType = "ament_cmake";

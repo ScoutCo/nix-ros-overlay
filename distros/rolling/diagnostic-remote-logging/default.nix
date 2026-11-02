@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, curl, diagnostic-msgs, rclcpp-components }:
 buildRosPackage {
   pname = "ros-rolling-diagnostic-remote-logging";
-  version = "4.4.6-r1";
+  version = "4.5.7-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/diagnostics-release/archive/release/rolling/diagnostic_remote_logging/4.4.6-1.tar.gz";
-    name = "4.4.6-1.tar.gz";
-    sha256 = "5f493c6e7a9eaeeb436999777a84bdf8207ebd655005d3ad38333ddd3f0e6ae3";
+    url = "https://github.com/ros2-gbp/diagnostics-release/archive/release/rolling/diagnostic_remote_logging/4.5.7-1.tar.gz";
+    name = "4.5.7-1.tar.gz";
+    sha256 = "55341e7a93930692d5ad5d0e45dbbaffff169693e115bc504be690d30235d3ca";
   };
 
   buildType = "ament_cmake";
@@ -19,7 +19,7 @@ buildRosPackage {
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {
-    description = "diagnostic_remote_logging";
+    description = "Tools for remotely logging diagnostics data.";
     license = with lib.licenses; [ bsd3 ];
   };
 }

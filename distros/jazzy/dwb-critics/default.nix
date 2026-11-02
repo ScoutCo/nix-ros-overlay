@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, angles, costmap-queue, dwb-core, geometry-msgs, nav-2d-msgs, nav-2d-utils, nav2-common, nav2-costmap-2d, nav2-util, pluginlib, rclcpp, sensor-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-dwb-critics";
-  version = "1.3.9-r1";
+  version = "1.3.13-r1";
 
   src = fetchurl {
-    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/jazzy/dwb_critics/1.3.9-1.tar.gz";
-    name = "1.3.9-1.tar.gz";
-    sha256 = "2422cdff41d81fca4f8954dadb4b6fe4433523e6f09b31303b4253668d0bb767";
+    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/jazzy/dwb_critics/1.3.13-1.tar.gz";
+    name = "1.3.13-1.tar.gz";
+    sha256 = "6be0b055e1dc5f4b7b7ee84a3199ffb9361cd1c0ee652ae24084847784884281";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-clang-format, ament-cmake-gtest, ament-cmake-ros, ament-lint-auto, ament-lint-common, ffmpeg-encoder-decoder, foxglove-msgs, image-transport, pluginlib, rclcpp, rcutils, ros-environment, sensor-msgs, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-foxglove-compressed-video-transport";
-  version = "3.0.2-r1";
+  version = "3.0.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/foxglove_compressed_video_transport-release/archive/release/rolling/foxglove_compressed_video_transport/3.0.2-1.tar.gz";
-    name = "3.0.2-1.tar.gz";
-    sha256 = "9a8e4858fde8b61713304dfad721c989926e5915dc836c86f03634281a389da4";
+    url = "https://github.com/ros2-gbp/foxglove_compressed_video_transport-release/archive/release/rolling/foxglove_compressed_video_transport/3.0.3-1.tar.gz";
+    name = "3.0.3-1.tar.gz";
+    sha256 = "4f93a360ebd5864f0d9c453f1db1a6acbdf02af8ac89c45d17c3ec67b9a1172a";
   };
 
   buildType = "ament_cmake";
@@ -22,6 +22,6 @@ buildRosPackage {
   meta = {
     description = "foxglove_compressed_video_transport provides a plugin to image_transport for
     transparently sending an image stream encoded in foxglove compressed video packets.";
-    license = with lib.licenses; [ "Apache-2" ];
+    license = with lib.licenses; [ asl20 ];
   };
 }

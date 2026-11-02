@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, geometry-msgs, rclcpp, rclcpp-components, rmf-building-map-msgs, rmf-fleet-msgs, rmf-traffic, rmf-traffic-ros2, rmf-utils, rmf-visualization-msgs, visualization-msgs }:
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "A package to visualiize the navigation graphs of fleets";
-    license = with lib.licenses; [ "Apache-license-2.0" ];
+    license = with lib.licenses; [ asl20 ];
   };
 }

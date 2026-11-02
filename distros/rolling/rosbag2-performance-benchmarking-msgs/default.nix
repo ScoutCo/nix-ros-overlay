@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, rosidl-cmake, rosidl-default-generators, rosidl-default-runtime, rosidl-typesupport-cpp }:
 buildRosPackage {
   pname = "ros-rolling-rosbag2-performance-benchmarking-msgs";
-  version = "0.33.0-r1";
+  version = "0.34.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/rolling/rosbag2_performance_benchmarking_msgs/0.33.0-1.tar.gz";
-    name = "0.33.0-1.tar.gz";
-    sha256 = "8ce0ab6e70b10cdfff7538495f1ae2e2c2b24285cb6d938a4121ce6058808da5";
+    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/rolling/rosbag2_performance_benchmarking_msgs/0.34.0-1.tar.gz";
+    name = "0.34.0-1.tar.gz";
+    sha256 = "2091c37f6439c6314d3b6d03a6f864aec724aeaad82768e811bc26f27dcfe02b";
   };
 
   buildType = "ament_cmake";

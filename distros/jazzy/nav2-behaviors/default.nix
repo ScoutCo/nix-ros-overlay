@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, geometry-msgs, nav-msgs, nav2-behavior-tree, nav2-common, nav2-core, nav2-costmap-2d, nav2-msgs, nav2-util, pluginlib, rclcpp, rclcpp-action, rclcpp-lifecycle, tf2, tf2-geometry-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-nav2-behaviors";
-  version = "1.3.9-r1";
+  version = "1.3.13-r1";
 
   src = fetchurl {
-    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/jazzy/nav2_behaviors/1.3.9-1.tar.gz";
-    name = "1.3.9-1.tar.gz";
-    sha256 = "09588e8b70ffd0425a5080f81790f25eb6469cb7fce149ac2c3399eb662be347";
+    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/jazzy/nav2_behaviors/1.3.13-1.tar.gz";
+    name = "1.3.13-1.tar.gz";
+    sha256 = "56ce367cafc61b0b52533ff2fc7bb60b81e2d80c2faf09af9ba2caaa399373da";
   };
 
   buildType = "ament_cmake";

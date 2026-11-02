@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, boost, geometry-msgs, nav-msgs, rclcpp, rosidl-default-generators, rosidl-default-runtime, sensor-msgs, std-msgs, tf2, tf2-ros }:
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "Unitree ros package";
-    license = with lib.licenses; [ "GPL-3.0" ];
+    license = with lib.licenses; [ gpl3 ];
   };
 }

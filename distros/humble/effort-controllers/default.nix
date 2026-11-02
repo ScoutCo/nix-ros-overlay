@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, backward-ros, controller-manager, forward-command-controller, hardware-interface, hardware-interface-testing, pluginlib, rclcpp, ros2-control-test-assets }:
 buildRosPackage {
   pname = "ros-humble-effort-controllers";
-  version = "2.50.1-r1";
+  version = "2.54.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/humble/effort_controllers/2.50.1-1.tar.gz";
-    name = "2.50.1-1.tar.gz";
-    sha256 = "b5247f592a0c9dd0bf2198857f5bb73cb8ab3cdedf49376cfa2b949cbaca2f18";
+    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/humble/effort_controllers/2.54.0-1.tar.gz";
+    name = "2.54.0-1.tar.gz";
+    sha256 = "7faa32cd0961486089ea780a931a36f80f72ec175beed1dc66769f7e76e4d0ec";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-lint-auto, ament-lint-common, python3Packages, rosidl-adapter }:
 buildRosPackage {
   pname = "ros-jazzy-rosidl-parser";
-  version = "4.6.6-r1";
+  version = "4.6.9-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/jazzy/rosidl_parser/4.6.6-1.tar.gz";
-    name = "4.6.6-1.tar.gz";
-    sha256 = "2ec517cd9e1f796fb0c15e6910b6c00fee08c3191b477ddfacf098aad093e772";
+    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/jazzy/rosidl_parser/4.6.9-1.tar.gz";
+    name = "4.6.9-1.tar.gz";
+    sha256 = "7844d16536f12b0b39af06b8a136d49f3d72279b54eadcf13b0550f12263fe62";
   };
 
   buildType = "ament_cmake";

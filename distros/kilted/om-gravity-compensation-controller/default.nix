@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, angles, backward-ros, control-msgs, control-toolbox, controller-interface, generate-parameter-library, hardware-interface, kdl-parser, pluginlib, rclcpp, rclcpp-lifecycle, realtime-tools, rsl, tl-expected, urdf }:
 buildRosPackage {
   pname = "ros-kilted-om-gravity-compensation-controller";
-  version = "4.0.8-r1";
+  version = "4.1.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/kilted/om_gravity_compensation_controller/4.0.8-1.tar.gz";
-    name = "4.0.8-1.tar.gz";
-    sha256 = "bdc8279dd40b7bc5f4e89c51cc040429cb9d521f045a5596cd4929ff04e4c3d3";
+    url = "https://github.com/ros2-gbp/open_manipulator-release/archive/release/kilted/om_gravity_compensation_controller/4.1.2-1.tar.gz";
+    name = "4.1.2-1.tar.gz";
+    sha256 = "0ad700bdd811456a5fe296f734efc56fc9cf848b0a88601ef0630bc8275f1a7c";
   };
 
   buildType = "ament_cmake";

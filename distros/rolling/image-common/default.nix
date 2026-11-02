@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, camera-calibration-parsers, camera-info-manager, image-transport }:
 buildRosPackage {
   pname = "ros-rolling-image-common";
-  version = "6.4.1-r2";
+  version = "7.0.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_common-release/archive/release/rolling/image_common/6.4.1-2.tar.gz";
-    name = "6.4.1-2.tar.gz";
-    sha256 = "4ecd380d1efedee12a5f5c03e522b9e0122012c2717152d05c620298700b1353";
+    url = "https://github.com/ros2-gbp/image_common-release/archive/release/rolling/image_common/7.0.4-1.tar.gz";
+    name = "7.0.4-1.tar.gz";
+    sha256 = "39b8af27c7aa9434dc04c917952ea01f2a59fe7f90139565312be3c6715f3195";
   };
 
   buildType = "ament_cmake";
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "Common code for working with images in ROS.";
-    license = with lib.licenses; [ bsdOriginal ];
+    license = with lib.licenses; [ bsd3 ];
   };
 }

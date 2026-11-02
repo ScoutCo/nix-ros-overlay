@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, autoware-cmake, autoware-lint-common, rclcpp, visualization-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-autoware-utils-visualization";
-  version = "1.4.2-r1";
+  version = "1.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/jazzy/autoware_utils_visualization/1.4.2-1.tar.gz";
-    name = "1.4.2-1.tar.gz";
-    sha256 = "70570065981513e75c9c98382769f75dd3f832f248a4412d900bbf09c0d2053b";
+    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/jazzy/autoware_utils_visualization/1.9.0-1.tar.gz";
+    name = "1.9.0-1.tar.gz";
+    sha256 = "3be6c95dd546739e29d96507fcf3a19a35d31c13cbaaeb436acb9ac5621ab2b8";
   };
 
   buildType = "ament_cmake";

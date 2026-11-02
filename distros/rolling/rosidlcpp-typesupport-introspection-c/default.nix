@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-ros-core, ament-index-python, fmt, nlohmann_json, ros-environment, rosidl-cli, rosidl-cmake, rosidl-generator-c, rosidl-parser, rosidl-pycommon, rosidl-runtime-c, rosidl-typesupport-interface, rosidlcpp-generator-core, rosidlcpp-parser }:
 buildRosPackage {
   pname = "ros-rolling-rosidlcpp-typesupport-introspection-c";
-  version = "0.4.0-r1";
+  version = "0.6.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosidlcpp-release/archive/release/rolling/rosidlcpp_typesupport_introspection_c/0.4.0-1.tar.gz";
-    name = "0.4.0-1.tar.gz";
-    sha256 = "22da2199f5e0877f9599e0f72c8d90e60a02b8991f74016715148efa7e643043";
+    url = "https://github.com/ros2-gbp/rosidlcpp-release/archive/release/rolling/rosidlcpp_typesupport_introspection_c/0.6.0-1.tar.gz";
+    name = "0.6.0-1.tar.gz";
+    sha256 = "5f0d6979ff7d335dfa64630ddae367c40df3f316c88812f230d517f8f7f04fcc";
   };
 
   buildType = "ament_cmake";

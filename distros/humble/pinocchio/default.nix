@@ -1,21 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, boost, clang, cmake, doxygen, eigen, eigenpy, git, hpp-fcl, python3, python3Packages, ros-environment, urdfdom }:
+{ lib, buildRosPackage, fetchurl, boost, clang, cmake, coal, doxygen, eigen, eigenpy, git, jrl-cmakemodules, python3, python3Packages, ros-environment, urdfdom }:
 buildRosPackage {
   pname = "ros-humble-pinocchio";
-  version = "3.6.0-r1";
+  version = "4.1.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/pinocchio-release/archive/release/humble/pinocchio/3.6.0-1.tar.gz";
-    name = "3.6.0-1.tar.gz";
-    sha256 = "04039ac2d553eb60988e698123f1dcd1bc870bafb1e20ac9945b0bc6a77223d0";
+    url = "https://github.com/ros2-gbp/pinocchio-release/archive/release/humble/pinocchio/4.1.0-1.tar.gz";
+    name = "4.1.0-1.tar.gz";
+    sha256 = "7f593e3a6826dff59bbb1d374fb025d989f60ec2e99599185d3aed70c455dd04";
   };
 
   buildType = "cmake";
-  buildInputs = [ clang cmake doxygen git ];
-  propagatedBuildInputs = [ boost eigen eigenpy hpp-fcl python3 python3Packages.numpy ros-environment urdfdom ];
+  buildInputs = [ clang cmake doxygen git jrl-cmakemodules ];
+  propagatedBuildInputs = [ boost coal eigen eigenpy python3 python3Packages.numpy ros-environment urdfdom ];
   nativeBuildInputs = [ clang cmake ];
 
   meta = {

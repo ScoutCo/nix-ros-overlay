@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-gtest, ament-cmake-ros, moveit-resources-fanuc-description, moveit-setup-framework, pluginlib }:
 buildRosPackage {
   pname = "ros-rolling-moveit-setup-srdf-plugins";
-  version = "2.14.1-r1";
+  version = "2.15.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/moveit2-release/archive/release/rolling/moveit_setup_srdf_plugins/2.14.1-1.tar.gz";
-    name = "2.14.1-1.tar.gz";
-    sha256 = "e1971e35e7fda9e86ae8f02931b60ec5f446f63449c359a37d1421f9a381b7f1";
+    url = "https://github.com/ros2-gbp/moveit2-release/archive/release/rolling/moveit_setup_srdf_plugins/2.15.1-1.tar.gz";
+    name = "2.15.1-1.tar.gz";
+    sha256 = "39932ff44f63a93994de765fd747269bdf4216ebd28bd53c8f8a4bcaafdafdd4";
   };
 
   buildType = "ament_cmake";

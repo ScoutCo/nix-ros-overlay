@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, cv-bridge, image-geometry, message-filters, python3Packages, rclpy, sensor-msgs, std-srvs }:
 buildRosPackage {
   pname = "ros-kilted-camera-calibration";
-  version = "6.0.11-r1";
+  version = "6.0.13-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/kilted/camera_calibration/6.0.11-1.tar.gz";
-    name = "6.0.11-1.tar.gz";
-    sha256 = "a9c26fe5cd153754ef51e387b624b5bb82fe2b9427b680216e10f2bee73afd73";
+    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/kilted/camera_calibration/6.0.13-1.tar.gz";
+    name = "6.0.13-1.tar.gz";
+    sha256 = "9bdd1d235e307c1b4da21340554f577a3298ccf00114b7a70b6d5cca0b688c85";
   };
 
   buildType = "ament_python";

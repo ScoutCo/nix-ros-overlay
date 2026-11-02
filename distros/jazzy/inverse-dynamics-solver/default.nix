@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, eigen, pluginlib, python, python3Packages, rclcpp, rosbag2-cpp, rosbag2-storage, rosbag2-storage-default-plugins, sensor-msgs, urdf }:
 buildRosPackage {
   pname = "ros-jazzy-inverse-dynamics-solver";
-  version = "2.0.0-r1";
+  version = "2.0.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/inverse_dynamics_solver-release/archive/release/jazzy/inverse_dynamics_solver/2.0.0-1.tar.gz";
-    name = "2.0.0-1.tar.gz";
-    sha256 = "a183a4b8da62490cf7b3ecf3bca9205e02c8a726136ae74aa293c2fb4fc1641f";
+    url = "https://github.com/ros2-gbp/inverse_dynamics_solver-release/archive/release/jazzy/inverse_dynamics_solver/2.0.3-1.tar.gz";
+    name = "2.0.3-1.tar.gz";
+    sha256 = "79b4d743a1e6636ad15e0ada092663322f333bed140606e11d26a634b94b35e7";
   };
 
   buildType = "ament_cmake";

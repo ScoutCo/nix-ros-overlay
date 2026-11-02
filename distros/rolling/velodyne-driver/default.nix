@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-gtest, ament-cmake-ros, ament-lint-auto, ament-lint-common, diagnostic-updater, libpcap, rclcpp, rclcpp-components, tf2-ros, velodyne-msgs }:
 buildRosPackage {
   pname = "ros-rolling-velodyne-driver";
-  version = "2.5.1-r1";
+  version = "2.5.1-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/velodyne-release/archive/release/rolling/velodyne_driver/2.5.1-1.tar.gz";
-    name = "2.5.1-1.tar.gz";
-    sha256 = "5ae2e00f20a8296ba58135934d1c7c4283ee9417d5309218bb6417643d244387";
+    url = "https://github.com/ros2-gbp/velodyne-release/archive/release/rolling/velodyne_driver/2.5.1-2.tar.gz";
+    name = "2.5.1-2.tar.gz";
+    sha256 = "a634c3e9dcd746a6d98dec1ca519c932f6b9cd56adaaf5175bc56304c97a70f3";
   };
 
   buildType = "ament_cmake";

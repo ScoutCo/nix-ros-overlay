@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, rclcpp, rcpputils, rmw, rmw-implementation-cmake, std-msgs, tlsf }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "C++ stdlib-compatible wrapper around tlsf allocator and ROS2 examples";
-    license = with lib.licenses; [ "LGPL-2.1-only" asl20 ];
+    license = with lib.licenses; [ lgpl21Only asl20 ];
   };
 }

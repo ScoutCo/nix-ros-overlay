@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-kernel, mrpt-libobs }:
 buildRosPackage {
   pname = "ros-jazzy-mola-input-rawlog";
-  version = "1.9.0-r1";
+  version = "3.2.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/jazzy/mola_input_rawlog/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "75afc588408ea8145d0fb35bd07cf5988763c038af40559efb27e63da670f5da";
+    url = "https://github.com/ros2-gbp/mola-release/archive/release/jazzy/mola_input_rawlog/3.2.0-1.tar.gz";
+    name = "3.2.0-1.tar.gz";
+    sha256 = "81120f82b52b7f96f01b96b99504f5347fa1d287ec4dbcfbb27f59b0133f94b4";
   };
 
   buildType = "cmake";

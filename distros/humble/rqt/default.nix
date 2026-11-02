@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, rqt-gui, rqt-gui-cpp, rqt-gui-py, rqt-py-common }:
 buildRosPackage {
   pname = "ros-humble-rqt";
-  version = "1.1.8-r1";
+  version = "1.1.10-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rqt-release/archive/release/humble/rqt/1.1.8-1.tar.gz";
-    name = "1.1.8-1.tar.gz";
-    sha256 = "6b00471d34745835cd31f9852ab34a5404ff07779ff4ebcf370b925b7faee31e";
+    url = "https://github.com/ros2-gbp/rqt-release/archive/release/humble/rqt/1.1.10-2.tar.gz";
+    name = "1.1.10-2.tar.gz";
+    sha256 = "f64fb9adf5598c0dff0046015c4f27d0e4543c87f53c0795b063cf9bb6362ddb";
   };
 
   buildType = "ament_python";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-common, mola-kernel, mrpt-libmaps, mrpt-libposes }:
 buildRosPackage {
   pname = "ros-kilted-mola-input-mulran-dataset";
-  version = "1.9.0-r1";
+  version = "3.0.0-r3";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/kilted/mola_input_mulran_dataset/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "3dfcd4ca70e59dcd049f842c95390e2a97acbecf531866a471d5f41b844f5baf";
+    url = "https://github.com/ros2-gbp/mola_academic_datasets-release/archive/release/kilted/mola_input_mulran_dataset/3.0.0-3.tar.gz";
+    name = "3.0.0-3.tar.gz";
+    sha256 = "8ae7ce542496dd9bbe4573894445e77bc39c73995adc65924c4a6dd78122873a";
   };
 
   buildType = "cmake";

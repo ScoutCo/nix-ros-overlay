@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-lint-auto, ament-lint-common, launch, launch-testing, launch-testing-ament-cmake, launch-testing-ros, pendulum-msgs, rclcpp, rmw-implementation-cmake, ros2run, rttest, tlsf-cpp }:
 buildRosPackage {
   pname = "ros-humble-pendulum-control";
-  version = "0.20.6-r1";
+  version = "0.20.10-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/humble/pendulum_control/0.20.6-1.tar.gz";
-    name = "0.20.6-1.tar.gz";
-    sha256 = "ab09ccc9a93cd3ea91899c3b703533258a6c93aabdd24a3c7ff99de4fad4c595";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/humble/pendulum_control/0.20.10-1.tar.gz";
+    name = "0.20.10-1.tar.gz";
+    sha256 = "d3f879d6f1301721cefe680b0aba152a721c3bc75923184874fb4f51cb89cd3b";
   };
 
   buildType = "ament_cmake";

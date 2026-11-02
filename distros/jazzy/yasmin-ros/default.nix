@@ -1,26 +1,26 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-python, ament-copyright, ament-flake8, ament-pep257, python3Packages, rclcpp, rclcpp-action, rclpy, ros-environment, yasmin }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-pytest, ament-cmake-python, example-interfaces, geometry-msgs, pluginlib, python3Packages, rclcpp, rclcpp-action, rclpy, ros-environment, rosidl-runtime-py, std-msgs, std-srvs, tf2, tf2-msgs, tf2-py, tf2-ros, tf2-ros-py, yasmin }:
 buildRosPackage {
   pname = "ros-jazzy-yasmin-ros";
-  version = "3.4.0-r1";
+  version = "6.1.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/yasmin-release/archive/release/jazzy/yasmin_ros/3.4.0-1.tar.gz";
-    name = "3.4.0-1.tar.gz";
-    sha256 = "4308ece0ff7cb4917139c3551260c2b04badfdc75644324761e41d8ef168b33c";
+    url = "https://github.com/ros2-gbp/yasmin-release/archive/release/jazzy/yasmin_ros/6.1.1-1.tar.gz";
+    name = "6.1.1-1.tar.gz";
+    sha256 = "1406ddaa9ed01b6b27113d65c2376b82098a8499f21b23894054371d490ff11f";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ament-cmake-python ros-environment ];
-  checkInputs = [ ament-copyright ament-flake8 ament-pep257 python3Packages.pytest python3Packages.pytestcov ];
-  propagatedBuildInputs = [ rclcpp rclcpp-action rclpy yasmin ];
+  checkInputs = [ ament-cmake-gtest ament-cmake-pytest example-interfaces python3Packages.pytest python3Packages.pytestcov std-msgs tf2 tf2-msgs tf2-py tf2-ros tf2-ros-py ];
+  propagatedBuildInputs = [ example-interfaces geometry-msgs pluginlib rclcpp rclcpp-action rclpy rosidl-runtime-py std-msgs std-srvs tf2 tf2-msgs tf2-py tf2-ros tf2-ros-py yasmin ];
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
 
   meta = {
     description = "YASMIN (Yet Another State MachINe) for ROS 2";
-    license = with lib.licenses; [ gpl3 ];
+    license = with lib.licenses; [ asl20 ];
   };
 }

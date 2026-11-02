@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, autoware-cmake, autoware-internal-planning-msgs, autoware-lint-common, autoware-utils-math, autoware-utils-system, boost, tf2, tf2-eigen, tf2-geometry-msgs }:
 buildRosPackage {
   pname = "ros-rolling-autoware-utils-geometry";
-  version = "1.4.2-r1";
+  version = "1.7.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/rolling/autoware_utils_geometry/1.4.2-1.tar.gz";
-    name = "1.4.2-1.tar.gz";
-    sha256 = "8c3744df6ee35566dce1947a349ec8cd9ae8a66cc5cbfb3a8729b72cfc202ab0";
+    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/rolling/autoware_utils_geometry/1.7.2-1.tar.gz";
+    name = "1.7.2-1.tar.gz";
+    sha256 = "6b4e7d0cc6c3bc78133d8a2c47b5db64eeffd342a4977e66aedd3b8eab3387bc";
   };
 
   buildType = "ament_cmake";

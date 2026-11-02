@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, example-interfaces, rclcpp, rosbag2-cpp, rosbag2-transport }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, example-interfaces, rclcpp, rosbag2-compression, rosbag2-cpp, rosbag2-transport }:
 buildRosPackage {
   pname = "ros-rolling-rosbag2-examples-cpp";
-  version = "0.33.0-r1";
+  version = "0.34.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/rolling/rosbag2_examples_cpp/0.33.0-1.tar.gz";
-    name = "0.33.0-1.tar.gz";
-    sha256 = "902778d7b287eccc4ded4c04f472eb3df99c5561784d12c9060b2fa09aae40a1";
+    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/rolling/rosbag2_examples_cpp/0.34.0-1.tar.gz";
+    name = "0.34.0-1.tar.gz";
+    sha256 = "563562c3424b7e5aaa027f2e300fb124ff87eb735a7c9f1ee7595a83d6dbba1b";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  propagatedBuildInputs = [ example-interfaces rclcpp rosbag2-cpp rosbag2-transport ];
+  propagatedBuildInputs = [ example-interfaces rclcpp rosbag2-compression rosbag2-cpp rosbag2-transport ];
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {

@@ -1,6 +1,8 @@
 { version, distro }:
 self: super:
 let
+  qtVersion = if (builtins.elem distro ["humble" "jazzy" "kilted"]) then "5" else "6";
+
   pythonOverridesFor = with self.lib; prevPython: prevPython // {
     pkgs = prevPython.pkgs.overrideScope (pyFinal: pyPrev: {
       wxPython = pyFinal.wxPython_4_2;
@@ -29,7 +31,7 @@ let
     python3Packages = rosSelf.python3.pkgs;
 
     boost = self.boost.override {
-      python = rosSelf.python;
+      python = rosSelf.python3;
       enablePython = true;
     };
   };
@@ -37,15 +39,37 @@ let
   mrptOverrides = rosSelf: rosSuper:
     let
       patchMrptExternalProjectGit = pkg:
-        with rosSuper.lib;
-        patchExternalProjectGit pkg {
-          url = "https://github.com/MRPT/mrpt.git";
-          originalRev = "\\\\\${MRPT_VERSION_TO_DOWNLOAD}";
+        let
+          inherit (rosSuper.lib) head splitString patchExternalProjectGit;
           # CMakeLists.txt sets MRPT_VERSION_TO_DOWNLOAD to the
-          # version from package.xml
+          # version from package.xml. Let's use version from Nix, which should be the same.
           rev = head (splitString "-" pkg.version); # Ignore ROS release such as "-r1".
-          fetchgitArgs.hash = "sha256-w9LxOtbXw01B2i4aqbhAIjjDwHzC+OvZbcZG/Pyn71Q=";
-        };
+        in
+        (patchExternalProjectGit pkg {
+          url = "https://github.com/MRPT/mrpt.git";
+          originalRev = "\${MRPT_VERSION_TO_DOWNLOAD}";
+          inherit rev;
+          fetchgitArgs.hash = {
+            "2.15.21" = "sha256-lx40Oma7HR2vgf2ZSZUMaPW60jIOUcf9i+RHbvzzp3Y=";
+          }.${rev};
+        }).overrideAttrs ({ postPatch ? "", buildInputs ? [], ... }: {
+          postPatch = postPatch + ''
+            src=$(awk '/^URL/ { print gensub(/"/, "", "g", $2) }' CMakeLists.txt)
+            read -r version < $src/version_prefix.txt
+            if [[ $version != "${rev}" ]]; then
+              echo "MRPT version mismatch: $version != "${rev}". Is fetchgitArgs.hash in patchMrptExternalProjectGit up to date?"
+              exit 1
+            fi
+          '';
+          buildInputs = buildInputs ++ [
+            # Work around problems reported in
+            # https://github.com/MRPT/mrpt/pull/1338 and
+            # https://github.com/MRPT/mrpt_ros/pull/5
+            rosSelf.octomap or self.octomap
+            # If libfyaml is not found, cmake tries to download it, which fails
+            self.libfyaml
+          ];
+        });
     in rosSuper.lib.genAttrs [
       "mrpt-apps"
       "mrpt-libapps"
@@ -58,7 +82,6 @@ let
       "mrpt-libobs"
       "mrpt-libopengl"
       "mrpt-libposes"
-      "mrpt-libros-bridge"
       "mrpt-libslam"
       "mrpt-libtclap"
     ] (name: patchMrptExternalProjectGit rosSuper.${name});
@@ -68,7 +91,17 @@ let
 
     # Some third-party packages are available in rodistro,
     # but have a better packaging in nixpkgs, so use it instead
-    inherit (self.python3Packages) eigenpy hpp-fcl pinocchio ;
+    inherit (self) jrl-cmakemodules eiquadprog;
+    inherit (self.python3Packages) coal eigenpy nanoeigenpy pinocchio proxsuite crocoddyl ndcurves tsid;
+
+    foonathan-memory-vendor = rosSuper.foonathan-memory-vendor.overrideAttrs ({
+      propagatedBuildInputs ? [], ...
+    }: {
+      # Use system package instead of fetching source from github
+      propagatedBuildInputs = propagatedBuildInputs ++ [ self.foonathan-memory ];
+    });
+
+    freeimage = null; # Get rid of freeimage
 
     gazebo-ros = rosSuper.gazebo-ros.overrideAttrs ({ ... }:{
       setupHook = ./gazebo-ros-setup-hook.sh;
@@ -77,16 +110,25 @@ let
     gtsam = rosSuper.gtsam.overrideAttrs ({
       cmakeFlags ? [], ...
     }: {
-      # Don't use vendored version of Eigen, which can collide with
-      # Eigen version in dependent packages.
-      cmakeFlags = cmakeFlags ++ [ "-DGTSAM_USE_SYSTEM_EIGEN=ON" ];
+      cmakeFlags = cmakeFlags ++ [
+        # Don't use vendored version of Eigen, which can collide with
+        # Eigen version in dependent packages.
+        "-DGTSAM_USE_SYSTEM_EIGEN=ON"
+        # Don't depend on Boost. This is in line with
+        # https://github.com/borglab/gtsam/pull/2543, which disabled
+        # Boost dependency in ROS builds.
+        "-DGTSAM_ENABLE_BOOST_SERIALIZATION=OFF"
+        "-DGTSAM_USE_BOOST_FEATURES=OFF"
+      ];
     });
+
+    # hpp-fcl was renamed to coal and we use the version from nixpkgs (see above)
+    hpp-fcl = rosSelf.coal;
 
     joint-state-publisher-gui = rosSuper.joint-state-publisher-gui.overrideAttrs ({
       nativeBuildInputs ? [], postFixup ? "", ...
     }: {
       dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
       postFixup = postFixup + ''
         wrapQtApp "$out/lib/joint_state_publisher_gui/joint_state_publisher_gui"
       '';
@@ -98,53 +140,60 @@ let
       buildInputs = buildInputs ++ [ self.glfw self.libGLU ];
     });
 
-    mapviz = rosSuper.mapviz.overrideAttrs ({
-      nativeBuildInputs ? [],
-      postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/mapviz/mapviz"
-      '';
-    });
-
     mavlink = rosSuper.mavlink.overrideAttrs ({
-      postPatch ? "", ...
+      postPatch ? "", buildInputs ? [], ...
     }: {
       postPatch = postPatch + ''
         substituteInPlace CMakeLists.txt --replace-fail /usr/bin/env '${self.buildPackages.coreutils}/bin/env'
         patchShebangs pymavlink/tools/mavgen.py
       '';
-      ROS_PYTHON_VERSION = if rosSelf.python.isPy3k then 3 else 2;
+      ROS_PYTHON_VERSION = 3;
+      # Fix eval failure. The future module is broken with Python
+      # 3.13+, but mavlink does not need it despite declaring it as
+      # dependency.
+      # See https://github.com/lopsided98/nix-ros-overlay/pull/877#issuecomment-4729142031
+      buildInputs = builtins.filter (p: p.pname != "future") buildInputs;
     });
 
-    osqp-vendor = pipe rosSuper.osqp-vendor [
-      (pkg: pkg.overrideAttrs ({
-        preInstall ? "", ...
-      }: {
-        # osqp installs into both lib/cmake/ and lib64/cmake/ which is
-        # problematic because moveLib64 doesn't attempt to merge overlapping
-        # directories but fails instead. Here we do the merge manually.
-        preInstall = preInstall + ''
-          mkdir -p ./osqp_install/lib/cmake/osqp
-          mv ./osqp_install/lib64/cmake/osqp/* ./osqp_install/lib/cmake/osqp
-          rm -r ./osqp_install/lib64/cmake
-        '';
-      }))
+    mrt-cmake-modules = rosSuper.mrt-cmake-modules.overrideAttrs ({
+      postPatch ? "", ...
+    }: {
+      postPatch = postPatch + ''
+        substituteInPlace CMakeLists.txt \
+          --replace-fail 'cmake_minimum_required(VERSION 3.0.2)' 'cmake_minimum_required(VERSION 3.5)'
+      '';
+    });
 
-      (pkg: patchExternalProjectGit pkg {
-        url = "https://github.com/osqp/osqp.git";
-        rev = "v0.6.2";
-        revVariable = "git_tag";
-        fetchgitArgs.hash = "sha256-RYk3zuZrJXPcF27eMhdoZAio4DZ+I+nFaUEg1g/aLNk=";
-      })
-    ];
-
-    plotjuggler = (rosSuper.plotjuggler.override {
-      # plotjuggler is not yet compatible with newer versions
-      protobuf = self.protobuf_23;
+    mujoco-ros2-control = (patchExternalProjectGit rosSuper.mujoco-ros2-control {
+      url = "https://github.com/lvandeve/lodepng.git";
+      originalRev = "\${MUJOCO_DEP_VERSION_lodepng}";
+      rev = self.mujoco.pin.lodepng.rev;
+      fetchgitArgs.hash = "sha256-vnw52G0lY68471dzH7NXc++bTbLRsITSxGYXOTicA5w=";
     }).overrideAttrs ({
+      postPatch ? "", ...
+    }: {
+      postPatch = postPatch + ''
+        substituteInPlace CMakeLists.txt --replace-fail \
+            'set(MUJOCO_ROOT "''${MUJOCO_PREFIX}")' \
+            'set(MUJOCO_ROOT "${self.mujoco}")'
+      '';
+    });
+
+    mujoco-vendor = rosSuper.mujoco-vendor.overrideAttrs ({
+      cmakeFlags ? [], propagatedBuildInputs ? [], patches ? [], ...
+    }: {
+      cmakeFlags = cmakeFlags ++ [ "-DAMENT_VENDOR_POLICY=NEVER_VENDOR" ];
+      propagatedBuildInputs = propagatedBuildInputs ++ [ self.mujoco ];
+    });
+
+    onnxruntime-vendor = rosSuper.onnxruntime-vendor.overrideAttrs ({
+      cmakeFlags ? [], propagatedBuildInputs ? [], ...
+    }: {
+      cmakeFlags = cmakeFlags ++ [ "-DAMENT_VENDOR_POLICY=NEVER_VENDOR" ];
+      propagatedBuildInputs = propagatedBuildInputs ++ [ self.onnxruntime ];
+    });
+
+    plotjuggler = rosSuper.plotjuggler.overrideAttrs ({
       nativeBuildInputs ? [], ...
     }: {
       dontWrapQtApps = false;
@@ -154,223 +203,47 @@ let
       '';
     });
 
-    python-qt-binding = (rosSuper.python-qt-binding.override {
-      python3Packages = rosSelf.python3Packages.overrideScope (pyFinal: pyPrev: {
-        pyqt5 = pyPrev.pyqt5.overrideAttrs ({
-          patches ? [], ...
-        }: {
-          patches = patches ++ [
-            # Vendored from AUR because direct download is blocked by Anubis (#763)
-            # https://aur.archlinux.org/cgit/aur.git/plain/restore-sip4-support.patch?h=python-pyqt5-sip4&id=6e712e6c588d550a1a6f83c1b37c2c9135aae6ba
-            ./restore-sip4-support.patch
-          ];
-        });
-      });
-    }).overrideAttrs ({
-      propagatedBuildInputs ? [], ...
-    }: {
-      propagatedBuildInputs = propagatedBuildInputs ++ (with rosSelf.pythonPackages; [
-        pyside2
-        sip4
-      ]);
+    qt5or6 = if qtVersion == "5" then self.qt5 else self.qt6;
 
-      dontWrapQtApps = true;
-
-      setupHook = self.writeText "python-qt-binding-setup-hook" ''
-        _pythonQtBindingPreFixupHook() {
-          # Prevent /build RPATH references
-          rm -rf devel/lib
-        }
-        preFixupHooks+=(_pythonQtBindingPreFixupHook)
-      '';
-
-      postPatch = ''
-        sed -e "1 i\\import PyQt5" \
-            -e "s#sipconfig\._pkg_config\['default_mod_dir'\], 'PyQt5'#PyQt5.__path__[0]#" \
-            -e "s#with open(os.path.join(tmpdirname, 'QtCore', 'QtCoremod.sip'), 'w') as outfp:##" \
-            -e "s#outfp.write(output)##" \
-            -i cmake/sip_configure.py
-      '';
-    });
-
-    rqt-bag = rosSuper.rqt-bag.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
+    rtabmap-viz = rosSuper.rtabmap-viz.overrideAttrs ({
+      postFixup ? "", ...
     }: {
       dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
       postFixup = postFixup + ''
-        wrapQtApp "$out/bin/rqt_bag"
-        wrapQtApp "$out/lib/rqt_bag/rqt_bag"
+        wrapQtApp "$out/lib/rtabmap_viz/rtabmap_viz"
       '';
     });
 
-    rqt-console = rosSuper.rqt-console.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_console/rqt_console"
-      '';
-    });
-
-    rqt-graph = rosSuper.rqt-graph.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_graph/rqt_graph"
-        if [[ -e "$out/bin/rqt_graph" ]]; then
-          wrapQtApp "$out/bin/rqt_graph"
-        else
-          # Needed for kilted and later
-          mkdir -p $out/bin
-          ln -s "$out/lib/rqt_graph/rqt_graph" "$out/bin/rqt_graph"
-        fi
-      '';
-    });
-
-    rqt-gui = rosSuper.rqt-gui.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/bin/rqt"
-        wrapQtApp "$out/lib/rqt_gui/rqt_gui"
-      '';
-    });
-
-    rqt-image-view = rosSuper.rqt-image-view.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_image_view/rqt_image_view"
-      '';
-    });
-
-    rqt-msg = rosSuper.rqt-msg.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_msg/rqt_msg"
-      '';
-    });
-
-    rqt-plot = rosSuper.rqt-plot.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_plot/rqt_plot"
-      '';
-    });
-
-    rqt-publisher = rosSuper.rqt-publisher.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_publisher/rqt_publisher"
-      '';
-    });
-
-    rqt-py-console = rosSuper.rqt-py-console.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_py_console/rqt_py_console"
-      '';
-    });
-
-    rqt-reconfigure = rosSuper.rqt-reconfigure.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_reconfigure/rqt_reconfigure"
-      '';
-    });
-
-    rqt-robot-monitor = rosSuper.rqt-robot-monitor.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_robot_monitor/rqt_robot_monitor"
-      '';
-    });
-
-    rqt-service-caller = rosSuper.rqt-service-caller.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_service_caller/rqt_service_caller"
-      '';
-    });
-
-    rqt-shell = rosSuper.rqt-shell.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_shell/rqt_shell"
-      '';
-    });
-
-    rqt-srv = rosSuper.rqt-srv.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_srv/rqt_srv"
-      '';
-    });
-
-    rqt-topic = rosSuper.rqt-topic.overrideAttrs ({
-      nativeBuildInputs ? [], postFixup ? "", ...
-    }: {
-      dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-      postFixup = postFixup + ''
-        wrapQtApp "$out/lib/rqt_topic/rqt_topic"
-      '';
-    });
-
-    rtabmap = self.rtabmap.overrideAttrs ({
-      propagatedBuildInputs ? [], ...
-    }: {
-      inherit (rosSuper.rtabmap)
-        pname
-        version
-        src;
-      propagatedBuildInputs = propagatedBuildInputs ++ [ self.qt5.wrapQtAppsHook self.librealsense self.octomap ];
-    });
-
-    turtlesim = rosSuper.turtlesim.overrideAttrs ({
+    swri-console = rosSuper.swri-console.overrideAttrs ({
       nativeBuildInputs ? [], ...
     }: {
       dontWrapQtApps = false;
-      nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
+      nativeBuildInputs = nativeBuildInputs ++ [ rosSelf.qt5or6.wrapQtAppsHook ];
       postFixup = ''
-        wrapQtApp "$out/lib/turtlesim/turtlesim_node"
+        wrapQtApp "$out/lib/swri_console/swri_console";
       '';
     });
+
+    # We map ROS packages that depend on Ubuntu's libexpected-dev to
+    # depend on tl-expected-nixpkgs. We cannot use the name
+    # tl-expected because it is shadowed by tl-expected package from
+    # rosdistro.
+    tl-expected-nixpkgs = self.tl-expected;
+
+    ublox-dgnss-node = rosSuper.ublox-dgnss-node.overrideAttrs ({
+      postPatch ? "", ...
+    }: {
+      # https://github.com/aussierobots/ublox_dgnss/pull/59
+      postPatch = postPatch + ''
+        substituteInPlace include/ublox_dgnss_node/ubx/utils.hpp \
+          --replace-fail "#include <vector>" "#include <vector>"$'\n'"#include <algorithm>"
+      '';
+    });
+
+    # vcstool was replaced by vcs2l in nixpkgs (https://github.com/NixOS/nixpkgs/pull/499630)
+    # TODO: Make this change in rosdep after master is moved to nixpkgs without vcstool.
+    vcstool = self.vcs2l;
+
   } // (mrptOverrides rosSelf rosSuper);
 
   otherSplices = {
@@ -395,8 +268,9 @@ in self.lib.makeScopeWithSplicing
     (import (./. + "/${distro}/generated.nix"))
     overrides
   ]
-  ++ self.lib.optional (version == 1) (import ./ros1-overlay.nix self)
   ++ self.lib.optional (version == 2) (import ./ros2-overlay.nix self)
+  ++ self.lib.optional (qtVersion == "5") (import ./qt5-overlay.nix self)
+  ++ self.lib.optional (qtVersion == "6") (import ./qt6-overlay.nix self)
   ++ [
     (import (./. + "/${distro}/overrides.nix") self)
   ]) rosSelf {})

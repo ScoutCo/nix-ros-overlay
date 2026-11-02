@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, nav2-common, navigation2, slam-toolbox }:
 buildRosPackage {
   pname = "ros-kilted-neo-nav2-bringup";
-  version = "1.0.4-r1";
+  version = "1.4.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/neo_nav2_bringup-release/archive/release/kilted/neo_nav2_bringup/1.0.4-1.tar.gz";
-    name = "1.0.4-1.tar.gz";
-    sha256 = "3491e090478da02b5ea6a1c461999570bba1268c60f740d1330ccb4c545fab4a";
+    url = "https://github.com/ros2-gbp/neo_nav2_bringup-release/archive/release/kilted/neo_nav2_bringup/1.4.1-1.tar.gz";
+    name = "1.4.1-1.tar.gz";
+    sha256 = "9b1e14549fe9184cb646361b4dde57532f04565982995e455e3f7d9974f55722";
   };
 
   buildType = "ament_cmake";

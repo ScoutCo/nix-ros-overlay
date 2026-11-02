@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-pytest, ament-cmake-python, metro-benchmark-msgs, rclcpp }:
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "Utilities for publishing / processing metro_benchmark_msgs";
-    license = with lib.licenses; [ "BSD-3-clause" ];
+    license = with lib.licenses; [ bsd3 ];
   };
 }

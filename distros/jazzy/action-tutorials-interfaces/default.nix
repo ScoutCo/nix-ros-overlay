@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-jazzy-action-tutorials-interfaces";
-  version = "0.33.7-r1";
+  version = "0.33.11-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/jazzy/action_tutorials_interfaces/0.33.7-1.tar.gz";
-    name = "0.33.7-1.tar.gz";
-    sha256 = "1471301a455676b11078ed243a7bc660965c6ac0eb9d250483bedb443ac46db5";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/jazzy/action_tutorials_interfaces/0.33.11-1.tar.gz";
+    name = "0.33.11-1.tar.gz";
+    sha256 = "e3f426f93508a18b1d2fbec816407d816356606a5e564185b51126444ce0a9f3";
   };
 
   buildType = "ament_cmake";

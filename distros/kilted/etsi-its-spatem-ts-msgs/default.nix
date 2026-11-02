@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-etsi-its-spatem-ts-msgs";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/kilted/etsi_its_spatem_ts_msgs/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "25246905b4943f1db0de3d58c41639075ef9b4bbe46af50fa2d8d9b6c68108de";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/kilted/etsi_its_spatem_ts_msgs/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "0ee1c398d1967205ceb6fafd860817329975eb59446244fe382571ff69e53b8a";
   };
 
   buildType = "ament_cmake";

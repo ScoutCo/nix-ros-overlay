@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, omni-base-2dnav, omni-base-laser-sensors }:
 buildRosPackage {
   pname = "ros-humble-omni-base-navigation";
-  version = "2.18.0-r1";
+  version = "2.24.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/pal-gbp/omni_base_navigation-release/archive/release/humble/omni_base_navigation/2.18.0-1.tar.gz";
-    name = "2.18.0-1.tar.gz";
-    sha256 = "90a087b7616cbcd09e606f14fcfd51bc9dcff74232bd6a0fc66a7e05640cee24";
+    url = "https://github.com/ros2-gbp/omni_base_navigation-release/archive/release/humble/omni_base_navigation/2.24.2-1.tar.gz";
+    name = "2.24.2-1.tar.gz";
+    sha256 = "3c6bdf1ddfedf1302609a48794f594dd912157a14e4015733ba5e2f5daab6ce5";
   };
 
   buildType = "ament_cmake";

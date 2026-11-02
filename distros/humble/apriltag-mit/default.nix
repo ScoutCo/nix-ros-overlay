@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, boost, clang, cmake, eigen, opencv }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "ROS2 package wrapper for the MIT apriltag detector";
-    license = with lib.licenses; [ "LGPL-2.1-only" ];
+    license = with lib.licenses; [ lgpl21Only ];
   };
 }

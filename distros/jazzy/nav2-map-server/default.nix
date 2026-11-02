@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-pytest, ament-lint-auto, ament-lint-common, graphicsmagick, launch, launch-ros, launch-testing, nav-msgs, nav2-common, nav2-msgs, nav2-util, rclcpp, rclcpp-lifecycle, std-msgs, tf2, yaml-cpp-vendor }:
 buildRosPackage {
   pname = "ros-jazzy-nav2-map-server";
-  version = "1.3.9-r1";
+  version = "1.3.13-r1";
 
   src = fetchurl {
-    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/jazzy/nav2_map_server/1.3.9-1.tar.gz";
-    name = "1.3.9-1.tar.gz";
-    sha256 = "b3a66707fd0c8be1b867616bdf80153ae96b3524b05b4938020f08c89159e0de";
+    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/jazzy/nav2_map_server/1.3.13-1.tar.gz";
+    name = "1.3.13-1.tar.gz";
+    sha256 = "98259c1f4f312a4293d69a7822ca9a1e53e38e221757a8dd381cbf361a06f25b";
   };
 
   buildType = "ament_cmake";

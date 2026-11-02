@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, cppzmq, git }:
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "Vendor package for zmqpp";
-    license = with lib.licenses; [ asl20 "Mozilla-Public-License-2.0" ];
+    license = with lib.licenses; [ asl20 mpl20 ];
   };
 }

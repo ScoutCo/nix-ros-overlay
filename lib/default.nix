@@ -59,11 +59,21 @@
         $0 ~ "GIT_REPOSITORY[[:blank:]]+" originalUrl \
           { print "URL \"" path "\""; foundUrl=1; next } \
           { print }
-        $0 ~ "GIT_TAG[[:blank:]]+" originalRev { print; foundRev=1 }
-        $0 ~ "set\\(" revVariable "[[:blank:]]+\"?" originalRev "\"?\\)" { print; foundRev=1 }
+        $0 ~ "GIT_TAG[[:blank:]]+" {
+          print
+          if (! revVariable) {
+            currentRev = gensub(/.*GIT_TAG[[:blank:]]+([^[:blank:]]*).*/, "\\1", 1)
+            if (currentRev == originalRev) foundRev = 1
+          }
+        }
+        $0 ~ "set\\(" revVariable "[[:blank:]]+" && revVariable {
+          print
+          currentRev =  gensub(".*set\\(" revVariable "[[:blank:]]+\"?([^\"[:blank:]]+)\"?\\).*", "\\1", 1)
+          if (currentRev == originalRev) foundRev = 1
+        }
         END {
           if (!foundUrl) print "patchExternalProjectGit: did not find URL: " originalUrl > "/dev/stderr"
-          if (!foundRev) print "patchExternalProjectGit: did not find revision: " originalRev > "/dev/stderr"
+          if (!foundRev) print "patchExternalProjectGit: did not find revision: " originalRev " (found " currentRev ")" > "/dev/stderr"
           exit !(foundUrl && foundRev)
         }
       '';
@@ -78,12 +88,13 @@
     '' + postPatch;
   });
 
-  # Patch a vendored download that uses ament_vendor() with a Git repo as the
-  # source.
-  patchAmentVendorGit = pkg: {
+  # Common code for patchAmentVendorGit and patchAmentVendorFile.
+  patchAmentVendor = pkg: {
+    fetcher,
+    type, # "git" or "file"
     file ? "CMakeLists.txt",
-    fetchgitArgs ? {},
-    tarSourceArgs ? {}
+    tarSourceArgs ? {},
+    patchesFor ? {},
   }: pkg.overrideAttrs (finalAttrs: {
     cmakeFlags ? [],
     nativeBuildInputs ? [],
@@ -104,26 +115,30 @@
     # ament_vendor doesn't allow patches for path inputs, so we have to pack it
     # into a tar first.
     vendorTar = src: lib.tarSource tarSourceArgs src;
-    vendorSrc = sourceInfo: self.fetchgit (sourceInfo // fetchgitArgs // {
-      # vcstool only accepts tarballs with the version number as the
-      # root directory name.
-      name = sourceInfo.rev;
-    });
+    cmakeFlagsForType = {
+      git = n: v: "-DAMENT_VENDOR_NIX_TAR_${n}=${vendorTar v}";
+      file = n: v: "-DAMENT_VENDOR_NIX_FILE_${n}=${v}";
+    };
+    # Apply patches specified in patchesFor to the vendored source src.
+    applyPatchesFor = name: src:
+      if patchesFor.${name} or [] == [] then
+        src
+      else
+        self.applyPatches {
+          inherit src;
+          name = src.rev;
+          patches = patchesFor.${name};
+        };
   in {
-
-    nativeBuildInputs = [
-      # Prepend wrapped ament_vendor to be found by CMake before the
-      # unwrapped one
-      rosSelf.ament-cmake-vendor-package-wrapped
-    ] ++ nativeBuildInputs ++ [
+    nativeBuildInputs = nativeBuildInputs ++ [
       # CMake ExternalProject patches are applied with git apply
       self.git
     ];
     cmakeFlags =
       cmakeFlags
       ++ (
-        # Tell ament_vendor_wrapper.cmake where to find tarballs with vendored sources
-        attrValues (mapAttrs (n: v: "-DAMENT_VENDOR_NIX_TAR_${n}=${vendorTar v}") finalAttrs.passthru.amentVendorSrcs)
+        # Tell ament_vendor_wrapper.cmake where to find files or tarballs with vendored sources
+        attrValues (mapAttrs cmakeFlagsForType.${type} finalAttrs.passthru.amentVendorSrcs)
       );
     postPatch =
       if pathExists vendoredSourceJson then
@@ -135,8 +150,7 @@
     passthru = passthru // {
       # Expose vendored sources for eventual overriding
       amentVendorSrcs = lib.optionalAttrs (pathExists vendoredSourceJson)
-        (mapAttrs (n: v: vendorSrc v) sourceInfos);
-
+        (mapAttrs (n: v: applyPatchesFor n (fetcher v)) sourceInfos);
       # Script to automatically update vendored-source.json by running
       # CMake with injected modified version of ament_cmake macro.
       updateAmentVendor = let
@@ -150,8 +164,8 @@
           export NIX_SSL_CERT_FILE="${self.cacert}/etc/ssl/certs/ca-bundle.crt"
           export PATH="${lib.makeBinPath (with self; [ nix-prefetch-git jq nix ])}:$PATH"
           # Ask CMake to generate vendored-source.json
-          export CMAKE_PREFIX_PATH=${rosSelf.ament-cmake-vendor-package-wrapped}
-          cmakeFlags+='-DAMENT_VENDOR_NIX_PREFETCH=ON'
+          export CMAKE_PREFIX_PATH=${rosSelf.ament-cmake-vendor-package}
+          cmakeFlags+='-DAMENT_VENDOR_NIX_PREFETCH=${type}'
           phases="''${prePhases[*]:-} unpackPhase patchPhase ''${preConfigurePhases[*]:-} configurePhase ''${preBuildPhases[*]:-}" \
             genericBuild
           # Copy the resulting data to package source directory
@@ -165,14 +179,40 @@
     };
   });
 
+  # Patch a vendored download that uses ament_vendor() with a Git repo as the
+  # source.
+  patchAmentVendorGit = pkg: { fetchgitArgs ? {}, ... } @ args:
+    let
+      fetcher = sourceInfo: self.fetchgit (sourceInfo // fetchgitArgs // {
+        # vcstool only accepts tarballs with the version number as the
+        # root directory name.
+        name = sourceInfo.rev;
+      });
+    in
+      rosSelf.lib.patchAmentVendor pkg (args // {
+        inherit fetcher;
+        type = "git";
+      });
+
+  # Patch a vendored download that uses ament_vendor() with file as a source.
+  patchAmentVendorFile = pkg: { fetchurlArgs ? {}, ... } @ args:
+    let
+      fetcher = sourceInfo: self.fetchurl (sourceInfo // fetchurlArgs);
+    in
+      rosSelf.lib.patchAmentVendor pkg (args // {
+        inherit fetcher;
+        type = "file";
+      });
+
   # patchAmentVendorGit specialized for gz-*-vendor packages. In
   # addition to patching ament_vendor() calls, it patches other things
   # in CMakeLists.txt.
   patchGzAmentVendorGit = pkg: {
-    tarSourceArgs ? {}
+    tarSourceArgs ? {},
+    patchesFor ? {},
   }: let
     patchedPkg = lib.patchAmentVendorGit pkg {
-      inherit tarSourceArgs;
+      inherit tarSourceArgs patchesFor;
     };
   in patchedPkg.overrideAttrs ({
     pname, postPatch ? "", ...

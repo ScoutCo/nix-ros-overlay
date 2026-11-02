@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, ament-cmake, ament-lint-common, builtin-interfaces, geometry-msgs, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-humble-tf2-msgs";
-  version = "0.25.16-r1";
+  version = "0.25.23-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/humble/tf2_msgs/0.25.16-1.tar.gz";
-    name = "0.25.16-1.tar.gz";
-    sha256 = "dc8bc59097380fca8c557bc900f6762b50aa8978a2117dd9a23ac946d18e26da";
+    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/humble/tf2_msgs/0.25.23-1.tar.gz";
+    name = "0.25.23-1.tar.gz";
+    sha256 = "ab23ea150c18fa049b145a0180aa51bbc51d3fa03fb83813bc22f2eec6c954b5";
   };
 
   buildType = "ament_cmake";

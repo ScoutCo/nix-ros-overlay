@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, geometry-msgs, nav-msgs, rclcpp, tf2-geometry-msgs, tf2-ros }:
 buildRosPackage {
   pname = "ros-rolling-odom-to-tf-ros2";
-  version = "1.0.7-r1";
+  version = "1.0.8-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/odom_to_tf_ros2-release/archive/release/rolling/odom_to_tf_ros2/1.0.7-1.tar.gz";
-    name = "1.0.7-1.tar.gz";
-    sha256 = "f09c628532e0d8ba3e36a7d696d7dc66623e15fb59c5ad4c45cf700f016cdc4b";
+    url = "https://github.com/ros2-gbp/odom_to_tf_ros2-release/archive/release/rolling/odom_to_tf_ros2/1.0.8-2.tar.gz";
+    name = "1.0.8-2.tar.gz";
+    sha256 = "f91cdab030e2ce079a19773f332c133c68275953faa464a0c7185a814e2fe7ef";
   };
 
   buildType = "ament_cmake";

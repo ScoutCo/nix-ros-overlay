@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-cppcheck, ament-cmake-cpplint, ament-cmake-gmock, ament-cmake-gtest, ament-cmake-lint-cmake, ament-cmake-uncrustify, ament-cmake-xmllint, ament-lint-auto, geometry-msgs, qt5, rclcpp, rcutils, rviz-common, rviz-ogre-vendor, rviz-rendering, std-msgs, tf2, tf2-ros }:
 buildRosPackage {
   pname = "ros-jazzy-rviz-visual-testing-framework";
-  version = "14.1.16-r1";
+  version = "14.1.24-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rviz-release/archive/release/jazzy/rviz_visual_testing_framework/14.1.16-1.tar.gz";
-    name = "14.1.16-1.tar.gz";
-    sha256 = "f84fe4d3aa41d0db8795cf05035ac043d38cfc15a51b152aa1a42113719fd168";
+    url = "https://github.com/ros2-gbp/rviz-release/archive/release/jazzy/rviz_visual_testing_framework/14.1.24-1.tar.gz";
+    name = "14.1.24-1.tar.gz";
+    sha256 = "f0e6d386b6812fa0d3a043ab560218a57215d13f9d1011775fb839a7e786c896";
   };
 
   buildType = "ament_cmake";

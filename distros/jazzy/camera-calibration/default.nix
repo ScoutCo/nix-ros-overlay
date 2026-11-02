@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, cv-bridge, image-geometry, message-filters, python3Packages, rclpy, sensor-msgs, std-srvs }:
 buildRosPackage {
   pname = "ros-jazzy-camera-calibration";
-  version = "5.0.11-r1";
+  version = "5.0.13-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/jazzy/camera_calibration/5.0.11-1.tar.gz";
-    name = "5.0.11-1.tar.gz";
-    sha256 = "74d5e1fb30806b02c52f287d8a97d33364f58f17c715bbe4093ea8bc9e586e0b";
+    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/jazzy/camera_calibration/5.0.13-1.tar.gz";
+    name = "5.0.13-1.tar.gz";
+    sha256 = "25d9275ac42e3bc17ff2c0f463a7f9b52f91c5cd5584b668d5715b95ea25fa0a";
   };
 
   buildType = "ament_python";

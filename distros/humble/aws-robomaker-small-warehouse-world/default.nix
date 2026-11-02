@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, gazebo, gazebo-plugins, gazebo-ros }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "AWS RoboMaker package for a warehouse world to use in manufacturing and logistics robot applications.";
-    license = with lib.licenses; [ "MIT-0" ];
+    license = with lib.licenses; [ mit0 ];
   };
 }

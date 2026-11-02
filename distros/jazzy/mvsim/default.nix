@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, ament-cmake-gtest, ament-cmake-xmllint, ament-lint-auto, ament-lint-common, boost, cmake, cppzmq, mrpt-libgui, mrpt-libmaps, mrpt-libposes, mrpt-libros-bridge, mrpt-libtclap, nav-msgs, protobuf, python3, python3Packages, ros-environment, ros2launch, sensor-msgs, stereo-msgs, tf2, tf2-geometry-msgs, unzip, visualization-msgs, wget }:
 buildRosPackage {
   pname = "ros-jazzy-mvsim";
-  version = "0.14.0-r1";
+  version = "1.4.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mvsim-release/archive/release/jazzy/mvsim/0.14.0-1.tar.gz";
-    name = "0.14.0-1.tar.gz";
-    sha256 = "9fd48d40a0178d7a6cd1cb60b02f28cc4073e614ce42c7d6c980d2c2e695e670";
+    url = "https://github.com/ros2-gbp/mvsim-release/archive/release/jazzy/mvsim/1.4.0-1.tar.gz";
+    name = "1.4.0-1.tar.gz";
+    sha256 = "dd8aa55b911efff539ac1b38cbeda2ec29beabeb0e696d99bc56e1d3a9137e50";
   };
 
   buildType = "ament_cmake";

@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-ros, ament-lint-auto, boost, canopen-base-driver, canopen-core, canopen-interfaces, canopen-proxy-driver, rclcpp, rclcpp-components, rclcpp-lifecycle, sensor-msgs, std-srvs }:
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "Driiver for devices implementing CIA402 profile";
-    license = with lib.licenses; [ "LGPL-v3" ];
+    license = with lib.licenses; [ lgpl3Only ];
   };
 }

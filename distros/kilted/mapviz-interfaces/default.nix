@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, builtin-interfaces, marti-common-msgs, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-kilted-mapviz-interfaces";
-  version = "2.5.10-r1";
+  version = "4.0.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mapviz-release/archive/release/kilted/mapviz_interfaces/2.5.10-1.tar.gz";
-    name = "2.5.10-1.tar.gz";
-    sha256 = "b3ff2d6cb1c054119583bff166eb0ee48637cd5aa5865bcfcfe6c3c95cbf456c";
+    url = "https://github.com/ros2-gbp/mapviz-release/archive/release/kilted/mapviz_interfaces/4.0.3-1.tar.gz";
+    name = "4.0.3-1.tar.gz";
+    sha256 = "284edb2a63c2ef76e99b12f17e72a07e30c2227e33b1df9fdfb38446695760dd";
   };
 
   buildType = "ament_cmake";

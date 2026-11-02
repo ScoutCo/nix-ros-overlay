@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-xmllint, builtin-interfaces, geometry-msgs, python3Packages, rclpy, sensor-msgs, std-msgs, tf2-msgs, tf2-py }:
 buildRosPackage {
   pname = "ros-kilted-tf2-ros-py";
-  version = "0.41.2-r1";
+  version = "0.41.9-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/kilted/tf2_ros_py/0.41.2-1.tar.gz";
-    name = "0.41.2-1.tar.gz";
-    sha256 = "217083282ae5a3a8ed3ccc11eca08a4a50ac1e2a8038c5613d9ba4347536b71f";
+    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/kilted/tf2_ros_py/0.41.9-1.tar.gz";
+    name = "0.41.9-1.tar.gz";
+    sha256 = "22c76551766bbefa26f616e7f577345190959d6087ba58f72fc32e9e1131d292";
   };
 
   buildType = "ament_python";

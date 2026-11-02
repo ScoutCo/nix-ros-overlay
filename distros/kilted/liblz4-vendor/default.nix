@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-vendor-package, lz4 }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "LZ4 compression vendor package, providing a dependency for LZ4.";
-    license = with lib.licenses; [ asl20 bsdOriginal "GPL-2.0-only" ];
+    license = with lib.licenses; [ asl20 bsdOriginal gpl2Only ];
   };
 }

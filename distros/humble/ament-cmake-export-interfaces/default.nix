@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-core, ament-cmake-export-libraries }:
 buildRosPackage {
   pname = "ros-humble-ament-cmake-export-interfaces";
-  version = "1.3.12-r1";
+  version = "1.3.14-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/humble/ament_cmake_export_interfaces/1.3.12-1.tar.gz";
-    name = "1.3.12-1.tar.gz";
-    sha256 = "b30fc34e71b092deb15e760fd1bfa40ff8ddf12f3efd901b5fe9a9bb9f2a74f3";
+    url = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/humble/ament_cmake_export_interfaces/1.3.14-1.tar.gz";
+    name = "1.3.14-1.tar.gz";
+    sha256 = "05091058f3352b85b542b5ea954927d503de48e4e88beb00cf0aaf80cc4628e6";
   };
 
   buildType = "ament_cmake";

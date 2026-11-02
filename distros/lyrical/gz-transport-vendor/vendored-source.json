@@ -1,0 +1,7 @@
+{
+  "gz_transport_vendor": {
+    "url": "https://github.com/gazebosim/gz-transport.git",
+    "rev": "gz-transport15_15.1.0",
+    "hash": "sha256-a+PbuwTZ9zFRAJmnrbqmEpbecoetPat6LiAITP4sV2E="
+  }
+}

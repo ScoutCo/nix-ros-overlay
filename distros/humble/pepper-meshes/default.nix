@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake }:
@@ -19,6 +19,6 @@ buildRosPackage {
 
   meta = {
     description = "Meshes for the Pepper robot, for ROS2";
-    license = with lib.licenses; [ "CC-BY-NC-ND-4.0" ];
+    license = with lib.licenses; [ cc-by-nc-nd-40 ];
   };
 }

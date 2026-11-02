@@ -1,23 +1,23 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, builtin-interfaces, geometry-msgs, message-filters, rcl-interfaces, rclcpp, rclcpp-action, rclcpp-components, rosgraph-msgs, tf2, tf2-msgs }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gen-version-h, ament-cmake-gtest, ament-lint-auto, ament-lint-common, builtin-interfaces, geometry-msgs, message-filters, rcl-interfaces, rclcpp, rclcpp-action, rclcpp-components, rosgraph-msgs, tf2, tf2-msgs }:
 buildRosPackage {
   pname = "ros-humble-tf2-ros";
-  version = "0.25.16-r1";
+  version = "0.25.23-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/humble/tf2_ros/0.25.16-1.tar.gz";
-    name = "0.25.16-1.tar.gz";
-    sha256 = "aafeaa8355525751aa7955296d890e4b25937f0f947513ac995fd8f30f916cb8";
+    url = "https://github.com/ros2-gbp/geometry2-release/archive/release/humble/tf2_ros/0.25.23-1.tar.gz";
+    name = "0.25.23-1.tar.gz";
+    sha256 = "9d46fcc37ae57fc711ec0ca5909373391b4b51337e15917c0c5bee1049049d41";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common rosgraph-msgs ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs message-filters rcl-interfaces rclcpp rclcpp-action rclcpp-components tf2 tf2-msgs ];
-  nativeBuildInputs = [ ament-cmake ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
 
   meta = {
     description = "This package contains the C++ ROS bindings for the tf2 library";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake }:
 buildRosPackage {
   pname = "ros-rolling-moveit-resources-pr2-description";
-  version = "3.1.1-r1";
+  version = "3.2.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/moveit_resources-release/archive/release/rolling/moveit_resources_pr2_description/3.1.1-1.tar.gz";
-    name = "3.1.1-1.tar.gz";
-    sha256 = "84f30cc19630c1dbe2a9d2b9b460000d69b3995e634533709972eedaf559bf13";
+    url = "https://github.com/ros2-gbp/moveit_resources-release/archive/release/rolling/moveit_resources_pr2_description/3.2.0-1.tar.gz";
+    name = "3.2.0-1.tar.gz";
+    sha256 = "6565f40134ba51090bc9ffd4089f49dc857a258536b43b158b05b10fafebb92d";
   };
 
   buildType = "ament_cmake";

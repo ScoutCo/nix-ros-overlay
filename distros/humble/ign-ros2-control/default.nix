@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, gz-ros2-control }:
 buildRosPackage {
   pname = "ros-humble-ign-ros2-control";
-  version = "0.7.17-r1";
+  version = "0.7.21-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ign_ros2_control-release/archive/release/humble/ign_ros2_control/0.7.17-1.tar.gz";
-    name = "0.7.17-1.tar.gz";
-    sha256 = "dcff105b617b903d27c8b2101ca88d25a182171164c3fb3d302fce238f52190a";
+    url = "https://github.com/ros2-gbp/ign_ros2_control-release/archive/release/humble/ign_ros2_control/0.7.21-1.tar.gz";
+    name = "0.7.21-1.tar.gz";
+    sha256 = "2dc4f67584e354c818e5c777476b0b381e7d88874ec1ce234a1230c6b0cdacef";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-cmake-ros, ament-lint-auto, autoware-cmake, autoware-lint-common, autoware-utils-geometry, geometry-msgs, rclcpp, tf2-ros }:
 buildRosPackage {
   pname = "ros-humble-autoware-utils-tf";
-  version = "1.4.2-r1";
+  version = "1.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/humble/autoware_utils_tf/1.4.2-1.tar.gz";
-    name = "1.4.2-1.tar.gz";
-    sha256 = "704c719b4703026a99d7c7c2af1db6bf136731cc735dda18970d8db35f197d8d";
+    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/humble/autoware_utils_tf/1.9.0-1.tar.gz";
+    name = "1.9.0-1.tar.gz";
+    sha256 = "08606b7fd1eec66da42c7876124f151d95bf81918e829919617ae89ff0556241";
   };
 
   buildType = "ament_cmake";

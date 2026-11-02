@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, autoware-cmake, autoware-lint-common, rclcpp, visualization-msgs }:
 buildRosPackage {
   pname = "ros-humble-autoware-utils-visualization";
-  version = "1.4.2-r1";
+  version = "1.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/humble/autoware_utils_visualization/1.4.2-1.tar.gz";
-    name = "1.4.2-1.tar.gz";
-    sha256 = "079daf5d20dfa9173a22d36af49e92660a2e8179ce38479de1689e9e5c89514a";
+    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/humble/autoware_utils_visualization/1.9.0-1.tar.gz";
+    name = "1.9.0-1.tar.gz";
+    sha256 = "70de299803cf72e2240b279a92461a7b62608953b774a89ea3ddfb309e911ef8";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, camera-info-manager, cv-bridge, image-transport, rcl-interfaces, rclcpp, rclcpp-components }:
 buildRosPackage {
   pname = "ros-kilted-image-publisher";
-  version = "6.0.11-r1";
+  version = "6.0.13-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/kilted/image_publisher/6.0.11-1.tar.gz";
-    name = "6.0.11-1.tar.gz";
-    sha256 = "a884dcbdb00de9a27ef023ed1eee529880030a7580bf452be7566a82f530de34";
+    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/kilted/image_publisher/6.0.13-1.tar.gz";
+    name = "6.0.13-1.tar.gz";
+    sha256 = "fe8e5d575b5067bacab140affef835ad4cc2f62ad5766ec75295e5f80ca29fef";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, etsi-its-primitives-conversion, etsi-its-spatem-ts-coding, etsi-its-spatem-ts-msgs }:
 buildRosPackage {
   pname = "ros-kilted-etsi-its-spatem-ts-conversion";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/kilted/etsi_its_spatem_ts_conversion/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "eeddec92072738467ae86e225db1939dec7e640b54126d98b584bf1bd1af5f18";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/kilted/etsi_its_spatem_ts_conversion/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "c901cd1a80b387969b7bbb1faa9ce746e55af9c4c7d204b0bad3548eafebb2d1";
   };
 
   buildType = "ament_cmake";

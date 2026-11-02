@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common }:
@@ -8,7 +8,7 @@ buildRosPackage {
   version = "3.0.6-r1";
 
   src = fetchurl {
-    url = "https://github.com/pal-gbp/pal_navigation_cfg_public-release/archive/release/humble/pal_navigation_cfg_params/3.0.6-1.tar.gz";
+    url = "https://github.com/ros2-gbp/pal_navigation_cfg_public-release/archive/release/humble/pal_navigation_cfg_params/3.0.6-1.tar.gz";
     name = "3.0.6-1.tar.gz";
     sha256 = "935d30bd7d704129ff689388e523769e20a7f8d8593bcb21534e2e9356f8a1d4";
   };

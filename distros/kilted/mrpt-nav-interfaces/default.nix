@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, ament-cmake, geometry-msgs, mrpt-msgs, nav-msgs, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-kilted-mrpt-nav-interfaces";
-  version = "2.2.4-r1";
+  version = "2.4.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/kilted/mrpt_nav_interfaces/2.2.4-1.tar.gz";
-    name = "2.2.4-1.tar.gz";
-    sha256 = "1ab1a1befe5446ae7361692f17d602be5d5845b76f7c83cbccb1ace0c338a158";
+    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/kilted/mrpt_nav_interfaces/2.4.0-1.tar.gz";
+    name = "2.4.0-1.tar.gz";
+    sha256 = "216841756eaef2f344a749107ac88e044faeebf341c934d4aac832cf67fd2914";
   };
 
   buildType = "ament_cmake";

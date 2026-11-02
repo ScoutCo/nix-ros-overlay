@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, moveit-configs-utils, moveit-kinematics, moveit-planners, moveit-planners-chomp, moveit-ros-move-group, moveit-ros-visualization, moveit-servo, moveit-simple-controller-manager, ur-description, warehouse-ros-sqlite, xacro }:
 buildRosPackage {
   pname = "ros-jazzy-ur-moveit-config";
-  version = "3.4.0-r1";
+  version = "3.8.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release/archive/release/jazzy/ur_moveit_config/3.4.0-1.tar.gz";
-    name = "3.4.0-1.tar.gz";
-    sha256 = "a096c1dcaba2dec3d827fc7564378620c369e5e19ce99bce9ccf646962d99c85";
+    url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release/archive/release/jazzy/ur_moveit_config/3.8.0-1.tar.gz";
+    name = "3.8.0-1.tar.gz";
+    sha256 = "d7a833eb726883dc48eb13313e5bc539d4628266e1fb3b83907c5a3871b32f9f";
   };
 
   buildType = "ament_cmake";

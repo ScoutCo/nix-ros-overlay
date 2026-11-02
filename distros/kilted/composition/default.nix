@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-lint-auto, ament-lint-common, example-interfaces, launch, launch-ros, launch-testing, launch-testing-ament-cmake, launch-testing-ros, rclcpp, rclcpp-components, rcutils, rmw-implementation-cmake, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-composition";
-  version = "0.36.2-r1";
+  version = "0.36.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/kilted/composition/0.36.2-1.tar.gz";
-    name = "0.36.2-1.tar.gz";
-    sha256 = "2b29ef9a6d4fdb931b2c4cb668cb416eb8dcacf77c5137f2ea414c638e7df3fc";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/kilted/composition/0.36.5-1.tar.gz";
+    name = "0.36.5-1.tar.gz";
+    sha256 = "2aa7009455b6d8e3388976c1e307f16ec091e269fa95dcf98abe779a75bea12a";
   };
 
   buildType = "ament_cmake";

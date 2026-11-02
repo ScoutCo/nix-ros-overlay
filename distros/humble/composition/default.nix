@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-pytest, ament-lint-auto, ament-lint-common, example-interfaces, launch, launch-ros, launch-testing, launch-testing-ament-cmake, launch-testing-ros, rclcpp, rclcpp-components, rcutils, rmw-implementation-cmake, std-msgs }:
 buildRosPackage {
   pname = "ros-humble-composition";
-  version = "0.20.6-r1";
+  version = "0.20.10-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/humble/composition/0.20.6-1.tar.gz";
-    name = "0.20.6-1.tar.gz";
-    sha256 = "c02b9ba0472954d0e285e4f1a9b8752acb1aa4f09c90e4f390305f50af537ad1";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/humble/composition/0.20.10-1.tar.gz";
+    name = "0.20.10-1.tar.gz";
+    sha256 = "38f73a70f9f721b53c6946c33b03544495549eefa679a366750b63e81c1f5c55";
   };
 
   buildType = "ament_cmake";

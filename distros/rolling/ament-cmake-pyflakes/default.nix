@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-copyright, ament-cmake-core, ament-cmake-lint-cmake, ament-cmake-test, ament-pyflakes }:
 buildRosPackage {
   pname = "ros-rolling-ament-cmake-pyflakes";
-  version = "0.20.2-r1";
+  version = "0.21.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ament_lint-release/archive/release/rolling/ament_cmake_pyflakes/0.20.2-1.tar.gz";
-    name = "0.20.2-1.tar.gz";
-    sha256 = "2596fa27ba48bf9596e3a56c330145887693d4d794c1b883290e197baddfc344";
+    url = "https://github.com/ros2-gbp/ament_lint-release/archive/release/rolling/ament_cmake_pyflakes/0.21.2-1.tar.gz";
+    name = "0.21.2-1.tar.gz";
+    sha256 = "9e835480e509e35cb01a292ff4839fe81d6fa0383702faf51c669b7095501be3";
   };
 
   buildType = "ament_cmake";

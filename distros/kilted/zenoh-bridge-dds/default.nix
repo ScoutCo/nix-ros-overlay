@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, cargo, clang }:
@@ -20,6 +20,6 @@ buildRosPackage {
   meta = {
     description = "Bridge between ROS2/DDS and Eclipse zenoh (https://zenoh.io). It allows the integration of zenoh applications with ROS2,
     or the tunneling of ROS2 communications between nodes via the zenoh protocol at Internet scale.";
-    license = with lib.licenses; [ "EPL-2.0" asl20 ];
+    license = with lib.licenses; [ epl20 asl20 ];
   };
 }

@@ -1,21 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, backward-ros, eigen, rclcpp-lifecycle, ros2-control-cmake }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, backward-ros, eigen, pluginlib, rclcpp, rclcpp-lifecycle, ros2-control-cmake, ros2-control-test-assets }:
 buildRosPackage {
   pname = "ros-rolling-kinematics-interface";
-  version = "2.3.0-r1";
+  version = "2.4.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/kinematics_interface-release/archive/release/rolling/kinematics_interface/2.3.0-1.tar.gz";
-    name = "2.3.0-1.tar.gz";
-    sha256 = "06e896b0ed02ef2ee503c06f74ced9aadd78f51c584756970aa24efc97236bcd";
+    url = "https://github.com/ros2-gbp/kinematics_interface-release/archive/release/rolling/kinematics_interface/2.4.2-1.tar.gz";
+    name = "2.4.2-1.tar.gz";
+    sha256 = "621dc657cd8be99ea0a70805210f8e7472e7638e8591e35f72323f1776534392";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ros2-control-cmake ];
-  propagatedBuildInputs = [ backward-ros eigen rclcpp-lifecycle ];
+  checkInputs = [ ament-cmake-gmock pluginlib ros2-control-test-assets ];
+  propagatedBuildInputs = [ backward-ros eigen rclcpp rclcpp-lifecycle ];
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {

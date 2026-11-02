@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-core, ament-cmake-test, python3Packages }:
 buildRosPackage {
   pname = "ros-rolling-ament-cmake-pytest";
-  version = "2.8.4-r1";
+  version = "2.9.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/rolling/ament_cmake_pytest/2.8.4-1.tar.gz";
-    name = "2.8.4-1.tar.gz";
-    sha256 = "5fc09aff32cf3c8a1d351d8eb462daf6e5b6ba8a14a494220b20899541688c7e";
+    url = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/rolling/ament_cmake_pytest/2.9.2-1.tar.gz";
+    name = "2.9.2-1.tar.gz";
+    sha256 = "53d9cba932511778581bc906e978171f46b486c8dd9c182be4fc1493dec4e67f";
   };
 
   buildType = "ament_cmake";

@@ -1,21 +1,21 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, angles, controller-manager, hardware-interface, joint-state-broadcaster, joint-trajectory-controller, launch, launch-ros, launch-testing, rclcpp, rclpy, robot-state-publisher, ros-testing, ros2-control-cmake, ros2-control-test-assets, sensor-msgs, xacro }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, ament-cmake-ros, angles, control-msgs, controller-manager, forward-command-controller, hardware-interface, joint-state-broadcaster, joint-trajectory-controller, launch, launch-ros, launch-testing, launch-testing-ament-cmake, rclcpp, rclpy, robot-state-publisher, ros2-control-cmake, ros2-control-test-assets, sensor-msgs, topic-tools, xacro }:
 buildRosPackage {
   pname = "ros-jazzy-joint-state-topic-hardware-interface";
-  version = "0.2.1-r1";
+  version = "1.1.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/topic_based_hardware-release/archive/release/jazzy/joint_state_topic_hardware_interface/0.2.1-1.tar.gz";
-    name = "0.2.1-1.tar.gz";
-    sha256 = "9269233fd5b3f8f12290758bc9dc3446aaf10dc7da7fbf8b28d58074f14b8381";
+    url = "https://github.com/ros2-gbp/topic_based_hardware-release/archive/release/jazzy/joint_state_topic_hardware_interface/1.1.0-1.tar.gz";
+    name = "1.1.0-1.tar.gz";
+    sha256 = "030c9e321f8ec8578609e9c5f14d9c0b3a5238f1bfb5630b27f053cfb89b4db6";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ros2-control-cmake ];
-  checkInputs = [ ament-cmake-gmock controller-manager joint-state-broadcaster joint-trajectory-controller launch launch-ros launch-testing rclpy robot-state-publisher ros-testing ros2-control-test-assets xacro ];
+  checkInputs = [ ament-cmake-gmock ament-cmake-ros control-msgs controller-manager forward-command-controller joint-state-broadcaster joint-trajectory-controller launch launch-ros launch-testing launch-testing-ament-cmake rclpy robot-state-publisher ros2-control-test-assets topic-tools xacro ];
   propagatedBuildInputs = [ angles hardware-interface rclcpp sensor-msgs ];
   nativeBuildInputs = [ ament-cmake ];
 

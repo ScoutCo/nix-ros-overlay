@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-index-python, ament-pep257, ament-xmllint, example-interfaces, python3Packages, rcl-interfaces, rclpy, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-demo-nodes-py";
-  version = "0.36.2-r1";
+  version = "0.36.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/kilted/demo_nodes_py/0.36.2-1.tar.gz";
-    name = "0.36.2-1.tar.gz";
-    sha256 = "63340b1da2b6782f25fdf54a8752d296ebe15211fcd99fde6ae5aca57900a82d";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/kilted/demo_nodes_py/0.36.5-1.tar.gz";
+    name = "0.36.5-1.tar.gz";
+    sha256 = "6f6f550cb8976079b658e39fafc63bb4633414710f430f1935ae90ffa2a9ba54";
   };
 
   buildType = "ament_python";

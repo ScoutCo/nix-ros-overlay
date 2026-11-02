@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-mypy, ament-pep257, ament-xmllint, launch, launch-ros, python3Packages, tracetools-trace }:
 buildRosPackage {
   pname = "ros-rolling-tracetools-launch";
-  version = "8.9.0-r1";
+  version = "9.0.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_tracing-release/archive/release/rolling/tracetools_launch/8.9.0-1.tar.gz";
-    name = "8.9.0-1.tar.gz";
-    sha256 = "73c4b66715a17a988f6dcca142d80d9498112dfbb99d82bdf2415a9d3368987c";
+    url = "https://github.com/ros2-gbp/ros2_tracing-release/archive/release/rolling/tracetools_launch/9.0.0-1.tar.gz";
+    name = "9.0.0-1.tar.gz";
+    sha256 = "d71db086dd18cc20636da72d7289c151f8f8f47aacd2a0fa2d82318df11a40ba";
   };
 
   buildType = "ament_python";

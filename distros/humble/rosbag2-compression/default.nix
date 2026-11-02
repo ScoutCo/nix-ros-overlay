@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, ament-lint-auto, ament-lint-common, rclcpp, rcpputils, rcutils, rosbag2-cpp, rosbag2-storage, rosbag2-test-common }:
 buildRosPackage {
   pname = "ros-humble-rosbag2-compression";
-  version = "0.15.15-r1";
+  version = "0.15.17-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/humble/rosbag2_compression/0.15.15-1.tar.gz";
-    name = "0.15.15-1.tar.gz";
-    sha256 = "5909c4cea27b278d5b31287e7e0842170930a0c21828b028e285a3ed02d32a0e";
+    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/humble/rosbag2_compression/0.15.17-1.tar.gz";
+    name = "0.15.17-1.tar.gz";
+    sha256 = "bdde8514e4a499b751d9ad890c2fb6023e2d8efb56975398152d3ecf50607805";
   };
 
   buildType = "ament_cmake";

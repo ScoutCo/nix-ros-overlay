@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, gazebo-plugins, gazebo-ros, gazebo-ros2-control, launch-pal, omni-base-2dnav, omni-base-bringup, omni-base-description, omni-base-laser-sensors, pal-gazebo-plugins, pal-gazebo-worlds, pal-maps, pal-urdf-utils, ros2launch }:
+{ lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, gazebo-plugins, gazebo-ros, gazebo-ros2-control, launch-pal, nav2-bringup, omni-base-2dnav, omni-base-bringup, omni-base-description, omni-base-laser-sensors, omni-base-rgbd-sensors, pal-gazebo-plugins, pal-gazebo-worlds, pal-maps, pal-urdf-utils, ros-gz-bridge, ros-gz-sim, ros2launch }:
 buildRosPackage {
   pname = "ros-humble-omni-base-gazebo";
-  version = "2.9.0-r1";
+  version = "2.16.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/pal-gbp/omni_base_simulation-release/archive/release/humble/omni_base_gazebo/2.9.0-1.tar.gz";
-    name = "2.9.0-1.tar.gz";
-    sha256 = "c90dde1bea260d2ba7906164f7843f578f82329ef84d289b17af85f58163ff8d";
+    url = "https://github.com/ros2-gbp/omni_base_simulation-release/archive/release/humble/omni_base_gazebo/2.16.0-1.tar.gz";
+    name = "2.16.0-1.tar.gz";
+    sha256 = "6d46ebfe33b4b552f7222170bdf0061936a0821f1681e4bbd59b596c533bd3db";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake-auto ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  propagatedBuildInputs = [ gazebo-plugins gazebo-ros gazebo-ros2-control launch-pal omni-base-2dnav omni-base-bringup omni-base-description omni-base-laser-sensors pal-gazebo-plugins pal-gazebo-worlds pal-maps pal-urdf-utils ros2launch ];
+  propagatedBuildInputs = [ gazebo-plugins gazebo-ros gazebo-ros2-control launch-pal nav2-bringup omni-base-2dnav omni-base-bringup omni-base-description omni-base-laser-sensors omni-base-rgbd-sensors pal-gazebo-plugins pal-gazebo-worlds pal-maps pal-urdf-utils ros-gz-bridge ros-gz-sim ros2launch ];
   nativeBuildInputs = [ ament-cmake-auto ];
 
   meta = {

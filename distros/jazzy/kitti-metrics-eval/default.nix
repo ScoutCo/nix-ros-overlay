@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-common, mrpt-libmath, mrpt-libposes, mrpt-libtclap }:
 buildRosPackage {
   pname = "ros-jazzy-kitti-metrics-eval";
-  version = "1.9.0-r1";
+  version = "3.0.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/jazzy/kitti_metrics_eval/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "ebffda119f7ad63f75f3ecbfe934ef7f08e32b570459f6688ccf8e4e5cd5dcac";
+    url = "https://github.com/ros2-gbp/mola_academic_datasets-release/archive/release/jazzy/kitti_metrics_eval/3.0.0-2.tar.gz";
+    name = "3.0.0-2.tar.gz";
+    sha256 = "f255311be61f0002e035a1b4a10efdc522b2b33a73cb493ca5177e93ff9565a3";
   };
 
   buildType = "cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, backward-ros, builtin-interfaces, control-msgs, controller-interface, controller-manager, generate-parameter-library, hardware-interface, hardware-interface-testing, pluginlib, rclcpp, rclcpp-lifecycle, rcutils, realtime-tools, ros2-control-test-assets, sensor-msgs, trajectory-msgs, urdf }:
 buildRosPackage {
   pname = "ros-jazzy-ffw-joint-trajectory-command-broadcaster";
-  version = "1.1.12-r1";
+  version = "1.2.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ai_worker-release/archive/release/jazzy/ffw_joint_trajectory_command_broadcaster/1.1.12-1.tar.gz";
-    name = "1.1.12-1.tar.gz";
-    sha256 = "bd529df0f57789c45457bb6bd548cc8d0254d1ae5d183fefc19d697129d96653";
+    url = "https://github.com/ros2-gbp/ai_worker-release/archive/release/jazzy/ffw_joint_trajectory_command_broadcaster/1.2.1-1.tar.gz";
+    name = "1.2.1-1.tar.gz";
+    sha256 = "c42b0c831370c87c7b4927000e3e9f5716e464a5b9370b023247030d7425c2e3";
   };
 
   buildType = "ament_cmake";

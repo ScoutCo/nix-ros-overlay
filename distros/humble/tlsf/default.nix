@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "TLSF allocator version 2.4.6";
-    license = with lib.licenses; [ "LGPL-2.1-only" ];
+    license = with lib.licenses; [ lgpl21Only ];
   };
 }

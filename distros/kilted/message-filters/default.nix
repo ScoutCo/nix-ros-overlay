@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-gtest, ament-cmake-pytest, ament-cmake-python, ament-cmake-ros, ament-lint-auto, ament-lint-common, builtin-interfaces, rclcpp, rclcpp-lifecycle, rclpy, rcutils, sensor-msgs, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-message-filters";
-  version = "7.1.3-r1";
+  version = "7.1.11-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_message_filters-release/archive/release/kilted/message_filters/7.1.3-1.tar.gz";
-    name = "7.1.3-1.tar.gz";
-    sha256 = "27973e0f42d3c2ded5b8aef1563ad9f04b2dd280599e14190bd35fdea1726005";
+    url = "https://github.com/ros2-gbp/ros2_message_filters-release/archive/release/kilted/message_filters/7.1.11-1.tar.gz";
+    name = "7.1.11-1.tar.gz";
+    sha256 = "5a4d480e19ce157204cf9e5e8571bd79622f19cc41962e55c56371b5957def93";
   };
 
   buildType = "ament_cmake";

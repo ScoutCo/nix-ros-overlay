@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-common, mola-imu-preintegration, mola-kernel, mrpt-libobs }:
 buildRosPackage {
   pname = "ros-humble-mola-state-estimation-simple";
-  version = "1.11.0-r1";
+  version = "2.4.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola_state_estimation-release/archive/release/humble/mola_state_estimation_simple/1.11.0-1.tar.gz";
-    name = "1.11.0-1.tar.gz";
-    sha256 = "6fbd1a74ef220022026be5657811ba8d6328df3ce9691e5c2ac5225a8f7d3c78";
+    url = "https://github.com/ros2-gbp/mola_state_estimation-release/archive/release/humble/mola_state_estimation_simple/2.4.2-1.tar.gz";
+    name = "2.4.2-1.tar.gz";
+    sha256 = "bf311e9226cc63ecf68b3ddd4f675b2b3d7ff0469b0fef95bd06b4ce49ad6f2e";
   };
 
   buildType = "cmake";

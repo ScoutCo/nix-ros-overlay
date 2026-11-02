@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, clearpath-common, clearpath-generator-gz, clearpath-viz, gz-ros2-control, ros-gz }:
 buildRosPackage {
   pname = "ros-jazzy-clearpath-gz";
-  version = "2.7.0-r1";
+  version = "2.9.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/clearpath-gbp/clearpath_simulator-release/archive/release/jazzy/clearpath_gz/2.7.0-1.tar.gz";
-    name = "2.7.0-1.tar.gz";
-    sha256 = "a56e93b03b2b79c5b974212b4b0e3c7db16c6c7b14d631bd9d12ff95d403f643";
+    url = "https://github.com/clearpath-gbp/clearpath_simulator-release/archive/release/jazzy/clearpath_gz/2.9.4-1.tar.gz";
+    name = "2.9.4-1.tar.gz";
+    sha256 = "8ddd144f72aaf55c51868db11f0dd1babe4e75d5bafb9677801448554c20f310";
   };
 
   buildType = "ament_cmake";

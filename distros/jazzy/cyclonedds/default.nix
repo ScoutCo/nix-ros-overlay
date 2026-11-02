@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, iceoryx-binding-c, iceoryx-hoofs, iceoryx-posh, openssl }:
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "Eclipse Cyclone DDS is a very performant and robust open-source DDS implementation. Cyclone DDS is developed completely in the open as an Eclipse IoT project.";
-    license = with lib.licenses; [ "EPL-2.0" "Eclipse-Distribution-License-1.0" ];
+    license = with lib.licenses; [ epl20 bsd3 ];
   };
 }

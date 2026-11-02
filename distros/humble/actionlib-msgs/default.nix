@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-common, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-humble-actionlib-msgs";
-  version = "4.9.0-r1";
+  version = "4.9.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/humble/actionlib_msgs/4.9.0-1.tar.gz";
-    name = "4.9.0-1.tar.gz";
-    sha256 = "0519a76877187b7429488a118ab617ec198d1e0ab1f722e3e8842073bfc6b410";
+    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/humble/actionlib_msgs/4.9.2-1.tar.gz";
+    name = "4.9.2-1.tar.gz";
+    sha256 = "cab5a321c1707b65a2ce3e50b25f509f3a97df7106411a36c1366755e3d39821";
   };
 
   buildType = "ament_cmake";

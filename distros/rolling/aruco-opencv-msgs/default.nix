@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-lint-cmake, ament-lint-auto, geometry-msgs, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-aruco-opencv-msgs";
-  version = "6.0.2-r1";
+  version = "7.0.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/aruco_opencv-release/archive/release/rolling/aruco_opencv_msgs/6.0.2-1.tar.gz";
-    name = "6.0.2-1.tar.gz";
-    sha256 = "3e40d862cc31057d55c4862dafb77645fa6cd94baff167f503769881f9a07f1e";
+    url = "https://github.com/ros2-gbp/aruco_opencv-release/archive/release/rolling/aruco_opencv_msgs/7.0.0-1.tar.gz";
+    name = "7.0.0-1.tar.gz";
+    sha256 = "d5221b5bf31a54ec1798b3b8b717e8017ecdd27d78521a0d80856360040ae629";
   };
 
   buildType = "ament_cmake";

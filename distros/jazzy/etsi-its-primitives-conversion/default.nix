@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake }:
 buildRosPackage {
   pname = "ros-jazzy-etsi-its-primitives-conversion";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/jazzy/etsi_its_primitives_conversion/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "538127cbb60b981efae66841aca223d6e1df3beaf3e1cfea04780addc9799ca2";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/jazzy/etsi_its_primitives_conversion/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "05c7fe9721e6eb86f023c65ac5e626eff1f6aec97a8bda0e32a1777913c68cb7";
   };
 
   buildType = "ament_cmake";

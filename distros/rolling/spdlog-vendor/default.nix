@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-vendor-package, ament-lint-auto, ament-lint-common, spdlog }:
 buildRosPackage {
   pname = "ros-rolling-spdlog-vendor";
-  version = "1.8.0-r1";
+  version = "1.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/spdlog_vendor-release/archive/release/rolling/spdlog_vendor/1.8.0-1.tar.gz";
-    name = "1.8.0-1.tar.gz";
-    sha256 = "88d658d3b73f127c99d30e53ab70e5cde10912b9547dd8827b08740ad6813915";
+    url = "https://github.com/ros2-gbp/spdlog_vendor-release/archive/release/rolling/spdlog_vendor/1.9.0-1.tar.gz";
+    name = "1.9.0-1.tar.gz";
+    sha256 = "25c940f4ff8d379410d5d8cb28508428aac223ec799d9f2cce74aec233c23fa2";
   };
 
   buildType = "ament_cmake";

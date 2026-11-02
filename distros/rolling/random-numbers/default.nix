@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-copyright, ament-lint-auto, ament-lint-cmake, boost }:
 buildRosPackage {
   pname = "ros-rolling-random-numbers";
-  version = "2.0.4-r1";
+  version = "2.0.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/random_numbers-release/archive/release/rolling/random_numbers/2.0.4-1.tar.gz";
-    name = "2.0.4-1.tar.gz";
-    sha256 = "4f7b063c91456618fc13f01f92edaddf30f60150e676c03b0ff1ecd3e1232334";
+    url = "https://github.com/ros2-gbp/random_numbers-release/archive/release/rolling/random_numbers/2.0.5-1.tar.gz";
+    name = "2.0.5-1.tar.gz";
+    sha256 = "53760d0ea9f5bdb3c7b479da9b4701c2cf17dd53ba580fd137838e9b40166f27";
   };
 
   buildType = "ament_cmake";

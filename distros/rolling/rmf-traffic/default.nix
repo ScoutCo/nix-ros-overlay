@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-catch2, ament-cmake-uncrustify, cmake, eigen, eigen3-cmake-module, libccd, rmf-utils }:
 buildRosPackage {
   pname = "ros-rolling-rmf-traffic";
-  version = "3.5.0-r1";
+  version = "3.7.0-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rmf_traffic-release/archive/release/rolling/rmf_traffic/3.5.0-1.tar.gz";
-    name = "3.5.0-1.tar.gz";
-    sha256 = "09f579c6e3a961fb7f15095274e9cad447cbd8f52ac1e54bbce7b032140970b3";
+    url = "https://github.com/ros2-gbp/rmf_traffic-release/archive/release/rolling/rmf_traffic/3.7.0-2.tar.gz";
+    name = "3.7.0-2.tar.gz";
+    sha256 = "29fa77ffa2734ec45abea55f537485fef485d1c7e9dabf80a2ffd7561f56318f";
   };
 
   buildType = "cmake";

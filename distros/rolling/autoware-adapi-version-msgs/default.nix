@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-rolling-autoware-adapi-version-msgs";
-  version = "1.3.0-r1";
+  version = "1.9.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_adapi_msgs-release/archive/release/rolling/autoware_adapi_version_msgs/1.3.0-1.tar.gz";
-    name = "1.3.0-1.tar.gz";
-    sha256 = "40f32de082592b9a8d3ef072fe285a1caa111bd6056e7be87099151d103b80e8";
+    url = "https://github.com/ros2-gbp/autoware_adapi_msgs-release/archive/release/rolling/autoware_adapi_version_msgs/1.9.1-1.tar.gz";
+    name = "1.9.1-1.tar.gz";
+    sha256 = "522d046ac985de7d8fbb0a0107cfa4e5d5ec56adaab63426afa37eab697f3dda";
   };
 
   buildType = "ament_cmake";

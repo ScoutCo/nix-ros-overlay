@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, ament-cmake, ament-lint-auto, ament-lint-common, rosidl-default-generators }:
 buildRosPackage {
   pname = "ros-humble-rosbag2-storage-mcap-testdata";
-  version = "0.15.15-r1";
+  version = "0.15.17-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/humble/rosbag2_storage_mcap_testdata/0.15.15-1.tar.gz";
-    name = "0.15.15-1.tar.gz";
-    sha256 = "4ffcf03e1883596e8ecaf8ab93f031d7c76178c5d070cd433ad0e7736086110d";
+    url = "https://github.com/ros2-gbp/rosbag2-release/archive/release/humble/rosbag2_storage_mcap_testdata/0.15.17-1.tar.gz";
+    name = "0.15.17-1.tar.gz";
+    sha256 = "74586931d5b3f1dcceb3fd480002328ccd629d62bdbef9103fecd065164f5ec3";
   };
 
   buildType = "ament_cmake";

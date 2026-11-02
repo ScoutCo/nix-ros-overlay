@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, camera-info-manager, cv-bridge, image-transport, rcl-interfaces, rclcpp, rclcpp-components }:
 buildRosPackage {
   pname = "ros-humble-image-publisher";
-  version = "3.0.8-r1";
+  version = "3.0.9-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/humble/image_publisher/3.0.8-1.tar.gz";
-    name = "3.0.8-1.tar.gz";
-    sha256 = "c62006509c7a9af2a0a3c9dfc862674c4beef63ec089825ef98f7c9a81262e81";
+    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/humble/image_publisher/3.0.9-1.tar.gz";
+    name = "3.0.9-1.tar.gz";
+    sha256 = "d074758e7a7166b2850b381bb1f4006d5489e8f9222dcaf31e8eec71f465ebf3";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-common, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-kilted-std-msgs";
-  version = "5.5.1-r1";
+  version = "5.5.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/kilted/std_msgs/5.5.1-1.tar.gz";
-    name = "5.5.1-1.tar.gz";
-    sha256 = "84a6849ae618c8dc7107e29cd124418f4223bab188a40abf18b9bc6f7c3c137e";
+    url = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/kilted/std_msgs/5.5.3-1.tar.gz";
+    name = "5.5.3-1.tar.gz";
+    sha256 = "719f7dddc6996f31b5b81736781426c12c8ae791018b446a9353478b693b7ecd";
   };
 
   buildType = "ament_cmake";

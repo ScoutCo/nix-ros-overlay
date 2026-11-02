@@ -1,23 +1,23 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, ament-lint-auto, ament-lint-common, rcutils, rmw }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, ament-cmake-ros-core, ament-lint-auto, ament-lint-common, rcutils, rmw }:
 buildRosPackage {
   pname = "ros-rolling-rmw-security-common";
-  version = "7.9.0-r1";
+  version = "7.11.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rmw-release/archive/release/rolling/rmw_security_common/7.9.0-1.tar.gz";
-    name = "7.9.0-1.tar.gz";
-    sha256 = "7132720ec93b708090b4b19e83784aa75ed8b8a22594308dad3e8e8a321746d5";
+    url = "https://github.com/ros2-gbp/rmw-release/archive/release/rolling/rmw_security_common/7.11.2-1.tar.gz";
+    name = "7.11.2-1.tar.gz";
+    sha256 = "50abd9082ce8377ad222e40351d13c93209c915aab8570f45eac9fcb586ed99a";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ament-cmake-ros-core ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common ];
   propagatedBuildInputs = [ rcutils rmw ];
-  nativeBuildInputs = [ ament-cmake ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-ros-core ];
 
   meta = {
     description = "Define a common rmw secutiry utils";

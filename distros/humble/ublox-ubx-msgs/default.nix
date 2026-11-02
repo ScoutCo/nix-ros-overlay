@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, builtin-interfaces, rosidl-default-generators, std-msgs }:
 buildRosPackage {
   pname = "ros-humble-ublox-ubx-msgs";
-  version = "0.6.1-r1";
+  version = "0.7.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/humble/ublox_ubx_msgs/0.6.1-1.tar.gz";
-    name = "0.6.1-1.tar.gz";
-    sha256 = "0273e6712ca783aacd2945b1b5e079a0dd05e3e0c8f90e88daa4a131c12f0fdf";
+    url = "https://github.com/ros2-gbp/ublox_dgnss-release/archive/release/humble/ublox_ubx_msgs/0.7.5-1.tar.gz";
+    name = "0.7.5-1.tar.gz";
+    sha256 = "cfacc7efe028c244c297b9c92efbca033a10058490a9cd29d75139fdd98c285c";
   };
 
   buildType = "ament_cmake";

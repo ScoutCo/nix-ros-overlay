@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, builtin-interfaces, marti-common-msgs, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-jazzy-mapviz-interfaces";
-  version = "2.5.10-r1";
+  version = "4.0.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mapviz-release/archive/release/jazzy/mapviz_interfaces/2.5.10-1.tar.gz";
-    name = "2.5.10-1.tar.gz";
-    sha256 = "da164dc82328981c4f99f10e75d71c081e491b06e322cf77a1fefaa61f497286";
+    url = "https://github.com/ros2-gbp/mapviz-release/archive/release/jazzy/mapviz_interfaces/4.0.3-1.tar.gz";
+    name = "4.0.3-1.tar.gz";
+    sha256 = "3ec1d01ab97db7a73f399a617addfed2e29b0221fc0a6e70c2cadd79df56c0a2";
   };
 
   buildType = "ament_cmake";

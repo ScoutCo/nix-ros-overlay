@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, launch-xml, python3Packages, rclpy, rmf-fleet-adapter-python, rmf-fleet-msgs, rmf-task-msgs }:
 buildRosPackage {
   pname = "ros-rolling-rmf-demos-fleet-adapter";
-  version = "2.8.0-r1";
+  version = "2.8.2-r3";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rmf_demos-release/archive/release/rolling/rmf_demos_fleet_adapter/2.8.0-1.tar.gz";
-    name = "2.8.0-1.tar.gz";
-    sha256 = "c032314dc04f41eaea48f6ed3c118e47de4112040cb62c6eb3ce19ec7953b411";
+    url = "https://github.com/ros2-gbp/rmf_demos-release/archive/release/rolling/rmf_demos_fleet_adapter/2.8.2-3.tar.gz";
+    name = "2.8.2-3.tar.gz";
+    sha256 = "d3459b4ec2202ad151337cbd757a7206ddfb35098ccfc60404fd7525bf09e820";
   };
 
   buildType = "ament_python";

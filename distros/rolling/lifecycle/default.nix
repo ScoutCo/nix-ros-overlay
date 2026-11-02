@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, lifecycle-msgs, rclcpp, rclcpp-lifecycle, ros-testing, std-msgs }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, example-interfaces, lifecycle-msgs, rclcpp, rclcpp-lifecycle, ros-testing }:
 buildRosPackage {
   pname = "ros-rolling-lifecycle";
-  version = "0.37.3-r1";
+  version = "0.38.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/rolling/lifecycle/0.37.3-1.tar.gz";
-    name = "0.37.3-1.tar.gz";
-    sha256 = "a26bf3cc3cc41061c867950da94e071cdb1755839ddc33a02a570ae14814671a";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/rolling/lifecycle/0.38.0-1.tar.gz";
+    name = "0.38.0-1.tar.gz";
+    sha256 = "9c36240db5f86531361c824986aeaa92f8e5b188bca42283d9b5120afbc5ce59";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ];
   checkInputs = [ ament-lint-auto ament-lint-common ros-testing ];
-  propagatedBuildInputs = [ lifecycle-msgs rclcpp rclcpp-lifecycle std-msgs ];
+  propagatedBuildInputs = [ example-interfaces lifecycle-msgs rclcpp rclcpp-lifecycle ];
   nativeBuildInputs = [ ament-cmake ];
 
   meta = {

@@ -10,11 +10,22 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: develop
-      - uses: cachix/install-nix-action@v22
+      - uses: cachix/install-nix-action@v31.8.1
       - uses: cachix/cachix-action@v12
         with:
           name: ros
           signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+      - name: Configure git
+        run: |
+          git config --local user.email "superflore@github.com"
+          git config --local user.name "Superflore"
+          git config credential.helper '!
+            f() {
+              echo "username=lopsided98"
+              echo "password=${SUPERFLORE_GITHUB_TOKEN}"
+            }; f'
+      - name: Update rosdistro
+        run: nix flake update rosdistro --commit-lock-file
       - name: Install Superflore
         run: |
           nix build .#update-overlay
@@ -27,20 +38,15 @@ jobs:
           restore-keys: tars
           path: |
             ~/.ros/tar
+      - name: Mark all cached files as untouched
+        run: "find ~/.ros/tar/ -type f -print0 | xargs -0 --no-run-if-empty touch --date=@0"
       - name: Update overlay
         env:
           GITHUB_RUNNER_TEMP: ${{ runner.temp }}
         run: |
-          git config --local user.email "superflore@github.com"
-          git config --local user.name "Superflore"
-          git config credential.helper '!
-            f() {
-              echo "username=lopsided98"
-              echo "password=${SUPERFLORE_GITHUB_TOKEN}"
-            }; f'
           nix run .#update-overlay
       - name: Remove untouched files from the cache
-        run: "find ~/.ros/tar -atime +1 | tee >(xargs -r ls -lh >&2) | xargs -r rm"
+        run: "find ~/.ros/tar -atime +1 | xargs -r rm -v"
       - name: Save ROS tarball cache
         uses: actions/cache/save@v4
         with:

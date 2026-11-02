@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, class-loader, cv-bridge, geometry-msgs, image-transport, opencv, rcl-interfaces, rclcpp, rclcpp-components, sensor-msgs, tf2, tf2-geometry-msgs, tf2-ros }:
 buildRosPackage {
   pname = "ros-humble-image-rotate";
-  version = "3.0.8-r1";
+  version = "3.0.9-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/humble/image_rotate/3.0.8-1.tar.gz";
-    name = "3.0.8-1.tar.gz";
-    sha256 = "5b720dc07aa3ebaebf0b05fa8691e1ee88ae8853df2360bd5d7a39719c5bf225";
+    url = "https://github.com/ros2-gbp/image_pipeline-release/archive/release/humble/image_rotate/3.0.9-1.tar.gz";
+    name = "3.0.9-1.tar.gz";
+    sha256 = "023374b616f43ce104a0971ba6ed242c660319b2e5fc0f22230723b5856e9cef";
   };
 
   buildType = "ament_cmake";

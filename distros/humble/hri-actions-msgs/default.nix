@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, ament-cmake, builtin-interfaces, geometry-msgs, rosidl-default-generators, rosidl-default-runtime, std-msgs }:
@@ -8,7 +8,7 @@ buildRosPackage {
   version = "2.2.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros4hri/hri_actions_msgs-release/archive/release/humble/hri_actions_msgs/2.2.0-1.tar.gz";
+    url = "https://github.com/ros2-gbp/hri_actions_msgs-release/archive/release/humble/hri_actions_msgs/2.2.0-1.tar.gz";
     name = "2.2.0-1.tar.gz";
     sha256 = "db6451083e682ae1c5fa4eba4055ef3a8072716a6336bc3e51e81ed5963903dd";
   };

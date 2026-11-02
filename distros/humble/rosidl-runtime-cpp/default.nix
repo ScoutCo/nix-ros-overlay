@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common, performance-test-fixture, rosidl-runtime-c }:
 buildRosPackage {
   pname = "ros-humble-rosidl-runtime-cpp";
-  version = "3.1.7-r1";
+  version = "3.1.9-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/humble/rosidl_runtime_cpp/3.1.7-1.tar.gz";
-    name = "3.1.7-1.tar.gz";
-    sha256 = "9350a9e5241a4803ce0945d854803c0342233513370b66abae49862b51e55ceb";
+    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/humble/rosidl_runtime_cpp/3.1.9-1.tar.gz";
+    name = "3.1.9-1.tar.gz";
+    sha256 = "03c4b8b2456be9f9f432f230b07a3276e733a398a6162758c437261463f5543a";
   };
 
   buildType = "ament_cmake";

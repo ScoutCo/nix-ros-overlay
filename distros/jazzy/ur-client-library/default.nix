@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, cmake }:
 buildRosPackage {
   pname = "ros-jazzy-ur-client-library";
-  version = "2.3.0-r1";
+  version = "2.15.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/Universal_Robots_Client_Library-release/archive/release/jazzy/ur_client_library/2.3.0-1.tar.gz";
-    name = "2.3.0-1.tar.gz";
-    sha256 = "88f9cad8c74faeb955024968b889f0b4bdfba792796c2709cb83787e143e1d17";
+    url = "https://github.com/ros2-gbp/Universal_Robots_Client_Library-release/archive/release/jazzy/ur_client_library/2.15.0-1.tar.gz";
+    name = "2.15.0-1.tar.gz";
+    sha256 = "0446170fd32a753a40598be912d56859f62b13006d2999ff34c8a0c5fd30fc61";
   };
 
   buildType = "cmake";
@@ -20,6 +20,6 @@ buildRosPackage {
 
   meta = {
     description = "Standalone C++ library for accessing Universal Robots interfaces. This has been forked off the ur_robot_driver.";
-    license = with lib.licenses; [ asl20 "BSD-2-Clause" "Zlib" ];
+    license = with lib.licenses; [ asl20 bsd2 zlib mit mit ];
   };
 }

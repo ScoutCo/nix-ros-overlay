@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, geometry-msgs, message-filters, nav-msgs, nav2-common, nav2-msgs, nav2-util, pluginlib, rclcpp, rclcpp-components, rclcpp-lifecycle, sensor-msgs, std-srvs, tf2, tf2-geometry-msgs, tf2-ros }:
@@ -30,6 +30,6 @@ buildRosPackage {
       This node is derived, with thanks, from Andrew Howard's excellent
       'amcl' Player driver.
     </p>";
-    license = with lib.licenses; [ "LGPL-2.1-or-later" ];
+    license = with lib.licenses; [ lgpl21Plus ];
   };
 }

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, example-interfaces, rclcpp, rclcpp-components, std-msgs }:
 buildRosPackage {
   pname = "ros-rolling-examples-rclcpp-wait-set";
-  version = "0.21.2-r1";
+  version = "0.22.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/examples-release/archive/release/rolling/examples_rclcpp_wait_set/0.21.2-1.tar.gz";
-    name = "0.21.2-1.tar.gz";
-    sha256 = "61d4704ac3151a59b128b02a6226d85cf9d78d00947bb7581c3f6acbaf0b5944";
+    url = "https://github.com/ros2-gbp/examples-release/archive/release/rolling/examples_rclcpp_wait_set/0.22.0-1.tar.gz";
+    name = "0.22.0-1.tar.gz";
+    sha256 = "31849207137838c4ee178e05582de5ae5af67685cbca25f406025d806dd5443d";
   };
 
   buildType = "ament_cmake";

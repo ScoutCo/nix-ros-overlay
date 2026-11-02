@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, diagnostic-msgs, diagnostic-updater, gtest, marti-common-msgs, nav-msgs, rclcpp, ros-environment, rosidl-cmake, rosidl-default-generators, rosidl-default-runtime, std-msgs, std-srvs }:
 buildRosPackage {
   pname = "ros-kilted-swri-roscpp";
-  version = "3.8.7-r1";
+  version = "3.9.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/marti_common-release/archive/release/kilted/swri_roscpp/3.8.7-1.tar.gz";
-    name = "3.8.7-1.tar.gz";
-    sha256 = "f230c0fe579c87540a0f1487d8849884349550fe24cd6c696de60268daff8ecd";
+    url = "https://github.com/ros2-gbp/marti_common-release/archive/release/kilted/swri_roscpp/3.9.0-1.tar.gz";
+    name = "3.9.0-1.tar.gz";
+    sha256 = "8e6d53384a86977865f7350755e9ba343f95760b5e20fbad5e006c091d3c5371";
   };
 
   buildType = "ament_cmake";

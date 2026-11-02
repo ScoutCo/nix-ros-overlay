@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, flexbe-msgs, launch-ros, launch-testing, python3Packages, rclpy, std-msgs, std-srvs, tf2-ros-py }:
 buildRosPackage {
   pname = "ros-rolling-flexbe-core";
-  version = "3.0.3-r1";
+  version = "4.1.4-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release/archive/release/rolling/flexbe_core/3.0.3-1.tar.gz";
-    name = "3.0.3-1.tar.gz";
-    sha256 = "76b58d6ab8f14f45091b131ad6f57d9514f7dfe357df9e0f9fb8c4432e77b2ac";
+    url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release/archive/release/rolling/flexbe_core/4.1.4-1.tar.gz";
+    name = "4.1.4-1.tar.gz";
+    sha256 = "b1e1054a50eb8f20630dfe789f57726ce9484e6fb38bc502014609788eda6b69";
   };
 
   buildType = "ament_python";

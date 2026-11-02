@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-gtest, ament-cmake-pytest, ament-cmake-python, ament-cmake-ros, ament-lint-auto, builtin-interfaces, python-cmake-module, rclcpp, rclcpp-lifecycle, rclpy, rcutils, sensor-msgs, std-msgs }:
 buildRosPackage {
   pname = "ros-jazzy-message-filters";
-  version = "4.11.8-r1";
+  version = "4.11.17-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_message_filters-release/archive/release/jazzy/message_filters/4.11.8-1.tar.gz";
-    name = "4.11.8-1.tar.gz";
-    sha256 = "4ebd6c40dbde2bf46855dcc4a85a4e3a480f3ca14bc99812bb504d0f898a288b";
+    url = "https://github.com/ros2-gbp/ros2_message_filters-release/archive/release/jazzy/message_filters/4.11.17-1.tar.gz";
+    name = "4.11.17-1.tar.gz";
+    sha256 = "b558044c36527b4f245ecb7ca31ee31ca15964d4d40cab8c7d304afaaed837db";
   };
 
   buildType = "ament_cmake";

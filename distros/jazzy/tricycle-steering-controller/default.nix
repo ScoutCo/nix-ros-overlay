@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, backward-ros, control-msgs, controller-interface, controller-manager, generate-parameter-library, hardware-interface, hardware-interface-testing, pluginlib, rclcpp, rclcpp-lifecycle, ros2-control-cmake, ros2-control-test-assets, std-srvs, steering-controllers-library }:
 buildRosPackage {
   pname = "ros-jazzy-tricycle-steering-controller";
-  version = "4.33.0-r1";
+  version = "4.42.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/jazzy/tricycle_steering_controller/4.33.0-1.tar.gz";
-    name = "4.33.0-1.tar.gz";
-    sha256 = "c97a2d231024f7923871ad05796bb86183b61a04da6771ecf9a2b72d4b525477";
+    url = "https://github.com/ros2-gbp/ros2_controllers-release/archive/release/jazzy/tricycle_steering_controller/4.42.1-1.tar.gz";
+    name = "4.42.1-1.tar.gz";
+    sha256 = "51ea9c8f57f0a6a850fa56403851c2f8bc72d07ae562138028ca7bfc39311ada";
   };
 
   buildType = "ament_cmake";

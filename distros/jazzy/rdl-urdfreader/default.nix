@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-clang-format, ament-cmake-cppcheck, ament-cmake-gtest, ament-cmake-lint-cmake, ament-cmake-xmllint, ament-index-cpp, ament-lint, rclcpp, rdl-dynamics, tinyxml, tinyxml-vendor, urdf }:
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "The rdl_urdfreader package";
-    license = with lib.licenses; [ "Zlib" ];
+    license = with lib.licenses; [ zlib ];
   };
 }

@@ -1,25 +1,25 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, cmake, mola-common, mrpt-libbase, mrpt-libgui, mrpt-libmaps, mrpt-libobs, mrpt-libposes, mrpt-libtclap, ros-environment, tbb_2021_11 }:
+{ lib, buildRosPackage, fetchurl, cmake, mp2p-icp-core, mp2p-icp-viz }:
 buildRosPackage {
   pname = "ros-humble-mp2p-icp";
-  version = "1.8.0-r1";
+  version = "2.14.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mp2p_icp-release/archive/release/humble/mp2p_icp/1.8.0-1.tar.gz";
-    name = "1.8.0-1.tar.gz";
-    sha256 = "846e353f53205ac16c14d0a56e9ccab76d902559f800b587f6b5f8ec8de96685";
+    url = "https://github.com/ros2-gbp/mp2p_icp-release/archive/release/humble/mp2p_icp/2.14.0-1.tar.gz";
+    name = "2.14.0-1.tar.gz";
+    sha256 = "4d7c223777e7b1b9d0ed3fda0648fbe1d645441116a245cc8aef1346942fc9d5";
   };
 
   buildType = "cmake";
-  buildInputs = [ cmake ros-environment ];
-  propagatedBuildInputs = [ mola-common mrpt-libbase mrpt-libgui mrpt-libmaps mrpt-libobs mrpt-libposes mrpt-libtclap tbb_2021_11 ];
+  buildInputs = [ cmake ];
+  propagatedBuildInputs = [ mp2p-icp-core mp2p-icp-viz ];
   nativeBuildInputs = [ cmake ];
 
   meta = {
-    description = "A repertory of multi primitive-to-primitive (MP2P) ICP algorithms in C++";
+    description = "Metapackage for mp2p_icp: depends on mp2p_icp_core (headless libraries and CLI applications) and mp2p_icp_viz (GUI applications).";
     license = with lib.licenses; [ bsd3 ];
   };
 }

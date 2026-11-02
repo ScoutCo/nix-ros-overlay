@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-lint-auto, ament-lint-common }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-cmake-ros-core, ament-lint-auto, ament-lint-common }:
 buildRosPackage {
   pname = "ros-rolling-rttest";
-  version = "0.19.1-r1";
+  version = "1.0.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/realtime_support-release/archive/release/rolling/rttest/0.19.1-1.tar.gz";
-    name = "0.19.1-1.tar.gz";
-    sha256 = "332b2ba26626e25c268387aa2a29d1265a9f82939c87865a2ef91bec95689a98";
+    url = "https://github.com/ros2-gbp/realtime_support-release/archive/release/rolling/rttest/1.0.1-1.tar.gz";
+    name = "1.0.1-1.tar.gz";
+    sha256 = "05552b2346542210a10cb8d7dbbe9fef2cea68239be7eb9e1c58ed92fddad643";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ament-cmake-ros-core ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
-  nativeBuildInputs = [ ament-cmake ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-ros-core ];
 
   meta = {
     description = "Instrumentation library for real-time performance testing";

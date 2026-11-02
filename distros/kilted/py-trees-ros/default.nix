@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, geometry-msgs, py-trees, py-trees-ros-interfaces, python3Packages, rcl-interfaces, rclpy, ros2topic, sensor-msgs, std-msgs, std-srvs, tf2-ros-py, unique-identifier-msgs }:
 buildRosPackage {
   pname = "ros-kilted-py-trees-ros";
-  version = "2.3.0-r2";
+  version = "2.6.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/py_trees_ros-release/archive/release/kilted/py_trees_ros/2.3.0-2.tar.gz";
-    name = "2.3.0-2.tar.gz";
-    sha256 = "16cec08358cb0fc7b11ce44ff83bc2a45c5e8c9331595e47b5c61059f67759ce";
+    url = "https://github.com/ros2-gbp/py_trees_ros-release/archive/release/kilted/py_trees_ros/2.6.0-1.tar.gz";
+    name = "2.6.0-1.tar.gz";
+    sha256 = "2ae82ed8c10dbab5cfa5ebec8c082144684cbc0938a74d8fdc70d67d9cf6279e";
   };
 
   buildType = "ament_python";
@@ -19,7 +19,7 @@ buildRosPackage {
   propagatedBuildInputs = [ geometry-msgs py-trees py-trees-ros-interfaces rcl-interfaces rclpy ros2topic sensor-msgs std-msgs std-srvs tf2-ros-py unique-identifier-msgs ];
 
   meta = {
-    description = "ROS2 extensions and behaviours for py_trees.";
+    description = "ROS 2 extensions and behaviours for py_trees.";
     license = with lib.licenses; [ bsdOriginal ];
   };
 }

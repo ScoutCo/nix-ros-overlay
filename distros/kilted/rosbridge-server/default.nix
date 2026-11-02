@@ -1,23 +1,23 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-mypy, ament-cmake-ros, example-interfaces, launch, launch-ros, launch-testing, launch-testing-ament-cmake, launch-testing-ros, python3Packages, rclpy, rosapi, rosbridge-library, rosbridge-msgs, std-srvs }:
+{ lib, buildRosPackage, fetchurl, action-msgs, ament-cmake-mypy, ament-cmake-python, ament-cmake-ros, example-interfaces, launch, launch-ros, launch-testing-ament-cmake, python3Packages, rcl-interfaces, rclpy, rosapi, rosbridge-library, rosbridge-msgs, std-msgs, std-srvs }:
 buildRosPackage {
   pname = "ros-kilted-rosbridge-server";
-  version = "2.3.0-r1";
+  version = "3.3.1-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosbridge_suite-release/archive/release/kilted/rosbridge_server/2.3.0-1.tar.gz";
-    name = "2.3.0-1.tar.gz";
-    sha256 = "c18946b5dd49ccf8ace1115a8269ca0b307c71fb05fd5accc30549fcc826a304";
+    url = "https://github.com/ros2-gbp/rosbridge_suite-release/archive/release/kilted/rosbridge_server/3.3.1-1.tar.gz";
+    name = "3.3.1-1.tar.gz";
+    sha256 = "c5763dbf8db476f5c6ff06fd31b5426ba5e98e1f541b60682a022390d38d36f8";
   };
 
   buildType = "ament_cmake";
-  buildInputs = [ ament-cmake ament-cmake-ros ];
-  checkInputs = [ ament-cmake-mypy example-interfaces launch launch-ros launch-testing launch-testing-ament-cmake launch-testing-ros python3Packages.autobahn std-srvs ];
-  propagatedBuildInputs = [ python3Packages.tornado python3Packages.twisted rclpy rosapi rosbridge-library rosbridge-msgs ];
-  nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
+  buildInputs = [ ament-cmake-python ament-cmake-ros ];
+  checkInputs = [ action-msgs ament-cmake-mypy example-interfaces launch launch-ros launch-testing-ament-cmake python3Packages.autobahn python3Packages.twisted rcl-interfaces std-srvs ];
+  propagatedBuildInputs = [ python3Packages.tornado rclpy rosapi rosbridge-library rosbridge-msgs std-msgs ];
+  nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
 
   meta = {
     description = "A WebSocket interface to rosbridge.";

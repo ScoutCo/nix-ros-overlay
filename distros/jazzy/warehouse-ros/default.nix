@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-copyright, ament-lint-auto, boost, geometry-msgs, openssl, pluginlib, rclcpp, std-msgs, tf2, tf2-geometry-msgs, tf2-ros }:
 buildRosPackage {
   pname = "ros-jazzy-warehouse-ros";
-  version = "2.0.5-r1";
+  version = "2.0.9-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/warehouse_ros-release/archive/release/jazzy/warehouse_ros/2.0.5-1.tar.gz";
-    name = "2.0.5-1.tar.gz";
-    sha256 = "f994a507de271317ab28c70a6bf6298b39bdf09aa98727308b7c1bd1ddaf82df";
+    url = "https://github.com/ros2-gbp/warehouse_ros-release/archive/release/jazzy/warehouse_ros/2.0.9-1.tar.gz";
+    name = "2.0.9-1.tar.gz";
+    sha256 = "d0cd64a6f00f03d6a07b65259af524130f55dda6dbfac4477cdc3ff933185767";
   };
 
   buildType = "ament_cmake";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, ament-cmake-gtest, ament-cmake-pytest, ament-cmake-ros-core, ament-lint-auto, ament-lint-common, launch, launch-testing, launch-testing-ament-cmake, mimick-vendor, osrf-testing-tools-cpp, performance-test-fixture, python3Packages }:
 buildRosPackage {
   pname = "ros-kilted-rcutils";
-  version = "6.9.8-r1";
+  version = "6.9.11-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rcutils-release/archive/release/kilted/rcutils/6.9.8-1.tar.gz";
-    name = "6.9.8-1.tar.gz";
-    sha256 = "a58dc55bfe7cd8bef8d1881ed34f7a7e9e6b61ef427b7d846c28fbc08fd4e97f";
+    url = "https://github.com/ros2-gbp/rcutils-release/archive/release/kilted/rcutils/6.9.11-1.tar.gz";
+    name = "6.9.11-1.tar.gz";
+    sha256 = "73a92aa435e89729c4d2b3062dd6ab87d6b9e9e0f134fcd979a3cfac17b1ea36";
   };
 
   buildType = "ament_cmake";

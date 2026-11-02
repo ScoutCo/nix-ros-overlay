@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, launch-pal, pal-maps, ros2launch }:
+{ lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-index-python, ament-lint-auto, ament-lint-common, diagnostic-aggregator, launch-pal, pal-maps, ros2launch }:
 buildRosPackage {
   pname = "ros-humble-omni-base-2dnav";
-  version = "2.18.0-r1";
+  version = "2.24.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/pal-gbp/omni_base_navigation-release/archive/release/humble/omni_base_2dnav/2.18.0-1.tar.gz";
-    name = "2.18.0-1.tar.gz";
-    sha256 = "147a4820c2a4f6694c95587a00134d60d2d0c7d287689957af02ba86900d43e7";
+    url = "https://github.com/ros2-gbp/omni_base_navigation-release/archive/release/humble/omni_base_2dnav/2.24.2-1.tar.gz";
+    name = "2.24.2-1.tar.gz";
+    sha256 = "df750a4cf011f874106b002ef2e537535233e0f0a4702d0ce13a40783e6a3dd6";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake-auto ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  propagatedBuildInputs = [ launch-pal pal-maps ros2launch ];
+  propagatedBuildInputs = [ ament-index-python diagnostic-aggregator launch-pal pal-maps ros2launch ];
   nativeBuildInputs = [ ament-cmake-auto ];
 
   meta = {

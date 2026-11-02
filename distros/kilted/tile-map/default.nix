@@ -1,22 +1,22 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
-{ lib, buildRosPackage, fetchurl, ament-cmake, glew, jsoncpp, mapviz, pluginlib, qt5, rclcpp, swri-math-util, swri-transform-util, tf2, yaml-cpp }:
+{ lib, buildRosPackage, fetchurl, ament-cmake, jsoncpp, mapviz, pluginlib, qt-gui-cpp, qt5or6, rclcpp, swri-math-util, swri-transform-util, tf2, yaml-cpp }:
 buildRosPackage {
   pname = "ros-kilted-tile-map";
-  version = "2.5.10-r1";
+  version = "4.0.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mapviz-release/archive/release/kilted/tile_map/2.5.10-1.tar.gz";
-    name = "2.5.10-1.tar.gz";
-    sha256 = "9ea504b09b934afd78398268456eb9580acd6ed38eea83d5fa3fde9cbecffb22";
+    url = "https://github.com/ros2-gbp/mapviz-release/archive/release/kilted/tile_map/4.0.3-1.tar.gz";
+    name = "4.0.3-1.tar.gz";
+    sha256 = "3706f27b71d0a1316712a0af0135eeff7248fbe67e4fbaf910d7a4c2bef3f5fa";
   };
 
   buildType = "ament_cmake";
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ glew jsoncpp mapviz pluginlib qt5.qtbase rclcpp swri-math-util swri-transform-util tf2 yaml-cpp ];
-  nativeBuildInputs = [ ament-cmake qt5.qtbase ];
+  propagatedBuildInputs = [ jsoncpp mapviz pluginlib qt-gui-cpp qt5or6.qtbase rclcpp swri-math-util swri-transform-util tf2 yaml-cpp ];
+  nativeBuildInputs = [ ament-cmake ];
 
   meta = {
     description = "Tile map provides a slippy map style interface for visualizing 

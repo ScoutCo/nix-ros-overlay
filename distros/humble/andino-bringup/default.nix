@@ -1,5 +1,5 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, andino-control, andino-description, joy-linux, laser-filters, rosbag2-storage-mcap, rplidar-ros, teleop-twist-joy, v4l2-camera, xterm }:
@@ -21,6 +21,6 @@ buildRosPackage {
 
   meta = {
     description = "Contains launch files to bring up andinobot robot.";
-    license = with lib.licenses; [ "BSD-Clause-3" ];
+    license = with lib.licenses; [ bsd3 ];
   };
 }

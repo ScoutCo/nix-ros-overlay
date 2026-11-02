@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, autoware-cmake, autoware-lint-common, rclcpp }:
 buildRosPackage {
   pname = "ros-rolling-autoware-utils-system";
-  version = "1.4.2-r1";
+  version = "1.7.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/rolling/autoware_utils_system/1.4.2-1.tar.gz";
-    name = "1.4.2-1.tar.gz";
-    sha256 = "b401dea722a1595ca1aa9a1b100dbf002fd4a738a0ba293f3dc102630a81e462";
+    url = "https://github.com/ros2-gbp/autoware_utils-release/archive/release/rolling/autoware_utils_system/1.7.2-1.tar.gz";
+    name = "1.7.2-1.tar.gz";
+    sha256 = "311042c5402435b86e443c8565e3f3e130209e09aa298dd777f9b68c1f1ab7c5";
   };
 
   buildType = "ament_cmake";

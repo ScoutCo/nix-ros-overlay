@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, action-msgs, ament-copyright, ament-flake8, ament-pep257, ament-xmllint, example-interfaces, python3Packages, rclpy }:
 buildRosPackage {
   pname = "ros-rolling-examples-rclpy-minimal-action-client";
-  version = "0.21.2-r1";
+  version = "0.22.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/examples-release/archive/release/rolling/examples_rclpy_minimal_action_client/0.21.2-1.tar.gz";
-    name = "0.21.2-1.tar.gz";
-    sha256 = "8ab5d6b862cbcb3446868a63a321450407652500eb3b5928552de07c13f3bcff";
+    url = "https://github.com/ros2-gbp/examples-release/archive/release/rolling/examples_rclpy_minimal_action_client/0.22.0-1.tar.gz";
+    name = "0.22.0-1.tar.gz";
+    sha256 = "2f24c49049376d46f149e7f6dea96e6a87d0230d8cf1099d0b3198cda409aa65";
   };
 
   buildType = "ament_python";

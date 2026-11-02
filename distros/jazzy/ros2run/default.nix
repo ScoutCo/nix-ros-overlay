@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-copyright, ament-flake8, ament-pep257, ament-xmllint, python3Packages, ros2cli, ros2pkg }:
 buildRosPackage {
   pname = "ros-jazzy-ros2run";
-  version = "0.32.6-r1";
+  version = "0.32.12-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ros2cli-release/archive/release/jazzy/ros2run/0.32.6-1.tar.gz";
-    name = "0.32.6-1.tar.gz";
-    sha256 = "fd473944f19ab535f6fe8bab1c03b91955b27f64dd99317cd2443afab35a3950";
+    url = "https://github.com/ros2-gbp/ros2cli-release/archive/release/jazzy/ros2run/0.32.12-1.tar.gz";
+    name = "0.32.12-1.tar.gz";
+    sha256 = "faebccc6cccb522511165b8dc0dc297b3c21c51ba4d8d11963065a75ec29712f";
   };
 
   buildType = "ament_python";

@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, ament-index-cpp, ament-lint-auto, example-interfaces, image-transport, qt5, rclcpp, ros-babel-fish, ros-babel-fish-test-msgs, std-srvs, tf2-ros, yaml-cpp }:
 buildRosPackage {
   pname = "ros-rolling-qml-ros2-plugin";
-  version = "2.25.2-r2";
+  version = "3.26.30-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/qml_ros2_plugin-release/archive/release/rolling/qml_ros2_plugin/2.25.2-2.tar.gz";
-    name = "2.25.2-2.tar.gz";
-    sha256 = "fe2f0d3d3cc49682642beb58bd860eb21f27ca6cbab4e793ced98ee6486b026a";
+    url = "https://github.com/ros2-gbp/qml_ros2_plugin-release/archive/release/rolling/qml_ros2_plugin/3.26.30-2.tar.gz";
+    name = "3.26.30-2.tar.gz";
+    sha256 = "93cd4da8fed6d9cc469bfc038042817cce3801b2857a479303a38406bd119376";
   };
 
   buildType = "ament_cmake";

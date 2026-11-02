@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, controller-manager, diff-drive-controller, force-torque-sensor-broadcaster, joint-state-broadcaster, joint-trajectory-controller, launch, launch-pal, omni-base-controller-configuration, pal-gripper-controller-configuration, pal-hey5-controller-configuration, pal-robotiq-controller-configuration, pmb2-controller-configuration, ros2controlcli }:
 buildRosPackage {
   pname = "ros-humble-tiago-controller-configuration";
-  version = "4.18.0-r1";
+  version = "5.1.3-r1";
 
   src = fetchurl {
-    url = "https://github.com/pal-gbp/tiago_robot-release/archive/release/humble/tiago_controller_configuration/4.18.0-1.tar.gz";
-    name = "4.18.0-1.tar.gz";
-    sha256 = "bb68f1d532d36546b4dce5ba6f4435ecf60725b0e5110d9370b43f7e85ad1b37";
+    url = "https://github.com/ros2-gbp/tiago_robot-release/archive/release/humble/tiago_controller_configuration/5.1.3-1.tar.gz";
+    name = "5.1.3-1.tar.gz";
+    sha256 = "ccb6de1db5b0a0fda2fad4c89aa6f50a5454419e1a12cca82457a41842d6d5ce";
   };
 
   buildType = "ament_cmake";

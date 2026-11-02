@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-gen-version-h, ament-cmake-gtest, ament-cmake-ros, ament-lint-auto, ament-lint-common, launch, launch-testing, launch-testing-ament-cmake, libyaml, libyaml-vendor, mimick-vendor, osrf-testing-tools-cpp, rcl-interfaces, rcl-logging-interface, rcl-logging-spdlog, rcl-yaml-param-parser, rcutils, rmw, rmw-implementation, rmw-implementation-cmake, rosidl-runtime-c, rosidl-runtime-cpp, service-msgs, test-msgs, tracetools, type-description-interfaces }:
 buildRosPackage {
   pname = "ros-jazzy-rcl";
-  version = "9.2.7-r1";
+  version = "9.2.11-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rcl-release/archive/release/jazzy/rcl/9.2.7-1.tar.gz";
-    name = "9.2.7-1.tar.gz";
-    sha256 = "c7f0fb33c4c0a9b48489514679abfcc9a45ea2072aae9ccbfb95e0319eb65b05";
+    url = "https://github.com/ros2-gbp/rcl-release/archive/release/jazzy/rcl/9.2.11-1.tar.gz";
+    name = "9.2.11-1.tar.gz";
+    sha256 = "1d803a00b0436ee63f968498194e7ae754a006dba6d611d68072b30864fcf1ad";
   };
 
   buildType = "ament_cmake";

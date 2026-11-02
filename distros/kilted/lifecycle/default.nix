@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-auto, ament-lint-common, lifecycle-msgs, rclcpp, rclcpp-lifecycle, ros-testing, std-msgs }:
 buildRosPackage {
   pname = "ros-kilted-lifecycle";
-  version = "0.36.2-r1";
+  version = "0.36.5-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/demos-release/archive/release/kilted/lifecycle/0.36.2-1.tar.gz";
-    name = "0.36.2-1.tar.gz";
-    sha256 = "d967eb3a08bd13a7bad16579adabd4325fafb2d478be5b8ad0670c64445283ef";
+    url = "https://github.com/ros2-gbp/demos-release/archive/release/kilted/lifecycle/0.36.5-1.tar.gz";
+    name = "0.36.5-1.tar.gz";
+    sha256 = "2f5fb347ffa804807f27ba48569b10b02bebe610e295fe1e19b8ed4ced7326f2";
   };
 
   buildType = "ament_cmake";

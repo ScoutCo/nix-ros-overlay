@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, cmake, mola-kernel, mrpt-libhwdrivers, mrpt-libobs }:
 buildRosPackage {
   pname = "ros-humble-mola-input-video";
-  version = "1.9.0-r1";
+  version = "3.2.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mola-release/archive/release/humble/mola_input_video/1.9.0-1.tar.gz";
-    name = "1.9.0-1.tar.gz";
-    sha256 = "f3fed3840a338d6e7c6d861dd90b5a887ad5a830945eeb7745d7d0bb131b6d60";
+    url = "https://github.com/ros2-gbp/mola-release/archive/release/humble/mola_input_video/3.2.0-1.tar.gz";
+    name = "3.2.0-1.tar.gz";
+    sha256 = "3fa296067253e31477c391118d234afcd25e85fef30a3449d61c9e310c75438a";
   };
 
   buildType = "cmake";

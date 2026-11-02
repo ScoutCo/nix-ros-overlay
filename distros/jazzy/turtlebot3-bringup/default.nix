@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, hls-lfcd-lds-driver, robot-state-publisher, rviz2, turtlebot3-description, turtlebot3-node }:
 buildRosPackage {
   pname = "ros-jazzy-turtlebot3-bringup";
-  version = "2.3.3-r1";
+  version = "2.3.6-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/turtlebot3-release/archive/release/jazzy/turtlebot3_bringup/2.3.3-1.tar.gz";
-    name = "2.3.3-1.tar.gz";
-    sha256 = "1d4cdbd0719362d75197edef49b3cc0261dc803fa4ee196db3d22c71c62372e0";
+    url = "https://github.com/ros2-gbp/turtlebot3-release/archive/release/jazzy/turtlebot3_bringup/2.3.6-1.tar.gz";
+    name = "2.3.6-1.tar.gz";
+    sha256 = "2444833135494391927ad8a347648e47251e61eca7cfcbeddd1cd3a493cf5be3";
   };
 
   buildType = "ament_cmake";

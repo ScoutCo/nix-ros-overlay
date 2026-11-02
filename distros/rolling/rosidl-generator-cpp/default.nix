@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-core, ament-index-python, ament-lint-auto, ament-lint-common, python3, rosidl-cli, rosidl-cmake, rosidl-generator-c, rosidl-generator-type-description, rosidl-parser, rosidl-pycommon, rosidl-runtime-cpp }:
 buildRosPackage {
   pname = "ros-rolling-rosidl-generator-cpp";
-  version = "5.1.0-r1";
+  version = "5.3.1-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/rolling/rosidl_generator_cpp/5.1.0-1.tar.gz";
-    name = "5.1.0-1.tar.gz";
-    sha256 = "fb96e0025133449d17f2dd0a07ec78af7019798761503677dfd6db4b8d0a143e";
+    url = "https://github.com/ros2-gbp/rosidl-release/archive/release/rolling/rosidl_generator_cpp/5.3.1-2.tar.gz";
+    name = "5.3.1-2.tar.gz";
+    sha256 = "75261fad260e36ee10105276de5be5d61d5fe93d05cf3973dfd75af5368f8f8b";
   };
 
   buildType = "ament_cmake";

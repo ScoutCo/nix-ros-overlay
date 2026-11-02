@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-ros-core, ament-lint-auto, ament-lint-common, rmw }:
 buildRosPackage {
   pname = "ros-rolling-rmw-test-fixture";
-  version = "0.15.2-r1";
+  version = "0.16.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/ament_cmake_ros-release/archive/release/rolling/rmw_test_fixture/0.15.2-1.tar.gz";
-    name = "0.15.2-1.tar.gz";
-    sha256 = "03d4bf94fcb718068f388a0b38b61de9ef9ab717ddbd2c898ef8ee3d6162e5cb";
+    url = "https://github.com/ros2-gbp/ament_cmake_ros-release/archive/release/rolling/rmw_test_fixture/0.16.0-1.tar.gz";
+    name = "0.16.0-1.tar.gz";
+    sha256 = "2d5a6a89557955a44e82f3cd5f8b0b44f6b6c902ed393b707ad06a48547eaf4e";
   };
 
   buildType = "ament_cmake";

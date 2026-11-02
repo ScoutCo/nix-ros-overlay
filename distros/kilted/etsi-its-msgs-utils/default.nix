@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gtest, etsi-its-msgs, geographiclib, geometry-msgs, tf2-geometry-msgs }:
 buildRosPackage {
   pname = "ros-kilted-etsi-its-msgs-utils";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/kilted/etsi_its_msgs_utils/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "898816f2077d5b03244735aaba3bd804844928789c835f2ba6590c6c9016c81a";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/kilted/etsi_its_msgs_utils/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "a75d33555e3fa2bf2125e70570a390e75b5239e6cccce98ff64adc48e6886507";
   };
 
   buildType = "ament_cmake";

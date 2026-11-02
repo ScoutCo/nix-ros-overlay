@@ -7,6 +7,8 @@ import PQueue from 'p-queue'
 import * as path from 'path'
 import * as cachix from './cachix.js'
 import * as nix from './nix.js'
+import { execSync } from 'child_process'
+import { writeFileSync } from 'fs';
 
 
 interface BuildGraphNode {
@@ -21,7 +23,7 @@ class BuildGraph {
   private ready_nodes: BuildGraphNode[] = []
   private resolve_ready: (null | ((value: BuildGraphNode | PromiseLike<BuildGraphNode>) => void)) = null
 
-  public add(drvPath: string, references: Iterable<string>) {
+  public add(drvPath: string, references: Iterable<string>, rosDerivations: Map<string, Derivation>) {
     let node = this.graph.get(drvPath)
     if (node === undefined) {
       node = {
@@ -34,6 +36,9 @@ class BuildGraph {
     }
 
     for (const reference of references) {
+      if (rosDerivations.get(reference) === undefined)
+        continue; // don't add sources and non-ROS packages
+
       let referenceNode = this.graph.get(reference)
       if (referenceNode === undefined) {
         referenceNode = {
@@ -141,22 +146,14 @@ type EvalResult = EvalSuccess | EvalFailure | EvalError;
 
 
 async function instantiate(nixFile: string, rootAttribute: string, drvDir: string, system?: string, parallelism = 4): Promise<EvalResult[]> {
-  const attrs = await nix.listAttrs(nixFile, rootAttribute)
+  const jobs = await nix.evalJobs(nixFile, rootAttribute)
 
   const queue = new PQueue({ concurrency: parallelism })
 
-  return await queue.addAll(attrs.map(attr => async () => {
+  return await queue.addAll(jobs.map(job => async () => {
+    const attr = job.attr
     try {
-      core.debug(`evaluating: ${attr}`)
-      const drvPaths = await nix.instantiate(nixFile, attr, path.join(drvDir, attr), system)
-      if (drvPaths.length !== 1) {
-        return {
-          attr,
-          status: 'error' as const,
-          error: new Error(`evaluation produced ${drvPaths.length} derivations`)
-        }
-      }
-      const drvPath = await fs.promises.realpath(drvPaths[0])
+      const drvPath = await fs.promises.realpath(job.drvPath)
 
       const references = new Set(await nix.getReferences(drvPath));
 
@@ -169,7 +166,7 @@ async function instantiate(nixFile: string, rootAttribute: string, drvDir: strin
         }
       }
     } catch (error: unknown) {
-      core.debug(`${attr} failed to evaluate`)
+      core.warning(`${job.attr} failed to evaluate`)
       if (typeof error === 'string') {
         return {
           attr,
@@ -217,12 +214,16 @@ interface BuildError {
 
 type BuildResult = BuildSuccess | BuildCachedSuccess | BuildFailure | BuildCachedFailure | BuildError;
 
-async function build(drvPath: string, resultDir: string, cachixCache: string, cacheDir: string): Promise<BuildResult> {
+// Regular expression matching debug output of a derivation. We don't
+// want the debug output to pollute the binary cache and consume its limited capacity.
+const excludedOutput = new RegExp("-debug$")
+
+async function build(drvPath: string, resultDir: string, cachixCache: string, cacheDir: string, progress: string): Promise<BuildResult> {
   const cacheKey = "failed-" + path.basename(drvPath, ".drv");
 
   try {
-    if (await nix.isDrvCached(drvPath)) {
-      core.debug(`found cached: ${drvPath}`)
+    if (await nix.isDrvCached(drvPath, excludedOutput)) { // skip debug output
+      core.info(`${progress} found cached: ${drvPath}`)
       return {
         status: 'cached_success',
         drvPath
@@ -249,12 +250,12 @@ async function build(drvPath: string, resultDir: string, cachixCache: string, ca
   }
 
   try {
-    core.debug(`building: ${drvPath}`)
+    core.info(`${progress} building: ${drvPath}`)
 
     const resultPath = path.join(resultDir, path.basename(drvPath, ".drv"))
     const outputs = await nix.realize(drvPath, resultPath)
 
-    await cachix.push(cachixCache, outputs)
+    await cachix.push(cachixCache, outputs.filter((output) => !excludedOutput.test(output)))
 
     return {
       status: 'success',
@@ -346,7 +347,11 @@ async function run() {
     const dependencyFailures: DependencyFailureResult[] = []
     const errors: ErrorResult[] = []
 
-    core.info("evaluating packages...");
+    core.startGroup("installing nix-eval-jobs...")
+    execSync("nix-env --install --file default.nix -A nix-eval-jobs");
+    core.endGroup()
+
+    core.startGroup(`evaluating packages in ${rootAttribute}...`)
     const evalResults = await instantiate(nixFile, rootAttribute, drvDir, system, evalJobs)
     const derivations: Map<string, Derivation> = new Map()
     for (const r of evalResults) {
@@ -361,17 +366,19 @@ async function run() {
         })
       }
     }
+    core.endGroup()
 
     // Create graph of references used to order the builds
     const buildGraph = new BuildGraph();
     for (const [drvPath, drv] of derivations) {
-      buildGraph.add(drvPath, drv.references)
+      buildGraph.add(drvPath, drv.references, derivations)
     }
     buildGraph.init()
 
-    core.info("building packages...")
+    core.startGroup(`building ${derivations.size} packages...`)
 
     const queue = new PQueue({ concurrency: buildJobs })
+    let num_done = 0
     do {
       const node = await buildGraph.takeReady()
 
@@ -379,6 +386,7 @@ async function run() {
         if (node.state === 'failed') {
           const drv = derivations.get(node.drvPath)
           if (drv === undefined) {
+            num_done++
             return;
           }
 
@@ -397,10 +405,13 @@ async function run() {
             failedDependencies
           })
 
+          num_done++
           return;
         }
 
-        const r = await build(node.drvPath, resultDir, cachixCache, cacheDir)
+        const progress = `[${(num_done / derivations.size * 100).toFixed(1)}%]`
+        const r = await build(node.drvPath, resultDir, cachixCache, cacheDir, progress)
+        num_done++
 
         if (r.status === 'cached_success' || r.status === 'success') {
           buildGraph.succeeded(node)
@@ -448,8 +459,25 @@ async function run() {
         }
       })
     } while (!buildGraph.empty())
+    core.endGroup()
 
     await queue.onIdle()
+
+    core.info(`Creating linkFarm.nix from successful builds`)
+    const successfulAttrs: string[] = [];
+    function successfulAttrsPush(attr: string) {
+      if (attr != "buildEnv")   // buildEnv is a function, not derivation
+        successfulAttrs.push(attr);
+    }
+    successes.forEach((element) => successfulAttrsPush(element.attr));
+    cachedSuccesses.forEach((element) => successfulAttrsPush(element.attr));
+
+    writeFileSync("linkFarm.nix", `
+      { name }:
+      with import ./. { system = "${system}"; };
+      linkFarmFromDrvs name (with ${rootAttribute}; [
+        ${successfulAttrs.join("\n")}
+      ])`)
 
     core.startGroup("Results")
     core.info(`Successes: ${successes.length}`)

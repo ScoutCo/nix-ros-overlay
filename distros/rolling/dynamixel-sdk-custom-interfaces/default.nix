@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-rolling-dynamixel-sdk-custom-interfaces";
-  version = "3.8.4-r1";
+  version = "4.0.3-r2";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/dynamixel_sdk-release/archive/release/rolling/dynamixel_sdk_custom_interfaces/3.8.4-1.tar.gz";
-    name = "3.8.4-1.tar.gz";
-    sha256 = "b7c5cef45c0f8625223806bb355ec2ed6022156e0bb8c305ca8fa3244c819a7f";
+    url = "https://github.com/ros2-gbp/dynamixel_sdk-release/archive/release/rolling/dynamixel_sdk_custom_interfaces/4.0.3-2.tar.gz";
+    name = "4.0.3-2.tar.gz";
+    sha256 = "179b9800aa978b15b82ffd131c89aea949a03ab1ba23258c4c16d952053e215a";
   };
 
   buildType = "ament_cmake";

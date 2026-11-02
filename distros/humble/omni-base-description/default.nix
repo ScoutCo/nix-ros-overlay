@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-cmake-pytest, ament-cmake-python, ament-lint-auto, ament-lint-common, gazebo-planar-move-plugin, joint-state-publisher-gui, launch, launch-pal, launch-param-builder, launch-ros, launch-testing-ament-cmake, pal-urdf-utils, realsense2-description, rviz2, urdf-test, xacro }:
 buildRosPackage {
   pname = "ros-humble-omni-base-description";
-  version = "2.12.0-r1";
+  version = "2.18.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/pal-gbp/omni_base_robot-release/archive/release/humble/omni_base_description/2.12.0-1.tar.gz";
-    name = "2.12.0-1.tar.gz";
-    sha256 = "b69795ee4a370eb098de502e45a91fcba16a54d6df7ea8a79016965e2f0a8f2e";
+    url = "https://github.com/ros2-gbp/omni_base_robot-release/archive/release/humble/omni_base_description/2.18.0-1.tar.gz";
+    name = "2.18.0-1.tar.gz";
+    sha256 = "1e60d936f41a7f46d6f794c24f10fbc80dd33290378ace1c258f098b9f915b13";
   };
 
   buildType = "ament_cmake";

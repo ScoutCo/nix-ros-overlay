@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-gmock, ament-cmake-gtest, ament-cmake-xmllint, ament-lint-auto, ament-lint-common, boost, cmake, cppzmq, mrpt-libgui, mrpt-libmaps, mrpt-libposes, mrpt-libros-bridge, mrpt-libtclap, nav-msgs, protobuf, python3, python3Packages, ros-environment, ros2launch, sensor-msgs, stereo-msgs, tf2, tf2-geometry-msgs, unzip, visualization-msgs, wget }:
 buildRosPackage {
   pname = "ros-kilted-mvsim";
-  version = "0.14.0-r1";
+  version = "1.4.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mvsim-release/archive/release/kilted/mvsim/0.14.0-1.tar.gz";
-    name = "0.14.0-1.tar.gz";
-    sha256 = "37209ad1ac8c3cfe2b22c33b9cfc9238b4c3dbb51512b6e49be6571e52e918e5";
+    url = "https://github.com/ros2-gbp/mvsim-release/archive/release/kilted/mvsim/1.4.0-1.tar.gz";
+    name = "1.4.0-1.tar.gz";
+    sha256 = "35b1e3e1542e4d7156c7bcf99dfb73bf4824be461ca138538b8f6068b1fc6b5c";
   };
 
   buildType = "ament_cmake";

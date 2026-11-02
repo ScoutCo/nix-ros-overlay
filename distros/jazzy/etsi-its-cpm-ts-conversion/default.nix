@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, etsi-its-cpm-ts-coding, etsi-its-cpm-ts-msgs, etsi-its-primitives-conversion }:
 buildRosPackage {
   pname = "ros-jazzy-etsi-its-cpm-ts-conversion";
-  version = "3.3.0-r1";
+  version = "3.5.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/jazzy/etsi_its_cpm_ts_conversion/3.3.0-1.tar.gz";
-    name = "3.3.0-1.tar.gz";
-    sha256 = "01e0ea5605f782d309440531ba4cb73a76432498b566564f9e321ef2b90ff891";
+    url = "https://github.com/ros2-gbp/etsi_its_messages-release/archive/release/jazzy/etsi_its_cpm_ts_conversion/3.5.0-1.tar.gz";
+    name = "3.5.0-1.tar.gz";
+    sha256 = "ce7034baf9838b72694189704bbe349cd2f41437db371b7d8ce8bbc80999eeda";
   };
 
   buildType = "ament_cmake";

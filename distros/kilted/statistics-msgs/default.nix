@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-lint-common, builtin-interfaces, rosidl-default-generators, rosidl-default-runtime }:
 buildRosPackage {
   pname = "ros-kilted-statistics-msgs";
-  version = "2.3.0-r2";
+  version = "2.3.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rcl_interfaces-release/archive/release/kilted/statistics_msgs/2.3.0-2.tar.gz";
-    name = "2.3.0-2.tar.gz";
-    sha256 = "da43d428344196ff59b035090196a615ca714d37f91889a71fd8013b5fb7a718";
+    url = "https://github.com/ros2-gbp/rcl_interfaces-release/archive/release/kilted/statistics_msgs/2.3.2-1.tar.gz";
+    name = "2.3.2-1.tar.gz";
+    sha256 = "4929456d8fbd08ea1193497d58634097327977222f65433ac9a786a0c5928719";
   };
 
   buildType = "ament_cmake";

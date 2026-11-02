@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, asio, cmake, fastcdr, foonathan-memory-vendor, openssl, python3, tinyxml-2 }:
 buildRosPackage {
   pname = "ros-rolling-fastdds";
-  version = "3.2.2-r1";
+  version = "3.6.2-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/fastdds-release/archive/release/rolling/fastdds/3.2.2-1.tar.gz";
-    name = "3.2.2-1.tar.gz";
-    sha256 = "c07880f39c0f1a812b4932d16a33bdc427a939ac373b7d4e6e50a6d6d35051d0";
+    url = "https://github.com/ros2-gbp/fastdds-release/archive/release/rolling/fastdds/3.6.2-1.tar.gz";
+    name = "3.6.2-1.tar.gz";
+    sha256 = "fe9dcce82e584144420e8dc5330fdf77f47f196b6f7a0f8452cba459e561d0c7";
   };
 
   buildType = "cmake";

@@ -1,9 +1,18 @@
 self:
-rosSelf: rosSuper: with rosSelf.lib; {
-
-  # TODO: remove once https://github.com/ros/rosdistro/pull/43895 is merged
-  python = rosSelf.python3;
-  pythonPackages = rosSelf.python.pkgs;
+rosSelf: rosSuper:
+let
+  rtabmapPostPatchAarch64 = {
+    postPatch ? "", ...
+  }: {
+    # Fix https://github.com/lopsided98/nix-ros-overlay/issues/815 by
+    # disabling the aarch64-specific code that searches in /opt.
+    postPatch = postPatch + ''
+      substituteInPlace CMakeLists.txt \
+        --replace-fail 'if(CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")' 'if(FALSE)'
+    '';
+  };
+in
+with rosSelf.lib; {
 
   ament-cmake-core = rosSuper.ament-cmake-core.overrideAttrs ({
     propagatedBuildInputs ? [],
@@ -31,16 +40,10 @@ rosSelf: rosSuper: with rosSelf.lib; {
         --replace-fail '/opt/@PROJECT_NAME@' ""
       substituteInPlace cmake/templates/vendor_package_cmake_prefix.dsv.in \
         --replace-fail 'opt/@PROJECT_NAME@' ""
-    '';
-  });
-
-  # Version of ament-cmake-vendor-package for use in Nix build sandbox
-  # without network access. The unwrapped version is still useful in
-  # e.g. nix-shell.
-  ament-cmake-vendor-package-wrapped = rosSelf.ament-cmake-vendor-package.overrideAttrs ({
-    postPatch ? "", ...
-  }: {
-    postPatch = postPatch + ''
+    '' +
+    # Allow ament-cmake-vendor-package to work in Nix build sandbox
+    # without network access.
+    ''
       # Rename the macro so that we can wrap it with our wrapper
       substituteInPlace cmake/ament_vendor.cmake \
         --replace-fail 'macro(ament_vendor TARGET_NAME)' 'macro(ament_vendor_orig TARGET_NAME)'
@@ -51,7 +54,20 @@ rosSelf: rosSuper: with rosSelf.lib; {
     '';
   });
 
-  backward-ros = rosSuper.backward-ros.overrideAttrs ({ postPatch ? "", ... }: {
+  ardrone-sdk = rosSuper.ardrone-sdk.overrideAttrs ({
+    nativeBuildInputs ? [], ...
+  }: {
+    # https://github.com/vtalpaert/ardrone-ros2/pull/2
+    nativeBuildInputs = nativeBuildInputs ++ [ self.pkg-config ];
+  });
+
+  # elfutils is Linux-only, and BackwardConfigAment.cmake already degrades to
+  # libbfd or to no debug info when libdw is absent. Declaring it
+  # unconditionally makes backward-ros, and everything depending on it, fail
+  # to evaluate on Darwin.
+  backward-ros = (rosSuper.backward-ros.override (optionalAttrs self.stdenv.hostPlatform.isDarwin {
+    elfutils = null;
+  })).overrideAttrs ({ postPatch ? "", ... }: {
 
     # The `--as-needed` flag directs the linker to search all libraries specified
     # during its invocation to identify which ones contain the symbols required by the binary.
@@ -66,6 +82,19 @@ rosSelf: rosSuper: with rosSelf.lib; {
      sed '/-Wl,--as-needed/d' -i cmake/BackwardConfigAment.cmake
     '';
   });
+
+  behaviortree-cpp = rosSuper.behaviortree-cpp.overrideAttrs ({
+    cmakeFlags ? [], ...
+  }: {
+    # Don't use vendored tinyxml-2. Other packages like
+    # nav2-behavior-tree, can be linked against different tinyxml-2
+    # version propagated via their dependencies from nixpkgs. This can
+    # lead to inconsistencies causing segfaults:
+    # https://github.com/lopsided98/nix-ros-overlay/issues/648
+    # https://github.com/BehaviorTree/BehaviorTree.CPP/issues/1014
+    cmakeFlags = cmakeFlags ++ [ "-DUSE_VENDORED_TINYXML2=OFF" ];
+  });
+
 
   # Cartographer is unmaintained upstream:
   # https://github.com/cartographer-project/cartographer?tab=readme-ov-file#a-note-for-ros-users
@@ -91,9 +120,9 @@ rosSelf: rosSuper: with rosSelf.lib; {
   }: {
     patches = patches ++ [
       # Fix compilation with glog >= 0.7.0 (https://github.com/ros2/cartographer_ros/pull/76)
-      (self.fetchpatch {
-        url = "https://github.com/ros2/cartographer_ros/commit/58cd253615606efbf0bf69d16a932d35aadef1f7.patch";
-        hash = "sha256-rmolyUYIWPT37kYITDW4cRO0XJNdIYs6AoUWgWVb8PU=";
+      (self.fetchpatch2 {
+        url = "https://github.com/ros2/cartographer_ros/commit/58cd253615606efbf0bf69d16a932d35aadef1f7.patch?full_index=1";
+        hash = "sha256-Qlo6V44AhbDYCSIxfDFr/puTNP3n2qICiM3HSZbr9zA=";
         stripLen = 1;
       })
     ];
@@ -104,6 +133,18 @@ rosSelf: rosSuper: with rosSelf.lib; {
           $(find -name \*.h -o -name \*.cpp )
     '';
   });
+
+  cloudini-lib = (rosSuper.cloudini-lib.override {
+    lz4 = self.lz4.overrideAttrs ({
+      cmakeFlags ? [], ...
+    }: {
+      cmakeFlags = cmakeFlags ++ [
+        "-DBUILD_STATIC_LIBS=ON"
+        "-DBUILD_TESTING=ON"
+      ];
+    });
+    zstd = self.zstd.override { enableStatic = true; };
+  }).overrideAttrs { doCheck = true; };
 
   cyclonedds = rosSuper.cyclonedds.overrideAttrs ({
     cmakeFlags ? [], ...
@@ -121,7 +162,7 @@ rosSelf: rosSuper: with rosSelf.lib; {
   }: {
     cmakeFlags = cmakeFlags ++ optionals (!self.stdenv.buildPlatform.canExecute self.stdenv.hostPlatform) (
       [ "-DSM_RUN_RESULT=0" ] ++
-      optional (self.stdenv.isLinux || self.stdenv.isDarwin)
+      optional (self.stdenv.isLinux || self.stdenv.hostPlatform.isDarwin)
         "-DSM_RUN_RESULT__TRYRUN_OUTPUT=PTHREAD_RWLOCK_PREFER_READER_NP"
     );
   });
@@ -164,28 +205,15 @@ rosSelf: rosSuper: with rosSelf.lib; {
     cmakeFlags ? [], ...
   }: {
     patches = patches ++ [
-      (self.fetchpatch {
-        url = "https://github.com/eclipse-iceoryx/iceoryx/commit/d4519632964794553791ef3f951ed47ca52ebbb6.patch";
-        hash = "sha256-f4kITUql8uFSptFmu7LZGChlfDG63b0gmsRyHp1NsWw=";
+      (self.fetchpatch2 {
+        url = "https://github.com/eclipse-iceoryx/iceoryx/commit/d4519632964794553791ef3f951ed47ca52ebbb6.patch?full_index=1";
+        hash = "sha256-4RPcmeZqdwc2uFW+j3DA5IqE2Jop6U/u4M7sdIeE+jg=";
         stripLen = 1;
       })
     ];
 
     buildInputs = buildInputs ++ [ self.cpptoml ];
     cmakeFlags = cmakeFlags ++ [ "-DDOWNLOAD_TOML_LIB=OFF" ];
-  });
-
-  lanelet2-core = rosSuper.lanelet2-core.overrideAttrs ({
-    patches ? [], ...
-  }: {
-    patches = patches ++ [
-      # Fix compilation with Boost 1.87
-      (self.fetchpatch {
-        url = "https://github.com/fzi-forschungszentrum-informatik/Lanelet2/pull/399/commits/ab7d2f4dee299563c6313336c070ed99635aba3f.patch";
-        hash = "sha256-RKTjYPlnFY4JPGMa4YfyHUEY9X/Y1UpkNzB7AHmk4p0=";
-        stripLen = 1;
-      })
-    ];
   });
 
   libcamera = rosSuper.libcamera.overrideAttrs ({
@@ -204,24 +232,31 @@ rosSelf: rosSuper: with rosSelf.lib; {
     nativeBuildInputs = nativeBuildInputs ++ [ self.ninja ];
   });
 
-  librealsense2 = (patchExternalProjectGit rosSuper.librealsense2 {
-    file = "CMake/external_libcurl.cmake";
-    originalUrl = ''"https://github.com/curl/curl.git"'';
-    url = "https://github.com/curl/curl.git";
-    originalRev = ''"curl-8_8_0"'';
-    rev = "curl-8_8_0";
-    fetchgitArgs.hash = "sha256-MjB6k8mDJypyuh6BN2hxy2My7/DfImjw+5iI729snBg=";
-  }).overrideAttrs ({
-    buildInputs ? [], postPatch ? "", ...
+  # Fix for loading the default plugins for the `move-group` executable.
+  #
+  # Essentially the executable tries to dynamically load the capabilites .so to
+  # allow users to hook into various functions, but this mechanism relies on
+  # specific linker flags that are absent in the Nix build. The actual solution
+  # is likely some upstream changes to moveit, but this is a practical solution
+  # until somebody can dig into it.
+  #
+  # See for more details: https://github.com/lopsided98/nix-ros-overlay/issues/264
+  moveit-ros-move-group = rosSuper.moveit-ros-move-group.overrideAttrs({
+    postFixup ? "", ...
   }: {
-    buildInputs = buildInputs ++ [ self.nlohmann_json ];
+    postFixup = postFixup + ''
+      patchelf --add-needed libmoveit_move_group_default_capabilities.so $out/lib/moveit_ros_move_group/move_group
+      patchelf --add-needed libmoveit_move_group_default_capabilities.so $out/lib/moveit_ros_move_group/list_move_group_capabilities
+    '';
+  });
+
+  mujoco-3d-lidar = rosSuper.mujoco-3d-lidar.overrideAttrs ({
+    postPatch ? "", ...
+  }: {
+    # See https://github.com/google-deepmind/mujoco/commit/2810edd27ab70d86d297b91430a1d0903745abe3
     postPatch = postPatch + ''
-      # Get rid of nlohmann_json vendoring
-      substituteInPlace third-party/CMakeLists.txt \
-        --replace-fail 'include(CMake/external_json.cmake)' ""
-      # Don't try to install to $HOME
-      substituteInPlace tools/realsense-viewer/CMakeLists.txt \
-        --replace-fail '$ENV{HOME}/Documents/librealsense2/presets' ''\'''${CMAKE_INSTALL_PREFIX}/share/librealsense2/presets'
+      substituteInPlace include/mujoco_3d_lidar/3dlidar.h src/3dlidar.cpp \
+        --replace-fail '#include <mujoco/mjtnum.h>' '#include <mujoco/mjtype.h>'
     '';
   });
 
@@ -244,14 +279,21 @@ rosSelf: rosSuper: with rosSelf.lib; {
   });
 
   python-cmake-module = rosSuper.python-cmake-module.overrideAttrs ({ ... }: let
-    python = rosSelf.python;
+    python3 = rosSelf.python3;
     libExt = self.stdenv.hostPlatform.extensions.sharedLibrary;
   in {
-    pythonExecutable = python.pythonOnBuildForHost.interpreter;
-    pythonLibrary = "${python}/lib/lib${python.libPrefix}${libExt}";
-    pythonIncludeDir = "${python}/include/${python.libPrefix}";
+    pythonExecutable = python3.pythonOnBuildForHost.interpreter;
+    pythonLibrary = "${python3}/lib/lib${python3.libPrefix}${libExt}";
+    pythonIncludeDir = "${python3}/include/${python3.libPrefix}";
     setupHook = ./python-cmake-module-setup-hook.sh;
     outputs = [ "out" "dev" ];
+  });
+
+  # libcap is Linux-only, and realtime_tools already links it under
+  # `if(UNIX AND NOT APPLE)` and includes <sys/capability.h> under
+  # `#if defined(__unix__)`. Only the Nix dependency needs dropping.
+  realtime-tools = rosSuper.realtime-tools.override (optionalAttrs self.stdenv.hostPlatform.isDarwin {
+    libcap = null;
   });
 
   rig-reconfigure = patchExternalProjectGit rosSuper.rig-reconfigure {
@@ -269,7 +311,7 @@ rosSelf: rosSuper: with rosSelf.lib; {
       rmw-fastrtps-cpp
     ] ++ propagatedBuildInputs;
     # rmw-cyclonedds-cpp fails to build on MacOS.
-    buildInputs = if self.stdenv.isDarwin then
+    buildInputs = if self.stdenv.hostPlatform.isDarwin then
       builtins.filter (p: p.pname != "ros-${p.rosDistro}-rmw-cyclonedds-cpp") buildInputs
     else
       buildInputs;
@@ -287,16 +329,16 @@ rosSelf: rosSuper: with rosSelf.lib; {
     '';
   });
 
-  rosidl-generator-py = rosSuper.rosidl-generator-py.overrideAttrs ({ ... }: {
-    setupHook = ./rosidl-generator-py-setup-hook.sh;
-  });
-
   rosidl-default-generators = rosSuper.rosidl-default-generators.overrideAttrs ({
     propagatedBuildInputs ? [], ...
   }: {
     # Add Rust support to all packages
     # FIXME: seems to break nav2-msgs
     # propagatedBuildInputs = propagatedBuildInputs ++ [ rosSelf.rosidl-generator-rs ];
+  });
+
+  rosidl-generator-py = rosSuper.rosidl-generator-py.overrideAttrs ({ ... }: {
+    setupHook = ./rosidl-generator-py-setup-hook.sh;
   });
 
   rosidl-generator-rs = rosSuper.rosidl-generator-rs or (rosSelf.callPackage ../pkgs/rosidl-generator-rs { });
@@ -319,22 +361,34 @@ rosSelf: rosSuper: with rosSelf.lib; {
     '';
   });
 
+  rtabmap-conversions = rosSuper.rtabmap-conversions.overrideAttrs rtabmapPostPatchAarch64;
+  rtabmap-msgs = rosSuper.rtabmap-msgs.overrideAttrs rtabmapPostPatchAarch64;
+  rtabmap-odom = rosSuper.rtabmap-odom.overrideAttrs rtabmapPostPatchAarch64;
+  rtabmap-rviz-plugins = rosSuper.rtabmap-rviz-plugins.overrideAttrs rtabmapPostPatchAarch64;
+  rtabmap-slam = rosSuper.rtabmap-slam.overrideAttrs rtabmapPostPatchAarch64;
+  rtabmap-sync = rosSuper.rtabmap-sync.overrideAttrs rtabmapPostPatchAarch64;
+  rtabmap-viz = rosSuper.rtabmap-viz.overrideAttrs rtabmapPostPatchAarch64;
+
+  # Common overrides for all distros. See also <distro>/overrides.nix.
   rviz2 = rosSuper.rviz2.overrideAttrs ({
-    nativeBuildInputs ? [], qtWrapperArgs ? [], postFixup ? "", meta ? {}, ...
+    postFixup ? "", meta ? {}, ...
   }: {
     dontWrapQtApps = false;
-    nativeBuildInputs = nativeBuildInputs ++ [ self.qt5.wrapQtAppsHook ];
-    qtWrapperArgs = qtWrapperArgs ++ [
-      # Use X11 by default in RViz2.
-      # https://github.com/ros-visualization/rviz/issues/1442
-      "--set-default QT_QPA_PLATFORM xcb"
-    ];
     postFixup = postFixup + ''
       wrapQtApp "$out/lib/rviz2/rviz2"
     '';
     meta = meta // {
       mainProgram = "rviz2";
     };
+  });
+
+  # tango-icon-theme is Linux-only, and tango_icons_vendor exists precisely to
+  # supply the icons where it is unavailable: its CMakeLists installs the
+  # bundled copy under `if(WIN32 OR APPLE)`. The exec_depend only applies to
+  # Linux, so nothing is lost by dropping it on Darwin. Without this,
+  # qt-gui and every rqt plugin fail to evaluate.
+  tango-icons-vendor = rosSuper.tango-icons-vendor.override (optionalAttrs self.stdenv.hostPlatform.isDarwin {
+    tango-icon-theme = null;
   });
 
   # The build gets stuck in an infinite loop with absolute CMAKE_INSTALL_LIBDIR:
@@ -347,37 +401,4 @@ rosSelf: rosSuper: with rosSelf.lib; {
       broken = true;
     };
   });
-
-  # Ensure that tinyxml-2 has the same major version as in
-  # behaviortree-cpp, which vendors it. Other packages like
-  # nav2-behavior-tree include tintinyxml-2 propagated via their
-  # dependencies from nixpkgs, which can lead to inconsistencies
-  # causing segfaults:
-  # https://github.com/lopsided98/nix-ros-overlay/issues/648
-  # https://github.com/BehaviorTree/BehaviorTree.CPP/issues/1014
-  tinyxml-2 = self.tinyxml-2.overrideAttrs ({
-    postPatch ? "", ...
-  }: let
-    version = "10.0.0";
-  in {
-    inherit version;
-    src = self.fetchFromGitHub {
-      owner = "leethomason";
-      repo = "tinyxml2";
-      tag = version;
-      hash = "sha256-9xrpPFMxkAecg3hMHzzThuy0iDt970Iqhxs57Od+g2g=";
-    };
-    preConfigure = ''
-      v1=$(tar xf ${rosSelf.behaviortree-cpp.src} --wildcards '*/tinyxml2.h' --to-stdout|grep TINYXML2_MAJOR_VERSION)
-      v2=$(grep TINYXML2_MAJOR_VERSION tinyxml2.h)
-      test "$v1" = "$v2" || { echo "tinyxml-2 version mismatch"; exit 1; }
-    '';
-  });
-
-  zmqpp-vendor = patchExternalProjectGit rosSuper.zmqpp-vendor {
-    url = "https://github.com/zeromq/zmqpp.git";
-    originalRev = "master";
-    rev = "da73a138f290274cfd604b3f05a908956390a66e";
-    fetchgitArgs.hash = "sha256-UZyJpBEOf/Ys+i2tiBTjv4PlM5fHjjNLWuGhpgcmYyM=";
-  };
 }

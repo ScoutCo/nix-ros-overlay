@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-cmake-lint-cmake, ament-cmake-xmllint, ament-lint-auto, cmake, mvsim, teleop-twist-keyboard }:
 buildRosPackage {
   pname = "ros-kilted-mrpt-tutorials";
-  version = "2.2.4-r1";
+  version = "2.4.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/kilted/mrpt_tutorials/2.2.4-1.tar.gz";
-    name = "2.2.4-1.tar.gz";
-    sha256 = "790cd9223e4c9cf53189238f61b6689107281ec78859c90c167ecb0b3966e3af";
+    url = "https://github.com/ros2-gbp/mrpt_navigation-release/archive/release/kilted/mrpt_tutorials/2.4.0-1.tar.gz";
+    name = "2.4.0-1.tar.gz";
+    sha256 = "affd06fb80c373da204661939968b35fed6c21e4168e52b3eece935310cbd485";
   };
 
   buildType = "ament_cmake";

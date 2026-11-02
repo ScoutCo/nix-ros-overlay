@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake, ament-index-cpp, ament-lint-auto, ament-lint-common, fastcdr, nlohmann_json, rcpputils, rcutils, rmw, rmw-test-fixture, rosidl-typesupport-fastrtps-c, rosidl-typesupport-fastrtps-cpp, tracetools, zenoh-cpp-vendor }:
 buildRosPackage {
   pname = "ros-kilted-rmw-zenoh-cpp";
-  version = "0.6.5-r1";
+  version = "0.6.7-r1";
 
   src = fetchurl {
-    url = "https://github.com/ros2-gbp/rmw_zenoh-release/archive/release/kilted/rmw_zenoh_cpp/0.6.5-1.tar.gz";
-    name = "0.6.5-1.tar.gz";
-    sha256 = "eb09a222ffaf40134c77cfddbc6c53defe9f200fc82fd512d9e6e94f6e2ee4e8";
+    url = "https://github.com/ros2-gbp/rmw_zenoh-release/archive/release/kilted/rmw_zenoh_cpp/0.6.7-1.tar.gz";
+    name = "0.6.7-1.tar.gz";
+    sha256 = "7d7e42985ef0f088b675ff69bdfb0991f7acda371c63f623092644084032be8e";
   };
 
   buildType = "ament_cmake";

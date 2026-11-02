@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-auto, ament-lint-auto, ament-lint-common, omni-base-laser-sensors, pmb2-laser-sensors }:
 buildRosPackage {
   pname = "ros-humble-tiago-laser-sensors";
-  version = "4.11.0-r1";
+  version = "4.13.0-r1";
 
   src = fetchurl {
-    url = "https://github.com/pal-gbp/tiago_navigation-release/archive/release/humble/tiago_laser_sensors/4.11.0-1.tar.gz";
-    name = "4.11.0-1.tar.gz";
-    sha256 = "777bce8e9ce145aa6926d739aaf5efbc6c389d48411023a884ff56a5290491eb";
+    url = "https://github.com/ros2-gbp/tiago_navigation-release/archive/release/humble/tiago_laser_sensors/4.13.0-1.tar.gz";
+    name = "4.13.0-1.tar.gz";
+    sha256 = "6da5ea02984330e1353b8cab4e0e1f3da54f087dff98f2a9b1d7fd72499a0ceb";
   };
 
   buildType = "ament_cmake";

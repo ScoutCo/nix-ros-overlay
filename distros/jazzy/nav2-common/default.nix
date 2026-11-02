@@ -1,16 +1,16 @@
 
-# Copyright 2025 Open Source Robotics Foundation
+# Copyright 2026 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 
 { lib, buildRosPackage, fetchurl, ament-cmake-core, ament-cmake-python, launch, launch-ros, osrf-pycommon, python3Packages, rclpy }:
 buildRosPackage {
   pname = "ros-jazzy-nav2-common";
-  version = "1.3.9-r1";
+  version = "1.3.13-r1";
 
   src = fetchurl {
-    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/jazzy/nav2_common/1.3.9-1.tar.gz";
-    name = "1.3.9-1.tar.gz";
-    sha256 = "88dbc45473503687d144431437806db77fde2720efda8b12a701ce7e25545420";
+    url = "https://github.com/SteveMacenski/navigation2-release/archive/release/jazzy/nav2_common/1.3.13-1.tar.gz";
+    name = "1.3.13-1.tar.gz";
+    sha256 = "607fffaaffb88e963d6c3ed0ca5fd047c5b2f115cb8632230f7ca7bfe7da7f51";
   };
 
   buildType = "ament_cmake";
